@@ -1,4 +1,4 @@
-name: "Build and Deploy"
+name: "Build, Sync, and Deploy"
 on:
   push:
     branches:
@@ -8,60 +8,167 @@ on:
       - .gitignore
       - README.md
       - LICENSE
-
-  # Allows you to run this workflow manually from the Actions tab
+  schedule:
+    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "Inspect changes or apply, validate, commit, and deploy them"
+        type: choice
+        options:
+          - dry-run
+          - apply
+        default: dry-run
+        required: true
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  # A run may write main, so never cancel it midway or race another deployment.
+  cancel-in-progress: false
 
 jobs:
   build:
+    if: >-
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule' && vars.VELOG_SYNC_ENABLED == 'true')
     runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    outputs:
+      should_deploy: ${{ steps.decision.outputs.should_deploy }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          # submodules: true
-          # If using the 'assets' git submodule from Chirpy Starter, uncomment above
-          # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
+          ref: ${{ github.event_name == 'push' && github.sha || 'main' }}
+
+      - name: Setup Python
+        if: github.event_name != 'push'
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install sync dependencies
+        if: github.event_name != 'push'
+        run: python -m pip install -r requirements-velog-sync.txt
+
+      - name: Test Velog sync
+        if: github.event_name != 'push'
+        run: python -m unittest discover -s tests -v
+
+      - name: Velog dry-run
+        if: github.event_name == 'workflow_dispatch' && inputs.mode == 'dry-run'
+        run: python scripts/sync_velog.py --dry-run
+
+      - name: Apply Velog sync
+        if: >-
+          (github.event_name == 'workflow_dispatch' && inputs.mode == 'apply') ||
+          (github.event_name == 'schedule' && vars.VELOG_SYNC_ENABLED == 'true')
+        run: python scripts/sync_velog.py
+
+      - name: Validate sync-managed paths
+        if: >-
+          (github.event_name == 'workflow_dispatch' && inputs.mode == 'apply') ||
+          github.event_name == 'schedule'
+        shell: bash
+        run: |
+          git config core.quotepath false
+          mapfile -t changed < <(
+            { git diff --name-only; git ls-files --others --exclude-standard; } | sort -u
+          )
+          for path in "${changed[@]}"; do
+            case "$path" in
+              _posts/*|assets/img/velog/*|.velog-sync/state.json) ;;
+              *) echo "Unexpected path changed by sync: $path" >&2; exit 1 ;;
+            esac
+          done
+
+      - name: Detect generated changes
+        id: changes
+        if: >-
+          (github.event_name == 'workflow_dispatch' && inputs.mode == 'apply') ||
+          github.event_name == 'schedule'
+        shell: bash
+        run: |
+          if [ -n "$(git status --porcelain -- _posts assets/img/velog .velog-sync/state.json)" ]; then
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Decide whether to build and deploy
+        id: decision
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "push" ] || [ "${{ steps.changes.outputs.has_changes }}" = "true" ]; then
+            echo "should_deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_deploy=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Setup Pages
         id: pages
+        if: steps.decision.outputs.should_deploy == 'true'
         uses: actions/configure-pages@v6
 
       - name: Setup Ruby
+        if: steps.decision.outputs.should_deploy == 'true'
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.4
           bundler-cache: true
 
       - name: Build site
+        if: steps.decision.outputs.should_deploy == 'true'
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
 
       - name: Test site
+        if: steps.decision.outputs.should_deploy == 'true'
         run: |
           bundle exec htmlproofer _site \
-            \-\-disable-external \
-            \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+            --disable-external \
+            --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+
+      - name: Commit and push validated sync
+        if: steps.changes.outputs.has_changes == 'true'
+        shell: bash
+        env:
+          BLOG_GIT_NAME: ${{ vars.BLOG_GIT_NAME }}
+          BLOG_GIT_EMAIL: ${{ vars.BLOG_GIT_EMAIL }}
+        run: |
+          if [ -z "$BLOG_GIT_NAME" ] || [ -z "$BLOG_GIT_EMAIL" ]; then
+            echo "BLOG_GIT_NAME and BLOG_GIT_EMAIL repository variables are required." >&2
+            exit 1
+          fi
+          git config user.name "$BLOG_GIT_NAME"
+          git config user.email "$BLOG_GIT_EMAIL"
+          git add -A -- _posts .velog-sync/state.json
+          if [ -d assets/img/velog ]; then
+            git add -A -- assets/img/velog
+          fi
+          post_count=$(git status --short -- _posts | wc -l | tr -d ' ')
+          git commit -m "sync(velog): synchronize ${post_count} post(s)"
+          git push origin HEAD:main
 
       - name: Upload site artifact
+        if: steps.decision.outputs.should_deploy == 'true'
         uses: actions/upload-pages-artifact@v5
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
 
   deploy:
+    if: needs.build.outputs.should_deploy == 'true'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -226,6 +226,10 @@ exclude:
   - purgecss.js
   - "*.config.js"
   - "package*.json"
+  - scripts
+  - tests
+  - .velog-sync
+  - requirements-velog-sync.txt
 
 jekyll-archives:
   enabled: [categories, tags]

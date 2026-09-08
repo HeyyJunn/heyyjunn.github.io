@@ -2,7 +2,10 @@
 #
 # Check for changed posts
 
-Jekyll::Hooks.register :posts, :post_init do |post|
+Jekyll::Hooks.register :posts, :pre_render do |post|
+
+  # Velog-managed posts carry their authoritative source timestamp.
+  next if post.data.key?('last_modified_at')
 
   commit_num = `git rev-list --count HEAD "#{ post.path }"`
 

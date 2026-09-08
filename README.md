@@ -37,3 +37,47 @@ This work is published under [MIT][mit] License.
 [chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
 [CD]: https://en.wikipedia.org/wiki/Continuous_deployment
 [mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+
+## Velog synchronization
+
+This site synchronizes public posts from Velog [`@ilwha`](https://velog.io/@ilwha/posts)
+into the Chirpy `_posts` collection. Velog's public GraphQL API is the primary source;
+the 20-item RSS feed is used only as a recent-post sanity check and limited body
+fallback, never as a complete inventory.
+
+The mapping is intentionally narrow:
+
+- Velog series → Chirpy category
+- Velog tags → not used; no `tags` front matter is generated and the Tags tab remains disabled
+
+Post UUID is the stable identifier. New posts receive one fixed Markdown path; edits
+to the title, body, series, slug, timestamp, or images update that same file. Source
+deletions do not delete local posts automatically. Files managed from Velog treat
+Velog as the source of truth, so manual edits to generated Markdown may be overwritten.
+
+Images from the allowed Velog CDN are mirrored under
+`assets/img/velog/<post-uuid>/`. Failed image downloads retain their remote URL, and
+existing mirrored images are never automatically deleted.
+
+Configure exclusions by UUID, exact normalized slug, or canonical URL in
+`.velog-sync/config.yml`. `import_after` filters new imports only; it never prevents
+updates to already managed posts.
+
+Run a read-only preview locally with:
+
+```sh
+python -m pip install -r requirements-velog-sync.txt
+python scripts/sync_velog.py --dry-run
+```
+
+The existing Pages workflow offers manual `dry-run` and `apply` modes. Manual apply
+works regardless of `VELOG_SYNC_ENABLED`. Scheduled apply runs at minutes 7, 22, 37,
+and 52 only when the repository variable `VELOG_SYNC_ENABLED` is exactly `true`.
+Automatic commits require both `BLOG_GIT_NAME` and `BLOG_GIT_EMAIL`; there is no
+guessed or bot fallback identity. A complete source inventory and successful Jekyll
+and htmlproofer validation are required before a changed tree is committed and
+deployed. No-change runs create no commit and skip deployment.
+
+GitHub may disable scheduled workflows after extended repository inactivity. Check
+the Actions schedule and keep `VELOG_SYNC_ENABLED` disabled until the initial import
+and production output have been reviewed.
