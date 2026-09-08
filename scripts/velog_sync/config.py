@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import date
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
+import uuid
 
 import yaml
 
@@ -21,6 +22,11 @@ class ImageConfig:
 
 
 @dataclass(frozen=True)
+class ThumbnailOverride:
+    source_path: str
+
+
+@dataclass(frozen=True)
 class SyncConfig:
     username: str
     graphql_url: str = "https://v3.velog.io/graphql"
@@ -32,6 +38,7 @@ class SyncConfig:
     hidden_post_ids: frozenset[str] = frozenset()
     import_after: date | None = None
     series_category_map: dict[str, tuple[str, ...]] = field(default_factory=dict)
+    thumbnail_overrides: dict[str, ThumbnailOverride] = field(default_factory=dict)
     images: ImageConfig = ImageConfig()
 
 
@@ -49,6 +56,30 @@ def _string_list(value: Any, label: str) -> tuple[str, ...]:
     if not isinstance(value, list) or not all(isinstance(x, str) for x in value):
         raise VelogSyncError(f"{label} must be a list of strings")
     return tuple(value)
+
+
+def _thumbnail_overrides(value: Any) -> dict[str, ThumbnailOverride]:
+    raw = _mapping(value, "thumbnail_overrides")
+    parsed: dict[str, ThumbnailOverride] = {}
+    for post_id, settings in raw.items():
+        if not isinstance(post_id, str):
+            raise VelogSyncError("thumbnail_overrides keys must be UUID strings")
+        try:
+            normalized = str(uuid.UUID(post_id))
+        except ValueError as exc:
+            raise VelogSyncError(f"invalid thumbnail override UUID: {post_id}") from exc
+        if normalized != post_id.lower():
+            raise VelogSyncError(f"thumbnail override UUID must be canonical: {post_id}")
+        item = _mapping(settings, f"thumbnail_overrides.{post_id}")
+        source_path = item.get("source_path")
+        if not isinstance(source_path, str) or "\\" in source_path:
+            raise VelogSyncError(f"thumbnail override source_path is invalid: {post_id}")
+        candidate = PurePosixPath(source_path)
+        expected = PurePosixPath(".velog-sync", "thumbnail-overrides", normalized)
+        if candidate.is_absolute() or candidate.parent != expected or candidate.name in {"", ".", ".."}:
+            raise VelogSyncError(f"unsafe thumbnail override source_path: {source_path}")
+        parsed[normalized] = ThumbnailOverride(source_path)
+    return parsed
 
 
 def load_config(path: Path) -> SyncConfig:
@@ -121,5 +152,6 @@ def load_config(path: Path) -> SyncConfig:
         hidden_post_ids=frozenset(x.lower() for x in _string_list(root.get("hidden_post_ids"), "hidden_post_ids")),
         import_after=parsed_after,
         series_category_map=category_map,
+        thumbnail_overrides=_thumbnail_overrides(root.get("thumbnail_overrides")),
         images=images,
     )

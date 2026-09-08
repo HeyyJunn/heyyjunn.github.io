@@ -14,8 +14,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from velog_sync.client import GraphQLClient, JsonTransport  # noqa: E402
-from velog_sync.config import ImageConfig, SyncConfig  # noqa: E402
-from velog_sync.images import ImageMirror, ImagePlan, ImageProbe  # noqa: E402
+from velog_sync.config import ImageConfig, SyncConfig, ThumbnailOverride  # noqa: E402
+from velog_sync.images import (  # noqa: E402
+    ImageMirror,
+    ImagePlan,
+    ImageProbe,
+    detect_image_content_type,
+)
 from velog_sync.markdown import image_urls, unclosed_fence  # noqa: E402
 from velog_sync.models import (  # noqa: E402
     DetailedPost,
@@ -37,8 +42,9 @@ def post(
     body_date: str = "2025-01-02T03:04:05.000Z",
     updated: str = "2025-01-03T04:05:06.000Z",
     series: Series | None = Series("s1", "[Python] Notion📚", "python-notion"),
+    thumbnail: str | None = None,
 ) -> PostMetadata:
-    return PostMetadata(ident, title, slug, body_date, updated, series, False)
+    return PostMetadata(ident, title, slug, body_date, updated, series, False, thumbnail)
 
 
 def raw_metadata(item: PostMetadata, tags: list[str] | None = None) -> dict[str, object]:
@@ -50,6 +56,7 @@ def raw_metadata(item: PostMetadata, tags: list[str] | None = None) -> dict[str,
         "updated_at": item.updated_at,
         "tags": tags or [],  # Extra source metadata is intentionally ignored.
         "is_private": item.is_private,
+        "thumbnail": item.thumbnail,
         "series": None
         if item.series is None
         else {"id": item.series.id, "name": item.series.name, "url_slug": item.series.slug},
@@ -151,6 +158,30 @@ class GraphQLTests(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertFalse(hasattr(first, "tags"))
 
+    def test_thumbnail_is_parsed_from_inventory_and_detail(self) -> None:
+        url = "https://velog.velcdn.com/images/test/preview.jpg"
+        item = post(thumbnail=url)
+        parsed = GraphQLClient("unused", "ilwha", transport=lambda _: {})._parse_metadata(
+            raw_metadata(item)
+        )
+        self.assertEqual(parsed.thumbnail, url)
+        payload = {**raw_metadata(item), "body": "body", "is_markdown": True}
+        detailed = GraphQLClient(
+            "unused", "ilwha", transport=lambda _: {"data": {"post": payload}}
+        ).fetch_post(item)
+        self.assertEqual(detailed.metadata.thumbnail, url)
+
+    def test_thumbnail_null_and_invalid_type(self) -> None:
+        self.assertIsNone(
+            GraphQLClient("unused", "ilwha", transport=lambda _: {})._parse_metadata(
+                raw_metadata(post())
+            ).thumbnail
+        )
+        invalid = raw_metadata(post())
+        invalid["thumbnail"] = ["not-a-url"]
+        with self.assertRaisesRegex(SourceError, "invalid thumbnail"):
+            GraphQLClient("unused", "ilwha", transport=lambda _: {})._parse_metadata(invalid)
+
     def test_malformed_json_and_timeout_are_source_errors(self) -> None:
         class Response:
             status = 200
@@ -183,6 +214,16 @@ class RenderingTests(unittest.TestCase):
         item = post(series=None)
         rendered = render_post(item, "body", (), item.released_at, "Asia/Seoul")
         self.assertNotIn("categories:", rendered)
+
+    def test_custom_thumbnail_front_matter_uses_title_alt_and_never_image(self) -> None:
+        item = post(title="[Spring] JPA")
+        thumbnail = {"path": "assets/img/velog/uuid/preview.jpg"}
+        rendered = render_post(item, "body", (), item.released_at, "Asia/Seoul", thumbnail)
+        self.assertIn("thumbnail:\n", rendered)
+        self.assertIn('  path: "/assets/img/velog/uuid/preview.jpg"', rendered)
+        self.assertIn('  alt: "[Spring] JPA"', rendered)
+        self.assertNotIn("\nimage:", rendered)
+        self.assertNotIn("tags:", rendered)
 
     def test_markdown_fences_liquid_table_and_unclosed_warning(self) -> None:
         body = "```c\n<string>\n```\n\n````cpp\n<T>\n````\n\n{{ safe }}\n\n|a|b|\n|-|-|\n|1|2|\n"
@@ -270,6 +311,29 @@ class ImageTests(unittest.TestCase):
         body = "![yes](https://velog.velcdn.com/a.png)\n```md\n![no](https://velog.velcdn.com/b.png)\n```\n"
         self.assertEqual(image_urls(body), ("https://velog.velcdn.com/a.png",))
 
+    def test_local_override_validates_bytes_size_and_uuid_scoped_path(self) -> None:
+        temp, mirror = self.mirror(max_bytes=100)
+        try:
+            source = Path(temp.name) / ".velog-sync/thumbnail-overrides" / post().id / "cover.png"
+            source.parent.mkdir(parents=True)
+            source.write_bytes(b"\x89PNG\r\n\x1a\nvalid")
+            plan = mirror.plan_local(post().id, source.relative_to(temp.name).as_posix())
+            self.assertEqual(plan.content_type, "image/png")
+            record, warning = mirror.materialize(plan)
+            self.assertIsNone(warning)
+            self.assertTrue((Path(temp.name) / record["path"]).is_file())
+            source.write_bytes(b"not an image")
+            with self.assertRaisesRegex(Exception, "supported raster"):
+                mirror.plan_local(post().id, source.relative_to(temp.name).as_posix())
+            with self.assertRaisesRegex(Exception, "unsafe thumbnail override"):
+                mirror.plan_local(post().id, "../escape.png")
+        finally:
+            temp.cleanup()
+
+    def test_avif_magic_is_detected_for_generic_cdn_mime(self) -> None:
+        data = b"\x00\x00\x00\x18ftypavif\x00\x00\x00\x00avifmif1"
+        self.assertEqual(detect_image_content_type(data), "image/avif")
+
 
 class EngineTests(unittest.TestCase):
     def setUp(self) -> None:
@@ -282,6 +346,37 @@ class EngineTests(unittest.TestCase):
 
     def engine(self, items: list[PostMetadata], bodies: dict[str, str], cfg: SyncConfig | None = None, **kwargs: object) -> SyncEngine:
         return SyncEngine(self.root, cfg or config(), FakeGraphQL(items, bodies, kwargs.get("error")), FakeRss(kwargs.get("rss", ())))
+
+    def remote_thumbnail_engine(
+        self,
+        item: PostMetadata,
+        body: str,
+        *,
+        cfg: SyncConfig | None = None,
+        probe_mime: str = "image/jpeg",
+        probe_size: int = 8,
+        download_mime: str = "image/jpeg",
+        download_data: bytes = b"\xff\xd8\xffimage",
+    ) -> SyncEngine:
+        active = cfg or SyncConfig(
+            username="ilwha", images=ImageConfig(enabled=True, retries=1)
+        )
+        mirror = ImageMirror(
+            self.root,
+            active.images,
+            probe_func=lambda value: ImageProbe(value, probe_mime, probe_size, value),
+            download_func=lambda value: (download_mime, download_data, value),
+        )
+        return SyncEngine(
+            self.root, active, FakeGraphQL([item], {item.id: body}), FakeRss(), mirror
+        )
+
+    def write_override(self, item: PostMetadata, name: str = "cover.png", data: bytes = b"\x89PNG\r\n\x1a\nmanual") -> str:
+        relative = Path(".velog-sync/thumbnail-overrides") / item.id / name
+        target = self.root / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(data)
+        return relative.as_posix()
 
     def test_new_then_second_sync_is_unchanged_and_deterministic(self) -> None:
         item = post()
@@ -496,7 +591,7 @@ class EngineTests(unittest.TestCase):
         restored = SyncEngine(
             self.root, cfg, FakeGraphQL([item], {item.id: body}), FakeRss(), mirror
         ).run()
-        self.assertEqual(restored.outcomes[0].action, "UNCHANGED")
+        self.assertEqual(restored.outcomes[0].action, "UPDATE")
         self.assertTrue(image.is_file())
 
     def test_pruning_hidden_images_does_not_touch_visible_post_images(self) -> None:
@@ -516,6 +611,170 @@ class EngineTests(unittest.TestCase):
         self.assertEqual([item.action for item in result.outcomes], ["IMPORT", "HIDDEN"])
         self.assertTrue((visible_dir / "keep.png").is_file())
         self.assertFalse(hidden_dir.exists())
+
+    def test_velog_thumbnail_without_body_image_and_separate_body_image(self) -> None:
+        thumb = "https://velog.velcdn.com/preview.jpg"
+        item = post(thumbnail=thumb)
+        result = self.remote_thumbnail_engine(item, "no body image").run()
+        outcome = result.outcomes[0]
+        self.assertEqual((outcome.action, outcome.thumbnail_change), ("IMPORT", "added"))
+        state = json.loads((self.root / ".velog-sync/state.json").read_text())
+        self.assertEqual(state["posts"][item.id]["thumbnail"]["kind"], "velog")
+        markdown = (self.root / (outcome.post_path or "missing")).read_text()
+        self.assertIn("thumbnail:", markdown)
+        self.assertNotIn(f"![]({thumb})", markdown)
+
+    def test_thumbnail_same_as_body_image_reuses_one_local_file(self) -> None:
+        url = "https://velog.velcdn.com/shared.jpg"
+        item = post(thumbnail=url)
+        outcome = self.remote_thumbnail_engine(item, f"![body]({url})\n").run().outcomes[0]
+        state = json.loads((self.root / ".velog-sync/state.json").read_text())["posts"][item.id]
+        self.assertEqual(outcome.image_count, 1)
+        self.assertEqual(state["images"][url]["path"], state["thumbnail"]["path"])
+        self.assertEqual(len(list((self.root / "assets/img/velog" / item.id).iterdir())), 1)
+
+    def test_thumbnail_priority_velog_then_override_then_none(self) -> None:
+        item = post()
+        source = self.write_override(item)
+        with_override = SyncConfig(
+            username="ilwha",
+            images=ImageConfig(enabled=True, retries=1),
+            thumbnail_overrides={item.id: ThumbnailOverride(source)},
+        )
+        override_outcome = SyncEngine(
+            self.root, with_override, FakeGraphQL([item], {item.id: "body"}), FakeRss()
+        ).run().outcomes[0]
+        self.assertEqual(override_outcome.thumbnail["kind"], "override")
+
+        velog = replace(item, thumbnail="https://velog.velcdn.com/velog.jpg")
+        velog_outcome = self.remote_thumbnail_engine(
+            velog, "body", cfg=with_override
+        ).run().outcomes[0]
+        self.assertEqual(velog_outcome.thumbnail["kind"], "velog")
+
+        no_thumbnail = post("22222222-2222-2222-2222-222222222222", slug="none")
+        none_outcome = self.engine([no_thumbnail], {no_thumbnail.id: "body"}).run().outcomes[0]
+        self.assertIsNone(none_outcome.thumbnail)
+        self.assertNotIn("thumbnail:", (self.root / (none_outcome.post_path or "missing")).read_text())
+
+    def test_velog_thumbnail_add_change_remove_preserves_post_path(self) -> None:
+        item = post()
+        first = self.engine([item], {item.id: "body"}).run().outcomes[0]
+        original_path = first.post_path
+        added = replace(item, thumbnail="https://velog.velcdn.com/one.jpg")
+        second = self.remote_thumbnail_engine(added, "body").run().outcomes[0]
+        self.assertEqual((second.action, second.post_path, second.thumbnail_change), ("UPDATE", original_path, "added"))
+        changed = replace(item, thumbnail="https://velog.velcdn.com/two.jpg")
+        third = self.remote_thumbnail_engine(changed, "body").run().outcomes[0]
+        self.assertEqual((third.action, third.post_path, third.thumbnail_change), ("UPDATE", original_path, "changed"))
+        removed = self.engine([item], {item.id: "body"}, config(images=ImageConfig(enabled=True, retries=1))).run().outcomes[0]
+        self.assertEqual((removed.action, removed.post_path, removed.thumbnail_change), ("UPDATE", original_path, "removed"))
+        self.assertNotIn("thumbnail:", (self.root / (original_path or "missing")).read_text())
+
+    def test_velog_thumbnail_remove_falls_back_to_override(self) -> None:
+        item = post(thumbnail="https://velog.velcdn.com/one.jpg")
+        original = self.remote_thumbnail_engine(item, "body").run().outcomes[0]
+        without_velog = replace(item, thumbnail=None)
+        source = self.write_override(without_velog)
+        cfg = SyncConfig(
+            username="ilwha", images=ImageConfig(enabled=True, retries=1),
+            thumbnail_overrides={item.id: ThumbnailOverride(source)},
+        )
+        fallback = SyncEngine(
+            self.root, cfg, FakeGraphQL([without_velog], {item.id: "body"}), FakeRss()
+        ).run().outcomes[0]
+        self.assertEqual((fallback.action, fallback.post_path), ("UPDATE", original.post_path))
+        self.assertEqual(fallback.thumbnail["kind"], "override")
+
+    def test_active_override_change_and_remove_update_output_and_prune_asset(self) -> None:
+        item = post()
+        source = self.write_override(item)
+        cfg = SyncConfig(
+            username="ilwha", images=ImageConfig(enabled=True, retries=1),
+            thumbnail_overrides={item.id: ThumbnailOverride(source)},
+        )
+        first = SyncEngine(
+            self.root, cfg, FakeGraphQL([item], {item.id: "body"}), FakeRss()
+        ).run().outcomes[0]
+        first_asset = self.root / first.thumbnail["path"]
+        self.assertTrue(first_asset.is_file())
+
+        (self.root / source).write_bytes(b"\x89PNG\r\n\x1a\nchanged")
+        changed = SyncEngine(
+            self.root, cfg, FakeGraphQL([item], {item.id: "body"}), FakeRss()
+        ).run().outcomes[0]
+        self.assertEqual(changed.action, "UPDATE")
+        self.assertFalse(first_asset.exists())
+        second_asset = self.root / changed.thumbnail["path"]
+        self.assertTrue(second_asset.is_file())
+
+        removed = self.engine(
+            [item], {item.id: "body"},
+            config(images=ImageConfig(enabled=True, retries=1)),
+        ).run().outcomes[0]
+        self.assertEqual((removed.action, removed.thumbnail_change), ("UPDATE", "removed"))
+        self.assertFalse(second_asset.exists())
+        self.assertNotIn("thumbnail:", (self.root / (removed.post_path or "missing")).read_text())
+
+    def test_dormant_override_change_under_velog_is_zero_output_change(self) -> None:
+        item = post(thumbnail="https://velog.velcdn.com/one.jpg")
+        first_cfg = SyncConfig(
+            username="ilwha", images=ImageConfig(enabled=True, retries=1),
+            thumbnail_overrides={item.id: ThumbnailOverride(f".velog-sync/thumbnail-overrides/{item.id}/missing-a.png")},
+        )
+        initial = self.remote_thumbnail_engine(item, "body", cfg=first_cfg).run().outcomes[0]
+        markdown = (self.root / (initial.post_path or "missing")).read_bytes()
+        state = (self.root / ".velog-sync/state.json").read_bytes()
+        second_cfg = replace(
+            first_cfg,
+            thumbnail_overrides={item.id: ThumbnailOverride(f".velog-sync/thumbnail-overrides/{item.id}/missing-b.png")},
+        )
+        result = self.remote_thumbnail_engine(item, "must not be fetched", cfg=second_cfg).run()
+        self.assertEqual(result.outcomes[0].action, "UNCHANGED")
+        self.assertFalse(result.state_changed)
+        self.assertEqual(markdown, (self.root / (initial.post_path or "missing")).read_bytes())
+        self.assertEqual(state, (self.root / ".velog-sync/state.json").read_bytes())
+
+    def test_invalid_thumbnail_host_mime_oversize_and_download_failure_are_errors(self) -> None:
+        item = post(thumbnail="https://evil.example/preview.jpg")
+        real_mirror = ImageMirror(self.root, ImageConfig(enabled=True, retries=1))
+        invalid_host = SyncEngine(
+            self.root,
+            SyncConfig(username="ilwha", images=ImageConfig(enabled=True, retries=1)),
+            FakeGraphQL([item], {item.id: "body"}), FakeRss(), real_mirror,
+        ).run(dry_run=True)
+        self.assertEqual(invalid_host.outcomes[0].action, "ERROR")
+
+        valid = replace(item, thumbnail="https://velog.velcdn.com/preview.jpg")
+        oversize_cfg = SyncConfig(
+            username="ilwha", images=ImageConfig(enabled=True, retries=1, max_bytes=4)
+        )
+        oversize = self.remote_thumbnail_engine(
+            valid, "body", cfg=oversize_cfg, probe_size=5
+        ).run(dry_run=True)
+        self.assertEqual(oversize.outcomes[0].action, "ERROR")
+        failed = self.remote_thumbnail_engine(
+            valid, "body", download_mime="text/html", download_data=b"bad"
+        ).run()
+        self.assertEqual(failed.outcomes[0].action, "ERROR")
+        self.assertFalse(list(self.root.glob("_posts/*.md")))
+
+    def test_hidden_thumbnail_is_not_deployed_and_unhide_restores_it(self) -> None:
+        item = post(thumbnail="https://velog.velcdn.com/preview.jpg")
+        visible = self.remote_thumbnail_engine(item, "body").run().outcomes[0]
+        image_dir = self.root / "assets/img/velog" / item.id
+        self.assertTrue(image_dir.is_dir())
+        hidden_cfg = SyncConfig(
+            username="ilwha", images=ImageConfig(enabled=True, retries=1),
+            hidden_post_ids=frozenset({item.id}),
+        )
+        hidden = self.remote_thumbnail_engine(item, "body", cfg=hidden_cfg).run()
+        self.assertEqual(hidden.outcomes[0].action, "HIDDEN")
+        self.assertFalse(image_dir.exists())
+        self.assertFalse((self.root / (visible.post_path or "missing")).exists())
+        restored = self.remote_thumbnail_engine(item, "body").run()
+        self.assertEqual(restored.outcomes[0].action, "UPDATE")
+        self.assertTrue(image_dir.is_dir())
 
 
 if __name__ == "__main__":

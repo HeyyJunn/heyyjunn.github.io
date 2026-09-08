@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import shutil
@@ -17,7 +18,12 @@ from urllib.parse import quote
 import yaml
 
 from velog_sync.config import SyncConfig, load_config
-from velog_sync.images import remove_post_images
+from velog_sync.images import (
+    SAFE_UPLOAD_MIME_EXTENSIONS,
+    detect_image_content_type,
+    override_source_file,
+    remove_post_images,
+)
 from velog_sync.models import SyncOutcome, VelogSyncError
 from velog_sync.state import load_state
 from velog_sync.sync import SyncEngine, SyncResult, canonical_url, normalize_url, validate_post_path
@@ -35,6 +41,7 @@ ACTION_LABELS = {
 PUBLISH_PATHS = (
     ".velog-sync/config.yml",
     ".velog-sync/state.json",
+    ".velog-sync/thumbnail-overrides",
     "_posts",
     "assets/img/velog",
 )
@@ -46,6 +53,7 @@ def _is_publish_path(path: str) -> bool:
         normalized = normalized[2:]
     return (
         normalized in {".velog-sync/config.yml", ".velog-sync/state.json"}
+        or normalized.startswith(".velog-sync/thumbnail-overrides/")
         or normalized.startswith("_posts/")
         or normalized.startswith("assets/img/velog/")
     )
@@ -185,15 +193,38 @@ class BlogService:
             return "최근 글 확인용 RSS 연결을 확인해 주세요."
         return "원문 호환성을 확인해야 하는 항목이 있습니다."
 
-    def post_view(self, outcome: SyncOutcome, number: int, username: str) -> dict[str, Any]:
+    def post_view(
+        self,
+        outcome: SyncOutcome,
+        number: int,
+        cfg: SyncConfig,
+        state_entry: dict[str, Any] | None,
+    ) -> dict[str, Any]:
         item = outcome.post
-        source_url = canonical_url(username, item.slug)
+        source_url = canonical_url(cfg.username, item.slug)
         github_url = None
         if outcome.post_path and (self.root / outcome.post_path).is_file() and outcome.action != "HIDDEN":
             stem = Path(outcome.post_path).stem
             post_slug = stem[11:] if len(stem) > 11 else stem
             github_url = f"https://heyyjunn.github.io/posts/{quote(post_slug)}/"
         warnings = [self.warning_text(value) for value in outcome.warnings]
+        override = cfg.thumbnail_overrides.get(item.id.lower())
+        resolved = outcome.thumbnail
+        if (
+            resolved is None
+            and outcome.thumbnail_change != "removed"
+            and isinstance(state_entry, dict)
+        ):
+            resolved = state_entry.get("thumbnail")
+        if item.thumbnail:
+            thumbnail_source = "velog"
+            preview_url = item.thumbnail
+        elif override is not None:
+            thumbnail_source = "override"
+            preview_url = f"/api/posts/{item.id}/thumbnail-override"
+        else:
+            thumbnail_source = "none"
+            preview_url = None
         return {
             "number": number,
             "id": item.id,
@@ -212,14 +243,29 @@ class BlogService:
             "attention": bool(warnings),
             "warnings": warnings,
             "error": outcome.error,
+            "thumbnail_source": thumbnail_source,
+            "thumbnail_preview_url": preview_url,
+            "velog_thumbnail_url": item.thumbnail,
+            "thumbnail_path": resolved.get("path") if isinstance(resolved, dict) else None,
+            "thumbnail_override_exists": override is not None,
+            "thumbnail_editable": item.thumbnail is None,
+            "thumbnail_change": outcome.thumbnail_change,
         }
 
     def snapshot(self, force: bool = False) -> dict[str, Any]:
         result = self.preview(force=force)
         cfg = self.config()
-        posts = [self.post_view(outcome, index, cfg.username) for index, outcome in enumerate(result.outcomes, 1)]
-        counts = {ACTION_LABELS[key]: result.counts[key] for key in ACTION_LABELS}
         state = load_state(self.state_path)
+        posts = [
+            self.post_view(
+                outcome,
+                index,
+                cfg,
+                state["posts"].get(outcome.post.id),
+            )
+            for index, outcome in enumerate(result.outcomes, 1)
+        ]
+        counts = {ACTION_LABELS[key]: result.counts[key] for key in ACTION_LABELS}
         published = sum(
             1
             for ident, entry in state["posts"].items()
@@ -240,6 +286,15 @@ class BlogService:
             "inventory_complete": result.inventory_complete,
             "rss_count": result.rss_count,
             "initial_import": not bool(state["posts"]),
+            "thumbnail_changes": {
+                key: sum(
+                    1
+                    for item in result.outcomes
+                    if item.action not in {"HIDDEN", "EXCLUDED", "ERROR"}
+                    and item.thumbnail_change == key
+                )
+                for key in ("added", "changed", "removed", "none", "unchanged")
+            },
             "git": self.git_status(fetch=self.enforce_git_safety),
             "github": self.github_status(),
         }
@@ -357,6 +412,127 @@ class BlogService:
 
         self.store.update(mutate)
         self.invalidate()
+
+    def set_thumbnail_override(
+        self, post_id: str, data: bytes, claimed_content_type: str | None
+    ) -> str:
+        self._ensure_write_safe()
+        try:
+            normalized = str(uuid.UUID(post_id))
+        except ValueError as exc:
+            raise UserInputError("올바른 게시물 UUID가 아닙니다.") from exc
+        if normalized != post_id.lower():
+            raise UserInputError("게시물 UUID는 표준 형식이어야 합니다.")
+        selected = self._resolve([normalized])
+        item = selected[0].post
+        if item.thumbnail:
+            raise UserInputError(
+                "Velog에 미리보기 이미지가 설정되어 있어 해당 이미지가 우선 적용됩니다."
+            )
+        cfg = self.config()
+        if not data or len(data) > cfg.images.max_bytes:
+            raise UserInputError(
+                f"이미지는 1바이트 이상 {cfg.images.max_bytes // (1024 * 1024)}MB 이하여야 합니다."
+            )
+        detected = detect_image_content_type(data)
+        if detected not in SAFE_UPLOAD_MIME_EXTENSIONS:
+            raise UserInputError("PNG, JPEG, GIF, WebP 또는 AVIF 이미지 파일만 사용할 수 있습니다.")
+        claimed = (claimed_content_type or "").split(";", 1)[0].lower()
+        if claimed not in {"", "application/octet-stream", detected}:
+            raise UserInputError("파일 내용과 브라우저가 보낸 이미지 MIME 형식이 일치하지 않습니다.")
+
+        digest = hashlib.sha256(data).hexdigest()
+        extension = SAFE_UPLOAD_MIME_EXTENSIONS[detected]
+        source_path = (
+            Path(".velog-sync") / "thumbnail-overrides" / normalized / f"{digest}{extension}"
+        ).as_posix()
+        target = override_source_file(self.root, normalized, source_path)
+        old = cfg.thumbnail_overrides.get(normalized)
+        old_path = old.source_path if old else None
+        existed = target.is_file()
+        target.parent.mkdir(parents=True, exist_ok=True)
+        descriptor, temporary = tempfile.mkstemp(
+            prefix=target.name + ".", suffix=".part", dir=target.parent
+        )
+        try:
+            with os.fdopen(descriptor, "wb") as stream:
+                stream.write(data)
+                stream.flush()
+                os.fsync(stream.fileno())
+            os.replace(temporary, target)
+
+            def mutate(raw: dict[str, Any]) -> None:
+                overrides = raw.setdefault("thumbnail_overrides", {})
+                if not isinstance(overrides, dict):
+                    raise UserInputError("thumbnail_overrides 설정은 객체여야 합니다.")
+                overrides[normalized] = {"source_path": source_path}
+
+            self.store.update(mutate)
+        except Exception:
+            try:
+                os.unlink(temporary)
+            except FileNotFoundError:
+                pass
+            if not existed:
+                target.unlink(missing_ok=True)
+            raise
+
+        if old_path and old_path != source_path:
+            old_file = override_source_file(self.root, normalized, old_path)
+            old_file.unlink(missing_ok=True)
+        self.invalidate()
+        return source_path
+
+    def remove_thumbnail_override(self, post_id: str) -> bool:
+        self._ensure_write_safe()
+        try:
+            normalized = str(uuid.UUID(post_id))
+        except ValueError as exc:
+            raise UserInputError("올바른 게시물 UUID가 아닙니다.") from exc
+        if normalized != post_id.lower():
+            raise UserInputError("게시물 UUID는 표준 형식이어야 합니다.")
+        self._resolve([normalized])
+        cfg = self.config()
+        override = cfg.thumbnail_overrides.get(normalized)
+        if override is None:
+            return False
+
+        def mutate(raw: dict[str, Any]) -> None:
+            overrides = raw.get("thumbnail_overrides", {})
+            if isinstance(overrides, dict):
+                overrides.pop(normalized, None)
+                if not overrides:
+                    raw.pop("thumbnail_overrides", None)
+
+        self.store.update(mutate)
+        source = override_source_file(self.root, normalized, override.source_path)
+        source.unlink(missing_ok=True)
+        try:
+            source.parent.rmdir()
+        except OSError:
+            pass
+        self.invalidate()
+        return True
+
+    def thumbnail_override_file(self, post_id: str) -> tuple[Path, str]:
+        try:
+            normalized = str(uuid.UUID(post_id))
+        except ValueError as exc:
+            raise UserInputError("올바른 게시물 UUID가 아닙니다.") from exc
+        if normalized != post_id.lower():
+            raise UserInputError("게시물 UUID는 표준 형식이어야 합니다.")
+        override = self.config().thumbnail_overrides.get(normalized)
+        if override is None:
+            raise UserInputError("직접 지정한 미리보기 이미지가 없습니다.")
+        source = override_source_file(self.root, normalized, override.source_path)
+        if not source.is_file():
+            raise UserInputError("직접 지정한 미리보기 이미지 파일을 찾을 수 없습니다.")
+        if source.stat().st_size <= 0 or source.stat().st_size > self.config().images.max_bytes:
+            raise UserInputError("저장된 미리보기 이미지의 크기가 허용 범위를 벗어났습니다.")
+        content_type = detect_image_content_type(source.read_bytes())
+        if content_type not in SAFE_UPLOAD_MIME_EXTENSIONS:
+            raise UserInputError("저장된 미리보기 이미지 형식이 올바르지 않습니다.")
+        return source, content_type
 
     def git_status(self, fetch: bool = False) -> dict[str, Any]:
         """Describe local/main versus origin/main without modifying user work."""
@@ -761,6 +937,24 @@ class BlogService:
         counts = snapshot["counts"]
         lines = [f"{label}: {counts[label]}개" for label in ACTION_LABELS.values()]
         lines.append(f"확인 필요: {snapshot['warnings']}개")
+        changes = snapshot["thumbnail_changes"]
+        lines.extend(
+            (
+                "",
+                "미리보기 이미지",
+                f"추가: {changes['added']}개",
+                f"변경: {changes['changed']}개",
+                f"제거: {changes['removed']}개",
+                f"이미지 없음: {changes['none']}개",
+            )
+        )
+        reasons = [
+            f"{item['number']}. {item['title']}: 미리보기 이미지 { {'added': '추가', 'changed': '변경', 'removed': '제거'}[item['thumbnail_change']] }"
+            for item in snapshot["posts"]
+            if item["thumbnail_change"] in {"added", "changed", "removed"}
+        ]
+        if reasons:
+            lines.extend(("", "미리보기 이미지 변경 이유", *reasons))
         errors = [
             f"{item['number']}. {item['title']}: {item['error']}"
             for item in snapshot["posts"]

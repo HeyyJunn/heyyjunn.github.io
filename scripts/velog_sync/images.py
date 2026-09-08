@@ -23,8 +23,34 @@ MIME_EXTENSIONS = {
     "image/jpeg": ".jpg",
     "image/gif": ".gif",
     "image/webp": ".webp",
+    "image/avif": ".avif",
     "image/svg+xml": ".svg",
 }
+
+SAFE_UPLOAD_MIME_EXTENSIONS = {
+    key: value for key, value in MIME_EXTENSIONS.items() if key != "image/svg+xml"
+}
+
+
+def detect_image_content_type(data: bytes) -> str | None:
+    """Identify safe raster formats from bytes; filenames and client MIME are untrusted."""
+
+    if data.startswith(b"\x89PNG\r\n\x1a\n"):
+        return "image/png"
+    if data.startswith(b"\xff\xd8\xff"):
+        return "image/jpeg"
+    if data.startswith((b"GIF87a", b"GIF89a")):
+        return "image/gif"
+    if len(data) >= 12 and data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return "image/webp"
+    if len(data) >= 12 and data[4:8] == b"ftyp":
+        box_size = int.from_bytes(data[:4], "big")
+        if box_size < 12 or box_size > len(data):
+            return None
+        brands = data[8:box_size]
+        if b"avif" in brands or b"avis" in brands:
+            return "image/avif"
+    return None
 
 
 def post_image_directory(repository_root: Path, post_id: str) -> Path:
@@ -55,6 +81,46 @@ def remove_post_images(repository_root: Path, post_id: str) -> bool:
     return True
 
 
+def prune_post_images(
+    repository_root: Path,
+    post_id: str,
+    keep_paths: set[str],
+    managed_paths: set[str],
+) -> None:
+    """Remove stale managed files without touching unknown files in the UUID directory."""
+
+    target = post_image_directory(repository_root, post_id)
+    if not target.exists():
+        return
+    if target.is_symlink() or not target.is_dir():
+        raise ImageError(f"unsafe image directory: {target}")
+    keep = {(repository_root.resolve() / path).resolve() for path in keep_paths}
+    managed = {(repository_root.resolve() / path).resolve() for path in managed_paths}
+    for child in target.iterdir():
+        if child.is_symlink() or not child.is_file():
+            raise ImageError(f"unsafe file in managed image directory: {child}")
+        if child.resolve() in managed and child.resolve() not in keep:
+            child.unlink()
+    if not any(target.iterdir()):
+        target.rmdir()
+
+
+def override_source_file(repository_root: Path, post_id: str, source_path: str) -> Path:
+    try:
+        valid_id = str(uuid.UUID(post_id))
+    except (ValueError, AttributeError) as exc:
+        raise ImageError(f"unsafe post UUID for thumbnail override: {post_id}") from exc
+    if valid_id != post_id.lower() or "\\" in source_path:
+        raise ImageError(f"unsafe thumbnail override source: {source_path}")
+    root = (repository_root.resolve() / ".velog-sync" / "thumbnail-overrides" / valid_id).resolve()
+    candidate = (repository_root.resolve() / source_path).resolve()
+    if candidate.parent != root or candidate.name in {"", ".", ".."}:
+        raise ImageError(f"unsafe thumbnail override source: {source_path}")
+    if candidate.is_symlink():
+        raise ImageError(f"thumbnail override may not be a symlink: {source_path}")
+    return candidate
+
+
 @dataclass(frozen=True)
 class ImageProbe:
     url: str
@@ -71,6 +137,7 @@ class ImagePlan:
     size: int
     reused: bool = False
     content_hash: str | None = None
+    source_path: str | None = None
 
     def state_record(self, content_hash: str | None = None, size: int | None = None) -> dict[str, Any]:
         return {
@@ -127,6 +194,8 @@ class ImageMirror:
         )
         with self._request(request) as response:
             content_type = (response.headers.get("Content-Type") or "").split(";", 1)[0].lower()
+            if content_type == "application/octet-stream" and urllib.parse.urlparse(url).path.lower().endswith(".avif"):
+                content_type = "image/avif"
             try:
                 size = int(response.headers.get("Content-Length") or 0)
             except ValueError:
@@ -144,8 +213,6 @@ class ImageMirror:
             final_url = response.geturl()
             self._validate_url(final_url)
             content_type = (response.headers.get("Content-Type") or "").split(";", 1)[0].lower()
-            if content_type not in MIME_EXTENSIONS:
-                raise ImageError(f"unsupported downloaded image MIME {content_type}: {url}")
             declared = int(response.headers.get("Content-Length") or 0)
             if declared > self.config.max_bytes:
                 raise ImageError(f"downloaded image exceeds maximum size: {url}")
@@ -159,7 +226,12 @@ class ImageMirror:
                 if total > self.config.max_bytes:
                     raise ImageError(f"downloaded image exceeds maximum size: {url}")
                 chunks.append(chunk)
-            return content_type, b"".join(chunks), final_url
+            data = b"".join(chunks)
+            if content_type == "application/octet-stream" and urllib.parse.urlparse(url).path.lower().endswith(".avif"):
+                content_type = detect_image_content_type(data) or content_type
+            if content_type not in MIME_EXTENSIONS:
+                raise ImageError(f"unsupported downloaded image MIME {content_type}: {url}")
+            return content_type, data, final_url
 
     def _safe_target(self, post_id: str, url: str, extension: str) -> tuple[str, Path]:
         image_dir = post_image_directory(self.root, post_id)
@@ -171,6 +243,14 @@ class ImageMirror:
         if target != image_root and image_root not in target.parents:
             raise ImageError(f"unsafe image destination: {target}")
         return relative.as_posix(), target
+
+    def _safe_content_target(
+        self, post_id: str, digest: str, extension: str
+    ) -> tuple[str, Path]:
+        image_dir = post_image_directory(self.root, post_id)
+        name = digest.removeprefix("sha256:") + extension
+        relative = image_dir.relative_to(self.root) / name
+        return relative.as_posix(), self.root / relative
 
     def _reusable(self, record: Any) -> ImagePlan | None:
         if not isinstance(record, dict):
@@ -234,15 +314,47 @@ class ImageMirror:
                         warnings.append(f"image mirror rejected; keeping remote URL: {exc}")
         return plans, warnings
 
+    def plan_local(
+        self, post_id: str, source_path: str, existing: dict[str, Any] | None = None
+    ) -> ImagePlan:
+        source = override_source_file(self.root, post_id, source_path)
+        if not source.is_file():
+            raise ImageError(f"thumbnail override file is missing: {source_path}")
+        size = source.stat().st_size
+        if size <= 0 or size > self.config.max_bytes:
+            raise ImageError(f"thumbnail override exceeds maximum size: {source_path}")
+        data = source.read_bytes()
+        content_type = detect_image_content_type(data)
+        if content_type not in SAFE_UPLOAD_MIME_EXTENSIONS:
+            raise ImageError(f"thumbnail override is not a supported raster image: {source_path}")
+        digest = sha256_bytes(data)
+        relative, _ = self._safe_content_target(
+            post_id, digest, SAFE_UPLOAD_MIME_EXTENSIONS[content_type]
+        )
+        reusable = self._reusable(existing)
+        if reusable and reusable.path == relative and reusable.content_hash == digest:
+            return ImagePlan(
+                "", relative, content_type, size, True, digest, source_path
+            )
+        return ImagePlan("", relative, content_type, size, False, digest, source_path)
+
     def materialize(self, plan: ImagePlan) -> tuple[dict[str, Any] | None, str | None]:
         if plan.reused:
             return plan.state_record(), None
         try:
-            content_type, data, final_url = self.download_func(plan.url)
-            self._validate_url(final_url)
+            if plan.source_path:
+                source = override_source_file(self.root, Path(plan.path).parent.name, plan.source_path)
+                data = source.read_bytes()
+                content_type = detect_image_content_type(data) or ""
+                if sha256_bytes(data) != plan.content_hash:
+                    raise ImageError(f"thumbnail override changed while syncing: {plan.source_path}")
+            else:
+                content_type, data, final_url = self.download_func(plan.url)
+                self._validate_url(final_url)
             if content_type not in MIME_EXTENSIONS or content_type != plan.content_type:
                 raise ImageError(
-                    f"download MIME mismatch for {plan.url}: {plan.content_type} != {content_type}"
+                    f"download MIME mismatch for {plan.url or plan.source_path}: "
+                    f"{plan.content_type} != {content_type}"
                 )
             if len(data) > self.config.max_bytes:
                 raise ImageError(f"downloaded image exceeds maximum size: {plan.url}")
@@ -267,4 +379,5 @@ class ImageMirror:
             digest = sha256_bytes(data)
             return plan.state_record(digest, len(data)), None
         except Exception as exc:
-            return None, f"image download failed; keeping remote URL: {plan.url}: {exc}"
+            source = plan.url or plan.source_path or "unknown"
+            return None, f"image download failed: {source}: {exc}"

@@ -4,6 +4,9 @@ date: 2024-11-10 17:04:38 +0900
 last_modified_at: 2026-09-02 03:56:42 +0900
 categories:
   - "[C++] Archive"
+thumbnail:
+  path: "/assets/img/velog/3bbd2352-464c-4b86-be90-a7f08b232073/67c00ee507f3b923fa95c8977502f4ff2306994347b28188a021ee3c7bd71b45.jpg"
+  alt: "[C++] 객체지향프로그래밍1 : Inheritance / Override / vptr,vtbl / downcasting (chapter 13 - 16)"
 render_with_liquid: false
 ---
 > 이 게시글은 대학교 객체지향프로그래밍1 (C++) 강의를 수강하며 교수님의 강의를 정리한 것입니다. **오직 개인적인 학습 기록으로 활용하기 위한 용도로 작성되었으며, 가독성이나 체계적인 정리가 부족할 수 있습니다.**

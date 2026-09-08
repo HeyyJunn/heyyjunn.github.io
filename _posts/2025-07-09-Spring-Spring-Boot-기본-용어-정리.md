@@ -2,6 +2,9 @@
 title: "[Spring] Spring Boot 기본 용어 정리"
 date: 2025-07-09 19:50:53 +0900
 last_modified_at: 2026-09-08 09:39:19 +0900
+thumbnail:
+  path: "/assets/img/velog/dbf10a73-b92c-48ca-8964-642ef5cdc591/d27f1a9586ad3eb0a6766c1cd393f4ef6747ff0559ef45b3ee664f327a1df49c.png"
+  alt: "[Spring] Spring Boot 기본 용어 정리"
 render_with_liquid: false
 ---
 > 💡 이 게시글은 강의를 수강하며 학습한 내용을 중요한 키워드 중심으로 정리한 개인 학습 기록입니다. 오직 기억 복기를 위한 목적으로 작성되었으며, 모든 내용을 포함하지 않으므로 학습 자료로는 적합하지 않습니다.

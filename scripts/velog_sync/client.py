@@ -14,7 +14,7 @@ from .models import DetailedPost, Inventory, PostMetadata, RssItem, Series, Sour
 POSTS_QUERY = """
 query velogPosts($input: GetPostsInput!) {
   posts(input: $input) {
-    id title url_slug released_at updated_at is_private
+    id title url_slug released_at updated_at is_private thumbnail
     series { id name url_slug }
   }
 }
@@ -23,7 +23,7 @@ query velogPosts($input: GetPostsInput!) {
 READ_POST_QUERY = """
 query readPost($input: ReadPostInput!) {
   post(input: $input) {
-    id title url_slug released_at updated_at is_private
+    id title url_slug released_at updated_at is_private thumbnail
     body is_markdown
     series { id name url_slug }
   }
@@ -108,6 +108,9 @@ class GraphQLClient:
         released_at = self._required(raw, "released_at", str)
         updated_at = self._required(raw, "updated_at", str)
         is_private = self._required(raw, "is_private", bool)
+        thumbnail = raw.get("thumbnail")
+        if thumbnail is not None and not isinstance(thumbnail, str):
+            raise SourceError(f"post {post_id} has invalid thumbnail metadata")
         if "series" not in raw:
             raise SourceError(f"post {post_id} is missing authoritative series metadata")
         series_raw = raw["series"]
@@ -128,6 +131,7 @@ class GraphQLClient:
             updated_at=updated_at,
             series=series,
             is_private=is_private,
+            thumbnail=thumbnail,
         )
 
     def fetch_inventory(self) -> Inventory:
@@ -186,6 +190,7 @@ class GraphQLClient:
             or metadata.updated_at != expected.updated_at
             or metadata.series != expected.series
             or metadata.is_private != expected.is_private
+            or metadata.thumbnail != expected.thumbnail
         ):
             raise SourceError(f"list/readPost metadata mismatch for UUID {expected.id}")
         body = raw.get("body")

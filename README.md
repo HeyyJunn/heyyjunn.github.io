@@ -60,6 +60,14 @@ Images from the allowed Velog CDN are mirrored under
 visible posts reuse verified local files. Hiding a post removes its deployable image
 directory while preserving state metadata so an unhide can download it again.
 
+Preview images use an explicit list-only priority: Velog `thumbnail`, then a
+GitHub-only manual override, then no image. The first Markdown body image is never a
+fallback. Resolved previews use custom `thumbnail:` front matter and the home-card
+override only, so they are not inserted into post detail pages. When Velog has no
+thumbnail, open the post detail in `./blog ui` to upload one. The tracked source stays
+under `.velog-sync/thumbnail-overrides/<post-uuid>/` and becomes a public asset only
+while it is the active preview.
+
 Configure exclusions by UUID, exact normalized slug, or canonical URL in
 the local manager. Number, slug, and canonical URL inputs are resolved against the
 live inventory and persisted only as stable UUIDs in `.velog-sync/config.yml`.

@@ -29,3 +29,15 @@ article[data-toc] > .content {
     font-weight: 700;
   }
 }
+
+/* Home cards only: reserve a stable crop area for custom post.thumbnail. */
+#post-list .thumbnail-col {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

@@ -5,7 +5,7 @@ from collections import deque
 from datetime import datetime
 from typing import Any, Callable
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, send_file
 
 from .service import BlogService, CommandResult, UserInputError
 from velog_sync.models import VelogSyncError
@@ -87,6 +87,7 @@ def create_app(service: BlogService, runner: TaskRunner | None = None) -> Flask:
     app = Flask(__name__)
     tasks = runner or TaskRunner()
     app.config.update(JSON_AS_ASCII=False, BLOG_SERVICE=service, TASK_RUNNER=tasks)
+    app.config["MAX_CONTENT_LENGTH"] = service.config().images.max_bytes + 1024 * 1024
 
     @app.get("/")
     @app.get("/posts")
@@ -100,6 +101,14 @@ def create_app(service: BlogService, runner: TaskRunner | None = None) -> Flask:
 
     def error_response(message: str, detail: str, status: int = 400):
         return jsonify({"ok": False, "message": message, "detail": detail}), status
+
+    @app.errorhandler(413)
+    def upload_too_large(_: Exception):
+        return error_response(
+            "이미지를 지정하지 못했습니다.",
+            "업로드 파일이 허용된 최대 크기를 초과했습니다.",
+            413,
+        )
 
     @app.get("/api/status")
     def api_status():
@@ -201,6 +210,51 @@ def create_app(service: BlogService, runner: TaskRunner | None = None) -> Flask:
             return jsonify({"ok": True, "message": "설정을 안전하게 저장했습니다."})
         except (UserInputError, ValueError, OSError) as exc:
             return error_response("설정을 저장하지 못했습니다.", str(exc))
+
+    @app.get("/api/posts/<post_id>/thumbnail-override")
+    def api_thumbnail_override(post_id: str):
+        try:
+            path, content_type = service.thumbnail_override_file(post_id)
+            return send_file(path, mimetype=content_type, conditional=True, max_age=0)
+        except (UserInputError, ValueError, OSError) as exc:
+            return error_response("미리보기 이미지를 열 수 없습니다.", str(exc), 404)
+
+    @app.post("/api/posts/<post_id>/thumbnail-override")
+    def api_set_thumbnail_override(post_id: str):
+        guard = mutation_guard()
+        if guard:
+            return guard
+        uploaded = request.files.get("thumbnail")
+        if uploaded is None:
+            return error_response("이미지를 지정하지 못했습니다.", "이미지 파일을 선택해 주세요.")
+        limit = service.config().images.max_bytes
+        data = uploaded.stream.read(limit + 1)
+        try:
+            service.set_thumbnail_override(post_id, data, uploaded.mimetype)
+            return jsonify(
+                {
+                    "ok": True,
+                    "message": "GitHub 블로그 전용 미리보기 이미지를 저장했습니다. 동기화 후 목록 카드에 반영됩니다.",
+                }
+            )
+        except (UserInputError, ValueError, OSError) as exc:
+            return error_response("이미지를 지정하지 못했습니다.", str(exc))
+
+    @app.delete("/api/posts/<post_id>/thumbnail-override")
+    def api_remove_thumbnail_override(post_id: str):
+        guard = mutation_guard(require_confirmation=True)
+        if guard:
+            return guard
+        try:
+            removed = service.remove_thumbnail_override(post_id)
+            message = (
+                "직접 지정한 미리보기 이미지를 제거했습니다."
+                if removed
+                else "직접 지정한 미리보기 이미지가 없습니다."
+            )
+            return jsonify({"ok": True, "message": message})
+        except (UserInputError, ValueError, OSError) as exc:
+            return error_response("미리보기 이미지를 제거하지 못했습니다.", str(exc))
 
     def task_operation(kind: str) -> tuple[str, Callable[[Callable[[str], None]], CommandResult], bool]:
         operations: dict[str, tuple[str, Callable[[Callable[[str], None]], CommandResult], bool]] = {

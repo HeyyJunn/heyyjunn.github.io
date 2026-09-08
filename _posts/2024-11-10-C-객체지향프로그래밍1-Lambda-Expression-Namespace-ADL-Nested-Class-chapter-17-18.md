@@ -4,6 +4,9 @@ date: 2024-11-10 17:29:58 +0900
 last_modified_at: 2026-09-08 08:51:49 +0900
 categories:
   - "[C++] Archive"
+thumbnail:
+  path: "/assets/img/velog/2b9b7e47-2e14-4612-ab10-e6c81055dd8e/1a6537ad1010cab1056a99dc3a77033ffc3da9fe8a26eae0a55eb826735f1cb3.jpg"
+  alt: "[C++] 객체지향프로그래밍1 : Lambda Expression / Namespace / ADL / Nested Class (chapter 17 - 18)"
 render_with_liquid: false
 ---
 > 이 게시글은 대학교 객체지향프로그래밍1 (C++) 강의를 수강하며 교수님의 강의를 정리한 것입니다. **오직 개인적인 학습 기록으로 활용하기 위한 용도로 작성되었으며, 가독성이나 체계적인 정리가 부족할 수 있습니다.**

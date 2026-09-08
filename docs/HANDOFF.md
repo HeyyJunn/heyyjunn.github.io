@@ -6,9 +6,9 @@
 >
 > 로컬 경로: `/Users/junn/heyyjunn.github.io`
 >
-> Audit 시작 기준: `main` / `2e4b2e0ef0ccfe1271eb6b2e0bd10678ddf28c74`
+> Thumbnail audit 시작 기준: `main` / `52346ef4f65012ba168baf1338925a702ec998d3`
 >
-> 구현 반영 커밋: `cab0977370c0487445cca4b435ab3b1f71cd7960`
+> 기존 동기화/관리자 구현 기준 커밋: `cab0977370c0487445cca4b435ab3b1f71cd7960`
 
 이 문서는 현재 저장소를 처음 넘겨받는 엔지니어 또는 LLM이 기존 설계 의도와 운영 상태를 훼손하지 않고 바로 작업을 이어갈 수 있도록 작성한 기술·운영 인수인계 문서다. 아래의 수치와 게시물 목록은 위 검증 시점의 스냅샷이며, 이후 Velog 원문이나 설정이 변경되면 `./blog status`, `./blog list`, `./blog dry-run` 결과를 우선한다.
 
@@ -30,12 +30,12 @@
 | UNCHANGED | 13개 |
 | 오류 / 경고 | 0개 / 0개 |
 | state 레코드 | 40개 |
-| 배포 가능한 visible 이미지 | 33개 |
-| visible 이미지 총 용량 | 6,025,669 bytes (약 5.75 MiB) |
+| 배포 가능한 visible 이미지 | 44개 (본문 33 + 목록 thumbnail 11) |
+| visible 이미지 총 용량 | 7,062,707 bytes (본문 6,025,669 + thumbnail 1,037,038) |
 | hidden 이미지 state 참조 / 실제 파일 | 158개 / 0개 |
-| 로컬 작업 트리 | 안전성 개선과 hidden 이미지 migration은 `cab0977`로 `main`에 반영됨 |
+| 로컬 작업 트리 | thumbnail feature commit/push 후 clean 상태인지 `git status --short`로 확인 |
 | `main`과 `origin/main` | 커밋/푸시 후 동일함을 확인함. 현재 SHA는 `git rev-parse HEAD`로 확인 |
-| 최신 전체 검사 | 65 tests, Jekyll build, HTML-Proofer, actionlint 모두 통과 |
+| 최신 전체 검사 | 89 tests, Jekyll build, HTML-Proofer, actionlint 모두 통과 |
 
 라이브 `./blog status`에서 Velog GraphQL 전체 목록과 RSS 연결은 정상으로 확인됐다. 로컬 환경에는 GitHub CLI(`gh`)가 없어 GitHub Actions 자동 동기화 변수 및 최근 실행 상태는 관리 도구에서 확인하지 못한다. 이는 동기화 엔진 오류가 아니라 로컬 도구 부재다.
 
@@ -100,9 +100,11 @@ Velog 전체 목록에서 더 이상 보이지 않는 UUID가 있어도 기존 s
 | `scripts/velog_sync/sync.py` | 분류, 렌더링, hash, drift 탐지, state 갱신을 담당하는 핵심 엔진 |
 | `scripts/velog_sync/state.py` | state schema 검증, SHA-256, 결정적 JSON 직렬화, 원자적 text write |
 | `.velog-sync/config.yml` | 운영 설정. 제외/숨김 UUID, series 매핑, 이미지 정책 포함 |
+| `.velog-sync/thumbnail-overrides/<uuid>/` | Local Blog Manager에서 올린 GitHub 전용 미리보기 원본. Git에는 추적하지만 Jekyll 산출물에서는 제외 |
 | `.velog-sync/state.json` | 40개 UUID의 고정 경로, hash, 이미지 매핑 등을 보관하는 동기화 ledger |
 | `_posts/` | 현재 공개되는 13개 Chirpy Markdown 포스트 |
 | `assets/img/velog/` | 게시 중인 13개 글의 deployable Velog 이미지 미러. hidden UUID 디렉터리는 배포에서 제외하기 위해 제거 |
+| `_layouts/home.html` | Chirpy 7.6 홈 카드의 custom `post.thumbnail` 렌더링 최소 override |
 | `.github/workflows/pages-deploy.yml` | push 빌드·배포, 수동 dry-run/apply, 조건부 예약 동기화 |
 | `tests/test_velog_sync.py` | 소스/렌더링/이미지/분류/안전성 테스트 |
 | `tests/test_blog_admin.py` | CLI, 설정, 숨김/제외, UI API, 동시 실행 방지 테스트 |
@@ -116,11 +118,12 @@ Velog 전체 목록에서 더 이상 보이지 않는 UUID가 있어도 기존 s
 
 ```text
 Velog GraphQL 전체 목록
-  ├─ UUID/제목/slug/발행·수정일/series 검증
+  ├─ UUID/제목/slug/발행·수정일/series/thumbnail 검증
   ├─ hidden / excluded / import_after 판정
   ├─ state hash와 로컬 파일 hash로 상세 본문 조회 필요성 판정
   └─ 필요한 글만 readPost GraphQL 조회
        ├─ raw Markdown 확인
+       ├─ 본문 이미지와 독립적인 thumbnail 우선순위 결정
        ├─ 이미지 URL 추출 및 안전성 검사
        ├─ Velog series를 categories로 변환
        ├─ Chirpy front matter + 본문 렌더링
@@ -130,7 +133,7 @@ Velog RSS (최근 20개)
   └─ 최근 글 health/sanity check만 수행
 
 apply이고 ERROR가 0개일 때만
-  ├─ 이미지 다운로드/재사용
+  ├─ 본문 이미지와 활성 thumbnail 다운로드/재사용
   ├─ Markdown 원자적 저장
   └─ state 결정적 직렬화 및 원자적 저장
 ```
@@ -211,6 +214,20 @@ render_with_liquid: false
 - 날짜는 `Asia/Seoul`로 변환한다.
 - 최초 `published_at`은 고정 보존하고 `updated_at`은 `last_modified_at`에 반영한다.
 
+### 6.4 목록 전용 미리보기 front matter와 우선순위
+
+Velog thumbnail 또는 활성 GitHub override가 있으면 Chirpy 기본 `image:`가 아니라 다음 custom field를 추가한다.
+
+```yaml
+thumbnail:
+  path: "/assets/img/velog/<uuid>/<hash>.jpg"
+  alt: "게시물 제목"
+```
+
+thumbnail이 없으면 field 자체를 생략한다. alt fallback은 게시물 제목이며 AI로 생성하지 않는다. 우선순위는 반드시 `Velog thumbnail > GitHub 직접 지정 > 없음`이다. 본문 첫 이미지는 fallback이 아니다. Velog thumbnail이 새로 생기면 기존 override는 삭제하지 않고 비활성 보존하며, Velog thumbnail이 다시 null이 되면 그 override가 복귀한다. Velog thumbnail이 활성인 동안 dormant override만 바뀌어도 Markdown/state/render hash는 바뀌지 않는다.
+
+`_layouts/home.html`만 `post.thumbnail`을 읽으며 post detail layout은 이 field를 읽지 않는다. 따라서 동일 URL이 Markdown 본문에도 실제로 있을 때의 본문 image를 제외하면 상세 글 위·아래에는 대표 이미지가 자동 표시되지 않는다.
+
 ## 7. 분류 상태와 파일 변경 의미
 
 | 상태 | 의미 | apply 시 동작 |
@@ -237,7 +254,7 @@ state의 `rendered_sha256`과 실제 Markdown SHA-256이 다르거나 state가 �
 
 ## 8. state.json schema와 hash 원칙
 
-현재 state file schema version은 `1`, render transformation schema는 `2`다.
+현재 state file schema version은 `1`, render transformation schema는 `3`이다.
 
 ```json
 {
@@ -262,6 +279,14 @@ state의 `rendered_sha256`과 실제 Markdown SHA-256이 다르거나 state가 �
       "source_slug": "...",
       "source_updated_at": "...",
       "source_url": "...",
+      "thumbnail": {
+        "kind": "velog",
+        "source_url": "https://velog.velcdn.com/...",
+        "path": "assets/img/velog/<uuid>/<hash>.jpg",
+        "sha256": "sha256:...",
+        "content_type": "image/jpeg",
+        "size": 12345
+      },
       "title": "..."
     }
   }
@@ -277,9 +302,10 @@ state의 `rendered_sha256`과 실제 Markdown SHA-256이 다르거나 state가 �
 - 고정 published timestamp
 - updated timestamp
 - image mapping
+- resolved thumbnail의 kind/source/path/hash/MIME/size 또는 null
 - transformation schema version
 
-`metadata_hash`는 상세 본문을 다시 가져와야 하는지 빠르게 판정하기 위해 UUID, title, slug, source URL, updated timestamp, resolved categories로 계산한다. Source slug/URL은 source metadata와 상세 조회에는 영향을 주지만 실제 Markdown 내용에는 들어가지 않으므로 `content_hash`에서는 제외된다. slug-only 변경은 Markdown을 다시 쓰지 않고 state의 source metadata만 최신화한다.
+`metadata_hash`는 상세 본문을 다시 가져와야 하는지 빠르게 판정하기 위해 UUID, title, slug, source URL, released/updated timestamp, resolved categories와 실제 활성 thumbnail source를 사용한다. Velog thumbnail이 있으면 dormant override는 두 hash 모두에서 제외된다. slug-only 변경은 Markdown을 다시 쓰지 않고 state의 source metadata만 최신화한다.
 
 Velog tags는 어떤 hash와 state에도 포함되지 않는다. tag-only 변경은 `UNCHANGED`여야 한다. JSON은 key 정렬, UTF-8, 2-space indent, 마지막 newline으로 결정적으로 직렬화한다. state write는 같은 디렉터리의 `.part` 임시 파일을 `fsync`한 뒤 `os.replace`하는 방식이다.
 
@@ -295,7 +321,7 @@ assets/img/velog/<post-uuid>/<sha256-of-full-source-url>.<extension>
 
 - HTTPS URL만 허용
 - 현재 허용 host는 `velog.velcdn.com` 하나
-- 허용 MIME: PNG, JPEG, GIF, WebP, SVG
+- 원격 허용 MIME: PNG, JPEG, GIF, WebP, AVIF, SVG
 - 파일당 최대 25 MiB (`26214400` bytes)
 - timeout 20초, retry 3회, planning worker 8개
 - HEAD로 MIME/크기/redirect 최종 host를 검사한 후 apply에서 GET
@@ -307,7 +333,19 @@ assets/img/velog/<post-uuid>/<sha256-of-full-source-url>.<extension>
 - probe/download/MIME mismatch 실패 시 해당 이미지는 원격 URL을 유지하고 경고를 남김
 - fenced code block 내부의 이미지처럼 보이는 텍스트는 변환하지 않음
 
-같은 원격 이미지 URL이 여러 글에 쓰여도 포스트 UUID 디렉터리가 다르므로 글마다 별도 파일이 존재할 수 있다. 숨긴 글은 state의 158개 source image record를 유지하지만 deployable UUID 디렉터리는 제거한다. 현재 visible 13개 글의 이미지 33개만 로컬과 `_site`에 존재하며 hidden 이미지는 둘 다 0개다. unhide 시 state의 source metadata를 이용해 GraphQL 원문에서 필요한 이미지를 다시 다운로드한다.
+같은 원격 이미지 URL이 여러 글에 쓰여도 포스트 UUID 디렉터리가 다르므로 글마다 별도 파일이 존재할 수 있다. 숨긴 글은 state의 158개 source body-image record를 유지하지만 deployable UUID 디렉터리는 제거한다. 현재 visible 13개 글에는 본문 이미지 33개와 목록 thumbnail 11개, 합계 44개만 로컬과 `_site`에 존재하며 hidden 이미지는 둘 다 0개다. unhide 시 GraphQL 원문을 다시 확인해 필요한 본문 이미지와 thumbnail을 다운로드한다.
+
+### 9.1 Thumbnail과 manual override
+
+- inventory와 `readPost`에서 `thumbnail`을 모두 받고 UUID와 metadata 일치를 검증한다.
+- 같은 UUID에서 thumbnail URL이 body image URL과 같으면 동일 plan/path/binary를 재사용한다.
+- remote thumbnail은 CDN URL을 front matter에 직접 쓰지 않고 기존 `ImageMirror`로 local asset을 만든다.
+- thumbnail은 critical asset이다. host/MIME/size/probe/download 검증 실패 시 기존 post를 보존하고 해당 outcome을 `ERROR`로 바꾼다.
+- Local Manager 원본은 `.velog-sync/thumbnail-overrides/<uuid>/<content-sha256>.<ext>`에 저장한다. client filename은 버리고 PNG/JPEG/GIF/WebP/AVIF magic bytes와 MIME, 크기를 검증한다. SVG와 script성 upload는 받지 않는다.
+- 활성 override만 `assets/img/velog/<uuid>/`로 materialize한다. Velog가 우선하게 되거나 override가 제거·교체되면 이전 state가 관리하던 deployable thumbnail만 prune하며 알 수 없는 파일은 지우지 않는다.
+- hidden 글은 Markdown과 UUID deployable asset directory가 모두 없어야 한다. override 원본은 비공개 source 경로에 보존 가능하며 unhide sync에서 다시 결정한다.
+- `_layouts/home.html`은 Chirpy 7.6 upstream home layout이 카드 image block을 include로 분리하지 않아 필요한 최소 override다. theme upgrade 시 upstream home layout과 diff를 반드시 재검토한다.
+- `assets/css/jekyll-theme-chirpy.scss`의 `#post-list .thumbnail-col`은 안정적인 16:9 영역과 `object-fit: cover`를 제공한다. 같은 파일의 post body h1~h6 `font-weight: 700` scope를 유지해야 한다.
 
 ## 10. Markdown 변환 원칙과 알려진 콘텐츠 특성
 
@@ -337,6 +375,7 @@ exclude_post_ids: []
 hidden_post_ids: # 27개 UUID
 import_after: null
 series_category_map: {}
+thumbnail_overrides: {}
 images:
   enabled: true
   allowed_hosts:
@@ -354,6 +393,7 @@ images:
 - 번호, slug, canonical URL 입력은 live inventory에서 UUID로 resolve한 뒤 `exclude_post_ids`에만 저장
 - `import_after`: 신규 글에만 적용. 이미 state에 있는 글의 업데이트를 막지 않음
 - `series_category_map`: series 이름별 1~2개 category override
+- `thumbnail_overrides`: UUID별 GitHub 전용 thumbnail 원본 path. Local Manager만 안전하게 추가·교체·삭제
 - 설정 UI의 username은 `@ilwha` 읽기 전용이며 import_after와 series mapping만 편집한다.
 - exclude/hide는 게시물 관리 UI 또는 전용 CLI로 편집한다.
 
@@ -374,6 +414,7 @@ behind/diverged/fetch 실패/비-main 상태에서는 쓰기를 중단한다. �
 
 - `.velog-sync/config.yml`
 - `.velog-sync/state.json`
+- `.velog-sync/thumbnail-overrides`
 - `_posts`
 - `assets/img/velog`
 
@@ -395,7 +436,7 @@ unrelated dirty file이나 origin/main 이후의 local commit에 unrelated file�
 | `./blog dry-run` | 파일 변경 없이 실제 원격 상태와 분류 확인 |
 | `./blog sync` | 로컬에 실제 반영. 신규 import가 있으면 `동기화` 입력 요구 |
 | `./blog sync --yes` | 비대화형 실제 반영 |
-| `./blog test` | 65개 Python unit test 실행 |
+| `./blog test` | 89개 Python unit test 실행 |
 | `./blog build` | `.bundle-blog` 의존성 준비 후 `_site` 빌드 |
 | `./blog check` | test → live dry-run → build → HTML-Proofer 순서의 전체 검사 |
 | `./blog serve` | `127.0.0.1:4000` 로컬 Jekyll preview. 같은 서비스 인스턴스의 중복 실행 방지 |
@@ -501,7 +542,7 @@ workflow permissions:
 
 1. main checkout (`fetch-depth: 0`)
 2. 모든 event에서 Python 3.13과 sync 의존성 설치
-3. push와 수동 dispatch에서는 65개 unit test 실행; 15분 schedule에서는 반복하지 않음
+3. push와 수동 dispatch에서는 89개 unit test 실행; 15분 schedule에서는 반복하지 않음
 4. manual dry-run이면 변경 미리보기
 5. manual apply 또는 enabled schedule이면 실제 sync
 6. 변경 경로가 `_posts/*`, `assets/img/velog/*`, `.velog-sync/state.json`뿐인지 검증
@@ -524,7 +565,8 @@ workflow가 만든 commit은 `_posts`, `.velog-sync/state.json`, `assets/img/vel
 - Markdown/state/config → temp file + `fsync` + `os.replace`
 - 이미지 → `.part` + `fsync` + `os.replace`
 - unsafe post/image path → 거부
-- image 실패 → 포스트 전체를 실패시키지 않고 원격 URL 유지 + 경고
+- body image 실패 → 해당 본문 URL을 원격으로 유지 + 경고
+- active thumbnail 실패 → 기존 post를 보존하고 outcome `ERROR`
 - source 삭제 → 로컬 자동 삭제 금지
 - hidden → engine이 파일을 재생성하지 않음
 - workflow → 예상 경로 외 변경 거부, build와 HTML 검사 후 commit
@@ -533,9 +575,26 @@ workflow가 만든 commit은 `_posts`, `.velog-sync/state.json`, `assets/img/vel
 
 ## 16. 테스트와 2026-09-08 검증 결과
 
-`./blog check`를 현재 state에서 다시 실행했고 다음을 모두 통과했다.
+### 16.1 2026-09-08 실제 Velog thumbnail audit
 
-1. Python unit tests: **65개 통과** (`Ran 65 tests ... OK`)
+운영 파일을 수정하기 전에 `@ilwha`의 GraphQL inventory 20→20→0과 40개 `readPost`를 전부 읽기 전용으로 대조했다.
+
+- 전체 40개: thumbnail 있음 19, 없음 21
+- visible 13개: 있음 11, 없음 2
+- hidden 27개: 있음 8, 없음 19
+- inventory와 readPost thumbnail: 40개 모두 동일
+- thumbnail이 같은 글의 Markdown body image URL과 동일: 0
+- body에 없는 별도 thumbnail: 19
+- host: 19개 모두 `velog.velcdn.com`
+- CDN HEAD MIME: JPEG 12, PNG 1, `application/octet-stream`으로 응답한 `.avif` 6
+
+`.avif` 6개는 현재 모두 hidden 쪽이지만 unhide에 대비해 허용 host의 `.avif` URL에 한해서 download bytes의 AVIF magic/brand를 다시 확인한다. 범용 MIME만 믿어 임의 파일을 허용하지 않는다.
+
+### 16.2 검증 결과
+
+`./blog check`를 thumbnail migration 후 현재 state에서 다시 실행했고 다음을 모두 통과했다.
+
+1. Python unit tests: **89개 통과** (`Ran 89 tests ... OK`)
 2. live Velog dry-run: IMPORT 0, UPDATE 0, UNCHANGED 13, EXCLUDED 0, HIDDEN 27, ERROR 0, 경고 0
 3. Jekyll build: Chirpy site 정상 생성 (`_site`, 약 1.15초)
 4. HTML-Proofer: 22 HTML files, 196 internal links, 12 files의 internal hash 확인, 성공
@@ -561,6 +620,10 @@ workflow가 만든 commit은 `_posts`, `.velog-sync/state.json`, `assets/img/vel
 - hidden 이미지 prune, visible 이미지 보존, unhide 재다운로드
 - 한국어 UI routes/status, Tags UI 부재
 - 위험 작업 backend confirmation, 작업 history, concurrent lock
+- Velog thumbnail 있음/null, body image와 동일/별도, Velog→override→none 우선순위
+- thumbnail add/change/remove, 고정 post_path, dormant override rendered no-op
+- manual upload magic/MIME/size/UUID/path traversal, 원본 비공개 경로, publish allowlist
+- home thumbnail/text-only card, post detail 자동 미표시, heading bold/Tags 회귀
 
 변경 후 최소 검증 명령은 다음이다.
 
@@ -770,10 +833,12 @@ hide는 config, `_posts`, 해당 UUID의 deployable 이미지를 바꾸므로 co
 - `ERROR=0`
 - Velog series만 Chirpy category로 반영됨
 - tags가 output/state/hash/UI에 없음
+- 목록 thumbnail 우선순위가 Velog > GitHub override > none이며 본문 첫 이미지 fallback이 없음
+- thumbnail metadata가 home/list에만 렌더링되고 post detail에 자동 삽입되지 않음
 - 숨긴 글이 재생성되지 않음
 - 변경 없는 run이 Markdown/state/commit을 만들지 않음
 - 이미지가 허용 정책 안에서 미러링되거나 실패 시 원격 URL로 안전하게 남음
-- 65개 unit test 통과
+- 89개 unit test 통과
 - Jekyll production build 통과
 - HTML-Proofer 통과
 - workflow가 검증 뒤에만 commit/deploy함

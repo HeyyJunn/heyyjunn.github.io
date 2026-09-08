@@ -5,15 +5,23 @@
       "categories": [
         "[React.Js] Archive"
       ],
-      "content_hash": "sha256:36ffcd767a436395e7ed8fb6456161a4a47f88e82fc6adf690c0687750a1e1df",
+      "content_hash": "sha256:001d72c38f09d6680a724828939873323374bcd7c16d3add34e5fd05fa89268b",
       "images": {},
-      "metadata_hash": "sha256:ad57b5dd13cec2143c8b4c74f3963b75cf9f605433166185846dc513b6116442",
+      "metadata_hash": "sha256:ebb16c7b7618134aa4484188c0f9e038db3f3df80798fc457d2596f64a940852",
       "post_path": "_posts/2025-02-02-React.JS-useReducer-useMemo-useCallback.md",
       "published_at": "2025-02-02T12:29:20.693Z",
-      "rendered_sha256": "sha256:d76a85eb057cc5ddc16e7648be1b7f76f38f79dc2bed6ba08d103852140a4bd7",
+      "rendered_sha256": "sha256:6c7019b733cef3d174a128c9f105658a7f00bfadd04527edfc0852562c64ca1d",
       "source_slug": "React.JS-useReducer-useMemo-useCallback",
       "source_updated_at": "2026-09-06T09:10:55.612Z",
       "source_url": "https://velog.io/@ilwha/React.JS-useReducer-useMemo-useCallback",
+      "thumbnail": {
+        "content_type": "image/jpeg",
+        "kind": "velog",
+        "path": "assets/img/velog/039e20bd-5c5d-442a-8170-285a3f991802/c820004ceaf670591508f9caa4249fd0226903451d624f49ba4c639f9429f8d7.jpg",
+        "sha256": "sha256:cc5f5c264c4395911b71124a38b5025d990812f58f356a1fba8beecb34ac626b",
+        "size": 52696,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/d0f15732-8c2e-491c-adff-51bed6da4226/image.jpg"
+      },
       "title": "[ React.JS ] useReducer, useMemo, useCallback"
     },
     "24104f88-d139-4945-b4d0-a020b26912b2": {
@@ -21,7 +29,7 @@
       "categories": [
         "[C++] Archive"
       ],
-      "content_hash": "sha256:62e120171ffaf79f88218d115397e4be8a2c6e1f53c92565ba580b62f7a2adec",
+      "content_hash": "sha256:ebc9b50e26844813f09bcee903c0e0d22304c08410d9f4e4c57bdd16160c809d",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/c0cbdf1d-71c9-40a9-8e66-257a7dbf82a9/image.png": {
           "content_type": "image/png",
@@ -30,13 +38,14 @@
           "size": 316261
         }
       },
-      "metadata_hash": "sha256:0d71903afff1027da5dc1f177544869f2b8aff5e0ef95a6776cd8063429c5b81",
+      "metadata_hash": "sha256:0f37fbb785af0b12d1d5ab9de560f58f8a7aa9271a8db0b55f3548daf07ef243",
       "post_path": "_posts/2024-11-02-C-객체지향프로그래밍1-C-language-review-Chapter-3-7.md",
       "published_at": "2024-11-02T07:30:32.999Z",
       "rendered_sha256": "sha256:98d44f047b1774b3a97370bb80b1aa73e81e5ad552b2b0341111f461022c7c6a",
       "source_slug": "C-객체지향프로그래밍1-C-language-review-Chapter-3-7",
       "source_updated_at": "2026-09-01T18:56:47.034Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-C-language-review-Chapter-3-7",
+      "thumbnail": null,
       "title": "[C++] 객체지향프로그래밍1 : C-language review (Chapter 3 - 7)"
     },
     "2b9b7e47-2e14-4612-ab10-e6c81055dd8e": {
@@ -44,7 +53,7 @@
       "categories": [
         "[C++] Archive"
       ],
-      "content_hash": "sha256:e77f46b3bd558f08214d3228cfaa28e7057b6ca2448cbe0814fda998678cdee0",
+      "content_hash": "sha256:dd1f13b690a0dcf22eb15dbad9f46ad7b9647f8ce0bc18b45c6fd2f4cff034e7",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/022dfd43-b5bc-4a4b-afa2-9464a2481a44/image.png": {
           "content_type": "image/png",
@@ -71,13 +80,21 @@
           "size": 33884
         }
       },
-      "metadata_hash": "sha256:aa6459afe87cb1c9c54c72e57f8596f2a250f73fd4fb9bda2f21bc56ce980f24",
+      "metadata_hash": "sha256:f5627dc1ecc680ff2dea9c57bc4c8f482207c05d1184d4833090137de8c346d1",
       "post_path": "_posts/2024-11-10-C-객체지향프로그래밍1-Lambda-Expression-Namespace-ADL-Nested-Class-chapter-17-18.md",
       "published_at": "2024-11-10T08:29:58.685Z",
-      "rendered_sha256": "sha256:4bdc01ec63f5bd3e8f9463c2f58f26ab204639695a266e1879ee8846f71af52c",
+      "rendered_sha256": "sha256:4da475301b23553a1418e0ec5e55120db23d70ecf0a901de69e3d03c1a945abc",
       "source_slug": "C-객체지향프로그래밍1-Lambda-Expression-Namespace-ADL-Nested-Class-chapter-17-18",
       "source_updated_at": "2026-09-07T23:51:49.330Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-Lambda-Expression-Namespace-ADL-Nested-Class-chapter-17-18",
+      "thumbnail": {
+        "content_type": "image/jpeg",
+        "kind": "velog",
+        "path": "assets/img/velog/2b9b7e47-2e14-4612-ab10-e6c81055dd8e/1a6537ad1010cab1056a99dc3a77033ffc3da9fe8a26eae0a55eb826735f1cb3.jpg",
+        "sha256": "sha256:958482c90bcc8fefb8954e17fe176fd946d942fe6e912dfeea49bf291d99b306",
+        "size": 49775,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/ff92451f-d12b-423e-8597-6b0f3e19a8da/image.jpg"
+      },
       "title": "[C++] 객체지향프로그래밍1 : Lambda Expression / Namespace / ADL / Nested Class (chapter 17 - 18)"
     },
     "31f0f369-b238-4fce-b631-950a6d2ffb4c": {
@@ -137,15 +154,23 @@
       "categories": [
         "[Java] Archive"
       ],
-      "content_hash": "sha256:ef6cdd83d823bb6e8c3b2a002adbe297e75d9d4395b7a440e6c7da28b434ac9b",
+      "content_hash": "sha256:552ba9dd99383f18d378719bd10d2bfc9d9d84d48c241fecef29e0fe903440e2",
       "images": {},
-      "metadata_hash": "sha256:3fb6e7f69904250c3320ccc93c7b1d95972119ce05acda38982b5b553e8a2015",
+      "metadata_hash": "sha256:4fe8ed2c3c4f2cc25ed3043b70c39347ae6b6123818e3e266fe042a189678fd0",
       "post_path": "_posts/2025-03-14-Java-Polymorphism.md",
       "published_at": "2025-03-14T11:31:33.993Z",
-      "rendered_sha256": "sha256:09caadefe6d965e3c46c9f44d9421f97ca190944ae28091a307222747c70a840",
+      "rendered_sha256": "sha256:cfcde445d0aea985a453b802f1871d47dae0da6d6c74a88cd951cd9fe5751117",
       "source_slug": "Java-Polymorphism",
       "source_updated_at": "2026-09-01T18:56:04.481Z",
       "source_url": "https://velog.io/@ilwha/Java-Polymorphism",
+      "thumbnail": {
+        "content_type": "image/jpeg",
+        "kind": "velog",
+        "path": "assets/img/velog/37a2bbb0-0fe1-4a3b-8de3-405a08a9e1b7/00bc1e9539f68d2e5bd93c7911d6e950200c3afafea695a1beda4401843833b9.jpg",
+        "sha256": "sha256:a01ffbc1854c68597c27a05f053c309d4a099e0f5412a986cac78663e0770e42",
+        "size": 51491,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/80a87f8b-64ba-45b3-99a7-554d7421fce3/image.jpg"
+      },
       "title": "[Java] Polymorphism"
     },
     "3bbd2352-464c-4b86-be90-a7f08b232073": {
@@ -153,7 +178,7 @@
       "categories": [
         "[C++] Archive"
       ],
-      "content_hash": "sha256:6f69156901e8f940ae02c9b4f654ada9cd28de036d82628d7d3fb7e83f3aa594",
+      "content_hash": "sha256:04c62bc9e4a8b182f52002103bf8dbdce2ea8f2069bc58dea6485ad750265ebf",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/b39a7b32-0625-486d-9bd2-d3f95b6d6eec/image.png": {
           "content_type": "image/png",
@@ -162,13 +187,21 @@
           "size": 46211
         }
       },
-      "metadata_hash": "sha256:9c0c1883fce66c3c3105672e69225520953d14090f10e2ce2077cd52681e61e3",
+      "metadata_hash": "sha256:fba495da6e1a01abc03c0d70d680d6364551bac6f98219984512c78f2b0b1d62",
       "post_path": "_posts/2024-11-10-C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15.md",
       "published_at": "2024-11-10T08:04:38.183Z",
-      "rendered_sha256": "sha256:b306df7ada07a90cbe251fb365c0331c9fd458a81cbe04b1e2219da319cb5bfc",
+      "rendered_sha256": "sha256:99895f748508b323e3fb17741fd4947593be35f47694629f9f734e011f2ad7a2",
       "source_slug": "C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15",
       "source_updated_at": "2026-09-01T18:56:42.088Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15",
+      "thumbnail": {
+        "content_type": "image/jpeg",
+        "kind": "velog",
+        "path": "assets/img/velog/3bbd2352-464c-4b86-be90-a7f08b232073/67c00ee507f3b923fa95c8977502f4ff2306994347b28188a021ee3c7bd71b45.jpg",
+        "sha256": "sha256:958482c90bcc8fefb8954e17fe176fd946d942fe6e912dfeea49bf291d99b306",
+        "size": 49775,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/5f9f7ae0-05e7-45a8-8cd1-6cdeae2f62c4/image.jpg"
+      },
       "title": "[C++] 객체지향프로그래밍1 : Inheritance / Override / vptr,vtbl / downcasting (chapter 13 - 16)"
     },
     "4030a68a-c42e-4bae-bb76-eb1383fa2937": {
@@ -287,7 +320,7 @@
       "categories": [
         "[C++] Archive"
       ],
-      "content_hash": "sha256:0d3857c7d906fa09191bef9379e3999ed4fc0e7c916d0a8ce18c1c573406e2d5",
+      "content_hash": "sha256:d9605409be5953519a390b397095c0079ed033dbcb89997c2be4e262b7e06375",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/0c1b2236-b197-40b6-97b7-b18dbbf65c81/image.png": {
           "content_type": "image/png",
@@ -308,13 +341,21 @@
           "size": 323617
         }
       },
-      "metadata_hash": "sha256:c8d943486c9a05130dc01e5f1f612a47c5e07f37e9c6d5b6df2b2f438cd6291f",
+      "metadata_hash": "sha256:b035c5e5f4bfb4a73f44a0e668f94df268bafb289d9074f6f19be77a49f5dd48",
       "post_path": "_posts/2024-11-09-C-객체지향프로그래밍1-C언어-복습-Chapter-8-12.md",
       "published_at": "2024-11-09T10:41:27.488Z",
-      "rendered_sha256": "sha256:b16f68af863a2ed07f85ebdcfeea867b7f932bd63c942d98000e82df6a955d5a",
+      "rendered_sha256": "sha256:d1b3a4fdabdf20ebd04b3ef6e9ea629613eca48ac57cf5113dcafd8df3e63c12",
       "source_slug": "C-객체지향프로그래밍1-C언어-복습-Chapter-8-12",
       "source_updated_at": "2026-09-01T18:56:29.428Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-C%EC%96%B8%EC%96%B4-%EB%B3%B5%EC%8A%B5-Chapter-8-12",
+      "thumbnail": {
+        "content_type": "image/jpeg",
+        "kind": "velog",
+        "path": "assets/img/velog/461d37cf-5955-4b3a-9b6a-414c60fc9863/b9430070a52cc4083f693e7a59399d39d42e4ac2d26240e50a79689c52e48e52.jpg",
+        "sha256": "sha256:958482c90bcc8fefb8954e17fe176fd946d942fe6e912dfeea49bf291d99b306",
+        "size": 49775,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/3c498fa1-f827-44c0-9322-2aa2756dea73/image.jpg"
+      },
       "title": "[C++] 객체지향프로그래밍1 : con(de, delegating)structor / overloading / include guard (Chapter 8 - 12)"
     },
     "48700130-8ff0-493d-ad8c-0a54d9a3896a": {
@@ -525,7 +566,7 @@
       "categories": [
         "[Java] Archive"
       ],
-      "content_hash": "sha256:2c4912409dd770b93c7e24a8c1310d6de124e61fe4cdc9e3f4bae1ec5f28ddd6",
+      "content_hash": "sha256:f421a743440aba0b116ad5a95a8ec3a1e9c2827be466769ed2118abb75d61527",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/22388ac3-f104-4ad4-b5b4-6661e24ade58/image.jpeg": {
           "content_type": "image/jpeg",
@@ -540,13 +581,14 @@
           "size": 286096
         }
       },
-      "metadata_hash": "sha256:3478c54dc116ea1f57f05fd1157070aeac400c859bbb93ee744e3e227c31f1f4",
+      "metadata_hash": "sha256:33f7d55a1d1aac7974b0d3e0855791dcfdb64d7756720b93f395699548f9f52d",
       "post_path": "_posts/2025-03-08-Java-Dynamic-Method-Dispatch-V-Table-JVM.md",
       "published_at": "2025-03-08T13:36:16.054Z",
       "rendered_sha256": "sha256:658a7e11eacfdf9a4484393b46ff013e0838f200bb1f7d9f896bbd14052db689",
       "source_slug": "Java-Dynamic-Method-Dispatch-V-Table-JVM",
       "source_updated_at": "2026-09-07T00:36:51.341Z",
       "source_url": "https://velog.io/@ilwha/Java-Dynamic-Method-Dispatch-V-Table-JVM",
+      "thumbnail": null,
       "title": "[Java] Dynamic Method Dispatch & V-Table (JVM)"
     },
     "83861c49-4732-49dd-8fa1-4fa847c150e7": {
@@ -603,7 +645,7 @@
     "8916fba7-4c88-4768-aa6a-374feba00f14": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:414a372bfc686fe84a8fed94de1b417550e70303a8e06b1e28b8109d2b035a98",
+      "content_hash": "sha256:ad421ac072b7bbf83321779195ab8beecb856af911030af1316565c1e4a90b97",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
           "content_type": "image/png",
@@ -654,13 +696,21 @@
           "size": 49195
         }
       },
-      "metadata_hash": "sha256:88b346fa06d242274b7171c27b62ad3451ef1bf041c5f729f10026dff8f63cb3",
+      "metadata_hash": "sha256:3601891be967494649ae5ab300696814a32262d1c061ddaa46469e4101b560c7",
       "post_path": "_posts/2025-07-03-Spring.md",
       "published_at": "2025-07-03T01:06:55.486Z",
-      "rendered_sha256": "sha256:519f0199d3ddcc252d179bdbfc136458e31b1740402dc6028e8fd75d68b5183e",
+      "rendered_sha256": "sha256:f55c1881e2373c994649a1f0124a5bc594f7da18e2be1c1cebbd01dd6e9c53d2",
       "source_slug": "Spring",
       "source_updated_at": "2026-09-08T00:39:55.621Z",
       "source_url": "https://velog.io/@ilwha/Spring",
+      "thumbnail": {
+        "content_type": "image/jpeg",
+        "kind": "velog",
+        "path": "assets/img/velog/8916fba7-4c88-4768-aa6a-374feba00f14/32b7ba7a622551523406dca190257201dc69d3178a07d9783a2ba876d04a07ec.jpg",
+        "sha256": "sha256:92af2024470928907f04cbbc199064fa84ac8c9975423dca1be07a4efde920ce",
+        "size": 54527,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/b5a38e31-8262-41a5-9914-e9ceff67ecc1/image.jpg"
+      },
       "title": "[Spring] JPA"
     },
     "8a76357b-7283-4b46-9d59-4703eb17fc86": {
@@ -1305,7 +1355,7 @@
     "ca010783-034c-45e4-9551-5aecfa373dbe": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:af3759de80653f443fcc5043c9b97c0e1755da460ee320da41fb58d4afc5aea7",
+      "content_hash": "sha256:986bd26eccbb5597b447874214f345d6b207c5cbe87d76edd7feeadef324f5d0",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/4393a409-495c-48da-84a2-382680a4f25f/image.png": {
           "content_type": "image/png",
@@ -1326,13 +1376,21 @@
           "size": 59923
         }
       },
-      "metadata_hash": "sha256:42499e474ef0735282f6d6282311ba9a4057e0a1df2ed21300ce69474311f869",
+      "metadata_hash": "sha256:3fe572bb268af67430a7e45b99e557e09d8ce4b326897ffda564d9123961aaec",
       "post_path": "_posts/2025-05-06-Spring-내가-보려고-만든-MVC.md",
       "published_at": "2025-05-06T07:12:07.910Z",
-      "rendered_sha256": "sha256:bf666d0b491ee35d5b6d4c55d626a132689d96bc31204e63340825a374c0448b",
+      "rendered_sha256": "sha256:047c7c55acdab2551d76f2e50e93a8c29fa8767ff3157e627beccce6e3064796",
       "source_slug": "Spring-내가-보려고-만든-MVC",
       "source_updated_at": "2026-09-08T01:12:48.591Z",
       "source_url": "https://velog.io/@ilwha/Spring-%EB%82%B4%EA%B0%80-%EB%B3%B4%EB%A0%A4%EA%B3%A0-%EB%A7%8C%EB%93%A0-MVC",
+      "thumbnail": {
+        "content_type": "image/jpeg",
+        "kind": "velog",
+        "path": "assets/img/velog/ca010783-034c-45e4-9551-5aecfa373dbe/35b03ad997434e0fd86975a7d1f2b256329ca4fe3b1b6e481d1b7454d2f1bf9a.jpg",
+        "sha256": "sha256:92af2024470928907f04cbbc199064fa84ac8c9975423dca1be07a4efde920ce",
+        "size": 54527,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/d827fcfe-40b1-4e11-802a-4482bb9c6fae/image.jpg"
+      },
       "title": "[Spring] 내가 보려고 만든 MVC 기초흐름도"
     },
     "cf211993-d985-4368-9091-dd1cb1b952a2": {
@@ -1340,21 +1398,29 @@
       "categories": [
         "[Java] Archive"
       ],
-      "content_hash": "sha256:7711cb5825e4ca1d8dff0c56f7eb3815cb7f76262378783a3cf5a4d11cde9a01",
+      "content_hash": "sha256:8a451019761385a9c8f853e30a608b82f809a7e253f687d226c93b85853ec418",
       "images": {},
-      "metadata_hash": "sha256:824e6255c94338b455af666effb9366cdf5c1addab1656113ac57ff1a4f432f5",
+      "metadata_hash": "sha256:936a0deaa63159344b662a02bb131bd259abe7c0720d704e757a479d4d5d7e3a",
       "post_path": "_posts/2025-03-18-Java-Object-Class-Immutable-Object.md",
       "published_at": "2025-03-18T09:56:00.530Z",
-      "rendered_sha256": "sha256:255df678cd5f189cf7960777adaec808a8f1316396e87c7216ce6624a7909c02",
+      "rendered_sha256": "sha256:a14b124bf93d3e72d93915aef71aae791195762fb7f5f661ea7346f324000cab",
       "source_slug": "Java-Object-Class-Immutable-Object",
       "source_updated_at": "2026-09-01T18:56:11.197Z",
       "source_url": "https://velog.io/@ilwha/Java-Object-Class-Immutable-Object",
+      "thumbnail": {
+        "content_type": "image/jpeg",
+        "kind": "velog",
+        "path": "assets/img/velog/cf211993-d985-4368-9091-dd1cb1b952a2/f340b9b2ab3bfdbda7e069de204203c35a60fa3f785f3e7fe00d8e0e2aae3331.jpg",
+        "sha256": "sha256:a01ffbc1854c68597c27a05f053c309d4a099e0f5412a986cac78663e0770e42",
+        "size": 51491,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/25e5473b-71d2-4554-b70e-5dd902dd1298/image.jpg"
+      },
       "title": "[Java] Object Class, Immutable Object"
     },
     "dbf10a73-b92c-48ca-8964-642ef5cdc591": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:f69b3df3558b54a61b926bcdb1490446143324f033eb0bbe30e96f8dcb51c795",
+      "content_hash": "sha256:24d6d414cc8478fe0d59076041f4992c266209f2f5153e5b92f6872af35b4b3c",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
           "content_type": "image/png",
@@ -1405,13 +1471,21 @@
           "size": 49195
         }
       },
-      "metadata_hash": "sha256:8e46e072eee8d8aa80dd72d19292431633dce63396ab427d544b483545cb1563",
+      "metadata_hash": "sha256:a98ec9867fd731cb959bab853cdfdc8367a9ff2d4a521106a66b703e3e7d34ec",
       "post_path": "_posts/2025-07-09-Spring-Spring-Boot-기본-용어-정리.md",
       "published_at": "2025-07-09T10:50:53.174Z",
-      "rendered_sha256": "sha256:af2cb8954f8b8b965a7a9cd38e1c2d8a08d2677f39930d77535f50a5d85d420d",
+      "rendered_sha256": "sha256:5ebfe246a2581a4fb66b09663c70257b584bfcb6453517791758d373403833f7",
       "source_slug": "Spring-Spring-Boot-기본-용어-정리",
       "source_updated_at": "2026-09-08T00:39:19.613Z",
       "source_url": "https://velog.io/@ilwha/Spring-Spring-Boot-%EA%B8%B0%EB%B3%B8-%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC",
+      "thumbnail": {
+        "content_type": "image/png",
+        "kind": "velog",
+        "path": "assets/img/velog/dbf10a73-b92c-48ca-8964-642ef5cdc591/d27f1a9586ad3eb0a6766c1cd393f4ef6747ff0559ef45b3ee664f327a1df49c.png",
+        "sha256": "sha256:419cc697143f872d2b436e90953231549fd8f09c2b0d61006feb3d8d3bdd0c46",
+        "size": 518794,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/bd1066c9-e014-4f3f-8e55-f0124767c8d9/image.png"
+      },
       "title": "[Spring] Spring Boot 기본 용어 정리"
     },
     "dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25": {
@@ -1519,15 +1593,23 @@
       "categories": [
         "[Java] Archive"
       ],
-      "content_hash": "sha256:f8007df4d68597c45f8c329859bbcedc3d8773bf0ead6d801c72d137066341f1",
+      "content_hash": "sha256:8603c50048208ffb4bb31c1a867988e71908c6595942d4735b34f6026a858b64",
       "images": {},
-      "metadata_hash": "sha256:4fa9dca02ac2ae0bc9a8f61d6c13481b751149fa57bcf4ee04403e08f90e2cff",
+      "metadata_hash": "sha256:04621643621664164820d3d59abe4aa05a66ff168e8aea14e2311af472e55dcf",
       "post_path": "_posts/2025-03-24-dvhiut7k.md",
       "published_at": "2025-03-23T15:29:31.798Z",
-      "rendered_sha256": "sha256:51a1fbeb62ff359ec7039f5eeaac74fedb9eb8d001ef1d1e4075312fa1cd4939",
+      "rendered_sha256": "sha256:3eda3e6ad0d81d29729090d6aa02cb05179800776dffd726ad8c9761636f921d",
       "source_slug": "dvhiut7k",
       "source_updated_at": "2026-09-01T18:55:37.496Z",
       "source_url": "https://velog.io/@ilwha/dvhiut7k",
+      "thumbnail": {
+        "content_type": "image/jpeg",
+        "kind": "velog",
+        "path": "assets/img/velog/e4107974-4393-4fec-84dd-318cdb9e56af/be2c8150d077e5feb91ab8364e5672126ce230a0865cb3ec06558ec8f572f3cc.jpg",
+        "sha256": "sha256:a01ffbc1854c68597c27a05f053c309d4a099e0f5412a986cac78663e0770e42",
+        "size": 51491,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/66f34a58-b8f0-4e68-88f5-68c34dac1680/image.jpg"
+      },
       "title": "[Java] Generic"
     },
     "e600c7b4-3b59-4267-a271-a1a03746a278": {
@@ -1631,7 +1713,7 @@
       "categories": [
         "[React.Js] Archive"
       ],
-      "content_hash": "sha256:f0bf73ea8603b35a90aab9e2be47649d809db0bb8a104cc4ce8a03e7878fe040",
+      "content_hash": "sha256:e0ef5a1364fb805b839f1bfe2e7139b87955f75222cce62607ce0534d56b6786",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/9be990da-cdc1-4943-b837-903977731f2a/image.png": {
           "content_type": "image/png",
@@ -1652,13 +1734,21 @@
           "size": 47936
         }
       },
-      "metadata_hash": "sha256:70b1e130099bf3feef96859112ae08f31c99953a890b84ae8f874abff608ed22",
+      "metadata_hash": "sha256:c3506909dc2101813bc090672409cfe616bbe3a97099e0812cc55a5d2eb17d4c",
       "post_path": "_posts/2025-01-26-React.JS-Mini-Project-Todo-List.md",
       "published_at": "2025-01-25T17:59:28.475Z",
-      "rendered_sha256": "sha256:d8a4fc2f5b18cd7c00b54c31ed520b9228be70c9b293360859b2dca9f6174255",
+      "rendered_sha256": "sha256:61538bcc073112159e720e6d5a4904f4e270c39fa99087e572534f3638a2560a",
       "source_slug": "React.JS-Mini-Project-Todo-List",
       "source_updated_at": "2026-09-01T18:56:24.387Z",
       "source_url": "https://velog.io/@ilwha/React.JS-Mini-Project-Todo-List",
+      "thumbnail": {
+        "content_type": "image/jpeg",
+        "kind": "velog",
+        "path": "assets/img/velog/efdd96a3-22b3-4e08-854f-46a6cbbd0514/b45bc74c90c683af056f6aed85ca55b78339d8fdb0f2fe2932b84d835f5155e3.jpg",
+        "sha256": "sha256:cc5f5c264c4395911b71124a38b5025d990812f58f356a1fba8beecb34ac626b",
+        "size": 52696,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/0c7cfeaa-11bb-40f4-9fda-c7af4c8db88d/image.jpg"
+      },
       "title": "[ React.JS ] Mini Project - Todo List"
     },
     "eff33e2b-cd18-49b3-a912-8c571eedf8c5": {

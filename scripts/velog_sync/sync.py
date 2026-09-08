@@ -14,13 +14,13 @@ from zoneinfo import ZoneInfo
 
 from .client import GraphQLClient, RssClient
 from .config import SyncConfig
-from .images import ImageMirror, ImagePlan, remove_post_images
+from .images import ImageMirror, ImagePlan, prune_post_images, remove_post_images
 from .markdown import has_math, image_urls, normalize_markdown, transform_images, unclosed_fence
-from .models import PostMetadata, SourceError, SyncOutcome
+from .models import ImageError, PostMetadata, SourceError, SyncOutcome
 from .state import atomic_write_text, load_state, serialize_state, sha256_bytes, sha256_file
 
 
-TRANSFORMATION_SCHEMA = 2
+TRANSFORMATION_SCHEMA = 3
 
 
 @dataclass(frozen=True)
@@ -83,12 +83,19 @@ def resolved_categories(post: PostMetadata, config: SyncConfig) -> tuple[str, ..
     return config.series_category_map.get(post.series.name, (post.series.name,))
 
 
-def metadata_hash(post: PostMetadata, categories: tuple[str, ...], source_url: str) -> str:
+def metadata_hash(
+    post: PostMetadata,
+    categories: tuple[str, ...],
+    source_url: str,
+    thumbnail_input: dict[str, Any] | None,
+) -> str:
     payload = {
         "categories": categories,
         "id": post.id,
+        "released_at": post.released_at,
         "slug": post.slug,
         "source_url": source_url,
+        "thumbnail": thumbnail_input,
         "title": post.title.strip(),
         "updated_at": post.updated_at,
     }
@@ -134,6 +141,7 @@ def render_post(
     categories: tuple[str, ...],
     published_at: str,
     timezone: str,
+    thumbnail: dict[str, Any] | None = None,
 ) -> str:
     lines = [
         "---",
@@ -144,6 +152,14 @@ def render_post(
     if categories:
         lines.append("categories:")
         lines.extend(f"  - {yaml_quote(category)}" for category in categories)
+    if thumbnail:
+        lines.extend(
+            (
+                "thumbnail:",
+                f"  path: {yaml_quote('/' + str(thumbnail['path']).lstrip('/'))}",
+                f"  alt: {yaml_quote(post.title.strip())}",
+            )
+        )
     if has_math(body):
         lines.append("math: true")
     lines.extend(("render_with_liquid: false", "---", ""))
@@ -156,6 +172,7 @@ def content_hash(
     categories: tuple[str, ...],
     published_at: str,
     images: dict[str, Any],
+    thumbnail: dict[str, Any] | None,
 ) -> str:
     payload = {
         "body": normalize_markdown(body),
@@ -163,7 +180,10 @@ def content_hash(
         "id": post.id,
         "images": images,
         "published_at": published_at,
+        "released_at": post.released_at,
         "schema": TRANSFORMATION_SCHEMA,
+        "source_slug": post.slug,
+        "thumbnail": thumbnail,
         "title": post.title.strip(),
         "updated_at": post.updated_at,
     }
@@ -197,6 +217,28 @@ class SyncEngine:
     def _excluded(self, post: PostMetadata) -> bool:
         return post.id.lower() in self.config.exclude_post_ids
 
+    @staticmethod
+    def _thumbnail_identity(value: Any) -> tuple[str, str] | None:
+        if not isinstance(value, dict):
+            return None
+        kind = value.get("kind")
+        source = value.get("source_url") if kind == "velog" else value.get("source_path")
+        if isinstance(kind, str) and isinstance(source, str):
+            return kind, source
+        return None
+
+    @classmethod
+    def _thumbnail_change(cls, old: Any, new: Any) -> str:
+        old_identity = cls._thumbnail_identity(old)
+        new_identity = cls._thumbnail_identity(new)
+        if old_identity is None and new_identity is None:
+            return "none"
+        if old_identity is None:
+            return "added"
+        if new_identity is None:
+            return "removed"
+        return "unchanged" if old_identity == new_identity else "changed"
+
     def _state_entry(
         self,
         post: PostMetadata,
@@ -206,23 +248,46 @@ class SyncEngine:
         published_at: str,
         source_url: str,
         image_records: dict[str, Any],
+        thumbnail: dict[str, Any] | None,
         rendered: str,
         body_source: str,
     ) -> dict[str, Any]:
         return {
             "body_source": body_source,
             "categories": list(categories),
-            "content_hash": content_hash(post, body, categories, published_at, image_records),
+            "content_hash": content_hash(
+                post, body, categories, published_at, image_records, thumbnail
+            ),
             "images": image_records,
-            "metadata_hash": metadata_hash(post, categories, source_url),
+            "metadata_hash": metadata_hash(
+                post,
+                categories,
+                source_url,
+                self._thumbnail_hash_input(post, thumbnail),
+            ),
             "post_path": path,
             "published_at": published_at,
             "rendered_sha256": sha256_bytes(rendered.encode("utf-8")),
             "source_slug": post.slug,
             "source_updated_at": post.updated_at,
             "source_url": source_url,
+            "thumbnail": thumbnail,
             "title": post.title.strip(),
         }
+
+    @staticmethod
+    def _thumbnail_hash_input(
+        post: PostMetadata, thumbnail: dict[str, Any] | None
+    ) -> dict[str, Any] | None:
+        if post.thumbnail:
+            return {"kind": "velog", "source_url": post.thumbnail}
+        if isinstance(thumbnail, dict) and thumbnail.get("kind") == "override":
+            return {
+                "kind": "override",
+                "source_path": thumbnail.get("source_path"),
+                "sha256": thumbnail.get("sha256"),
+            }
+        return None
 
     def run(self, dry_run: bool = False) -> SyncResult:
         state = load_state(self.state_path)
@@ -259,6 +324,7 @@ class SyncEngine:
             source_url = canonical_url(self.config.username, post.slug)
             categories = resolved_categories(post, self.config)
             existing = old_posts.get(post.id)
+            existing_thumbnail = existing.get("thumbnail") if isinstance(existing, dict) else None
             if post.id.lower() in self.config.hidden_post_ids:
                 outcomes.append(
                     SyncOutcome(
@@ -266,6 +332,7 @@ class SyncEngine:
                         post,
                         existing.get("post_path") if isinstance(existing, dict) else None,
                         categories,
+                        thumbnail_change="none",
                     )
                 )
                 continue
@@ -276,6 +343,31 @@ class SyncEngine:
                 local_date = parse_timestamp(post.released_at).astimezone(ZoneInfo(self.config.timezone)).date()
                 if local_date < self.config.import_after:
                     outcomes.append(SyncOutcome("EXCLUDED", post, None, categories))
+                    continue
+
+            override_plan: ImagePlan | None = None
+            planned_override: dict[str, Any] | None = None
+            override = self.config.thumbnail_overrides.get(post.id.lower())
+            if not post.thumbnail and override is not None:
+                try:
+                    override_plan = self.images.plan_local(
+                        post.id, override.source_path, existing_thumbnail
+                    )
+                    planned_override = {
+                        "kind": "override",
+                        "source_path": override.source_path,
+                        **override_plan.state_record(),
+                    }
+                except ImageError as exc:
+                    outcomes.append(
+                        SyncOutcome(
+                            "ERROR",
+                            post,
+                            existing.get("post_path") if isinstance(existing, dict) else None,
+                            categories,
+                            error=str(exc),
+                        )
+                    )
                     continue
 
             published_at = (
@@ -289,7 +381,12 @@ class SyncEngine:
                 else choose_post_path(post, published_at, used_paths, self.config.timezone)
             )
             used_paths.add(path)
-            meta_hash = metadata_hash(post, categories, source_url)
+            thumbnail_hash_input = (
+                {"kind": "velog", "source_url": post.thumbnail}
+                if post.thumbnail
+                else self._thumbnail_hash_input(post, planned_override)
+            )
+            meta_hash = metadata_hash(post, categories, source_url, thumbnail_hash_input)
             local_path = validate_post_path(self.root, path)
             drifted = not isinstance(existing, dict) or sha256_file(local_path) != existing.get("rendered_sha256")
             image_drift = False
@@ -298,6 +395,11 @@ class SyncEngine:
                     if not isinstance(record, dict) or sha256_file(self.root / str(record.get("path", ""))) != record.get("sha256"):
                         image_drift = True
                         break
+                if not image_drift and isinstance(existing_thumbnail, dict):
+                    image_drift = (
+                        sha256_file(self.root / str(existing_thumbnail.get("path", "")))
+                        != existing_thumbnail.get("sha256")
+                    )
             needs_detail = (
                 not isinstance(existing, dict)
                 or existing.get("metadata_hash") != meta_hash
@@ -307,7 +409,21 @@ class SyncEngine:
             )
             if not needs_detail:
                 warnings = [rss_warning] if rss_warning else []
-                outcomes.append(SyncOutcome("UNCHANGED", post, path, categories, warnings=warnings))
+                existing_paths = {
+                    record.get("path")
+                    for record in (existing.get("images") or {}).values()
+                    if isinstance(record, dict) and isinstance(record.get("path"), str)
+                }
+                if isinstance(existing_thumbnail, dict) and isinstance(existing_thumbnail.get("path"), str):
+                    existing_paths.add(existing_thumbnail["path"])
+                outcomes.append(
+                    SyncOutcome(
+                        "UNCHANGED", post, path, categories,
+                        image_count=len(existing_paths), warnings=warnings,
+                        thumbnail=existing_thumbnail,
+                        thumbnail_change=self._thumbnail_change(existing_thumbnail, existing_thumbnail),
+                    )
+                )
                 continue
 
             try:
@@ -319,9 +435,18 @@ class SyncEngine:
                 outcomes.append(SyncOutcome("ERROR", post, path, categories, error=str(exc)))
                 continue
 
-            urls = image_urls(body)
+            body_urls = image_urls(body)
+            urls = body_urls + ((post.thumbnail,) if post.thumbnail else ())
             existing_images = existing.get("images", {}) if isinstance(existing, dict) else {}
-            plans, warnings = self.images.plan(post.id, urls, existing_images)
+            reusable_images = dict(existing_images)
+            if (
+                post.thumbnail
+                and isinstance(existing_thumbnail, dict)
+                and existing_thumbnail.get("kind") == "velog"
+                and existing_thumbnail.get("source_url") == post.thumbnail
+            ):
+                reusable_images[post.thumbnail] = existing_thumbnail
+            plans, warnings = self.images.plan(post.id, urls, reusable_images)
             if rss_warning:
                 warnings.append(rss_warning)
             if rss_unknown:
@@ -329,11 +454,33 @@ class SyncEngine:
             fence = unclosed_fence(body)
             if fence:
                 warnings.append(f"unclosed code fence at source line {fence[0]} ({fence[1]})")
-            planned_records = {url: plan.state_record() for url, plan in plans.items()}
+            if post.thumbnail and post.thumbnail not in plans:
+                outcomes.append(
+                    SyncOutcome(
+                        "ERROR", post, path, categories, warnings=warnings,
+                        error=f"Velog thumbnail could not be mirrored safely: {post.thumbnail}",
+                    )
+                )
+                continue
+            planned_records = {
+                url: plans[url].state_record() for url in body_urls if url in plans
+            }
+            thumbnail_plan = plans.get(post.thumbnail) if post.thumbnail else override_plan
+            if post.thumbnail and thumbnail_plan:
+                planned_thumbnail = {
+                    "kind": "velog",
+                    "source_url": post.thumbnail,
+                    **thumbnail_plan.state_record(),
+                }
+            else:
+                planned_thumbnail = planned_override
             rewritten, _ = transform_images(
                 body, lambda url: "/" + plans[url].path if url in plans else url
             )
-            rendered = render_post(post, rewritten, categories, published_at, self.config.timezone)
+            rendered = render_post(
+                post, rewritten, categories, published_at, self.config.timezone,
+                planned_thumbnail,
+            )
             entry = self._state_entry(
                 post,
                 path,
@@ -342,6 +489,7 @@ class SyncEngine:
                 published_at,
                 source_url,
                 planned_records,
+                planned_thumbnail,
                 rendered,
                 "graphql",
             )
@@ -356,14 +504,19 @@ class SyncEngine:
                     post,
                     path,
                     categories,
-                    image_count=len(plans),
-                    image_bytes=sum(plan.size for plan in plans.values() if not plan.reused),
+                    image_count=len({plan.path for plan in (*plans.values(),)})
+                    + (1 if override_plan and override_plan.path not in {p.path for p in plans.values()} else 0),
+                    image_bytes=sum(plan.size for plan in plans.values() if not plan.reused)
+                    + (override_plan.size if override_plan and not override_plan.reused else 0),
                     warnings=warnings,
                     desired_text=rendered,
                     state_entry=entry,
                     image_plans=list(plans.values()),
                     body=body,
                     body_source="graphql",
+                    thumbnail=planned_thumbnail,
+                    thumbnail_plan=thumbnail_plan,
+                    thumbnail_change=self._thumbnail_change(existing_thumbnail, planned_thumbnail),
                 )
             )
 
@@ -377,20 +530,69 @@ class SyncEngine:
         # must also be absent. State records remain intact for a future unhide.
         for post_id in self.config.hidden_post_ids:
             remove_post_images(self.root, post_id)
+            hidden_entry = old_posts.get(post_id)
+            if isinstance(hidden_entry, dict) and isinstance(hidden_entry.get("post_path"), str):
+                hidden_post = validate_post_path(self.root, hidden_entry["post_path"])
+                hidden_post.unlink(missing_ok=True)
 
         for outcome in outcomes:
             if outcome.state_entry is None or outcome.action not in {"IMPORT", "UPDATE", "UNCHANGED"}:
                 continue
             records: dict[str, Any] = {}
             local_urls: dict[str, str] = {}
-            for plan in outcome.image_plans:
+            materialized: dict[str, dict[str, Any] | None] = {}
+            all_plans = list(outcome.image_plans)
+            if isinstance(outcome.thumbnail_plan, ImagePlan) and all(
+                plan.path != outcome.thumbnail_plan.path for plan in all_plans
+            ):
+                all_plans.append(outcome.thumbnail_plan)
+            for plan in all_plans:
                 assert isinstance(plan, ImagePlan)
                 record, warning = self.images.materialize(plan)
+                materialized[plan.path] = record
                 if warning:
                     outcome.warnings.append(warning)
                 if record:
-                    records[plan.url] = record
-                    local_urls[plan.url] = "/" + plan.path
+                    if plan.url in image_urls(outcome.body or ""):
+                        records[plan.url] = record
+                        local_urls[plan.url] = "/" + plan.path
+            thumbnail_record: dict[str, Any] | None = None
+            if isinstance(outcome.thumbnail_plan, ImagePlan):
+                base_record = materialized.get(outcome.thumbnail_plan.path)
+                if base_record is None:
+                    outcome.action = "ERROR"
+                    outcome.error = "Thumbnail download failed; existing post was preserved."
+                    old_entry = old_posts.get(outcome.post.id)
+                    old_keep = set()
+                    if isinstance(old_entry, dict):
+                        old_keep.update(
+                            record.get("path")
+                            for record in (old_entry.get("images") or {}).values()
+                            if isinstance(record, dict) and isinstance(record.get("path"), str)
+                        )
+                        old_thumbnail = old_entry.get("thumbnail")
+                        if isinstance(old_thumbnail, dict) and isinstance(old_thumbnail.get("path"), str):
+                            old_keep.add(old_thumbnail["path"])
+                    created_paths = {
+                        record["path"]
+                        for record in materialized.values()
+                        if isinstance(record, dict) and isinstance(record.get("path"), str)
+                    }
+                    prune_post_images(
+                        self.root, outcome.post.id, old_keep, created_paths
+                    )
+                    continue
+                thumbnail_record = dict(base_record)
+                if outcome.post.thumbnail:
+                    thumbnail_record.update(
+                        {"kind": "velog", "source_url": outcome.post.thumbnail}
+                    )
+                else:
+                    override = self.config.thumbnail_overrides.get(outcome.post.id.lower())
+                    assert override is not None
+                    thumbnail_record.update(
+                        {"kind": "override", "source_path": override.source_path}
+                    )
             assert outcome.body is not None and outcome.post_path is not None
             rewritten, _ = transform_images(outcome.body, lambda url: local_urls.get(url, url))
             published_at = (
@@ -399,7 +601,8 @@ class SyncEngine:
                 else outcome.post.released_at
             )
             rendered = render_post(
-                outcome.post, rewritten, outcome.categories, published_at, self.config.timezone
+                outcome.post, rewritten, outcome.categories, published_at,
+                self.config.timezone, thumbnail_record,
             )
             entry = self._state_entry(
                 outcome.post,
@@ -409,12 +612,33 @@ class SyncEngine:
                 published_at,
                 canonical_url(self.config.username, outcome.post.slug),
                 records,
+                thumbnail_record,
                 rendered,
                 outcome.body_source,
             )
             if sha256_file(self.root / outcome.post_path) != entry["rendered_sha256"]:
                 atomic_write_text(self.root / outcome.post_path, rendered)
             new_state["posts"][outcome.post.id] = entry
+            outcome.thumbnail = thumbnail_record
+            keep_paths = {
+                record["path"] for record in records.values() if isinstance(record, dict)
+            }
+            if thumbnail_record:
+                keep_paths.add(str(thumbnail_record["path"]))
+            old_entry = old_posts.get(outcome.post.id)
+            previously_managed: set[str] = set()
+            if isinstance(old_entry, dict):
+                previously_managed.update(
+                    record.get("path")
+                    for record in (old_entry.get("images") or {}).values()
+                    if isinstance(record, dict) and isinstance(record.get("path"), str)
+                )
+                old_thumbnail = old_entry.get("thumbnail")
+                if isinstance(old_thumbnail, dict) and isinstance(old_thumbnail.get("path"), str):
+                    previously_managed.add(old_thumbnail["path"])
+            prune_post_images(
+                self.root, outcome.post.id, keep_paths, previously_managed
+            )
 
         old_serialized = serialize_state(state)
         new_serialized = serialize_state(new_state)

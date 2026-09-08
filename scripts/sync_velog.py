@@ -52,6 +52,8 @@ def main() -> int:
         print(f"   Series: {post.series.name if post.series else '(none)'}")
         print(f"   Categories: {format_values(outcome.categories)}")
         print(f"   Images: {outcome.image_count}")
+        source = outcome.thumbnail.get("kind") if outcome.thumbnail else "none"
+        print(f"   Thumbnail: {source} ({outcome.thumbnail_change})")
         if outcome.error:
             print(f"   ERROR: {outcome.error}")
         for warning in outcome.warnings:
@@ -63,6 +65,14 @@ def main() -> int:
     print(f"WARNINGS: {result.warning_count}")
     print(f"IMAGES: {result.image_count}")
     print(f"IMAGE_BYTES: {result.image_bytes}")
+    for change in ("added", "changed", "removed", "none", "unchanged"):
+        count = sum(
+            1
+            for outcome in result.outcomes
+            if outcome.action not in {"HIDDEN", "EXCLUDED", "ERROR"}
+            and outcome.thumbnail_change == change
+        )
+        print(f"THUMBNAIL_{change.upper()}: {count}")
     return 2 if counts["ERROR"] else 0
 
 

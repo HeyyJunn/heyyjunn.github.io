@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import io
 import os
 import subprocess
 import sys
@@ -49,7 +50,7 @@ def write_config(root: Path) -> None:
     path = root / ".velog-sync"
     path.mkdir(parents=True)
     (path / "config.yml").write_text(
-        "velog:\n  username: ilwha\nexclude_post_ids: []\nhidden_post_ids: []\nimport_after: null\nseries_category_map: {}\nimages:\n  enabled: false\n",
+        "velog:\n  username: ilwha\nexclude_post_ids: []\nhidden_post_ids: []\nimport_after: null\nseries_category_map: {}\nthumbnail_overrides: {}\nimages:\n  enabled: false\n  max_bytes: 64\n",
         encoding="utf-8",
     )
     (path / "state.json").write_text('{"posts": {}, "schema_version": 1}\n', encoding="utf-8")
@@ -140,6 +141,16 @@ class CliAndConfigTests(AdminFixture):
         raw = yaml.safe_load((self.root / ".velog-sync/config.yml").read_text())
         self.assertEqual(raw["series_category_map"]["NLP"], ["AI", "NLP"])
         self.assertNotIn("tags", raw)
+
+    def test_thumbnail_override_config_rejects_path_traversal(self) -> None:
+        config_path = self.root / ".velog-sync/config.yml"
+        raw = yaml.safe_load(config_path.read_text())
+        raw["thumbnail_overrides"] = {
+            POSTS[0].id: {"source_path": "../../escape.png"}
+        }
+        config_path.write_text(yaml.safe_dump(raw), encoding="utf-8")
+        with self.assertRaisesRegex(Exception, "unsafe thumbnail override"):
+            self.service.config()
 
 
 class WebTests(AdminFixture):
@@ -245,6 +256,104 @@ class WebTests(AdminFixture):
         javascript = (ROOT / "scripts/blog_admin/static/admin.js").read_text(encoding="utf-8")
         self.assertIn("s.github||", javascript)
         self.assertIn("s.git||", javascript)
+
+    def test_valid_thumbnail_upload_ignores_filename_and_remove_is_atomic(self) -> None:
+        response = self.client.post(
+            f"/api/posts/{POSTS[0].id}/thumbnail-override",
+            data={
+                "thumbnail": (
+                    io.BytesIO(b"\x89PNG\r\n\x1a\nvalid"),
+                    "../../malicious<script>.png",
+                    "image/png",
+                )
+            },
+            content_type="multipart/form-data",
+        )
+        self.assertEqual(response.status_code, 200, response.get_data(as_text=True))
+        cfg = self.service.config()
+        override = cfg.thumbnail_overrides[POSTS[0].id]
+        self.assertNotIn("malicious", override.source_path)
+        source = self.root / override.source_path
+        self.assertTrue(source.is_file())
+        preview = self.client.get(
+            f"/api/posts/{POSTS[0].id}/thumbnail-override"
+        )
+        self.assertEqual((preview.status_code, preview.mimetype), (200, "image/png"))
+        preview.close()
+        denied = self.client.delete(
+            f"/api/posts/{POSTS[0].id}/thumbnail-override", json={}
+        )
+        self.assertEqual(denied.status_code, 400)
+        removed = self.client.delete(
+            f"/api/posts/{POSTS[0].id}/thumbnail-override",
+            json={"confirmed": True},
+        )
+        self.assertEqual(removed.status_code, 200)
+        self.assertFalse(source.exists())
+        self.assertNotIn(POSTS[0].id, self.service.config().thumbnail_overrides)
+
+    def test_thumbnail_upload_rejects_invalid_mime_oversize_and_uuid(self) -> None:
+        invalid_mime = self.client.post(
+            f"/api/posts/{POSTS[0].id}/thumbnail-override",
+            data={"thumbnail": (io.BytesIO(b"\x89PNG\r\n\x1a\nvalid"), "x.png", "text/html")},
+            content_type="multipart/form-data",
+        )
+        self.assertEqual(invalid_mime.status_code, 400)
+        oversize = self.client.post(
+            f"/api/posts/{POSTS[0].id}/thumbnail-override",
+            data={"thumbnail": (io.BytesIO(b"\x89PNG\r\n\x1a\n" + b"x" * 65), "x.png", "image/png")},
+            content_type="multipart/form-data",
+        )
+        self.assertEqual(oversize.status_code, 400)
+        traversal = self.client.post(
+            "/api/posts/..%2F..%2Fescape/thumbnail-override",
+            data={"thumbnail": (io.BytesIO(b"\x89PNG\r\n\x1a\nvalid"), "x.png", "image/png")},
+            content_type="multipart/form-data",
+        )
+        self.assertIn(traversal.status_code, {400, 404})
+        self.assertFalse((self.root / "escape").exists())
+
+    def test_velog_thumbnail_disables_manual_upload_in_api_and_ui(self) -> None:
+        item = PostMetadata(
+            POSTS[0].id, POSTS[0].title, POSTS[0].slug,
+            POSTS[0].released_at, POSTS[0].updated_at, POSTS[0].series,
+            False, "https://velog.velcdn.com/preview.jpg",
+        )
+        outcome = SyncOutcome("IMPORT", item, "_posts/x.md", ("Python",))
+        fake = SyncResult((outcome,), (1, 0), True, 1, False, True)
+        with patch.object(self.service, "preview", return_value=fake):
+            response = self.client.post(
+                f"/api/posts/{item.id}/thumbnail-override",
+                data={"thumbnail": (io.BytesIO(b"\x89PNG\r\n\x1a\nvalid"), "x.png", "image/png")},
+                content_type="multipart/form-data",
+            )
+        self.assertEqual(response.status_code, 400)
+        javascript = (ROOT / "scripts/blog_admin/static/admin.js").read_text(encoding="utf-8")
+        self.assertIn("Velog 미리보기가 항상 우선 사용됩니다", javascript)
+        self.assertIn("p.thumbnail_source==='velog'", javascript)
+
+    def test_planned_thumbnail_removal_does_not_show_stale_deploy_path(self) -> None:
+        outcome = SyncOutcome(
+            "UPDATE",
+            POSTS[0],
+            "_posts/2025-01-01-first.md",
+            ("Python",),
+            thumbnail=None,
+            thumbnail_change="removed",
+        )
+        state_entry = {
+            "thumbnail": {
+                "kind": "velog",
+                "path": f"assets/img/velog/{POSTS[0].id}/old.png",
+            }
+        }
+
+        view = self.service.post_view(
+            outcome, 1, self.service.config(), state_entry
+        )
+
+        self.assertEqual(view["thumbnail_source"], "none")
+        self.assertIsNone(view["thumbnail_path"])
 
 
 def run_git(root: Path, *args: str) -> subprocess.CompletedProcess[str]:
@@ -356,6 +465,14 @@ class GitSafetyTests(unittest.TestCase):
         changed = run_git(self.root, "show", "--name-only", "--format=", "HEAD").stdout.splitlines()
         self.assertEqual(changed, [".velog-sync/config.yml"])
 
+    def test_thumbnail_override_source_is_publish_managed(self) -> None:
+        source = self.root / ".velog-sync/thumbnail-overrides" / POSTS[0].id / "cover.png"
+        source.parent.mkdir(parents=True)
+        source.write_bytes(b"image")
+        status = self.service.git_status(fetch=True)
+        self.assertIn(source.relative_to(self.root).as_posix(), status["managed_changes"])
+        self.assertFalse(status["unrelated_changes"])
+
     def test_unrelated_dirty_worktree_blocks_publish(self) -> None:
         (self.root / "notes.txt").write_text("user", encoding="utf-8")
         before = run_git(self.root, "rev-parse", "HEAD").stdout.strip()
@@ -415,6 +532,31 @@ class RepositoryPolicyTests(unittest.TestCase):
         self.assertEqual(workflow.count("if: github.event_name != 'schedule'"), 1)
         self.assertIn("steps.changes.outputs.has_changes", workflow)
         self.assertIn("steps.decision.outputs.should_deploy == 'true'", workflow)
+
+    def test_home_uses_custom_thumbnail_but_post_detail_does_not(self) -> None:
+        home = (ROOT / "_layouts/home.html").read_text(encoding="utf-8")
+        self.assertIn("{% if post.thumbnail %}", home)
+        self.assertIn("post.thumbnail.path", home)
+        self.assertNotIn("{% if post.image %}", home)
+        self.assertFalse((ROOT / "_layouts/post.html").exists())
+
+    def test_thumbnail_card_css_is_scoped_and_heading_bold_remains(self) -> None:
+        stylesheet = (ROOT / "assets/css/jekyll-theme-chirpy.scss").read_text(encoding="utf-8")
+        self.assertIn("#post-list .thumbnail-col", stylesheet)
+        self.assertIn("aspect-ratio: 16 / 9", stylesheet)
+        self.assertIn("object-fit: cover", stylesheet)
+        self.assertIn("article[data-toc] > .content", stylesheet)
+        self.assertIn("font-weight: 700", stylesheet)
+
+    def test_no_first_body_image_thumbnail_fallback_or_tags(self) -> None:
+        sync = (ROOT / "scripts/velog_sync/sync.py").read_text(encoding="utf-8")
+        self.assertNotIn("body_urls[0]", sync)
+        self.assertNotIn("first_image", sync)
+        self.assertNotIn('"tags"', sync)
+
+    def test_private_override_sources_are_excluded_from_jekyll(self) -> None:
+        config = (ROOT / "_config.yml").read_text(encoding="utf-8")
+        self.assertIn("  - .velog-sync", config)
 
 
 if __name__ == "__main__":

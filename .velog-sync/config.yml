@@ -36,6 +36,7 @@ hidden_post_ids:
 - f8101d7b-45b5-4d37-ab06-fd05b84db18d
 import_after: null
 series_category_map: {}
+thumbnail_overrides: {}
 images:
   enabled: true
   allowed_hosts:

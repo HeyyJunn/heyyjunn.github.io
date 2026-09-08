@@ -2,6 +2,9 @@
 title: "[Spring] 내가 보려고 만든 MVC 기초흐름도"
 date: 2025-05-06 16:12:07 +0900
 last_modified_at: 2026-09-08 10:12:48 +0900
+thumbnail:
+  path: "/assets/img/velog/ca010783-034c-45e4-9551-5aecfa373dbe/35b03ad997434e0fd86975a7d1f2b256329ca4fe3b1b6e481d1b7454d2f1bf9a.jpg"
+  alt: "[Spring] 내가 보려고 만든 MVC 기초흐름도"
 render_with_liquid: false
 ---
 >별거 없습니다.

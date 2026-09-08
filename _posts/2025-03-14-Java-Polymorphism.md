@@ -4,6 +4,9 @@ date: 2025-03-14 20:31:33 +0900
 last_modified_at: 2026-09-02 03:56:04 +0900
 categories:
   - "[Java] Archive"
+thumbnail:
+  path: "/assets/img/velog/37a2bbb0-0fe1-4a3b-8de3-405a08a9e1b7/00bc1e9539f68d2e5bd93c7911d6e950200c3afafea695a1beda4401843833b9.jpg"
+  alt: "[Java] Polymorphism"
 render_with_liquid: false
 ---
 >💡 이 게시글은 김영한 강사님의 자바 강의를 수강하며 학습한 내용을 중요한 키워드 중심으로 정리한 개인 학습 기록입니다. **오직 기억 복기를 위한 목적으로 작성되었으며, 모든 내용을 포함하지 않으므로 체계적인 학습 자료로는 적합하지 않습니다.** 

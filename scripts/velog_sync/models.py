@@ -32,6 +32,7 @@ class PostMetadata:
     updated_at: str
     series: Series | None
     is_private: bool = False
+    thumbnail: str | None = None
 
 
 @dataclass(frozen=True)
@@ -71,3 +72,6 @@ class SyncOutcome:
     image_plans: list[Any] = field(default_factory=list)
     body: str | None = None
     body_source: str = "graphql"
+    thumbnail: dict[str, Any] | None = None
+    thumbnail_plan: Any | None = None
+    thumbnail_change: str = "none"
