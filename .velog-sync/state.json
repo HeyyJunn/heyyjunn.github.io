@@ -1,4 +1,1812 @@
 {
-  "posts": {},
+  "posts": {
+    "039e20bd-5c5d-442a-8170-285a3f991802": {
+      "body_source": "graphql",
+      "categories": [
+        "[React.Js] Archive"
+      ],
+      "content_hash": "sha256:36ffcd767a436395e7ed8fb6456161a4a47f88e82fc6adf690c0687750a1e1df",
+      "images": {},
+      "metadata_hash": "sha256:ad57b5dd13cec2143c8b4c74f3963b75cf9f605433166185846dc513b6116442",
+      "post_path": "_posts/2025-02-02-React.JS-useReducer-useMemo-useCallback.md",
+      "published_at": "2025-02-02T12:29:20.693Z",
+      "rendered_sha256": "sha256:d76a85eb057cc5ddc16e7648be1b7f76f38f79dc2bed6ba08d103852140a4bd7",
+      "source_slug": "React.JS-useReducer-useMemo-useCallback",
+      "source_updated_at": "2026-09-06T09:10:55.612Z",
+      "source_url": "https://velog.io/@ilwha/React.JS-useReducer-useMemo-useCallback",
+      "title": "[ React.JS ] useReducer, useMemo, useCallback"
+    },
+    "24104f88-d139-4945-b4d0-a020b26912b2": {
+      "body_source": "graphql",
+      "categories": [
+        "[C++] Archive"
+      ],
+      "content_hash": "sha256:62e120171ffaf79f88218d115397e4be8a2c6e1f53c92565ba580b62f7a2adec",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/c0cbdf1d-71c9-40a9-8e66-257a7dbf82a9/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/24104f88-d139-4945-b4d0-a020b26912b2/c3c1ec1b3525d68db8b69913055aa101020917d62013a6eddc22261fd2845e69.png",
+          "sha256": "sha256:71e6a0b437db000010ac3d3b085b92c690fbad9622e530d5e037a520b1222bb5",
+          "size": 316261
+        }
+      },
+      "metadata_hash": "sha256:0d71903afff1027da5dc1f177544869f2b8aff5e0ef95a6776cd8063429c5b81",
+      "post_path": "_posts/2024-11-02-C-객체지향프로그래밍1-C-language-review-Chapter-3-7.md",
+      "published_at": "2024-11-02T07:30:32.999Z",
+      "rendered_sha256": "sha256:98d44f047b1774b3a97370bb80b1aa73e81e5ad552b2b0341111f461022c7c6a",
+      "source_slug": "C-객체지향프로그래밍1-C-language-review-Chapter-3-7",
+      "source_updated_at": "2026-09-01T18:56:47.034Z",
+      "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-C-language-review-Chapter-3-7",
+      "title": "[C++] 객체지향프로그래밍1 : C-language review (Chapter 3 - 7)"
+    },
+    "2b9b7e47-2e14-4612-ab10-e6c81055dd8e": {
+      "body_source": "graphql",
+      "categories": [
+        "[C++] Archive"
+      ],
+      "content_hash": "sha256:e77f46b3bd558f08214d3228cfaa28e7057b6ca2448cbe0814fda998678cdee0",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/022dfd43-b5bc-4a4b-afa2-9464a2481a44/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2b9b7e47-2e14-4612-ab10-e6c81055dd8e/2b34ed3d5edbddd6c1741957e0087596408cd7d01912b5e224c1362ecad70c6f.png",
+          "sha256": "sha256:71ca55a6c0c7a5e07b55743dfde80b0a353e01006aa47c4bd8a518c8f4d277a8",
+          "size": 603184
+        },
+        "https://velog.velcdn.com/images/ilwha/post/17c790a6-767d-4d4a-a57b-e61296261e06/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2b9b7e47-2e14-4612-ab10-e6c81055dd8e/21c7e6a7bd9a5d12c6a393977f8f02acb44a6e7b56cecdf6e4995506984ad5b0.png",
+          "sha256": "sha256:f33d11c22382d8b13483f91bac63c584f1ca3f2fe09274b8241ae149847130ee",
+          "size": 134562
+        },
+        "https://velog.velcdn.com/images/ilwha/post/2c972440-96ad-40c6-b18e-9f1de47e224e/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2b9b7e47-2e14-4612-ab10-e6c81055dd8e/2d1ec78984d26101ec29a34cd7b35cdcdd0ad8298f7397a3f39a392bbe1a663c.png",
+          "sha256": "sha256:fd9e5f58652647a667d2a5b7aff1c13d194cb6b352b4c8507f46c726b8c4b135",
+          "size": 1269912
+        },
+        "https://velog.velcdn.com/images/ilwha/post/3e764537-e0a5-498d-9125-097752ed500f/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2b9b7e47-2e14-4612-ab10-e6c81055dd8e/37f9718a8d3d76e18a4e3b6608a42638344f62af85a381d36f2189a135706492.png",
+          "sha256": "sha256:be03eeb8d3980f0da2d9104c959eb7423fcefb284fca2189268d9dfe4f54f63b",
+          "size": 33884
+        }
+      },
+      "metadata_hash": "sha256:aa6459afe87cb1c9c54c72e57f8596f2a250f73fd4fb9bda2f21bc56ce980f24",
+      "post_path": "_posts/2024-11-10-C-객체지향프로그래밍1-Lambda-Expression-Namespace-ADL-Nested-Class-chapter-17-18.md",
+      "published_at": "2024-11-10T08:29:58.685Z",
+      "rendered_sha256": "sha256:4bdc01ec63f5bd3e8f9463c2f58f26ab204639695a266e1879ee8846f71af52c",
+      "source_slug": "C-객체지향프로그래밍1-Lambda-Expression-Namespace-ADL-Nested-Class-chapter-17-18",
+      "source_updated_at": "2026-09-07T23:51:49.330Z",
+      "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-Lambda-Expression-Namespace-ADL-Nested-Class-chapter-17-18",
+      "title": "[C++] 객체지향프로그래밍1 : Lambda Expression / Namespace / ADL / Nested Class (chapter 17 - 18)"
+    },
+    "31f0f369-b238-4fce-b631-950a6d2ffb4c": {
+      "body_source": "graphql",
+      "categories": [
+        "[Python] Code📁"
+      ],
+      "content_hash": "sha256:2a7911c6778216dce671721e3111d552148132e77870daf25edf3ab0dd6056a6",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/74407679-dea5-4cff-8601-66815ac1ad5a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/31f0f369-b238-4fce-b631-950a6d2ffb4c/1c1c0e14cb430fe0ac3ea70d069ffb0ef017e65a4baa38f02764e226cca45e7f.png",
+          "sha256": "sha256:5378bc1184d43f07143377023bccfb4149e2261263a523a4bc07d4ccd2e04b32",
+          "size": 158587
+        }
+      },
+      "metadata_hash": "sha256:bbf54ed71b931244d44233ecaed6b6329ade8da2b9eb4c131e94010a5b8ca1ea",
+      "post_path": "_posts/2024-08-20-Py-Code-ch3-06난수.md",
+      "published_at": "2024-08-20T13:42:42.978Z",
+      "rendered_sha256": "sha256:b97aa19b802645ae8b7728bd538fab46892cd394de97ef851583e3e0324d525c",
+      "source_slug": "Py-Code-ch3-06난수",
+      "source_updated_at": "2026-09-01T18:56:36.491Z",
+      "source_url": "https://velog.io/@ilwha/Py-Code-ch3-06%EB%82%9C%EC%88%98",
+      "title": "[Python] Ch3 (code) - 06 난수"
+    },
+    "36075444-0733-4eb6-a72a-3fceb379d7a6": {
+      "body_source": "graphql",
+      "categories": [
+        "[Data_Structures]"
+      ],
+      "content_hash": "sha256:331f8a207780e1a1d098ab1130973600342c93453dc3cad273a40c276b2f06bf",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/233d9d1f-4e54-4dda-9f79-da45bf169d52/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/36075444-0733-4eb6-a72a-3fceb379d7a6/cd9c3cbfa68f8fc322733ef014538d7c56e79f5b900b33ecfdb3cb2c9c8b2943.png",
+          "sha256": "sha256:97b7fa1d5933c1a63b9484da2d0f58939c74c06888cc9744f1ca1531a510ad47",
+          "size": 113272
+        },
+        "https://velog.velcdn.com/images/ilwha/post/36837ddb-1d72-4689-80f8-324d14a2d525/image.gif": {
+          "content_type": "image/gif",
+          "path": "assets/img/velog/36075444-0733-4eb6-a72a-3fceb379d7a6/e61b3e8d15c6370e046f37dafa90e2ff02c8b52852e97281e74f3d4f9afccfb2.gif",
+          "sha256": "sha256:7788160eb35866491b5c05c55773371f1f2d1eb5c58f58b7305bf6f3a285cb68",
+          "size": 308680
+        }
+      },
+      "metadata_hash": "sha256:6ea9ae726ba502bca85b91790755670427ba88075080be0724d6b5122e6fbd58",
+      "post_path": "_posts/2024-08-16-DataStructures-Bubble-Sort.md",
+      "published_at": "2024-08-16T11:03:02.212Z",
+      "rendered_sha256": "sha256:ba52759bc08e0d6b4d75ed695f44fd8ae9592e31dd0031f33ab286aa587916c6",
+      "source_slug": "DataStructures-Bubble-Sort",
+      "source_updated_at": "2026-09-01T18:54:11.588Z",
+      "source_url": "https://velog.io/@ilwha/DataStructures-Bubble-Sort",
+      "title": "[Data_Structures] Bubble Sort"
+    },
+    "37a2bbb0-0fe1-4a3b-8de3-405a08a9e1b7": {
+      "body_source": "graphql",
+      "categories": [
+        "[Java] Archive"
+      ],
+      "content_hash": "sha256:ef6cdd83d823bb6e8c3b2a002adbe297e75d9d4395b7a440e6c7da28b434ac9b",
+      "images": {},
+      "metadata_hash": "sha256:3fb6e7f69904250c3320ccc93c7b1d95972119ce05acda38982b5b553e8a2015",
+      "post_path": "_posts/2025-03-14-Java-Polymorphism.md",
+      "published_at": "2025-03-14T11:31:33.993Z",
+      "rendered_sha256": "sha256:09caadefe6d965e3c46c9f44d9421f97ca190944ae28091a307222747c70a840",
+      "source_slug": "Java-Polymorphism",
+      "source_updated_at": "2026-09-01T18:56:04.481Z",
+      "source_url": "https://velog.io/@ilwha/Java-Polymorphism",
+      "title": "[Java] Polymorphism"
+    },
+    "3bbd2352-464c-4b86-be90-a7f08b232073": {
+      "body_source": "graphql",
+      "categories": [
+        "[C++] Archive"
+      ],
+      "content_hash": "sha256:6f69156901e8f940ae02c9b4f654ada9cd28de036d82628d7d3fb7e83f3aa594",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/b39a7b32-0625-486d-9bd2-d3f95b6d6eec/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/3bbd2352-464c-4b86-be90-a7f08b232073/956bb0e794b19321bd1bda74f34e946823a4faf0701d503cbf8d9326543d4e7c.png",
+          "sha256": "sha256:0cca4d0b5e81b38e7731fcf5c2d567c4712b6a0a430f54d515afc08fa0ce64a9",
+          "size": 46211
+        }
+      },
+      "metadata_hash": "sha256:9c0c1883fce66c3c3105672e69225520953d14090f10e2ce2077cd52681e61e3",
+      "post_path": "_posts/2024-11-10-C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15.md",
+      "published_at": "2024-11-10T08:04:38.183Z",
+      "rendered_sha256": "sha256:b306df7ada07a90cbe251fb365c0331c9fd458a81cbe04b1e2219da319cb5bfc",
+      "source_slug": "C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15",
+      "source_updated_at": "2026-09-01T18:56:42.088Z",
+      "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15",
+      "title": "[C++] 객체지향프로그래밍1 : Inheritance / Override / vptr,vtbl / downcasting (chapter 13 - 16)"
+    },
+    "4030a68a-c42e-4bae-bb76-eb1383fa2937": {
+      "body_source": "graphql",
+      "categories": [
+        "[C] Notion📚"
+      ],
+      "content_hash": "sha256:20d638ee5ed3f8d5db3927a395733d638c8a9ca458eeb38f91e53d1874fb9e41",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/029f60cf-222d-449f-ad2a-f7ebcbc6a244/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/261e6557027f96254dc73346f1f0f3ae63f955746528704fa8b74e8e5a5d7222.png",
+          "sha256": "sha256:e2b179e897b76e39a5d8a3658f606ee78f59b81a09dd1521f98496b929a29ad9",
+          "size": 718563
+        },
+        "https://velog.velcdn.com/images/ilwha/post/1d10d280-2e9a-4a08-915d-9b20b76933eb/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/c56cb58e31b5c5ce39271cf0d3a8edf68509b7e8a6dd7212fa3e0e2588b7d2b1.png",
+          "sha256": "sha256:cc6f05949a2beb1acf98ab55e2fbb22447d8181ff651d885a4882b7751467f8d",
+          "size": 356986
+        },
+        "https://velog.velcdn.com/images/ilwha/post/48773f54-a880-4c0a-ade2-a7370d141837/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/db3224a7e497813c7119677a08254da679274c4e4d070550f702dbd9f9c07dea.png",
+          "sha256": "sha256:c6ffd127cd297373d3a65ca06823c81d2f6cf43d47fdd1701c9480680d8102e3",
+          "size": 226352
+        },
+        "https://velog.velcdn.com/images/ilwha/post/57abfa10-429a-4df6-80f0-56099245f26f/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/6c8d8ddd4e2ee52baaecc6c02598d768f7932378d06cf758bd1e1e75f2cdd108.png",
+          "sha256": "sha256:161e5222ea496dba3802294b348590339855517ab3ed4ffa0e02efd3ed611eed",
+          "size": 149768
+        },
+        "https://velog.velcdn.com/images/ilwha/post/8b622b0d-aab6-4a97-a8b6-730c6e8e238f/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/f553e67bfabd87fc4f6cea76449b28e0b5a10f34ed7e4d189ecf3650cbd3f448.png",
+          "sha256": "sha256:288c847ea61916e0a24a969286c1f8d25feace47db8977f608b2db1b396a8a8e",
+          "size": 679777
+        },
+        "https://velog.velcdn.com/images/ilwha/post/8de3b5de-926e-4a4a-99f8-08ae95975f7d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/a0859fd6f1a2ed1380335536b8771dc5c344b01b4f1837233cba2f865731dd72.png",
+          "sha256": "sha256:9d7176c3e5d11c7e0bfee265bf60df7afd6f70c0e5bd9371f0fd3ebcd21313c4",
+          "size": 177727
+        },
+        "https://velog.velcdn.com/images/ilwha/post/943949de-67ba-44f8-ad16-b85643f11f0f/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/d791dc9ddff432b3f1be41599acc591a190da69d48de777507fcb734a7181b85.png",
+          "sha256": "sha256:12277b3f0f42882400f80c5535de25e1fbaaf0589a1c78b311ff0862a0128940",
+          "size": 201319
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a4e6c040-ef01-4d53-b72f-6782c1271cb3/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/5fc75185acf46ccb6934334cab9635e4b16e54fe4a286975fb5f29268cdcfee5.png",
+          "sha256": "sha256:5c431bd2f0452f8dc2af7a001a4cc49823cecfcbffc11ca3226f8774cb132cb3",
+          "size": 88670
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a929ddab-3343-43d3-ad41-0942d0083c90/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/d61b2a32829d368ede6473ae3fe2fd48079524a620a2298f432799f1b24840c1.png",
+          "sha256": "sha256:31fc158af10415020b736b7aa455b95a59929eab3e1022771ed44793ffb6f519",
+          "size": 406687
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b5512fa1-4e9a-4553-b940-5b0741eeb7a8/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/f4cff2d2168fd580dddf4f5ac61fdf60f25bcfece4a2a48a59a1599506d02246.png",
+          "sha256": "sha256:882a84c5a977eed288489e3f33500914182dc4ea2418fa8758e9d0c8d90d2a4f",
+          "size": 134699
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b6932dbc-8a40-467e-8c2a-79f2e97d2b14/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/3e42534498aeacaaef40de67278781618d1b7809bcb41a612bc30fe139475a9a.png",
+          "sha256": "sha256:59ec1a71b1ecc6a8ba3db2fdad326185aec8ee128f5a283a2aa80a0b76d9c49f",
+          "size": 149911
+        },
+        "https://velog.velcdn.com/images/ilwha/post/ea751ed0-5c22-4e13-aeae-bab1378d8218/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/59c190cc73ebb4f24bb116d35970e78f2c7a1fcb0e84ef3919dc7f0bea561ac9.png",
+          "sha256": "sha256:ee489e02b10e99b5fa7c3ff224a013d76e4a8affdeae9798a1fd3573020d7d03",
+          "size": 131935
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f1213239-92af-4aaa-979f-d70bc27f86d5/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4030a68a-c42e-4bae-bb76-eb1383fa2937/3143a0722342467329f084dd552d8ceab1d43573553c584bf8704d587f67ea60.png",
+          "sha256": "sha256:c447b80c05eec8a92db7cad44f3569ae4dd25abd8da8c268ed894afa2b94aa34",
+          "size": 453516
+        }
+      },
+      "metadata_hash": "sha256:5eb76624956dd136e120a2d6a905cf9d275116afbe7cd7947306204bdeade741",
+      "post_path": "_posts/2024-06-30-CNotion-비트연산과-응용.md",
+      "published_at": "2024-06-29T15:52:25.645Z",
+      "rendered_sha256": "sha256:8e27f245e9a137746315feb4242218761121599a9de2a3e965fdcd92c659c0b8",
+      "source_slug": "CNotion-비트연산과-응용",
+      "source_updated_at": "2026-09-01T18:57:54.004Z",
+      "source_url": "https://velog.io/@ilwha/CNotion-%EB%B9%84%ED%8A%B8%EC%97%B0%EC%82%B0%EA%B3%BC-%EC%9D%91%EC%9A%A9",
+      "title": "[C] Notion📚 : 비트연산과 응용"
+    },
+    "43ad63c7-222f-4f84-87af-c4c155422f0a": {
+      "body_source": "graphql",
+      "categories": [
+        "[Python] Code📁"
+      ],
+      "content_hash": "sha256:89465243b84f104d5b85bf47501ea44285701966c49bdbceb0b28df109edab08",
+      "images": {},
+      "metadata_hash": "sha256:0d43dabea4a91a50f0e572ea322400b4e9433a577dcc9c53bcd6f99693b27a18",
+      "post_path": "_posts/2024-08-21-Python-Chap3-07-리스트컴프리헨션.md",
+      "published_at": "2024-08-21T07:30:55.572Z",
+      "rendered_sha256": "sha256:d11bbf5e103412c896bc44109f23c979b9af1dd7f4200931200b8a8409c2c612",
+      "source_slug": "Python-Chap3-07-리스트컴프리헨션",
+      "source_updated_at": "2026-09-01T18:58:25.566Z",
+      "source_url": "https://velog.io/@ilwha/Python-Chap3-07-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%BB%B4%ED%94%84%EB%A6%AC%ED%97%A8%EC%85%98",
+      "title": "[Python] Ch3 (code) - 07 리스트 컴프리헨션"
+    },
+    "461d37cf-5955-4b3a-9b6a-414c60fc9863": {
+      "body_source": "graphql",
+      "categories": [
+        "[C++] Archive"
+      ],
+      "content_hash": "sha256:0d3857c7d906fa09191bef9379e3999ed4fc0e7c916d0a8ce18c1c573406e2d5",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/0c1b2236-b197-40b6-97b7-b18dbbf65c81/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/461d37cf-5955-4b3a-9b6a-414c60fc9863/08e289ed9a87f2bb00c1373c4d4be48b242b638b5fe2c0f3c0e03e54e48facdc.png",
+          "sha256": "sha256:4821d49b849f67a4974f10e58ff542739309cc99c03ef39637dd2cec52171218",
+          "size": 89079
+        },
+        "https://velog.velcdn.com/images/ilwha/post/1005852a-2d94-42fa-939f-ad335c0c666f/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/461d37cf-5955-4b3a-9b6a-414c60fc9863/740178750ce8b44169bc27859c3e089ad945caace33306d4bc051aefaee3c2c8.png",
+          "sha256": "sha256:fa677d95413706c90781d6c11014b6a9b409765b4559ee12372ade2d0f3bfa5b",
+          "size": 60564
+        },
+        "https://velog.velcdn.com/images/ilwha/post/35e86249-27ae-4b33-ab80-2c4658627ccd/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/461d37cf-5955-4b3a-9b6a-414c60fc9863/6e65759a661a7f77366e79018626c5af6e9eb2999b703c0bf961232be94d2d3b.png",
+          "sha256": "sha256:9a6318383dbb99f3aa7b38819f4f8a364955485489ca01ae93003f1ceb7d8176",
+          "size": 323617
+        }
+      },
+      "metadata_hash": "sha256:c8d943486c9a05130dc01e5f1f612a47c5e07f37e9c6d5b6df2b2f438cd6291f",
+      "post_path": "_posts/2024-11-09-C-객체지향프로그래밍1-C언어-복습-Chapter-8-12.md",
+      "published_at": "2024-11-09T10:41:27.488Z",
+      "rendered_sha256": "sha256:b16f68af863a2ed07f85ebdcfeea867b7f932bd63c942d98000e82df6a955d5a",
+      "source_slug": "C-객체지향프로그래밍1-C언어-복습-Chapter-8-12",
+      "source_updated_at": "2026-09-01T18:56:29.428Z",
+      "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-C%EC%96%B8%EC%96%B4-%EB%B3%B5%EC%8A%B5-Chapter-8-12",
+      "title": "[C++] 객체지향프로그래밍1 : con(de, delegating)structor / overloading / include guard (Chapter 8 - 12)"
+    },
+    "48700130-8ff0-493d-ad8c-0a54d9a3896a": {
+      "body_source": "graphql",
+      "categories": [
+        "[Data_Structures]"
+      ],
+      "content_hash": "sha256:0aa9b38e447d6438b57b9807e3c0b4be9f019316110afd4b382e2212c8ff974a",
+      "images": {},
+      "metadata_hash": "sha256:20a0b0cdda5c08166d0325032d0392cfdb09e1673b80bcd498db183c1beea1cc",
+      "post_path": "_posts/2024-08-29-DataStructures-Sequential-Search-순차탐색.md",
+      "published_at": "2024-08-28T15:59:14.432Z",
+      "rendered_sha256": "sha256:f88d32cd1c54c8db7bed7f8cca61a6716d9916abcfcabfa74b129b1adb534366",
+      "source_slug": "DataStructures-Sequential-Search-순차탐색",
+      "source_updated_at": "2026-09-01T18:54:28.396Z",
+      "source_url": "https://velog.io/@ilwha/DataStructures-Sequential-Search-%EC%88%9C%EC%B0%A8%ED%83%90%EC%83%89",
+      "title": "[Data_Structures] Sequential Search (순차탐색)"
+    },
+    "4f176559-46f2-419f-a89e-68a038ce2470": {
+      "body_source": "graphql",
+      "categories": [
+        "Baekjoon_Code📁"
+      ],
+      "content_hash": "sha256:c3d7b9f711f8653357b09bc1f709580a3d86e26ee5ac06593fb6cd0342093244",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/20d220c8-a581-4ccc-8e5d-dee7553a65f2/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4f176559-46f2-419f-a89e-68a038ce2470/8aa525906a0d6eb419b1dc5a25870e5661b887f3ae17770bf514939f2700a6ce.png",
+          "sha256": "sha256:d501c61b7e9fa6e8b9ed1d5741b22f4b5b6521b4e3798b5d9a8c0490637af1ee",
+          "size": 123021
+        },
+        "https://velog.velcdn.com/images/ilwha/post/2f496cdd-b1f7-4c98-af55-8451e014a52a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4f176559-46f2-419f-a89e-68a038ce2470/189de55208903a1c51cc1b28607fd644f5ff4df1f00d7c76e7e77beec28f60a4.png",
+          "sha256": "sha256:fdaf124de4337f15f69804447ed4833ddc070f1dc4a15ee54527f108c524b321",
+          "size": 140601
+        },
+        "https://velog.velcdn.com/images/ilwha/post/3b5e423a-9e04-403f-8b67-f38dfd4f32fe/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4f176559-46f2-419f-a89e-68a038ce2470/ed15368b47b3870fb87bc4e18d3c98f81348cedf1b921c3efc35182c4a744a93.png",
+          "sha256": "sha256:7e779adfa3a20e4deb97b8d974ab271d9a46fbcb2243e909f10df165823dbf38",
+          "size": 66110
+        },
+        "https://velog.velcdn.com/images/ilwha/post/91c4c731-2ff1-4789-83cc-52ef59df77be/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4f176559-46f2-419f-a89e-68a038ce2470/19986e3a87ed3284ebeaa59071264dd340f87a7b29bd0d6e71e89f26128c8cd0.png",
+          "sha256": "sha256:a9ff6f0af6e7b459d1d366f133619932ac914b061ccdb755b53253aec3daee9b",
+          "size": 139841
+        }
+      },
+      "metadata_hash": "sha256:cf72b03b814629669713d3e419ed887ffed4da8409885dbb5722ab1adfaa962f",
+      "post_path": "_posts/2024-06-20-CAssg-과제배열로-문자열-다루기.md",
+      "published_at": "2024-06-20T11:02:40.124Z",
+      "rendered_sha256": "sha256:143ebeeb3751590356b0bfd68327229176cffb8c395443df228e8b56d41285fd",
+      "source_slug": "CAssg-과제배열로-문자열-다루기",
+      "source_updated_at": "2026-09-01T18:58:27.744Z",
+      "source_url": "https://velog.io/@ilwha/CAssg-%EA%B3%BC%EC%A0%9C%EB%B0%B0%EC%97%B4%EB%A1%9C-%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%8B%A4%EB%A3%A8%EA%B8%B0",
+      "title": "[C] Code📁 : 과제_배열로 문자열 다루기"
+    },
+    "5d1c1d78-4962-4ae5-a301-e497e9dab006": {
+      "body_source": "graphql",
+      "categories": [
+        "[Python] Notion📚"
+      ],
+      "content_hash": "sha256:40b248a7e83e651f18db7ca300dcaf8b886974f4bd7a02e1bf50b07a47b09a3b",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/17c16356-31e6-4cb2-9e9c-705751e84e08/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/35f7dd731cbb28904d2dae446d6d3145ed89139bc836fd972c73f92d1a9762df.png",
+          "sha256": "sha256:099d2142e26e5323a5cdc9c8fbc4c6fe7fec297aad3e36c3dcb96662e43e6a64",
+          "size": 31281
+        },
+        "https://velog.velcdn.com/images/ilwha/post/209816cd-937b-4ad0-9cc9-6b2c751e734e/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/62751d6f16ba0b77108f49dfef28a018ca6954c29b716702a8155f30df68f4a1.png",
+          "sha256": "sha256:2055be6ab4bb05aa658f88d5f10ace0fb64f0797a4ad8f7012ea9c9096303ca8",
+          "size": 149865
+        },
+        "https://velog.velcdn.com/images/ilwha/post/244b4fb3-af8b-492b-a048-af9e1dc71f65/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/6c3da3d201008716703e3f0ef8650800dcf973c705b943375a174db6ad6f9347.png",
+          "sha256": "sha256:8e8c27bc22b5eff91096280e35626ed62f109f9ecdd1e136037596237e1f9567",
+          "size": 36387
+        },
+        "https://velog.velcdn.com/images/ilwha/post/5004d726-a6a2-4910-a2bc-529f3fbc3da0/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/1a0136c4f9c8502133cdb3bb98871fd6e9825c49561efc73418177a2fb749651.png",
+          "sha256": "sha256:06cbe7234f0eab9b3f1916e8e977ec8ef679877c9cf1802cf6c2c78318e84869",
+          "size": 72290
+        },
+        "https://velog.velcdn.com/images/ilwha/post/5883e84b-49aa-4a68-910f-99d047fc772e/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/3add65d519d10eddc06c5b9cf018d52cc1d312ce0878075a2e09d2ebddefc15b.png",
+          "sha256": "sha256:5db4238e586e7f741b820fe518680c1052e0d41c36e4c59e5ea0a0852ff300b1",
+          "size": 63184
+        },
+        "https://velog.velcdn.com/images/ilwha/post/6cc502cb-5251-4059-92fa-5100b47bb7d6/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/ff3cf379bbebf6d2d6d725267c30622b6c144f5a7ae8585bf1c826f8be2322e8.png",
+          "sha256": "sha256:7f08ddb3daedc398a736ce819912848bf42822e19a6ce97c7cffbeed1171aa68",
+          "size": 93462
+        },
+        "https://velog.velcdn.com/images/ilwha/post/7ccb12a5-45a8-49ae-a806-a73ec912f1aa/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/47971ce087f06873d09324168f46a3c0a196a31b08bd228d67127cb75d2c140e.png",
+          "sha256": "sha256:e96e591cdedd10f7631f413ce4e35097effa166d81cd83208f1aa40548b13ae0",
+          "size": 405739
+        },
+        "https://velog.velcdn.com/images/ilwha/post/8605ec4f-9d57-45c5-86f4-e4a5c32efdd4/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/2ea0c60c9e229190b3b308b0f07ec4ebfd6b5e60d0790f0c94d569318cca7b2b.png",
+          "sha256": "sha256:9102189310befb5656aed93ecc3196b10cef96f1435575f9b0777e3cf6f96374",
+          "size": 130382
+        },
+        "https://velog.velcdn.com/images/ilwha/post/87e33bef-e104-4f20-8aeb-9dc4b11e19c7/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/e2e1b3179dff83173982fc3255e22a8020a5525b3cb8d6791d2c553b28dddd0e.png",
+          "sha256": "sha256:9dfaea692efe1a4c6f5f61ca60c2ffb2f41ea65806780e5726d47575c42749e0",
+          "size": 67949
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a5688784-dd40-42c0-a8a0-45faacee087f/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/c9aa50ad158415433fe0cbfdd846acfbe4886763641dc55b18be2214070259c1.png",
+          "sha256": "sha256:31f7f92cf175c27f6b5b66c82e833410049ea01689243a51abee31310da1abeb",
+          "size": 55692
+        },
+        "https://velog.velcdn.com/images/ilwha/post/e12ccf3a-724e-4d22-81ba-e082f56cd99c/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/57b36dd38f896de0b95cdcbe9c6b7fa59c2f72d86adfb6583e724cad23726a3c.png",
+          "sha256": "sha256:46594cf89c87b3a9ebef309d9e4f9e5c8e9f2581c4b51d89011b08e0a48a0c59",
+          "size": 29185
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f6286cc3-a6ad-4979-9944-685cc54a7367/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/5d1c1d78-4962-4ae5-a301-e497e9dab006/7efbc598583a3d15145bf8755d96d44a072354b93b21f462f024de99c94c84a5.png",
+          "sha256": "sha256:fb5f3db7d15a8b3db8f5ac3f2b9f318edd7eae185818fbcd49c6dea5d3d9e4ae",
+          "size": 57773
+        }
+      },
+      "metadata_hash": "sha256:c81dc244340dedef14c343741a0c346ffc5f83f678e5f4061626af17c4626a32",
+      "post_path": "_posts/2024-07-19-Py-Notion-파이썬의-기본-요소들.md",
+      "published_at": "2024-07-19T12:00:12.151Z",
+      "rendered_sha256": "sha256:79d16833df09618efcf3a185f169c542fbe4e3e623f0e3ea5ba34a8a346f856f",
+      "source_slug": "Py-Notion-파이썬의-기본-요소들",
+      "source_updated_at": "2026-09-01T18:58:10.694Z",
+      "source_url": "https://velog.io/@ilwha/Py-Notion-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EC%9A%94%EC%86%8C%EB%93%A4",
+      "title": "[파이썬] Notion📚 : 파이썬의 기본 요소들 01"
+    },
+    "66f7be36-5b6e-4cd8-89bb-903a7367b80e": {
+      "body_source": "graphql",
+      "categories": [
+        "[Data_Structures]"
+      ],
+      "content_hash": "sha256:cd885eb0aee5ed197f46a25b3cab70232da3088851c87f737f6623ccd2f9f4af",
+      "images": {},
+      "metadata_hash": "sha256:7047f2b39a88d163b3635a90ae620aa8c5cec4b60bf269f97d4dd534d5aaa9e1",
+      "post_path": "_posts/2024-08-29-DataStructures-String-Compression.md",
+      "published_at": "2024-08-28T16:18:45.723Z",
+      "rendered_sha256": "sha256:f023d150d7952b202714aa9fdf6e574f26c2dda191f935cb87d9cbf5da8e158e",
+      "source_slug": "DataStructures-String-Compression",
+      "source_updated_at": "2026-09-01T18:54:17.158Z",
+      "source_url": "https://velog.io/@ilwha/DataStructures-String-Compression",
+      "title": "[Data_Structures] String Compression"
+    },
+    "7460c503-b467-4aec-8a2d-aea1d40a1094": {
+      "body_source": "graphql",
+      "categories": [
+        "Baekjoon_Code📁"
+      ],
+      "content_hash": "sha256:f60d5b35132bc621950a30bf12afe324727ec0c1d2fc648190f676c6afd22aa6",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/193cea61-e988-4a3a-ab60-a508583a0883/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/7460c503-b467-4aec-8a2d-aea1d40a1094/cfddd8164c59f4a2496dfe8d7458188cfe532d7be50eb2126a2c837ca322c087.png",
+          "sha256": "sha256:cac19c608cf8f19816988c0b83718d4e0e6486f6d1ecddc702d46be3fb8ce143",
+          "size": 1543045
+        },
+        "https://velog.velcdn.com/images/ilwha/post/47a1d387-c202-4737-a5cb-283911652655/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/7460c503-b467-4aec-8a2d-aea1d40a1094/204d90796cf6a34835faa2d96c88491e49079bf6c24fab12741d37aa3b216f04.png",
+          "sha256": "sha256:1dd1f754aad2a8a792446db50035673f096f42c9f68a234a5cc1f3f925419685",
+          "size": 97813
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a7d3d108-102b-444e-82c2-24086c0f17b5/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/7460c503-b467-4aec-8a2d-aea1d40a1094/dd01b0f84d367ab382ad29bbc5bc86477560ba17e7d5af57b7e6cc50f30b8bee.png",
+          "sha256": "sha256:9338f43f0745fe84fa9d587a6157ba4cc69ca856170b0326bf050e30d327ea3a",
+          "size": 1078492
+        },
+        "https://velog.velcdn.com/images/ilwha/post/df9048ef-c19c-439e-b88d-351c39f98faf/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/7460c503-b467-4aec-8a2d-aea1d40a1094/b1b84cc50e0ba62b7b398c9751e8f09214bca3ab0c0e76a7a935e4bbf8b593a0.png",
+          "sha256": "sha256:54c3e962698479f74ca041980429cb9d9c94c1f753038fae63e3529426d9e952",
+          "size": 431832
+        }
+      },
+      "metadata_hash": "sha256:956100f5b76eb77dffb447ae6b589b043a0c7b743084ceb5e97072d84ac45f8f",
+      "post_path": "_posts/2024-09-17-Code-백준Ph5문자열11720.md",
+      "published_at": "2024-09-17T08:38:42.696Z",
+      "rendered_sha256": "sha256:cfa0038e9a4bab59915628d96f4e6725981f5a931217212163f9c755de9047a8",
+      "source_slug": "Code-백준Ph5문자열11720",
+      "source_updated_at": "2026-09-01T18:56:24.630Z",
+      "source_url": "https://velog.io/@ilwha/Code-%EB%B0%B1%EC%A4%80Ph5%EB%AC%B8%EC%9E%90%EC%97%B411720",
+      "title": "[Baekjoon] #11720 ( C++, phase5 문자열)"
+    },
+    "7bd24f35-d6e6-471c-becc-2dbb512acc4d": {
+      "body_source": "graphql",
+      "categories": [
+        "[Java] Archive"
+      ],
+      "content_hash": "sha256:2c4912409dd770b93c7e24a8c1310d6de124e61fe4cdc9e3f4bae1ec5f28ddd6",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/22388ac3-f104-4ad4-b5b4-6661e24ade58/image.jpeg": {
+          "content_type": "image/jpeg",
+          "path": "assets/img/velog/7bd24f35-d6e6-471c-becc-2dbb512acc4d/2205edc1b937b27313be3176a7f59ba268c8cd075136ca96c57a90443ae742dd.jpg",
+          "sha256": "sha256:9ee96c1ede6a37e7b799915ff3b603dd52aa01e01695895d766c3240e5160728",
+          "size": 216843
+        },
+        "https://velog.velcdn.com/images/ilwha/post/2d9dec6c-ac6b-4161-8250-2d8e59b52d37/image.jpeg": {
+          "content_type": "image/jpeg",
+          "path": "assets/img/velog/7bd24f35-d6e6-471c-becc-2dbb512acc4d/b864ad09c31bb7d7d25cb0fef43ae37c0d1cf1ce7fbaa2d5ab0a7e14ce19ba26.jpg",
+          "sha256": "sha256:2e322b991897d70a46aa5ba69597ce5884b32fb05ce01de4adc59d0defce3a0e",
+          "size": 286096
+        }
+      },
+      "metadata_hash": "sha256:3478c54dc116ea1f57f05fd1157070aeac400c859bbb93ee744e3e227c31f1f4",
+      "post_path": "_posts/2025-03-08-Java-Dynamic-Method-Dispatch-V-Table-JVM.md",
+      "published_at": "2025-03-08T13:36:16.054Z",
+      "rendered_sha256": "sha256:658a7e11eacfdf9a4484393b46ff013e0838f200bb1f7d9f896bbd14052db689",
+      "source_slug": "Java-Dynamic-Method-Dispatch-V-Table-JVM",
+      "source_updated_at": "2026-09-07T00:36:51.341Z",
+      "source_url": "https://velog.io/@ilwha/Java-Dynamic-Method-Dispatch-V-Table-JVM",
+      "title": "[Java] Dynamic Method Dispatch & V-Table (JVM)"
+    },
+    "83861c49-4732-49dd-8fa1-4fa847c150e7": {
+      "body_source": "graphql",
+      "categories": [
+        "[Python] Code📁"
+      ],
+      "content_hash": "sha256:a1f1dff675e3774d309e4b1739aafbe965c4610ba4dbc53fba5476b53e28c05b",
+      "images": {},
+      "metadata_hash": "sha256:5bfb1efb14f5bd939521dcf8f0ea2de818fa05a695b6a8169f235131bc5df508",
+      "post_path": "_posts/2024-08-20-Python-Ch3-code-03-문제-세트1.md",
+      "published_at": "2024-08-20T07:32:16.839Z",
+      "rendered_sha256": "sha256:067217b69ebd54cb303e0f754144d8e026bd859a0d9781f44ad3757d80b52f32",
+      "source_slug": "Python-Ch3-code-03-문제-세트1",
+      "source_updated_at": "2026-09-01T18:58:12.484Z",
+      "source_url": "https://velog.io/@ilwha/Python-Ch3-code-03-%EB%AC%B8%EC%A0%9C-%EC%84%B8%ED%8A%B81",
+      "title": "[Python] Ch3 (code) - 03 문제 세트1"
+    },
+    "83fe9fad-8d96-45a6-abe6-b7494c77aee5": {
+      "body_source": "graphql",
+      "categories": [
+        "Baekjoon_Code📁"
+      ],
+      "content_hash": "sha256:2714b28f99539a7ba9bb09ffe255077fb5c75650c940d71c068030077706c39e",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/870867a4-4021-474e-b6f9-e3b1a3e8c695/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/83fe9fad-8d96-45a6-abe6-b7494c77aee5/fa70aaea47fe433ab6704734a09aa0ae8a1440842b8ff66508a39233fceb450a.png",
+          "sha256": "sha256:b6be0d32d8c9fc09f32bead838641f25e42afa29ff4bc95010058b55f212a99e",
+          "size": 92863
+        },
+        "https://velog.velcdn.com/images/ilwha/post/8bd7f436-b338-48e5-9bf6-db914ed0d079/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/83fe9fad-8d96-45a6-abe6-b7494c77aee5/375dcd3a69c529a5f1f62fa460e44eb68f93d5c8cca4166586b66a75043042ec.png",
+          "sha256": "sha256:864b99d3d9888a4c828697db0fe7b1b1ca43502819b9a35f524be009e441a27a",
+          "size": 102420
+        },
+        "https://velog.velcdn.com/images/ilwha/post/d616195e-33c1-4d65-98d2-304415cfe12d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/83fe9fad-8d96-45a6-abe6-b7494c77aee5/b09455fcc2ad85c80e302ed3518d0a5a8780eabb10e5d40341b66aae674c9876.png",
+          "sha256": "sha256:811623ec95440e086c82985db92cdf2f1492c03b9a3c382efb7312f90b5fbb10",
+          "size": 197501
+        }
+      },
+      "metadata_hash": "sha256:f74c9f5f6aef822d2ee6bd27e0d354a69324a1af50eaddc575ece4ea1cb7dfa7",
+      "post_path": "_posts/2024-06-17-CASGMT-과제배열.md",
+      "published_at": "2024-06-17T04:20:51.914Z",
+      "rendered_sha256": "sha256:cbe1633582be6b028602b8026d6e4d05753c61ec3e37706e41d1068b4b3050b9",
+      "source_slug": "CASGMT-과제배열",
+      "source_updated_at": "2026-09-01T18:57:56.912Z",
+      "source_url": "https://velog.io/@ilwha/CASGMT-%EA%B3%BC%EC%A0%9C%EB%B0%B0%EC%97%B4",
+      "title": "[C] Code📁 : 과제_배열"
+    },
+    "8916fba7-4c88-4768-aa6a-374feba00f14": {
+      "body_source": "graphql",
+      "categories": [],
+      "content_hash": "sha256:414a372bfc686fe84a8fed94de1b417550e70303a8e06b1e28b8109d2b035a98",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8916fba7-4c88-4768-aa6a-374feba00f14/90f42e1a33df7ccf96396594056def49fcc63d4b4e0af32bb7cec6455bef480c.png",
+          "sha256": "sha256:dc4dc4038fd5481627a0302233a2f2db52c46bd060089e580b649a6d5eaec1ae",
+          "size": 119847
+        },
+        "https://velog.velcdn.com/images/ilwha/post/4768fba7-0c69-4c1d-b955-5cdb6c0eaff1/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8916fba7-4c88-4768-aa6a-374feba00f14/58df5f3fbe098be6a3083d8ce7d3256db9a5b7b1652baf0d3e42b94553ee1f99.png",
+          "sha256": "sha256:75b8168b140424224acd39f6e643cdef8ef9340a5d5e687a1ae01adde8e4984f",
+          "size": 108914
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a0543f03-9f6f-44c9-bb45-573766f6cb99/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8916fba7-4c88-4768-aa6a-374feba00f14/764d0fa43faa8451b718e25bd792ef96e72f5b8b15e106c62546e6ec176e267f.png",
+          "sha256": "sha256:e648d2706e50fd96f3a5fd48f1e66daefb7139a44d43f539f00e8fd857c3a2a2",
+          "size": 199079
+        },
+        "https://velog.velcdn.com/images/ilwha/post/bc98311b-82f2-4b90-bf35-eac3d8ec425d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8916fba7-4c88-4768-aa6a-374feba00f14/9830874fe78a3f804fc0b3736b348e7b08fad65c9b152e048ca7b07dd49fd0f9.png",
+          "sha256": "sha256:df9d70047fcc07b02922995aadc9d6c5ea9404fc0da808fbabd9bf6a4222945e",
+          "size": 43205
+        },
+        "https://velog.velcdn.com/images/ilwha/post/c4214c7f-88a4-4757-87e2-7381cdb47683/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8916fba7-4c88-4768-aa6a-374feba00f14/de9ff18fa2079c3d0542e0cc299b18d93aa0f54aedd730be9e7d3b4e47a621fa.png",
+          "sha256": "sha256:392489628f92db29e5e8893c9903d4c4c92bf2bc83e466886087e0ff527494fd",
+          "size": 107157
+        },
+        "https://velog.velcdn.com/images/ilwha/post/ee901bdb-6fe2-4965-ae19-a7318e6ac46a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8916fba7-4c88-4768-aa6a-374feba00f14/64e0072300e7f3ff74efe65003073a9c444a6fe2d45b7fc25593bc442b963c9a.png",
+          "sha256": "sha256:8b1e4f4c5eb2503ebb104ccf5bb272d8ab8fa6eaac13104c7b1e6673d6123802",
+          "size": 105809
+        },
+        "https://velog.velcdn.com/images/ilwha/post/eec3aa20-a1ee-4697-a890-0e641c47b8f4/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8916fba7-4c88-4768-aa6a-374feba00f14/6e37b8bb846d554317f5c61040942a07177d4d112c26cfabf2a8cd9df00b3ee5.png",
+          "sha256": "sha256:67388d49f3ac6269282c7d582f272b7f90e52da351bee11c8c8e7df98296afb3",
+          "size": 330072
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f46cb51d-15cc-4610-9155-cf61d3300ca2/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8916fba7-4c88-4768-aa6a-374feba00f14/2722725985ccb10a5985c8b31dd2a0701524414ef7b7ab4804e733ce8f63ff92.png",
+          "sha256": "sha256:cc64199fabeb9359dabbfb0226d9dfeae006dfbcc0b9cff0142b0c9d78300cc9",
+          "size": 49195
+        }
+      },
+      "metadata_hash": "sha256:88b346fa06d242274b7171c27b62ad3451ef1bf041c5f729f10026dff8f63cb3",
+      "post_path": "_posts/2025-07-03-Spring.md",
+      "published_at": "2025-07-03T01:06:55.486Z",
+      "rendered_sha256": "sha256:519f0199d3ddcc252d179bdbfc136458e31b1740402dc6028e8fd75d68b5183e",
+      "source_slug": "Spring",
+      "source_updated_at": "2026-09-08T00:39:55.621Z",
+      "source_url": "https://velog.io/@ilwha/Spring",
+      "title": "[Spring] JPA"
+    },
+    "8a76357b-7283-4b46-9d59-4703eb17fc86": {
+      "body_source": "graphql",
+      "categories": [
+        "[C] Notion📚"
+      ],
+      "content_hash": "sha256:ef2ad10670eb1ad26d0909060ab50cbecec6502146629afbdfc761a933ed0e4d",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/0844b719-2e77-4240-be00-f34a0bd7bc0d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/c72ed20e10a1ea99588c383d749f844b7362a08d571ac31a358ec94283da11a5.png",
+          "sha256": "sha256:b3525dd5e894edec44139789a649ca64e776eb7f06884adaf1edc223d3a87f53",
+          "size": 380057
+        },
+        "https://velog.velcdn.com/images/ilwha/post/091d098e-b3fd-4e77-b208-692a1903d5b6/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/8ac6cbd5fc41669aca86a4e6f25edef53fa38384156faf4e70e562cc1144744e.png",
+          "sha256": "sha256:361e42b4c3934697d7635344a42916cb06adcfda7e03e30c09b7b2d6b75777f9",
+          "size": 317707
+        },
+        "https://velog.velcdn.com/images/ilwha/post/0b80a8f8-0ccc-45c4-a842-6d70192ae511/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/2cbdb179df083fc902bba6477df63c1ce52be35820069914d7c20dcf10676173.png",
+          "sha256": "sha256:2761518397fc81ff24836f1f16fbaeeb2e954337759d6ad6b0d2e3dbd88e2c6d",
+          "size": 377737
+        },
+        "https://velog.velcdn.com/images/ilwha/post/0bb32c17-38a9-40af-b1e1-e232eccda9d4/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/7d6ef0adbc94224ecdfae34a8eb5e95cc9922a42e7b68fb59677e5efdf4a8ddb.png",
+          "sha256": "sha256:4f8d444d8a5e25f12b449e5e4cacde440b9175843de1849c0252d6b593b97f3a",
+          "size": 448074
+        },
+        "https://velog.velcdn.com/images/ilwha/post/1b8c0403-349d-4d17-af0f-1f8db5275c5b/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/b532a6ced916968b360797f79c642d4efe5a412b1bc34180319f281f41b1d60d.png",
+          "sha256": "sha256:f76276379d2d8d61f91124f259db155c29a534d099ff8462d80d7a944e82ac32",
+          "size": 294099
+        },
+        "https://velog.velcdn.com/images/ilwha/post/1c7c6840-8410-43ae-87ac-8868a280a5e3/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/82cef4ce302276d6bdd562f5d5355213ef70cdf13fc786fe46dbd976b474f188.png",
+          "sha256": "sha256:0f930b6792712e2c34a0aa836142d7a0982a6ab2976cf2e45ffc722f5b3f094a",
+          "size": 347995
+        },
+        "https://velog.velcdn.com/images/ilwha/post/3119bb24-7ed1-4b0c-a932-f3d9b3297686/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/5eed361e18d3f136f89fa8736f10290b2270e86ba5cdfb6d02b519cfdd80765e.png",
+          "sha256": "sha256:bc8a2a33037e1312bfbd599e803bfaf0fc2967b6b553876e7ccace4d533299da",
+          "size": 111906
+        },
+        "https://velog.velcdn.com/images/ilwha/post/37abc174-7fc4-42fe-9678-063cd864a96d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/1de9af49ef906ff98638175f80cc22efe9773197d3b3cebfac4c139c485bf71b.png",
+          "sha256": "sha256:a71830360cb5d04b709dbeb877c32d5594a93c67cf41643370688433d9d309c5",
+          "size": 446237
+        },
+        "https://velog.velcdn.com/images/ilwha/post/3c301468-47ab-4a9b-bebc-5d0f96447d77/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/478d3ec120833b2aa275bf76e67505b1c936640bc224a2ad03e0049317c8064b.png",
+          "sha256": "sha256:3a6d5432365faba8fe0330cba99f77ef6980920446e5a531f8078ec0e82bd47e",
+          "size": 521212
+        },
+        "https://velog.velcdn.com/images/ilwha/post/3df68542-0037-4daf-8f8a-3df63ad37371/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/c6a12504b0d22ab80949015c1b3c6d6d718a59aaec9aff932f3606702fcdb029.png",
+          "sha256": "sha256:421325ea044ca198eeaa2a37ed82e92bafdab6f476ebcc7adf3a3b1745460fee",
+          "size": 230813
+        },
+        "https://velog.velcdn.com/images/ilwha/post/3eb36351-ac7c-4d60-bf91-be4b535ebff5/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/ea6b61afe221224ef6adf289fc1bdbcd2619718fc359ecc7fbc9a8d25640fb60.png",
+          "sha256": "sha256:ce6552d189c636d82a2eea7d5c485b4cc04da301e41e8bcad7c45373691a7b92",
+          "size": 235341
+        },
+        "https://velog.velcdn.com/images/ilwha/post/3edd0026-8df4-4bcb-88a1-2b0c624139bb/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/1e0bffab7662e11166babcbe2e622633eda660e03a52160e79683fe684aa0269.png",
+          "sha256": "sha256:92b4764587cb9a4a85c58cab628f06a062e32304f69cb3f95f3e72f2137a54f6",
+          "size": 292456
+        },
+        "https://velog.velcdn.com/images/ilwha/post/46f06db6-a0bf-4749-b4c1-abe16014705d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/b2c41ff794ce18d55139c882c07e51896b5ce052e6801998250c501c5a35ffba.png",
+          "sha256": "sha256:806a82d69230ff55e9f9f95eb876af71fe4c78736737fcc75fed26cb18ebe0e3",
+          "size": 65657
+        },
+        "https://velog.velcdn.com/images/ilwha/post/4c7e6260-8063-4323-bc2b-109b59dade0e/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/1f26f945d137caf49f449a7d3eeccb08c3cc30fa5d6592923ca8e5e3bcedce7d.png",
+          "sha256": "sha256:90893116f28e8ef6ad2dac5086587644fbecf7a6defa0633c9c78a99142fd5c4",
+          "size": 557513
+        },
+        "https://velog.velcdn.com/images/ilwha/post/4ca41e6b-787c-4ec6-9803-8aa5b7935490/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/9417b670b21fae0657f083c8d2658bd73444309b3599d804d1e0e1c3670c15c9.png",
+          "sha256": "sha256:d94732c924983d73d1fc01fe1762cf80ddd04f3e359d9237b8c69bec37f82f40",
+          "size": 265238
+        },
+        "https://velog.velcdn.com/images/ilwha/post/5671cc05-e9d4-4e6a-bae2-0c0cdbfec310/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/0e1606b3a12ffdeaabfc5395449e7468d665038d5983b56d9b5fbae69ae6641f.png",
+          "sha256": "sha256:963c2e29e924308ee217258bdaa7b0205fb8dce242eb2bf8949d89ff2ec72eb9",
+          "size": 281474
+        },
+        "https://velog.velcdn.com/images/ilwha/post/63383d93-2c23-4479-828c-a04961e9ad2d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/e1ff6f1122cbe51a6b93fc95879d14dd04ee06ccfd833e2eae9c8ce9ea9d3a33.png",
+          "sha256": "sha256:b97202c30d226a1634dcde60976eadd4d2df02906f62b34a755fa4ff6cb393b6",
+          "size": 262580
+        },
+        "https://velog.velcdn.com/images/ilwha/post/63eeb87f-558d-4c2b-9e7e-d10b9d1763fd/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/c1b5b02bf5248983add513efeb9b08ebaebe26e70ffd76c50cb7009fa5978fcb.png",
+          "sha256": "sha256:1cca871c6175ce796be878d70df11043d8463592ea8e4a6cdad8d6b1ff7a6555",
+          "size": 224773
+        },
+        "https://velog.velcdn.com/images/ilwha/post/6634efce-305a-4970-adec-d68a04a4f905/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/521118b301a7009dc1d280ceb33bd4db06a825997013108f5c334dc88e474fd1.png",
+          "sha256": "sha256:1545f46015f83fa5342eb9be9bc34cf08a38480c32b4451ad69538f93ce9a4cc",
+          "size": 395582
+        },
+        "https://velog.velcdn.com/images/ilwha/post/70e0f341-4a2a-44aa-b0e9-72837b3f6f53/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/66d13931c3ed88a2fa9fb9095f76a2a7f4663f062747051965975ae0de8c2ed4.png",
+          "sha256": "sha256:29eaf9dd9a5f0274ebe018e4d90fc14292477a0bf37c8b23c1b559ad1364780f",
+          "size": 267987
+        },
+        "https://velog.velcdn.com/images/ilwha/post/720be0fc-ec03-419b-848a-f8773aba214e/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/f25b67ce54ca3db6cef99be69f5f371fc28a9d1d1f03565a1b2ef1b0c83b352f.png",
+          "sha256": "sha256:1de65be375b5346ac586af2b9b300aa0d4a0471885464971e937b315067f3935",
+          "size": 324709
+        },
+        "https://velog.velcdn.com/images/ilwha/post/78524f11-25bf-427d-8f19-81016458a3d7/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/320f042dd3ba17b2add163afe156567fe846007681ced7f374d23af33c5eef48.png",
+          "sha256": "sha256:8f2baa3fb860881d92ab8c77caf7215fab50866e5dab32f14d0e147d0eeba98a",
+          "size": 478273
+        },
+        "https://velog.velcdn.com/images/ilwha/post/79f6f134-7dd2-4626-9944-31a895494942/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/609acbd37170e324191ffc85ca3153ab2f5475dd47db1b0af5b68aa97bf9322a.png",
+          "sha256": "sha256:dafa2fc62f45ed95d578035f017902440cb212c0be6cbc1fd2e7f6c658464cc6",
+          "size": 1328718
+        },
+        "https://velog.velcdn.com/images/ilwha/post/7c8f7135-0ed6-4b03-9740-fed4acb8cb0d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/dd64e83ece6df1e315b1f57848d09f3ed9a7138aa23687b723d2b3be949651d3.png",
+          "sha256": "sha256:815dd46967567c15c1d5166ecc459cee7086976e91612e6bc2cff9367b8f17bf",
+          "size": 491291
+        },
+        "https://velog.velcdn.com/images/ilwha/post/8406eaee-a659-42ae-b4b4-7972f77c457b/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/741ff587b1dd2de63c11562c94bc02c931e1a3d9f204e66cd56a60c4d5ee1634.png",
+          "sha256": "sha256:5e90cc6205e8be387908454b4be13915749068c0835e62c0d024004212bd8d6b",
+          "size": 347130
+        },
+        "https://velog.velcdn.com/images/ilwha/post/8a96d4c1-faa4-4798-b84d-ca0273738599/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/c5edf12e3af1515fa47dc51a7b0213539900faa7482c0be3529ec5bebdf2da6e.png",
+          "sha256": "sha256:fd57756feacf01d1e249dee498a77f18e7c0bf731793f00759c6629cbec95eac",
+          "size": 373614
+        },
+        "https://velog.velcdn.com/images/ilwha/post/95435720-3d32-44ba-9944-af8686c9de8c/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/68059f446dd722f99e9652a9ec5fd2af0b7aee2cc86318986c66f9f5fc57e4cd.png",
+          "sha256": "sha256:21e508c205b6316ff0702a6b0e4699d3a32fdb55ea6a75b6d1ed69410002b93a",
+          "size": 708411
+        },
+        "https://velog.velcdn.com/images/ilwha/post/95e41438-db20-429d-bc92-14e4f683772c/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/74bb2f2f45db69f1fa8ec81c44bb41ee7ad86a44e7fc91f37e7a8bca3eb74d76.png",
+          "sha256": "sha256:3a610cc382036b372305af9cc31975d9872a663f2e4d7573078cf4cae258f8e1",
+          "size": 281840
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a3cd0558-2112-4d40-a699-568c122451b5/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/a0bfc2b45afdb5901759cd5fa7880124191a550504a624570f2cb6431784889c.png",
+          "sha256": "sha256:37b268a76eaeec07cdcf8b8e77cffffaf0862b0df61e992177ed61071368f696",
+          "size": 87576
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a6d2b9ee-cbca-4a84-9657-3e54e948b3b1/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/7e14a8d9dc26072159ddbc5e3da56d2f0e52204633b3ceb15b98f113aa8a9909.png",
+          "sha256": "sha256:dfb01a1c2435447610535804a7eb22fc5ae235b8c7c5724cec0d352384c57ebc",
+          "size": 482962
+        },
+        "https://velog.velcdn.com/images/ilwha/post/ade19356-2540-48e8-9226-df76081741c7/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/d322624ae1e58f476f759a825a5c4f61f186f52af9f9eae718f50e3b5d4bc239.png",
+          "sha256": "sha256:4296a614b464b21a07bf38cd80c0032fdb09e7b987b2e9873de3cf3fa23d485b",
+          "size": 404046
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b8a440db-60fa-4ccc-9be7-3be9bf124707/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/15e2e4fee85ca59c9b50a9f1926aa68e13cc41f0ca3e3259e9483aad0be68ada.png",
+          "sha256": "sha256:a8e8a56c85ab13ac2aacc636799d01d0ec9a765a029d4ddc9ffbdcb552b535f7",
+          "size": 426855
+        },
+        "https://velog.velcdn.com/images/ilwha/post/bdcbb103-6aab-42ce-9e52-75032c163752/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/09ef6c73884915e00493f2af282137ec4554606109fa78ab8813032840a68115.png",
+          "sha256": "sha256:c9a5b616bfcc572bc53543ef850e69c7489d52b6fd74877f93580b0ab4798f23",
+          "size": 396773
+        },
+        "https://velog.velcdn.com/images/ilwha/post/bfae7af2-371f-4805-9707-14f0fe6ac0a3/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/73a1a7a1aef51cd4b6538c2dee01462762e035e7da5478fcc98491e6d3b206fe.png",
+          "sha256": "sha256:4a5ee45b80bbd51268f88531e3ce3b5bf6af929de1cf8f2b894773b7cac489f4",
+          "size": 660931
+        },
+        "https://velog.velcdn.com/images/ilwha/post/c661542d-f3bb-450e-83ec-f896334dea3a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/341c228c7318624b6cf40e52a144e82a07093e866c530e57ee85390fc9a8f76f.png",
+          "sha256": "sha256:01eccb77326badef9dd64b0ed697910753d3bef6c3b3e857cb145202a2f90908",
+          "size": 289551
+        },
+        "https://velog.velcdn.com/images/ilwha/post/e67d7be7-f944-4a87-a9ec-3d096fdde87f/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/5b1a7c28d3062bbd173d157e61bef196a86b28d3a64e6483e56e1a677344033b.png",
+          "sha256": "sha256:3d7ee89c2483334725b89fd1eb634bc1ee53e96a1122950bc00d64a4767a1de0",
+          "size": 159222
+        },
+        "https://velog.velcdn.com/images/ilwha/post/ef76a799-b239-4e5b-9d39-b6373243b524/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/0a817af2e358a8360a6b68a038cd6a1567a62c09bba007b08afdf142f159b552.png",
+          "sha256": "sha256:8ab6dfaea8bb55d1565eb68b6b9ef0df0c796222f77cdb8c85c770e5aeff3cd4",
+          "size": 288753
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f6a0e8ce-3c75-4653-8a1e-d0f77bc5eece/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/b9e929fc6b9cec9a3c3e10d3cbe7fef9e894337b38c02a5caf033e53aa3657d1.png",
+          "sha256": "sha256:2423ac25bf14645585a72da435634e3080e66aa085e7e03a2321ccae52af631e",
+          "size": 138192
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f92c6750-a1fc-4b73-ac14-35473c60b601/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/3744f4e5b672e4aa4221544fa83f79305c669b76fdbcef192607bdc72e95333f.png",
+          "sha256": "sha256:b30b48b91ec146240c61005fedb69fbca89315ba0b3ceb0f7ad13a19a055d513",
+          "size": 258365
+        },
+        "https://velog.velcdn.com/images/ilwha/post/fd3c63c7-bb5b-4a1c-85c6-2a7dfd05b947/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/8a76357b-7283-4b46-9d59-4703eb17fc86/a861cfa01b30a155617aa498813c8c49c6412e1f19520c3a31f940b720003580.png",
+          "sha256": "sha256:25a6928a59845f5b3860a8c7dba81aa38b0bbd43f8ac90cd1d36138b01ac64a4",
+          "size": 173394
+        }
+      },
+      "metadata_hash": "sha256:cad28affdbec5d2907b1f5649a3a9437b97d5ea7932108e3ae88c5f2fe2d38e1",
+      "post_path": "_posts/2024-07-12-C-Notion-메모리의-동적할당.md",
+      "published_at": "2024-07-12T12:21:00.769Z",
+      "rendered_sha256": "sha256:940eef81d5d4cf19c5a8a3d98eda8e07a4882f1c9760ac466bcadc56aa65536e",
+      "source_slug": "C-Notion-메모리의-동적할당",
+      "source_updated_at": "2026-09-01T18:58:08.182Z",
+      "source_url": "https://velog.io/@ilwha/C-Notion-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%9D%98-%EB%8F%99%EC%A0%81%ED%95%A0%EB%8B%B9",
+      "title": "[C] Notion📚 : 메모리의 동적할당"
+    },
+    "8e450883-2969-47c9-a4a9-6f3c6956eab8": {
+      "body_source": "graphql",
+      "categories": [
+        "[Python] Notion📚"
+      ],
+      "content_hash": "sha256:8fa47826f478c3b28d54c7af2f2bc22b0202f9dc9f5b4476973e18d8a822741b",
+      "images": {},
+      "metadata_hash": "sha256:226c13d617f7fb6ab297aac4bab341c207b23d43f2bbc171c8963d19730f5809",
+      "post_path": "_posts/2024-08-18-Py-Notion-파이썬의-컨테이너-별-메서드와-함수.md",
+      "published_at": "2024-08-18T12:24:00.240Z",
+      "rendered_sha256": "sha256:a9c057660389728ab86c4d4b3149ab935cd4f6a50f871f37c7434ce3545423d1",
+      "source_slug": "Py-Notion-파이썬의-컨테이너-별-메서드와-함수",
+      "source_updated_at": "2026-09-01T18:58:17.437Z",
+      "source_url": "https://velog.io/@ilwha/Py-Notion-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%98-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EB%B3%84-%EB%A9%94%EC%84%9C%EB%93%9C%EC%99%80-%ED%95%A8%EC%88%98",
+      "title": "[Py] Notion📚 : 파이썬의 컨테이너 별 메서드와 함수"
+    },
+    "9659c4f8-18da-4a2b-9a4a-eb9e0b17bf30": {
+      "body_source": "graphql",
+      "categories": [
+        "[Data_Structures]"
+      ],
+      "content_hash": "sha256:20d3d7fd6cfd1fafbc052ed3592c3c79339099691e5b1c752d9b60732f850ddb",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/4840dbab-b620-40aa-8abd-c8119dc1e1a4/image.gif": {
+          "content_type": "image/gif",
+          "path": "assets/img/velog/9659c4f8-18da-4a2b-9a4a-eb9e0b17bf30/adc60471b52f97b2fcae61bd32e505527e53c45b564c4239e49a442095312720.gif",
+          "sha256": "sha256:b798d5d08de27bfa5d6575abc09f699db77604dfbca1ac66428cb81ed64ac8ec",
+          "size": 1953181
+        },
+        "https://velog.velcdn.com/images/ilwha/post/de283363-3ec8-42da-91e3-1082405f909a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9659c4f8-18da-4a2b-9a4a-eb9e0b17bf30/8bda4dff6cdd859fc328f580687652635117e587350662dd527d47cf0e9c7fb9.png",
+          "sha256": "sha256:d24ff52e2290e45d708663fe1ad5057e5989e5a4e609e2d0e52fa9ed0afc2795",
+          "size": 112555
+        }
+      },
+      "metadata_hash": "sha256:eb12623274c0fe6d79775da90c6829f7797d96031811e0d01f552010c3b6c01d",
+      "post_path": "_posts/2024-08-17-DataStructures-Insertion-Sort.md",
+      "published_at": "2024-08-17T07:34:20.026Z",
+      "rendered_sha256": "sha256:4636d15066e4f743cb31f22a5407fea60765f367ae7e41c675409bdfbe7337f4",
+      "source_slug": "DataStructures-Insertion-Sort",
+      "source_updated_at": "2026-09-01T18:54:17.085Z",
+      "source_url": "https://velog.io/@ilwha/DataStructures-Insertion-Sort",
+      "title": "[Data_Structures] Insertion Sort"
+    },
+    "96b10ddb-5d6d-4f74-9d6f-ea423445cfd4": {
+      "body_source": "graphql",
+      "categories": [
+        "[Python] Code📁"
+      ],
+      "content_hash": "sha256:3a3b6dfac6484c6c9f92e2bbfa6c09ac2229114ac0bccb904974316784d70bbb",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/8875cc5a-3f9c-4a0a-9e0f-5e6f5f07df4b/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/96b10ddb-5d6d-4f74-9d6f-ea423445cfd4/cc54f7c511151e34b9545e8c4bcfb6574cb7bb12ca67fa30f1cdfd519a81d73f.png",
+          "sha256": "sha256:79f79809d738cde1c726269cc79a064246bfcc396e8a057bc9e09ea2c0a180c4",
+          "size": 1526017
+        }
+      },
+      "metadata_hash": "sha256:bce0ee3d8a0082011bc81675e1c04c4ca9d7355b04e00db04d38f254262e1b4e",
+      "post_path": "_posts/2024-08-20-Py-Code-ch3-03문제세트2.md",
+      "published_at": "2024-08-20T08:44:38.099Z",
+      "rendered_sha256": "sha256:56ce8872a5a14fce1bc43ad0e16d4e40198bb86360c1742d8dbe39b7253cd038",
+      "source_slug": "Py-Code-ch3-03문제세트2",
+      "source_updated_at": "2026-09-01T18:57:56.270Z",
+      "source_url": "https://velog.io/@ilwha/Py-Code-ch3-03%EB%AC%B8%EC%A0%9C%EC%84%B8%ED%8A%B82",
+      "title": "[Python] Ch3 (code) - 04 문제 세트2"
+    },
+    "9d548c10-6db3-4227-b502-975621e744c4": {
+      "body_source": "graphql",
+      "categories": [
+        "[C] Notion📚"
+      ],
+      "content_hash": "sha256:44b9b3207edc8998d1d8370ad6a04970c6da00f48e50ee63fc20ba6160feb44a",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/297b63a1-564b-4bdb-a3bc-f503425ef668/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/2c6de493319846d0c2c1d08e2e5daa64399e8cfb71f37b897ebaa033440c901e.png",
+          "sha256": "sha256:061880c3a812f7f4e1ebc960f4a33112fb93ea67b8c2655b3e3b0bbfb6487e90",
+          "size": 146703
+        },
+        "https://velog.velcdn.com/images/ilwha/post/29f6126a-dab7-4828-b28f-551946abd943/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/587269a4292d845cff241a6b89e9659217a06150a63de6763111f1dafeab427d.png",
+          "sha256": "sha256:7ff2ff5259fbf06aa578ba566fefa011c7a3bf3adb0812968d13c06debbb0d05",
+          "size": 344905
+        },
+        "https://velog.velcdn.com/images/ilwha/post/32deabb5-f871-498c-b803-b50fe1acc04f/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/544368961743a6e2572b7b96ca2c5499e3f3392025cc4a41ee854d32a8bc40ec.png",
+          "sha256": "sha256:fa21105751d70e4113e644112e5e04710bdcab11687970e5cbc87c716c07f8f5",
+          "size": 358764
+        },
+        "https://velog.velcdn.com/images/ilwha/post/36c34dc2-58eb-4e8f-88d5-ea98986b6504/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/23b5488c069a952beaac11a194840d6b4a98bf1a669e99e24e2912441e8b9715.png",
+          "sha256": "sha256:61e1db24c181acd25cc7f2fb39a6a5c65885a26340fbdef01795bbadcdec0619",
+          "size": 715543
+        },
+        "https://velog.velcdn.com/images/ilwha/post/38d1b01f-71a7-4897-b0d5-6a9f6aa2d102/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/61711cdb90f5578cfbe3c7481c7192dc62c372f5fb3fe9529ec752feadb1e07d.png",
+          "sha256": "sha256:d533149f018c7dcabb7621c7938b9e23cc052898892e144a19955dc2cf57f537",
+          "size": 489614
+        },
+        "https://velog.velcdn.com/images/ilwha/post/38fbfdd0-d9a2-466d-adb9-59df53265153/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/5ab32a1df835c0c7bf828d25911ad30431c730b2f29e7b9f2c6bfb6959a3037c.png",
+          "sha256": "sha256:56b160cf2206f3a82705a74313f046571f00cf4c906aa640894d0554d7c467b5",
+          "size": 446502
+        },
+        "https://velog.velcdn.com/images/ilwha/post/4af9ab30-1bfa-4cc6-b201-a3d4b3b0c809/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/e8e3eea3cf99e0ac52fc6c7c3ce17780570f2acc754ebe92870b66f290406ff2.png",
+          "sha256": "sha256:75dc9a3f0243da3f88e83075b2e8180a840f0a4c30b8ddc090c2ca5db98cfddd",
+          "size": 740959
+        },
+        "https://velog.velcdn.com/images/ilwha/post/510c4869-9a09-4c49-8635-605483b88f3d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/668d307bd71afaf8a3a73ab348e5380800ecbfeca49caa1635b7a032f0cc8b18.png",
+          "sha256": "sha256:09c64c33cd10d192a3ba6771d14a6ffa611118c4a8cc2d3262cb946541afc6d2",
+          "size": 768663
+        },
+        "https://velog.velcdn.com/images/ilwha/post/56cc4f6d-7b67-4268-8112-5b410eb3f298/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/54e9db05efe888749d17cb68aa102e0c81408ad1842d71fd70ce774f46abb8eb.png",
+          "sha256": "sha256:69f1110fa7d7f277759fa054d618687f889acb42390f668cc8ad2c7c120622dc",
+          "size": 337455
+        },
+        "https://velog.velcdn.com/images/ilwha/post/5a4c5f34-a8fe-48ba-80c5-b46168426550/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/fc38f810b642d1495f8f88bc8893967fe9321a725b1e2f14b9783d5e71c74c49.png",
+          "sha256": "sha256:2c1f662cebf7c72cdee5ec67181e6d4d19bbb60906c50e340794b5d8fc97debc",
+          "size": 407993
+        },
+        "https://velog.velcdn.com/images/ilwha/post/6170e821-d7bb-45c7-8b7a-a7a849d3c7cf/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/3874fa9cfa086b9263e2f61371528cb45153bd509f5668e5b590c4845a42c093.png",
+          "sha256": "sha256:0e6c3f65ff56edefd1d6de649f0773ec769a82fed4f5d4e8cb9e9144ac709db5",
+          "size": 311479
+        },
+        "https://velog.velcdn.com/images/ilwha/post/6952ad4c-08e2-4599-8bf4-4f81679ca723/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/2c7e7d0d3d8a1a94662ab1c44f7d84f4a3180fde65172553720b45a1c8fdcda7.png",
+          "sha256": "sha256:545faa7982059be76a768210c2ceb8ec4616917918265e01fd5ba3caf1aa6ab8",
+          "size": 737073
+        },
+        "https://velog.velcdn.com/images/ilwha/post/76609ed0-79c8-4c9b-84b6-90d33c1900ea/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/cc65cdc9894b6ab38c1ce56af6176224d83c67e583ac9dd84cf67bf1eb5d7bb2.png",
+          "sha256": "sha256:8b90dcde1e3e938802f96867603e23a8271448330ef21ebce3b8d76d82615d0d",
+          "size": 129252
+        },
+        "https://velog.velcdn.com/images/ilwha/post/7afd6aa9-1c1d-46d6-bb51-116a49de732d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/daac64f6ba9f10b6a7ee4601248568297674014ccdfc49e3b5d574b6610315ae.png",
+          "sha256": "sha256:d889826fc7a7ad386f65855adc55112969848ae8de7caab58c9bf7975c2ee42c",
+          "size": 776581
+        },
+        "https://velog.velcdn.com/images/ilwha/post/7f0cf559-be04-4e74-8674-e511adb1db4b/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/95a11662166d1ddac8df71f6bd35cabac29e39ca7e0e7b23a03dd8a68abf26e3.png",
+          "sha256": "sha256:676387902e96d9f54c86b8d7dc77c4e499ca1ebc723e1253e638a7ef6a4a3200",
+          "size": 707911
+        },
+        "https://velog.velcdn.com/images/ilwha/post/873cc9c6-57a4-494f-8df7-264a4184b33c/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/1e15c11d00db28783c51f920788acc0451a9bd6b0f3f30dc761d4d580078c277.png",
+          "sha256": "sha256:d38120cfd450173da22943d26daa2d70a908222bd591dd54060806975628989b",
+          "size": 734259
+        },
+        "https://velog.velcdn.com/images/ilwha/post/9a9741fd-6263-4b79-99ba-0dd2d091bfb5/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/5ead782d81ae5d7b9d7ef5db51c03a25c5faaf804a99e7b388549e3a0fbbf4c4.png",
+          "sha256": "sha256:d6dc5af07f48c7cf925001d1c1df427fedbc1378fee1a7be039a97022f959392",
+          "size": 549780
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a3303a10-d68d-4a26-9870-ab025fae0cb1/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/25a254a9e8672e9a5cde38ab0bb7cb7ecda4b38dbfcd3b55410dd3bd5ed5de05.png",
+          "sha256": "sha256:80245e687a82a8e5586a589bd0aa281269f0549a0d3f7775736ea3e91f24cc5b",
+          "size": 278632
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a5d3b161-97ed-4f3f-95f8-f42da9a21b52/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/e70ef23af954486949b373d921aa97f3d30d9bf32272173599a3bf15d7e71988.png",
+          "sha256": "sha256:8bc63e9c89da55b8798e99559977cc52c84f952a5ae957082f4ac324f3b1d98a",
+          "size": 231294
+        },
+        "https://velog.velcdn.com/images/ilwha/post/ab8816a2-c305-4e6c-a4a3-3889c4133e87/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/a127119b016f407ffaa197fcb5b54b6706b7b4f385a26e796d0f5b6974fae04a.png",
+          "sha256": "sha256:0e8dc116bc0d4b706defe095bc1434c0d55305fd23a09cda6f493b52fd99e54f",
+          "size": 569539
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b351235c-19be-4bdb-90a0-fbbd0c3417a3/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/8b5b0435f3c63dfca53535d8ff65643361ee1ae3cf31a51a694afe191eae56e4.png",
+          "sha256": "sha256:16dc2b77c5a1456a5a7927bc468fd589dd0bf855a3d0fe392e49a8e5944b4199",
+          "size": 471109
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b819bd14-a569-4f92-90a8-0b12b65d42e9/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/95cac609c8620b64c50633441b6ba31a12ea459af66625166bfdd26a57f74fc2.png",
+          "sha256": "sha256:2c297415bb0292006193cfa6c7461f45b958d7c7aea914536d658af1525552c6",
+          "size": 318780
+        },
+        "https://velog.velcdn.com/images/ilwha/post/bbfe02ff-f1c7-4b79-9e2e-93f6ccf48424/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/a7a4e3b5434533ac690d3a7a5550e616c47a11123d09491d9e83a0d39d106d76.png",
+          "sha256": "sha256:b9fa8f6370bbb8ad6ca2dd2c0d0c8769ebc124b3e0fb235338d646bb42fcc53e",
+          "size": 644068
+        },
+        "https://velog.velcdn.com/images/ilwha/post/bc3a943a-afad-46ae-8724-62d34aa797dc/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/39ea82e5f6e752b01ea60b70e3cbd241339762483bab5cf3bab90e8a9299162e.png",
+          "sha256": "sha256:96b282fdec7130cbb635d56bc99eb84eef4a3f58ec4396140bd14c7e5f5ad515",
+          "size": 566675
+        },
+        "https://velog.velcdn.com/images/ilwha/post/d3232eda-8d45-4b8f-9437-68a521355616/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/32eea8a3faddfe011881a03f437db3dc211bfcadaa8a84dbe545db4a84f50745.png",
+          "sha256": "sha256:821928d556e239688a6e2ab31d6fdfd92d87c0292a86a0c6c9f57330882fc359",
+          "size": 514903
+        },
+        "https://velog.velcdn.com/images/ilwha/post/d664f95c-0c2b-479f-ba34-06fcf9e2943d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/4bd26286af79f05a17cbb785a413f7d8c269ea81c81f12e199b1b05f3ac7f77d.png",
+          "sha256": "sha256:6b59d6ce0dfa2db40e8dd692af651d8a686ec924f9c8010afddc6ad5ca819424",
+          "size": 478559
+        },
+        "https://velog.velcdn.com/images/ilwha/post/d8f7b009-e959-40c0-b68e-1b863d8a3111/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/341008bfeb1d64f3b40061cb20ba1b06aab56a18c268e3490851d0264da79acb.png",
+          "sha256": "sha256:84400edef167ffef9d10117fae08cd7f3ebdd76e861b8e3abb8e9712ed5f460c",
+          "size": 188916
+        },
+        "https://velog.velcdn.com/images/ilwha/post/e2418169-a41b-4747-b2e9-b8621a927f3d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/0e9d863aeb1cec8dd22f99967d70f3e5345a5ff4e2dff11d24eac53e184bced2.png",
+          "sha256": "sha256:4f2ed66aafb7c032ebf21b2fe417e0c6a8392e19d632e781eca8738941c1eade",
+          "size": 469210
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f59a0356-9763-40ee-b4c2-11779e28dc62/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/23cebc61a53bd7d90f500e8dc6955344edbe6618f6e6a64d0e824dbb74352b39.png",
+          "sha256": "sha256:96bffdb4b3dbd3752b70f81e18cf0c754d79d80a16f10df07b7e31ed7272ffb4",
+          "size": 197152
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f926ef53-96b9-472d-895c-581c883eb838/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/35a7ad755b09e7363b6cd46b3b70a9690a5db5e17752191cf283b56f0f6acffb.png",
+          "sha256": "sha256:09c41b9d897af57bd8da7c380d43e6f4593b13ddcf86031f2f997dcde8f911b6",
+          "size": 1041745
+        },
+        "https://velog.velcdn.com/images/ilwha/post/fff090a4-056d-4403-8b08-9cc658ce2a59/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/9d548c10-6db3-4227-b502-975621e744c4/f54245d944a6bd3fe199253723489eabe3b87866e3e1e209dfebad23a24b4fe5.png",
+          "sha256": "sha256:4f85f3d56a8c30248602e54259adb3229df653fa188bfddcd2298739f2459433",
+          "size": 468702
+        }
+      },
+      "metadata_hash": "sha256:1c61919aa698e3b9e81e26db1545e2c18173986df76dd14a8157183959df000c",
+      "post_path": "_posts/2024-07-05-C-Notion-포인터.md",
+      "published_at": "2024-07-04T15:12:44.753Z",
+      "rendered_sha256": "sha256:8449e4a132b03b7617444c9489444dd980d6bf13db6c894b9da67c89f54c07e2",
+      "source_slug": "C-Notion-포인터",
+      "source_updated_at": "2026-09-01T18:56:41.391Z",
+      "source_url": "https://velog.io/@ilwha/C-Notion-%ED%8F%AC%EC%9D%B8%ED%84%B0",
+      "title": "[C] Notion📚 : 포인터"
+    },
+    "b97398b8-6e23-425c-b711-df385c52df3d": {
+      "body_source": "graphql",
+      "categories": [
+        "[C] Notion📚"
+      ],
+      "content_hash": "sha256:a7b4c017b1934cc1375ec35a1ab50ae8a46ca6d4876243845ec2d5db5aee9f00",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/bbc9b14d-50da-4907-8348-db43210f0270/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/b97398b8-6e23-425c-b711-df385c52df3d/a4abc505803df93aab6af858e30efd68dce0f14a8ec67e52213bd8912c53ace1.png",
+          "sha256": "sha256:32f183942265aec8681ddfe584101feacae9177e47cf02869aba2e8b4e3d46be",
+          "size": 185369
+        }
+      },
+      "metadata_hash": "sha256:b64743e1e663e49d505a6db8999d2a70c9c4e3713ff948cb0701221025e7faf2",
+      "post_path": "_posts/2024-07-04-C-Notion-포인터역참조-연산자-선언사용.md",
+      "published_at": "2024-07-04T13:39:18.412Z",
+      "rendered_sha256": "sha256:da6abb4cf049edf71542623715c200a7b4851fdd9d91a9ff436eeb0ca3f1f051",
+      "source_slug": "C-Notion-포인터역참조-연산자-선언사용",
+      "source_updated_at": "2026-09-04T08:05:43.519Z",
+      "source_url": "https://velog.io/@ilwha/C-Notion-%ED%8F%AC%EC%9D%B8%ED%84%B0%EC%97%AD%EC%B0%B8%EC%A1%B0-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%84%A0%EC%96%B8%EC%82%AC%EC%9A%A9",
+      "title": "[C] Notion📚 : 포인터_역참조 연산자 선언/사용"
+    },
+    "c02eb9b7-1547-4eec-aca1-b97a46d963cb": {
+      "body_source": "graphql",
+      "categories": [
+        "[Python] Code📁"
+      ],
+      "content_hash": "sha256:f6a2115d4f44cc82f4f58128e7a2d1d928d3a166407c946db5ec6fa5b0950e64",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/1d6520b6-8e9d-4ade-b659-f04789ff5149/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/c02eb9b7-1547-4eec-aca1-b97a46d963cb/88b7fd9718d9a5e5af9a560b5a41c29d44ec9e39ae55a03abafa2c20ce5b7c29.png",
+          "sha256": "sha256:e5eea9f3dc2461b64859eade0e4fdd1fbb07d0f2f6564d92cb4e7e26875794c3",
+          "size": 71267
+        },
+        "https://velog.velcdn.com/images/ilwha/post/3da41119-19cb-4f73-8473-03bf7516bd1e/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/c02eb9b7-1547-4eec-aca1-b97a46d963cb/c2999453c2a160c852bf13bd8e3a210771653964c76770ef75dc1c0a42df3972.png",
+          "sha256": "sha256:ac70f447fbd0bc97382c8d09d6d8ba06026834e3d4ee2bd7463c9084c523ad9b",
+          "size": 271687
+        },
+        "https://velog.velcdn.com/images/ilwha/post/496167cf-da56-4b36-848a-9ebc8843dd5a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/c02eb9b7-1547-4eec-aca1-b97a46d963cb/fbba75dd57361e0325c9059ed8627775a664d1177a36608bfc997b211c3ec2af.png",
+          "sha256": "sha256:173840dc630137b8607f5ab22e134476ccd138694779a9d8920da63fa9b8e7d0",
+          "size": 50150
+        },
+        "https://velog.velcdn.com/images/ilwha/post/878fa9dc-9c0b-4fc3-8bf9-e6674af9fef7/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/c02eb9b7-1547-4eec-aca1-b97a46d963cb/978f7c5c051352829a415fad715f82f92d535d47c462b3b2d86e32f23871746b.png",
+          "sha256": "sha256:d184c0d50742e116f91c9391e9b8f6c9c78716485f60e6fada6b253e327a55be",
+          "size": 97920
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a7bfaff7-b1e5-49da-838b-07a365dd0382/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/c02eb9b7-1547-4eec-aca1-b97a46d963cb/7e8c65bdd3deb6ea1f31c3ef50cf8b1d4446d15a55ff6b9feff31759e4f019b0.png",
+          "sha256": "sha256:14a550889778605db95d1eb7a961702b26eee4b0fd7acbaac7496c572ad59c55",
+          "size": 68736
+        },
+        "https://velog.velcdn.com/images/ilwha/post/ba5409cc-8b2c-45a9-8cfc-a161ce2f4d72/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/c02eb9b7-1547-4eec-aca1-b97a46d963cb/3faee1db090127bbe26776a59eab0343f56444927ff3634b1eca9e1bf1a32da3.png",
+          "sha256": "sha256:ce959a4a20299ec5dd0d72307f91a680314e086b579c8d9fd1b0865b492a4f07",
+          "size": 93533
+        },
+        "https://velog.velcdn.com/images/ilwha/post/bda80e5b-8251-4caf-b0d5-cb564b11da47/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/c02eb9b7-1547-4eec-aca1-b97a46d963cb/d93e84f4dcd1626c2eb9262bb3b2af9962e905e984e347dc0bb4b5c11f0975c2.png",
+          "sha256": "sha256:05c5bfaa96897eda72c7cf227aa9c15f6bd30025b2bcfd35321dc684bd0d0970",
+          "size": 82633
+        }
+      },
+      "metadata_hash": "sha256:bc497a5e0c366b71944e38f55afa2579bf9a70be60c10445baf138aed8991f09",
+      "post_path": "_posts/2024-07-26-Py-Code-ch3-02별찍기.md",
+      "published_at": "2024-07-26T11:26:53.929Z",
+      "rendered_sha256": "sha256:aefe83922ef936d73ce31ed154838296e78d9c2892fd11f639936c8ecfcb5fc0",
+      "source_slug": "Py-Code-ch3-02별찍기",
+      "source_updated_at": "2026-09-01T18:56:55.957Z",
+      "source_url": "https://velog.io/@ilwha/Py-Code-ch3-02%EB%B3%84%EC%B0%8D%EA%B8%B0",
+      "title": "[Py] Code📁 : ch3 02_별찍기"
+    },
+    "c0fcedbd-61b6-4a6e-962f-a6f05355724c": {
+      "body_source": "graphql",
+      "categories": [
+        "[Data_Structures]"
+      ],
+      "content_hash": "sha256:7534df6167c322b51b3e9962e5f71baffb4dd83481f3fc77b93a12c163cd4139",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/61f45547-a595-4b41-8afd-54c422b1ba32/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/c0fcedbd-61b6-4a6e-962f-a6f05355724c/2281480ddb574b3825ab317f5fd7233a7adc2925ae656b8c4fff75e9de96d399.png",
+          "sha256": "sha256:870563c3d82721e8cd1a2f8d3d72886502745abb78b9f2a343e79ffe115b840a",
+          "size": 113886
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b02b0f6a-9f11-4145-b2e0-129d58e05a7f/image.gif": {
+          "content_type": "image/gif",
+          "path": "assets/img/velog/c0fcedbd-61b6-4a6e-962f-a6f05355724c/22889d460a50df3086342f21805b81a3cb62ef440e372608cfa85fb32c36ca85.gif",
+          "sha256": "sha256:334b21e8dac615e05ffbed2f73037e9b3d1611d491c02204fff545ceef9d9b11",
+          "size": 46500
+        }
+      },
+      "metadata_hash": "sha256:eddb01eb1be823857ab3846a9b8e592fd94c4ff42c91757b6ee904d34c955484",
+      "post_path": "_posts/2024-08-16-DataStructures-Selection-Sort.md",
+      "published_at": "2024-08-16T09:48:23.457Z",
+      "rendered_sha256": "sha256:f4f692ec5d2bccb690ee6d624c48025c8c0a666a1365d3f8df57972df36de848",
+      "source_slug": "DataStructures-Selection-Sort",
+      "source_updated_at": "2026-09-01T18:54:16.306Z",
+      "source_url": "https://velog.io/@ilwha/DataStructures-Selection-Sort",
+      "title": "[Data_Structures] Selection Sort"
+    },
+    "ca010783-034c-45e4-9551-5aecfa373dbe": {
+      "body_source": "graphql",
+      "categories": [],
+      "content_hash": "sha256:af3759de80653f443fcc5043c9b97c0e1755da460ee320da41fb58d4afc5aea7",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/4393a409-495c-48da-84a2-382680a4f25f/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/ca010783-034c-45e4-9551-5aecfa373dbe/9b48ebcee8ac5cbd68efc4c317e5a26b34b69aa2b34c2588389f7bbcb00926cd.png",
+          "sha256": "sha256:4fd630f33ebaba2de53950a4ac03e2fd991667c4e6f7e089247f8dedda3219d8",
+          "size": 139275
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b5c6443d-ebcc-463a-a750-c7eaa67c31ce/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/ca010783-034c-45e4-9551-5aecfa373dbe/17078a10b7e0659123ac212200ffc31f4efa751df7e34c44bc5e91837d2ed839.png",
+          "sha256": "sha256:6a5f3a18b85a055f85fd15a4db5684da80225ced30c9aa4c7835899117003d2d",
+          "size": 109174
+        },
+        "https://velog.velcdn.com/images/ilwha/post/e9d0debc-6056-4dcf-be79-265214498652/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/ca010783-034c-45e4-9551-5aecfa373dbe/80279cb3170df1885a9ab31cea835b3eedaa5be3b48640a5b31eef6c06dbc7dd.png",
+          "sha256": "sha256:4d51353080abbe7735be3b241247e482cafdb6e89762b8492fdf6abdf0deca98",
+          "size": 59923
+        }
+      },
+      "metadata_hash": "sha256:42499e474ef0735282f6d6282311ba9a4057e0a1df2ed21300ce69474311f869",
+      "post_path": "_posts/2025-05-06-Spring-내가-보려고-만든-MVC.md",
+      "published_at": "2025-05-06T07:12:07.910Z",
+      "rendered_sha256": "sha256:bf666d0b491ee35d5b6d4c55d626a132689d96bc31204e63340825a374c0448b",
+      "source_slug": "Spring-내가-보려고-만든-MVC",
+      "source_updated_at": "2026-09-08T01:12:48.591Z",
+      "source_url": "https://velog.io/@ilwha/Spring-%EB%82%B4%EA%B0%80-%EB%B3%B4%EB%A0%A4%EA%B3%A0-%EB%A7%8C%EB%93%A0-MVC",
+      "title": "[Spring] 내가 보려고 만든 MVC 기초흐름도"
+    },
+    "cf211993-d985-4368-9091-dd1cb1b952a2": {
+      "body_source": "graphql",
+      "categories": [
+        "[Java] Archive"
+      ],
+      "content_hash": "sha256:7711cb5825e4ca1d8dff0c56f7eb3815cb7f76262378783a3cf5a4d11cde9a01",
+      "images": {},
+      "metadata_hash": "sha256:824e6255c94338b455af666effb9366cdf5c1addab1656113ac57ff1a4f432f5",
+      "post_path": "_posts/2025-03-18-Java-Object-Class-Immutable-Object.md",
+      "published_at": "2025-03-18T09:56:00.530Z",
+      "rendered_sha256": "sha256:255df678cd5f189cf7960777adaec808a8f1316396e87c7216ce6624a7909c02",
+      "source_slug": "Java-Object-Class-Immutable-Object",
+      "source_updated_at": "2026-09-01T18:56:11.197Z",
+      "source_url": "https://velog.io/@ilwha/Java-Object-Class-Immutable-Object",
+      "title": "[Java] Object Class, Immutable Object"
+    },
+    "dbf10a73-b92c-48ca-8964-642ef5cdc591": {
+      "body_source": "graphql",
+      "categories": [],
+      "content_hash": "sha256:f69b3df3558b54a61b926bcdb1490446143324f033eb0bbe30e96f8dcb51c795",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dbf10a73-b92c-48ca-8964-642ef5cdc591/90f42e1a33df7ccf96396594056def49fcc63d4b4e0af32bb7cec6455bef480c.png",
+          "sha256": "sha256:dc4dc4038fd5481627a0302233a2f2db52c46bd060089e580b649a6d5eaec1ae",
+          "size": 119847
+        },
+        "https://velog.velcdn.com/images/ilwha/post/4768fba7-0c69-4c1d-b955-5cdb6c0eaff1/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dbf10a73-b92c-48ca-8964-642ef5cdc591/58df5f3fbe098be6a3083d8ce7d3256db9a5b7b1652baf0d3e42b94553ee1f99.png",
+          "sha256": "sha256:75b8168b140424224acd39f6e643cdef8ef9340a5d5e687a1ae01adde8e4984f",
+          "size": 108914
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a0543f03-9f6f-44c9-bb45-573766f6cb99/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dbf10a73-b92c-48ca-8964-642ef5cdc591/764d0fa43faa8451b718e25bd792ef96e72f5b8b15e106c62546e6ec176e267f.png",
+          "sha256": "sha256:e648d2706e50fd96f3a5fd48f1e66daefb7139a44d43f539f00e8fd857c3a2a2",
+          "size": 199079
+        },
+        "https://velog.velcdn.com/images/ilwha/post/bc98311b-82f2-4b90-bf35-eac3d8ec425d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dbf10a73-b92c-48ca-8964-642ef5cdc591/9830874fe78a3f804fc0b3736b348e7b08fad65c9b152e048ca7b07dd49fd0f9.png",
+          "sha256": "sha256:df9d70047fcc07b02922995aadc9d6c5ea9404fc0da808fbabd9bf6a4222945e",
+          "size": 43205
+        },
+        "https://velog.velcdn.com/images/ilwha/post/c4214c7f-88a4-4757-87e2-7381cdb47683/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dbf10a73-b92c-48ca-8964-642ef5cdc591/de9ff18fa2079c3d0542e0cc299b18d93aa0f54aedd730be9e7d3b4e47a621fa.png",
+          "sha256": "sha256:392489628f92db29e5e8893c9903d4c4c92bf2bc83e466886087e0ff527494fd",
+          "size": 107157
+        },
+        "https://velog.velcdn.com/images/ilwha/post/cd851e1a-10dd-44f9-a8cd-b39cad14ed26/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dbf10a73-b92c-48ca-8964-642ef5cdc591/2f9c4a703dc975fa37add740a6584cde38af823d4da8463169e936b363df3e98.png",
+          "sha256": "sha256:1579cb9c360b0ff185f0f0df6a3ecc1adeb581c557643317a11ce7c313abed67",
+          "size": 220175
+        },
+        "https://velog.velcdn.com/images/ilwha/post/ee901bdb-6fe2-4965-ae19-a7318e6ac46a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dbf10a73-b92c-48ca-8964-642ef5cdc591/64e0072300e7f3ff74efe65003073a9c444a6fe2d45b7fc25593bc442b963c9a.png",
+          "sha256": "sha256:8b1e4f4c5eb2503ebb104ccf5bb272d8ab8fa6eaac13104c7b1e6673d6123802",
+          "size": 105809
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f46cb51d-15cc-4610-9155-cf61d3300ca2/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dbf10a73-b92c-48ca-8964-642ef5cdc591/2722725985ccb10a5985c8b31dd2a0701524414ef7b7ab4804e733ce8f63ff92.png",
+          "sha256": "sha256:cc64199fabeb9359dabbfb0226d9dfeae006dfbcc0b9cff0142b0c9d78300cc9",
+          "size": 49195
+        }
+      },
+      "metadata_hash": "sha256:8e46e072eee8d8aa80dd72d19292431633dce63396ab427d544b483545cb1563",
+      "post_path": "_posts/2025-07-09-Spring-Spring-Boot-기본-용어-정리.md",
+      "published_at": "2025-07-09T10:50:53.174Z",
+      "rendered_sha256": "sha256:af2cb8954f8b8b965a7a9cd38e1c2d8a08d2677f39930d77535f50a5d85d420d",
+      "source_slug": "Spring-Spring-Boot-기본-용어-정리",
+      "source_updated_at": "2026-09-08T00:39:19.613Z",
+      "source_url": "https://velog.io/@ilwha/Spring-Spring-Boot-%EA%B8%B0%EB%B3%B8-%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC",
+      "title": "[Spring] Spring Boot 기본 용어 정리"
+    },
+    "dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25": {
+      "body_source": "graphql",
+      "categories": [
+        "[Python] Code📁"
+      ],
+      "content_hash": "sha256:3e893d676a093e280fa4360ab90fa36b35ccdee567a8e57d0765bcc32bc22071",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/0fc8bef2-050d-42f0-a29f-b9445f5c5aed/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25/4dfd8072986c5b7bcc023d74875d873ccf20fc5901b1873ef6bcf12a6e9e2ac5.png",
+          "sha256": "sha256:b66b11e12111f924febd12ef17c842373951af63ed99ba06dbefae2cc7d0b6f3",
+          "size": 36183
+        },
+        "https://velog.velcdn.com/images/ilwha/post/4e1cf160-522a-4d08-aec1-558ebc64399b/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25/d9d67b60efeb354e74acc3e47857fa8d27f80b91e12d5529d858045d81dc4870.png",
+          "sha256": "sha256:2b5f5bdce1f86f536c3c6637ef33cda75f55f7a8040d28ae561b88057e9324b6",
+          "size": 83360
+        },
+        "https://velog.velcdn.com/images/ilwha/post/6a0b5db2-04e4-4c58-b684-9174d70fd5b5/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25/838cb24fe5e8ce361dc19034f98896eb0ed57e02ceefbd75a8fecc51f9b913fc.png",
+          "sha256": "sha256:580751ccce36a414cc594bff08a872d156bb210088ae5c71662838dd2ccb6b44",
+          "size": 1091936
+        },
+        "https://velog.velcdn.com/images/ilwha/post/6fcf0022-babb-4d36-8318-90c7015e24e1/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25/82be9bc46cd51b0391365c79de5c1f589903573b6033efaf0386ab8dcdc76bfd.png",
+          "sha256": "sha256:878a01f1f6336e4aafe5dfd3c607d320bea4ecedbbbaafa2f17bda6e533efb44",
+          "size": 563909
+        },
+        "https://velog.velcdn.com/images/ilwha/post/833388ff-6970-4c39-9b5f-eef60445f862/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25/1baba28b6dd8fd0c5ce24053b6f9635f89013ea1a6adff37038d8d5f6ae504d5.png",
+          "sha256": "sha256:b3a1b2a20a3c3b736c0775e37a552b853aa160064b7d2759a515ce5f8b83a67c",
+          "size": 23778
+        },
+        "https://velog.velcdn.com/images/ilwha/post/86388fb7-4363-469f-89f0-09881368cba4/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25/641cc0bd25e37e1add92ffb07f53f1030892e8b68d86dfc546f887128ede1dd0.png",
+          "sha256": "sha256:e125a0d3be46bc1202001e57f6e286dac64b0f9754cd8f21c3f9ff032e937a02",
+          "size": 543247
+        },
+        "https://velog.velcdn.com/images/ilwha/post/aee45314-f8b6-40fa-a7da-b0d7afef3a4a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25/4a10f3a0b2dfcc2572841e37ea7fd0455c5a8122ebcec3462312215684531f1c.png",
+          "sha256": "sha256:8de5c9444ac7703de2ad549584a1254a7a557097f8cd85aa472032c5b3da9c6a",
+          "size": 47654
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b36a2b8a-054e-4b3e-9297-32ba7c569fa5/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25/f26add9739551a6854ec59d6d483d62c93afb899620b65f6e94e746372fe49ba.png",
+          "sha256": "sha256:d7c92daa94d7aff969e42775f5d8187cc50959e6c0a3d3c907cf8d15c6106ade",
+          "size": 408292
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b94028de-780c-4a8d-bf76-6004363eba7b/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25/280fc08855da1eb4ec8cc6a5761107cc42d0eb630632a1445a7ae4aae782eae8.png",
+          "sha256": "sha256:4f6c93e334c918ab7aa5854a51df81cda59a27c1e8a81c3f910a7143123d5354",
+          "size": 438560
+        },
+        "https://velog.velcdn.com/images/ilwha/post/bb3c371f-b09d-4e7a-81ec-9403044e5247/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25/02f5c712e46dda9ba66de3e4b163ad1e33421d49b731a089a40ea50fa486c936.png",
+          "sha256": "sha256:63cb6934925b42cd859fb6a14834d2b64b911c0b709f9f2fbfd2ca9b46425507",
+          "size": 425036
+        }
+      },
+      "metadata_hash": "sha256:12db1f8a52fee36f1c0f9f517ad0d6ea1b4c29158f4809ad581ccbc5eddc6fa5",
+      "post_path": "_posts/2024-07-26-Py-Code-01몸풀기문제들실습용.md",
+      "published_at": "2024-07-26T10:04:24.983Z",
+      "rendered_sha256": "sha256:13a2d969263cbf7521a1180530f8dac2ff32ad3aca95af897537a699d3cc4da4",
+      "source_slug": "Py-Code-01몸풀기문제들실습용",
+      "source_updated_at": "2026-09-02T04:37:03.696Z",
+      "source_url": "https://velog.io/@ilwha/Py-Code-01%EB%AA%B8%ED%92%80%EA%B8%B0%EB%AC%B8%EC%A0%9C%EB%93%A4%EC%8B%A4%EC%8A%B5%EC%9A%A9",
+      "title": "[Py] Code📁 : ch3 01_몸풀기문제들_실습용"
+    },
+    "df6217ea-4645-4ab0-a830-a6b375c9a2f2": {
+      "body_source": "graphql",
+      "categories": [
+        "[Data_Structures]"
+      ],
+      "content_hash": "sha256:f97c09af36209e192a55e663f89c7c0383912c5dce1ca7dcad97c8922c8acf04",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/c50985ac-4615-4ee8-b8c9-3484c4c4bebe/image.gif": {
+          "content_type": "image/gif",
+          "path": "assets/img/velog/df6217ea-4645-4ab0-a830-a6b375c9a2f2/eb9743aa6e7e3e127d1dab4baf250aedacc318a5164ffa48bcbe5593e32decf2.gif",
+          "sha256": "sha256:961fbc578555d179e7aa27f1e9808d628bb0646fe8830574faf8bbd4d92aa993",
+          "size": 183820
+        }
+      },
+      "metadata_hash": "sha256:01cc323798cb46f83b7fc8a18cae5040c568ae9676aad53efd968f3fdf47f688",
+      "post_path": "_posts/2024-08-29-DataStructures-Binary-Search-이진탐색.md",
+      "published_at": "2024-08-29T08:35:14.304Z",
+      "rendered_sha256": "sha256:67263a6bfa241d5b9baf6a79bd65cd66d1356b80b95fbd7fc195cb82c00d9de4",
+      "source_slug": "DataStructures-Binary-Search-이진탐색",
+      "source_updated_at": "2026-09-01T18:54:29.039Z",
+      "source_url": "https://velog.io/@ilwha/DataStructures-Binary-Search-%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89",
+      "title": "[Data_Structures] Binary Search (이진탐색)"
+    },
+    "e4107974-4393-4fec-84dd-318cdb9e56af": {
+      "body_source": "graphql",
+      "categories": [
+        "[Java] Archive"
+      ],
+      "content_hash": "sha256:f8007df4d68597c45f8c329859bbcedc3d8773bf0ead6d801c72d137066341f1",
+      "images": {},
+      "metadata_hash": "sha256:4fa9dca02ac2ae0bc9a8f61d6c13481b751149fa57bcf4ee04403e08f90e2cff",
+      "post_path": "_posts/2025-03-24-dvhiut7k.md",
+      "published_at": "2025-03-23T15:29:31.798Z",
+      "rendered_sha256": "sha256:51a1fbeb62ff359ec7039f5eeaac74fedb9eb8d001ef1d1e4075312fa1cd4939",
+      "source_slug": "dvhiut7k",
+      "source_updated_at": "2026-09-01T18:55:37.496Z",
+      "source_url": "https://velog.io/@ilwha/dvhiut7k",
+      "title": "[Java] Generic"
+    },
+    "e600c7b4-3b59-4267-a271-a1a03746a278": {
+      "body_source": "graphql",
+      "categories": [],
+      "content_hash": "sha256:eb5f166177bfbe353638e6519699620e2477f208f79a4326b5d13c51a14dbc55",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/15dd5b34-9ccb-4f1c-97dc-49fe60fb0c57/image.jpg": {
+          "content_type": "image/jpeg",
+          "path": "assets/img/velog/e600c7b4-3b59-4267-a271-a1a03746a278/7862fae5b7f95661217178e41c5a1c1f05f49c605eec77013763df289cd91357.jpg",
+          "sha256": "sha256:4801b535547293de7553bb3e4df3f83744cfcf736b8ab1d528b1e188a638c6cf",
+          "size": 281443
+        },
+        "https://velog.velcdn.com/images/ilwha/post/bd6e806f-9d25-42c8-bdd6-db33e7821e45/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e600c7b4-3b59-4267-a271-a1a03746a278/46d68838df4577d5254f7bba4e98616f255d11753bb4589a627f14bb1fb084fc.png",
+          "sha256": "sha256:bb7127b677e72750b359832eb811444af376fc0ac03af696424a395bc3b0b966",
+          "size": 158054
+        }
+      },
+      "metadata_hash": "sha256:c5745ef7a6bfd97d5063aae315cdd2ba22724c7c4e86d375383601189c0793f6",
+      "post_path": "_posts/2024-07-25-Py-Notion-Ch2-파이썬의-기본-요소들.md",
+      "published_at": "2024-07-25T10:44:31.082Z",
+      "rendered_sha256": "sha256:fe28fcca51bed805145586ae3f921fe8041ab1116349680e040f360f520d16ea",
+      "source_slug": "Py-Notion-Ch2-파이썬의-기본-요소들",
+      "source_updated_at": "2026-06-04T12:52:59.180Z",
+      "source_url": "https://velog.io/@ilwha/Py-Notion-Ch2-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EC%9A%94%EC%86%8C%EB%93%A4",
+      "title": "[Py] Notion📚 :  ch2 파이썬의 기본 요소들"
+    },
+    "e60346c7-7e0f-422a-8440-afc70b82346e": {
+      "body_source": "graphql",
+      "categories": [
+        "Baekjoon_Code📁"
+      ],
+      "content_hash": "sha256:69d5c37efd84c0bc0918b361edae45a94bd4e0810c2305c972beecd79dc91d54",
+      "images": {},
+      "metadata_hash": "sha256:e30da4a5992c32dc5a30edc5a0c3d786acc1947e0cd2eae89c57c0934b449ec8",
+      "post_path": "_posts/2024-06-16-C백준단계별-Ph3반복문10950-2439.md",
+      "published_at": "2024-06-16T14:49:45.596Z",
+      "rendered_sha256": "sha256:75d33602320d437096fa906d8d223245d3cf6d9e4e036744dc0ad65491315dcb",
+      "source_slug": "C백준단계별-Ph3반복문10950-2439",
+      "source_updated_at": "2026-09-01T18:58:09.344Z",
+      "source_url": "https://velog.io/@ilwha/C%EB%B0%B1%EC%A4%80%EB%8B%A8%EA%B3%84%EB%B3%84-Ph3%EB%B0%98%EB%B3%B5%EB%AC%B810950-2439",
+      "title": "[Baekjoon] #10950 #2439 ( C, phase3 반복문 )"
+    },
+    "e8884404-ad18-4962-abd0-7d19a3621435": {
+      "body_source": "graphql",
+      "categories": [
+        "[C] Notion📚"
+      ],
+      "content_hash": "sha256:fa1165291f1c1eb5bc622ec04ce32a1d05d4ca2e93bb0450313d258ade6d40dd",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/42f1b3df-1111-47d3-a9a7-7566a7cfffd7/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e8884404-ad18-4962-abd0-7d19a3621435/2523d08e5a995c007ac50ed67e7a2c0ad30c5ecefeca3eff5f58b1e07bfec752.png",
+          "sha256": "sha256:a3741635749f07e7b67f604cf34c6f71cfdbf19a5e1d1d968a516396233cfaf5",
+          "size": 128934
+        },
+        "https://velog.velcdn.com/images/ilwha/post/4aa4a812-031e-456c-a35c-3206bb884548/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e8884404-ad18-4962-abd0-7d19a3621435/22af38930bdf430e24804897c6766d94ad731c6b3f47e86050eae2f53f856525.png",
+          "sha256": "sha256:6d92f05f0543cbd17ddeedfb790e6be547110745a01eeb334a23abb46e3c0eaf",
+          "size": 679635
+        },
+        "https://velog.velcdn.com/images/ilwha/post/6f89b54c-8ef8-4cd7-985a-3096bff1cd53/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e8884404-ad18-4962-abd0-7d19a3621435/24c4e3e74f55273dc5a30d4b4cfe985f5230442dc73ca11cbfb9aa2da000c367.png",
+          "sha256": "sha256:f92f51af9a2271e60d4101396a5e723ed3650b269fffc2da5068995f32b22b44",
+          "size": 484907
+        },
+        "https://velog.velcdn.com/images/ilwha/post/dc068b6e-4724-494a-b483-5f11f56176c0/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e8884404-ad18-4962-abd0-7d19a3621435/90f996291fcfc4cef221c72dd30919bf489a4abfba1c0942d9b6fd1ccb723cee.png",
+          "sha256": "sha256:3429013a2d0a370f9e5063f1d72df431f700050c669b81a10502bd347962b814",
+          "size": 796541
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f4ed2e31-e7e4-4011-a534-69e5a18647de/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e8884404-ad18-4962-abd0-7d19a3621435/4347c6d6efa54297bcdf63dbc7878ed6d6d238a257db8489caebb5e9af95c85e.png",
+          "sha256": "sha256:b0ddb7dfa398f7febf63b09454f7ce98e74edff27ae3518e369a6602d81b81f7",
+          "size": 829225
+        },
+        "https://velog.velcdn.com/images/ilwha/post/fa63f636-3138-4a3d-b4d7-f6eb982686c3/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e8884404-ad18-4962-abd0-7d19a3621435/54d17d4cab7729fa316b5f1fe22caebeaa454240131351fa462444acf29010f7.png",
+          "sha256": "sha256:1ee4d1fd079b03e4a7fe5c7813628c657e6d5b9fdf37b9df160dcf2bc7b45761",
+          "size": 142613
+        }
+      },
+      "metadata_hash": "sha256:2406ceb18326089c37eedaae24f3bfd4327ef6e7b7cf1ccd2fae93c65ec01771",
+      "post_path": "_posts/2024-07-05-C-Notion-구조체-포인터.md",
+      "published_at": "2024-07-05T12:40:25.118Z",
+      "rendered_sha256": "sha256:ce4eff1654a1bc8196ed69be854ff3c92937e11e4ef6a54d057176c670923a3d",
+      "source_slug": "C-Notion-구조체-포인터",
+      "source_updated_at": "2026-09-01T18:58:04.822Z",
+      "source_url": "https://velog.io/@ilwha/C-Notion-%EA%B5%AC%EC%A1%B0%EC%B2%B4-%ED%8F%AC%EC%9D%B8%ED%84%B0",
+      "title": "[C] Notion📚 : 구조체 포인터"
+    },
+    "efdd96a3-22b3-4e08-854f-46a6cbbd0514": {
+      "body_source": "graphql",
+      "categories": [
+        "[React.Js] Archive"
+      ],
+      "content_hash": "sha256:f0bf73ea8603b35a90aab9e2be47649d809db0bb8a104cc4ce8a03e7878fe040",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/9be990da-cdc1-4943-b837-903977731f2a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/efdd96a3-22b3-4e08-854f-46a6cbbd0514/97049e6cf48a98a68327b3b14374fcd1d08c33ea6f1711bb5f6f9d6fad3a2910.png",
+          "sha256": "sha256:c0a412d5290fa8c00b287b8067810b42d88fd8d69266f78f0fdae64582646ff9",
+          "size": 31493
+        },
+        "https://velog.velcdn.com/images/ilwha/post/d5aeb7c3-f242-48c1-a881-9ab45e873028/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/efdd96a3-22b3-4e08-854f-46a6cbbd0514/c5933e99e7364de59cac98ab2e548959114d1f87a18102e5c5f23ee05c7bd155.png",
+          "sha256": "sha256:ad6ab447aa006ecaad0ee9abeec79da0ac41a02b508ec50e799cb62f75605a4e",
+          "size": 240996
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f5eae588-6a0a-4c87-bb20-f912422285b3/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/efdd96a3-22b3-4e08-854f-46a6cbbd0514/da7de292e8fa8e40e545f76086acf008f5cc224a087cf7cbd220e35192adfcbd.png",
+          "sha256": "sha256:5163a29f829f751a757c4deb5b18212ef2cd047d7e5926693cd854baa1be26e5",
+          "size": 47936
+        }
+      },
+      "metadata_hash": "sha256:70b1e130099bf3feef96859112ae08f31c99953a890b84ae8f874abff608ed22",
+      "post_path": "_posts/2025-01-26-React.JS-Mini-Project-Todo-List.md",
+      "published_at": "2025-01-25T17:59:28.475Z",
+      "rendered_sha256": "sha256:d8a4fc2f5b18cd7c00b54c31ed520b9228be70c9b293360859b2dca9f6174255",
+      "source_slug": "React.JS-Mini-Project-Todo-List",
+      "source_updated_at": "2026-09-01T18:56:24.387Z",
+      "source_url": "https://velog.io/@ilwha/React.JS-Mini-Project-Todo-List",
+      "title": "[ React.JS ] Mini Project - Todo List"
+    },
+    "eff33e2b-cd18-49b3-a912-8c571eedf8c5": {
+      "body_source": "graphql",
+      "categories": [
+        "[Python] Code📁"
+      ],
+      "content_hash": "sha256:24df9786bffc2b43be84481e5c4c4cd5df4c408cc00f008b280d185cd134146f",
+      "images": {},
+      "metadata_hash": "sha256:8abfc04204288460b88eac1507ef1b6daef716b055bbc0b7a3192bbf8ef0daff",
+      "post_path": "_posts/2024-08-20-Python-Ch3-code-05-시간과-날짜.md",
+      "published_at": "2024-08-20T12:23:30.586Z",
+      "rendered_sha256": "sha256:94dd831b191f4a6ac428f3134c10ebc8937bd517b46139e01b839d55916d2a41",
+      "source_slug": "Python-Ch3-code-05-시간과-날짜",
+      "source_updated_at": "2026-09-01T18:58:16.417Z",
+      "source_url": "https://velog.io/@ilwha/Python-Ch3-code-05-%EC%8B%9C%EA%B0%84%EA%B3%BC-%EB%82%A0%EC%A7%9C",
+      "title": "[Python] Ch3 (code) - 05 시간과 날짜"
+    },
+    "f1179499-6429-4c16-a458-4348d4abadc6": {
+      "body_source": "graphql",
+      "categories": [
+        "Baekjoon_Code📁"
+      ],
+      "content_hash": "sha256:02642bcbd9423d44e1543563bea66d4a150df8ec2ebcad2a1cf4d7a3409cac0e",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/66816d05-a64b-4f1e-930d-ec5dce984906/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f1179499-6429-4c16-a458-4348d4abadc6/26d3d590ce3db6685cb6f789cb96be91569338b96ba52d9bb72ae4266e35bbf5.png",
+          "sha256": "sha256:9fb2c89c7da261a5821187143e6bec9c1192d1bfe3750199b7fc614aff4ebd1e",
+          "size": 62314
+        },
+        "https://velog.velcdn.com/images/ilwha/post/c9dd7b63-8a61-4113-9114-718042ebf889/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f1179499-6429-4c16-a458-4348d4abadc6/9d7892de38ba0ad81e45af4374be17c357b706b24f439875d1645334a0170b7d.png",
+          "sha256": "sha256:b10bc91959d943cad807612999f9a28a545c8e4b9fe251c93fed7092ca6304a0",
+          "size": 129150
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f47eb4ef-ec7b-41f6-b84c-9dd4b50e6e97/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f1179499-6429-4c16-a458-4348d4abadc6/ae1d861d0ce44d37151d63db8e27466b04b3c0b759fbca012ac80ae3be117ccc.png",
+          "sha256": "sha256:152732b14c1bf91f24ec2f6ec8d5f3d5f291d3bc8863da71bec07624dc94d5c7",
+          "size": 77036
+        }
+      },
+      "metadata_hash": "sha256:dd6712533902c1a36d3b9402e4e54a7212f7ea36a1128181ac89bc4c44265394",
+      "post_path": "_posts/2024-06-26-CASGMT-과제파일과-스트림.md",
+      "published_at": "2024-06-26T13:20:29.647Z",
+      "rendered_sha256": "sha256:4a492a138e1d0f08893920499cd63436fb9a3b730da20c732259768955a7b6d2",
+      "source_slug": "CASGMT-과제파일과-스트림",
+      "source_updated_at": "2026-09-01T18:58:21.409Z",
+      "source_url": "https://velog.io/@ilwha/CASGMT-%EA%B3%BC%EC%A0%9C%ED%8C%8C%EC%9D%BC%EA%B3%BC-%EC%8A%A4%ED%8A%B8%EB%A6%BC",
+      "title": "[C] Code📁 : 과제_파일과 스트림"
+    },
+    "f8101d7b-45b5-4d37-ab06-fd05b84db18d": {
+      "body_source": "graphql",
+      "categories": [
+        "[C] Notion📚"
+      ],
+      "content_hash": "sha256:eb9910c8b5c8a241b7a767cefc60f2ca1409dd922af5b8a88a729c7eae4ac65b",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/0f25a9c4-8472-4278-bb1d-bf43236d3303/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/a5137052740720aa12fc2bd4fe6a3814dd1d3881f247174dbfee13ba6d3555e6.png",
+          "sha256": "sha256:e9231ca919cd5b188621958ee7f51e7a20658afbf75b8b1b09a7f9732cade45e",
+          "size": 394955
+        },
+        "https://velog.velcdn.com/images/ilwha/post/1249e119-fdc6-462a-a19a-36629aaae527/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/9f54a8d98b6e65f6b38e4e63f3e30c8b9b73f73853df88d29c07b8ca73530c93.png",
+          "sha256": "sha256:54c18136ea69b67f8511a8c6714689a297901518c7918ae81ce3749e0b7f7f37",
+          "size": 341904
+        },
+        "https://velog.velcdn.com/images/ilwha/post/1a31e9c6-a9da-427f-aa56-f5546e5ed206/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/99572a462e210f2b81063a8c14545f79485c88802f057e56c41a622e7c0d9bd1.png",
+          "sha256": "sha256:89614b4b4c26ee09edacb5dabd861cc5da09afa223c84c7884c8336542a84211",
+          "size": 336967
+        },
+        "https://velog.velcdn.com/images/ilwha/post/36488fbe-36c2-4b53-b4ed-9b4aefcd5d1b/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/4d048cf890fad504a5d933951f651356bd65d9ae652657119bc91776630ce377.png",
+          "sha256": "sha256:109a58b0c357bae3c5b532aaa237d17519ee3b23bd4f199020dc39dbf50dfaf4",
+          "size": 540682
+        },
+        "https://velog.velcdn.com/images/ilwha/post/37d0cdf5-bcbd-45e5-b0df-e04e63cf5189/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/abf337d708d305c3260ff22c01db0c2688acf91469c5b97dc18135dcbe342833.png",
+          "sha256": "sha256:d08aa11582e84e67b716a0f7f0fda5ea37bb264843dde276f58d3654070bfe8c",
+          "size": 500315
+        },
+        "https://velog.velcdn.com/images/ilwha/post/44535702-5ae4-4165-ac94-59fc491449b4/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/69fdf127451155a6cfb952791b92462cbb8c414beb1c3988ef762d4be505bedf.png",
+          "sha256": "sha256:0b8ce1a4820192f242b3de66aac06401d968b1a8a1bd4409a9a5630c7952ffe3",
+          "size": 357443
+        },
+        "https://velog.velcdn.com/images/ilwha/post/697f9372-2fe3-471d-8fad-6fd95bc70898/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/5dc1b204dc594108da770847535e14bcef17c4004568eb507228d288bceaca3f.png",
+          "sha256": "sha256:055f6ef197088f435c014cb8ed25beaa019ef6921d09472cbe180205a7e2469e",
+          "size": 515167
+        },
+        "https://velog.velcdn.com/images/ilwha/post/9ff62e94-3010-46c4-82a8-df174951aa0f/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/c80595d61d0bf3ae06a65f2be9f9d77285382b65d48625cb5b7dcca1a51ac7d9.png",
+          "sha256": "sha256:b0a8dd1d02cbe794ef0b9360bf1eae117d414c7cdfe96ec980b632035e07c121",
+          "size": 203579
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b13e3e61-e90b-4477-a18b-ba7d5ad127a1/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/13935674fe9881a1ab0561399a3e67b98653e98880a307c5bddba7bce89790e5.png",
+          "sha256": "sha256:5cf7f7fb2899cdbe49eb71ad89f856ec7008e0f33b3797ba64565e47e6f326b1",
+          "size": 310580
+        },
+        "https://velog.velcdn.com/images/ilwha/post/c0647d1e-e34a-45ae-8c0e-e7cdde44d040/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/e3716b890b8d9594289b5281c578d220c601aaff5e5c2171e268527c4b2743ef.png",
+          "sha256": "sha256:d52026210238d1b5ee01ef95e2505b6085bee24cfb35e0e8713f81fc7c4af799",
+          "size": 1106101
+        },
+        "https://velog.velcdn.com/images/ilwha/post/dcfae908-a8ff-484b-bfd4-cada4984328a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/8a19b8a33a9848b3d9156f08bcc2dcab3565348ec56ce3962ebe237b07af6c28.png",
+          "sha256": "sha256:7cdc0b4f3a9ea5fa140aa55e610640fccd44a5ce436f5dc3b45f1b722134fc6d",
+          "size": 501251
+        },
+        "https://velog.velcdn.com/images/ilwha/post/eedfff8d-1b0a-48be-aad8-d9fce4535285/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/fb93c1e5ffc65a0a7de3980c7757a60436bd09098d4d19e85e3439180cea3a19.png",
+          "sha256": "sha256:f8acfc8fae2d9717622ffd18b2492453f59a476fc2dc3fa9d63fc1ef48a3b333",
+          "size": 954992
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f2a76d00-cdf5-46ef-b9e1-acce48c469f6/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/f8101d7b-45b5-4d37-ab06-fd05b84db18d/13657c74bb45115cf3e2f586345ca294e02ad308c12bcbc9fb2109a4ff962411.png",
+          "sha256": "sha256:1b701b5a48215a8126035b59fc707da9c477058448daf1939d7873471520c0be",
+          "size": 323261
+        }
+      },
+      "metadata_hash": "sha256:e969479528ed2a4cb5c44b465422bdacd76ef61621edc43b5e9c7ab39a2ade9f",
+      "post_path": "_posts/2024-07-04-C-Notion-재귀호출.md",
+      "published_at": "2024-07-03T17:54:58.575Z",
+      "rendered_sha256": "sha256:aa0ab9cce3e6599902cbd1d5e88e104d408f166d1f2243d6a3391c80f8bea172",
+      "source_slug": "C-Notion-재귀호출",
+      "source_updated_at": "2026-09-01T18:57:03.872Z",
+      "source_url": "https://velog.io/@ilwha/C-Notion-%EC%9E%AC%EA%B7%80%ED%98%B8%EC%B6%9C",
+      "title": "[C] Notion📚 : 재귀호출"
+    }
+  },
   "schema_version": 1
 }

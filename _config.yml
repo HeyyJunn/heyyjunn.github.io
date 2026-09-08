@@ -230,6 +230,9 @@ exclude:
   - tests
   - .velog-sync
   - requirements-velog-sync.txt
+  - blog
+  - .venv-blog
+  - .bundle-blog
 
 jekyll-archives:
   enabled: [categories, tags]

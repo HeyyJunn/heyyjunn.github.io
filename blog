@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPOSITORY_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VIRTUAL_ENV_DIR="$REPOSITORY_ROOT/.venv-blog"
+REQUIREMENTS="$REPOSITORY_ROOT/requirements-velog-sync.txt"
+STAMP="$VIRTUAL_ENV_DIR/.requirements-sha256"
+
+cd "$REPOSITORY_ROOT"
+
+if [[ ! -x "$VIRTUAL_ENV_DIR/bin/python" ]]; then
+  echo "블로그 관리 환경을 처음 준비합니다..."
+  python3 -m venv "$VIRTUAL_ENV_DIR"
+fi
+
+requirements_hash="$(shasum -a 256 "$REQUIREMENTS" | awk '{print $1}')"
+installed_hash=""
+if [[ -f "$STAMP" ]]; then
+  installed_hash="$(<"$STAMP")"
+fi
+
+if [[ "$requirements_hash" != "$installed_hash" ]]; then
+  echo "필요한 Python 패키지를 설치합니다..."
+  "$VIRTUAL_ENV_DIR/bin/python" -m pip install --disable-pip-version-check -r "$REQUIREMENTS"
+  printf '%s\n' "$requirements_hash" >"$STAMP"
+fi
+
+exec "$VIRTUAL_ENV_DIR/bin/python" "$REPOSITORY_ROOT/scripts/blog_manager.py" "$@"

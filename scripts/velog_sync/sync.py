@@ -34,7 +34,7 @@ class SyncResult:
 
     @property
     def counts(self) -> dict[str, int]:
-        result = {key: 0 for key in ("IMPORT", "UPDATE", "UNCHANGED", "EXCLUDED", "ERROR")}
+        result = {key: 0 for key in ("IMPORT", "UPDATE", "UNCHANGED", "EXCLUDED", "HIDDEN", "ERROR")}
         for outcome in self.outcomes:
             result[outcome.action] += 1
         return result
@@ -271,6 +271,16 @@ class SyncEngine:
             source_url = canonical_url(self.config.username, post.slug)
             categories = resolved_categories(post, self.config)
             existing = old_posts.get(post.id)
+            if post.id.lower() in self.config.hidden_post_ids:
+                outcomes.append(
+                    SyncOutcome(
+                        "HIDDEN",
+                        post,
+                        existing.get("post_path") if isinstance(existing, dict) else None,
+                        categories,
+                    )
+                )
+                continue
             if self._excluded(post, source_url):
                 outcomes.append(SyncOutcome("EXCLUDED", post, existing.get("post_path") if isinstance(existing, dict) else None, categories))
                 continue

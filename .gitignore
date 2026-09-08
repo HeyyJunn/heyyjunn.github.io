@@ -18,6 +18,8 @@ package-lock.json
 # Python caches
 __pycache__/
 *.py[cod]
+.venv-blog/
+.bundle-blog/
 
 # IDE configurations
 .idea

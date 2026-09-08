@@ -29,6 +29,7 @@ class SyncConfig:
     max_pages: int = 1000
     timezone: str = "Asia/Seoul"
     exclude_post_ids: frozenset[str] = frozenset()
+    hidden_post_ids: frozenset[str] = frozenset()
     exclude_slugs: frozenset[str] = frozenset()
     exclude_urls: frozenset[str] = frozenset()
     import_after: date | None = None
@@ -119,6 +120,7 @@ def load_config(path: Path) -> SyncConfig:
         max_pages=max_pages,
         timezone=str(root.get("timezone", "Asia/Seoul")),
         exclude_post_ids=frozenset(x.lower() for x in _string_list(root.get("exclude_post_ids"), "exclude_post_ids")),
+        hidden_post_ids=frozenset(x.lower() for x in _string_list(root.get("hidden_post_ids"), "hidden_post_ids")),
         exclude_slugs=frozenset(_string_list(root.get("exclude_slugs"), "exclude_slugs")),
         exclude_urls=frozenset(_string_list(root.get("exclude_urls"), "exclude_urls")),
         import_after=parsed_after,

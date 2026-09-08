@@ -81,3 +81,36 @@ deployed. No-change runs create no commit and skip deployment.
 GitHub may disable scheduled workflows after extended repository inactivity. Check
 the Actions schedule and keep `VELOG_SYNC_ENABLED` disabled until the initial import
 and production output have been reviewed.
+
+## 블로그 관리
+
+가장 쉬운 관리 방법은 프로젝트 루트에서 다음 명령을 실행하는 것입니다.
+
+```sh
+./blog ui
+```
+
+필요한 Python 가상환경과 패키지를 자동으로 준비한 뒤 한국어 관리 화면을
+`http://127.0.0.1:8765`에서 엽니다. 이 화면은 localhost에만 실행되며 실제
+GitHub Pages 사이트에는 포함되지 않습니다.
+
+터미널에서 관리하려면 `./blog help`로 전체 명령을 확인할 수 있습니다. 자주
+사용하는 명령은 다음과 같습니다.
+
+```sh
+./blog list       # 게시물과 상태 보기
+./blog dry-run    # 파일을 바꾸지 않고 변경 사항 확인
+./blog sync       # 확인 후 로컬에 동기화
+./blog check      # 테스트, dry-run, 빌드, HTML 검사
+./blog serve      # 127.0.0.1:4000에서 블로그 미리보기
+```
+
+게시물을 의도적으로 GitHub.io에서만 내릴 때 `_posts` 파일을 Finder나 VS Code로
+직접 삭제하면 안 됩니다. Velog 원문이 남아 있으면 다음 동기화에서 복원됩니다.
+반드시 `./blog hide <번호·UUID·slug>` 또는 관리 화면의 **GitHub에서 숨기기**를
+사용하세요. 숨긴 글의 Velog 원문과 이미지 자산은 삭제되지 않습니다.
+
+아직 GitHub에 가져오지 않을 글은 게시물 관리 화면이나
+`./blog exclude add <번호·UUID·slug>`로 설정합니다. 실제 설정에는 제목이나
+번호가 아닌 안정적인 Velog UUID가 저장됩니다. Velog 태그는 사용하지 않으며,
+시리즈만 GitHub 카테고리로 동기화합니다.

@@ -58,7 +58,7 @@ def main() -> int:
             print(f"   WARNING: {warning}")
     counts = result.counts
     print("\nSUMMARY")
-    for key in ("IMPORT", "UPDATE", "UNCHANGED", "EXCLUDED", "ERROR"):
+    for key in ("IMPORT", "UPDATE", "UNCHANGED", "EXCLUDED", "HIDDEN", "ERROR"):
         print(f"{key}: {counts[key]}")
     print(f"WARNINGS: {result.warning_count}")
     print(f"IMAGES: {result.image_count}")

@@ -4,20 +4,44 @@ velog:
   rss_url: https://v2.velog.io/rss/@ilwha
   page_size: 20
   max_pages: 1000
-
 timezone: Asia/Seoul
-
 exclude_post_ids: []
+hidden_post_ids:
+- 31f0f369-b238-4fce-b631-950a6d2ffb4c
+- 36075444-0733-4eb6-a72a-3fceb379d7a6
+- 4030a68a-c42e-4bae-bb76-eb1383fa2937
+- 43ad63c7-222f-4f84-87af-c4c155422f0a
+- 48700130-8ff0-493d-ad8c-0a54d9a3896a
+- 4f176559-46f2-419f-a89e-68a038ce2470
+- 5d1c1d78-4962-4ae5-a301-e497e9dab006
+- 66f7be36-5b6e-4cd8-89bb-903a7367b80e
+- 7460c503-b467-4aec-8a2d-aea1d40a1094
+- 83861c49-4732-49dd-8fa1-4fa847c150e7
+- 83fe9fad-8d96-45a6-abe6-b7494c77aee5
+- 8a76357b-7283-4b46-9d59-4703eb17fc86
+- 8e450883-2969-47c9-a4a9-6f3c6956eab8
+- 9659c4f8-18da-4a2b-9a4a-eb9e0b17bf30
+- 96b10ddb-5d6d-4f74-9d6f-ea423445cfd4
+- 9d548c10-6db3-4227-b502-975621e744c4
+- b97398b8-6e23-425c-b711-df385c52df3d
+- c02eb9b7-1547-4eec-aca1-b97a46d963cb
+- c0fcedbd-61b6-4a6e-962f-a6f05355724c
+- dd6f0b3c-f494-4381-b6ff-8d0e42b1bf25
+- df6217ea-4645-4ab0-a830-a6b375c9a2f2
+- e600c7b4-3b59-4267-a271-a1a03746a278
+- e60346c7-7e0f-422a-8440-afc70b82346e
+- e8884404-ad18-4962-abd0-7d19a3621435
+- eff33e2b-cd18-49b3-a912-8c571eedf8c5
+- f1179499-6429-4c16-a458-4348d4abadc6
+- f8101d7b-45b5-4d37-ab06-fd05b84db18d
 exclude_slugs: []
 exclude_urls: []
 import_after: null
-
 series_category_map: {}
-
 images:
   enabled: true
   allowed_hosts:
-    - velog.velcdn.com
+  - velog.velcdn.com
   max_bytes: 26214400
   timeout_seconds: 20
   retries: 3

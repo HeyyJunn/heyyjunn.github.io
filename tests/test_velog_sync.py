@@ -426,6 +426,16 @@ class EngineTests(unittest.TestCase):
         with self.assertRaisesRegex(SourceError, "unsafe managed post path"):
             self.engine([item], {item.id: "body"}).run(dry_run=True)
 
+    def test_hidden_post_is_skipped_and_never_recreated(self) -> None:
+        item = post()
+        result = self.engine(
+            [item],
+            {item.id: "body"},
+            config(hidden_post_ids=frozenset({item.id})),
+        ).run()
+        self.assertEqual(result.outcomes[0].action, "HIDDEN")
+        self.assertFalse(list(self.root.glob("_posts/*.md")))
+
 
 if __name__ == "__main__":
     unittest.main()
