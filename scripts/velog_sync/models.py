@@ -33,6 +33,7 @@ class PostMetadata:
     series: Series | None
     is_private: bool = False
     thumbnail: str | None = None
+    preview_description: str | None = None
 
 
 @dataclass(frozen=True)
@@ -75,3 +76,4 @@ class SyncOutcome:
     thumbnail: dict[str, Any] | None = None
     thumbnail_plan: Any | None = None
     thumbnail_change: str = "none"
+    preview_description_change: str = "none"

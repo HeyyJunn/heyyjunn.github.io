@@ -542,11 +542,85 @@ class RepositoryPolicyTests(unittest.TestCase):
 
     def test_thumbnail_card_css_is_scoped_and_heading_bold_remains(self) -> None:
         stylesheet = (ROOT / "assets/css/jekyll-theme-chirpy.scss").read_text(encoding="utf-8")
-        self.assertIn("#post-list .thumbnail-col", stylesheet)
-        self.assertIn("aspect-ratio: 16 / 9", stylesheet)
+        self.assertIn(".right-thumbnail", stylesheet)
+        self.assertIn("aspect-ratio: 8 / 5", stylesheet)
         self.assertIn("object-fit: cover", stylesheet)
         self.assertIn("article[data-toc] > .content", stylesheet)
         self.assertIn("font-weight: 700", stylesheet)
+
+    def test_setup_python_cache_dependency_file_exists(self) -> None:
+        self.assertTrue((ROOT / "requirements-velog-sync.txt").is_file())
+        self.assertFalse((ROOT / "requirements.txt").exists())
+
+    def test_setup_python_uses_velog_requirements_for_pip_cache(self) -> None:
+        workflow = (ROOT / ".github/workflows/pages-deploy.yml").read_text(encoding="utf-8")
+        setup = workflow.split("- name: Setup Python", 1)[1].split("- name:", 1)[0]
+        self.assertIn("cache: pip", setup)
+        self.assertIn("cache-dependency-path: requirements-velog-sync.txt", setup)
+
+    def test_push_workflow_reaches_python_test_build_and_deploy(self) -> None:
+        workflow = (ROOT / ".github/workflows/pages-deploy.yml").read_text(encoding="utf-8")
+        names = (
+            "Setup Python",
+            "Install sync dependencies",
+            "Test Velog sync",
+            "Decide whether to build and deploy",
+            "Setup Ruby",
+            "Build site",
+            "Test site",
+            "Upload site artifact",
+            "Deploy to GitHub Pages",
+        )
+        positions = [workflow.index(f"name: {name}") for name in names]
+        self.assertEqual(positions, sorted(positions))
+        self.assertIn('github.event_name == \'push\'', workflow)
+
+    def test_home_thumbnail_is_after_text_in_compact_card(self) -> None:
+        home = (ROOT / "_layouts/home.html").read_text(encoding="utf-8")
+        self.assertIn('class="post-preview compact-preview d-flex"', home)
+        self.assertLess(home.index("card-content-col"), home.index("right-thumbnail"))
+
+    def test_home_has_no_full_width_thumbnail_markup(self) -> None:
+        home = (ROOT / "_layouts/home.html").read_text(encoding="utf-8")
+        for legacy in ("preview-img", "thumbnail-col", "col-md-5", "flex-md-row-reverse"):
+            self.assertNotIn(legacy, home)
+
+    def test_home_uses_preview_description_without_post_summary_fallback(self) -> None:
+        home = (ROOT / "_layouts/home.html").read_text(encoding="utf-8")
+        self.assertIn("{% if post.preview_description %}", home)
+        self.assertIn("post.preview_description | escape", home)
+        self.assertNotIn("include post-summary.html", home)
+
+    def test_preview_description_is_not_read_by_post_layout(self) -> None:
+        layouts = list((ROOT / "_layouts").glob("*.html"))
+        users = [path.name for path in layouts if "post.preview_description" in path.read_text(encoding="utf-8")]
+        self.assertEqual(users, ["home.html"])
+        self.assertFalse((ROOT / "_layouts/post.html").exists())
+
+    def test_right_thumbnail_has_desktop_tablet_and_mobile_sizes(self) -> None:
+        stylesheet = (ROOT / "assets/css/jekyll-theme-chirpy.scss").read_text(encoding="utf-8")
+        for size in ("180px", "140px", "96px"):
+            self.assertIn(f"width: {size}", stylesheet)
+        self.assertIn("flex-wrap: nowrap", stylesheet)
+
+    def test_text_only_card_has_no_placeholder_markup(self) -> None:
+        home = (ROOT / "_layouts/home.html").read_text(encoding="utf-8")
+        self.assertEqual(home.count('<div class="right-thumbnail">'), 1)
+        self.assertNotIn("placeholder", home.lower())
+        self.assertNotIn("dummy", home.lower())
+
+    def test_preview_description_is_css_clamped_without_source_truncation(self) -> None:
+        stylesheet = (ROOT / "assets/css/jekyll-theme-chirpy.scss").read_text(encoding="utf-8")
+        sync = (ROOT / "scripts/velog_sync/sync.py").read_text(encoding="utf-8")
+        self.assertIn("-webkit-line-clamp: 3", stylesheet)
+        self.assertIn("-webkit-line-clamp: 2", stylesheet)
+        self.assertNotIn("preview_description[:", sync)
+
+    def test_manager_shows_velog_description_as_read_only(self) -> None:
+        javascript = (ROOT / "scripts/blog_admin/static/admin.js").read_text(encoding="utf-8")
+        self.assertIn("Velog short_description", javascript)
+        self.assertIn("Velog에서만 변경할 수 있습니다", javascript)
+        self.assertNotIn("description-editor", javascript)
 
     def test_no_first_body_image_thumbnail_fallback_or_tags(self) -> None:
         sync = (ROOT / "scripts/velog_sync/sync.py").read_text(encoding="utf-8")

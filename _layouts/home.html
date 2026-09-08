@@ -44,13 +44,12 @@ layout: default
 <div id="post-list" class="flex-grow-1 px-xl-1">
   {% for post in posts %}
     <article class="card-wrapper card">
-      <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
-        {% assign card_body_col = '12' %}
-
+      <a href="{{ post.url | relative_url }}" class="post-preview compact-preview d-flex">
         {%- comment -%}
-          Chirpy 7.6 renders cards from post.image inline in this layout. This
-          minimal override deliberately reads only our list-only thumbnail field,
-          so the post layout never treats it as a hero image.
+          Chirpy 7.6 renders cards from post.image inline in this layout. This minimal
+          override uses list-only preview_description and thumbnail fields. The text
+          stays first and the optional image remains a compact right-side thumbnail;
+          the post layout never treats either field as article content.
         {%- endcomment -%}
         {% if post.thumbnail %}
           {% assign src = post.thumbnail.path | default: post.thumbnail %}
@@ -67,21 +66,17 @@ layout: default
           {% endif %}
 
           {% assign alt = post.thumbnail.alt | xml_escape | default: post.title | xml_escape %}
-
-          <div class="col-md-5 preview-img thumbnail-col">
-            <img src="{{ src }}" alt="{{ alt }}" width="1200" height="675">
-          </div>
-
-          {% assign card_body_col = '7' %}
         {% endif %}
 
-        <div class="col-md-{{ card_body_col }}">
+        <div class="card-content-col flex-grow-1">
           <div class="card-body d-flex flex-column">
             <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
 
-            <div class="card-text content mt-0 mb-3">
-              <p>{% include post-summary.html %}</p>
-            </div>
+            {% if post.preview_description %}
+              <div class="card-text preview-description mt-0 mb-3">
+                <p>{{ post.preview_description | escape }}</p>
+              </div>
+            {% endif %}
 
             <div class="post-meta flex-grow-1 d-flex align-items-end">
               <div class="me-auto">
@@ -108,6 +103,12 @@ layout: default
             </div>
           </div>
         </div>
+
+        {% if post.thumbnail %}
+          <div class="right-thumbnail">
+            <img src="{{ src }}" alt="{{ alt }}" width="180" height="112">
+          </div>
+        {% endif %}
       </a>
     </article>
   {% endfor %}

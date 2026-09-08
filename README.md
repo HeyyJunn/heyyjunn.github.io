@@ -63,10 +63,16 @@ directory while preserving state metadata so an unhide can download it again.
 Preview images use an explicit list-only priority: Velog `thumbnail`, then a
 GitHub-only manual override, then no image. The first Markdown body image is never a
 fallback. Resolved previews use custom `thumbnail:` front matter and the home-card
-override only, so they are not inserted into post detail pages. When Velog has no
+override only, so they are not inserted into post detail pages. Home cards keep text
+on the left and use a small responsive thumbnail on the right. When Velog has no
 thumbnail, open the post detail in `./blog ui` to upload one. The tracked source stays
 under `.velog-sync/thumbnail-overrides/<post-uuid>/` and becomes a public asset only
 while it is the active preview.
+
+Home-card descriptions come directly from Velog GraphQL `short_description` and use
+custom `preview_description:` front matter. Blank or whitespace-only source values
+are omitted. The site does not derive a replacement from the Markdown body, and the
+custom field is never rendered as an introduction on the post detail page.
 
 Configure exclusions by UUID, exact normalized slug, or canonical URL in
 the local manager. Number, slug, and canonical URL inputs are resolved against the

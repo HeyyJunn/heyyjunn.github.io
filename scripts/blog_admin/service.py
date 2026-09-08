@@ -250,6 +250,8 @@ class BlogService:
             "thumbnail_override_exists": override is not None,
             "thumbnail_editable": item.thumbnail is None,
             "thumbnail_change": outcome.thumbnail_change,
+            "preview_description": item.preview_description,
+            "preview_description_change": outcome.preview_description_change,
         }
 
     def snapshot(self, force: bool = False) -> dict[str, Any]:
@@ -292,6 +294,15 @@ class BlogService:
                     for item in result.outcomes
                     if item.action not in {"HIDDEN", "EXCLUDED", "ERROR"}
                     and item.thumbnail_change == key
+                )
+                for key in ("added", "changed", "removed", "none", "unchanged")
+            },
+            "preview_description_changes": {
+                key: sum(
+                    1
+                    for item in result.outcomes
+                    if item.action not in {"HIDDEN", "EXCLUDED", "ERROR"}
+                    and item.preview_description_change == key
                 )
                 for key in ("added", "changed", "removed", "none", "unchanged")
             },
@@ -955,6 +966,25 @@ class BlogService:
         ]
         if reasons:
             lines.extend(("", "미리보기 이미지 변경 이유", *reasons))
+        description_changes = snapshot["preview_description_changes"]
+        lines.extend(
+            (
+                "",
+                "미리보기 설명",
+                f"추가: {description_changes['added']}개",
+                f"변경: {description_changes['changed']}개",
+                f"제거: {description_changes['removed']}개",
+                f"설명 없음: {description_changes['none']}개",
+            )
+        )
+        description_reasons = [
+            f"{item['number']}. {item['title']}: 미리보기 설명 "
+            f"{ {'added': '추가', 'changed': '변경', 'removed': '제거'}[item['preview_description_change']] }"
+            for item in snapshot["posts"]
+            if item["preview_description_change"] in {"added", "changed", "removed"}
+        ]
+        if description_reasons:
+            lines.extend(("", "미리보기 설명 변경 이유", *description_reasons))
         errors = [
             f"{item['number']}. {item['title']}: {item['error']}"
             for item in snapshot["posts"]
