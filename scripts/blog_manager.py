@@ -36,6 +36,10 @@ def build_parser() -> argparse.ArgumentParser:
     commands.add_parser("check", help="테스트, 미리보기, 빌드, HTML 검사를 모두 실행합니다.")
     commands.add_parser("serve", help="로컬 블로그를 127.0.0.1:4000에서 실행합니다.")
     commands.add_parser("status", help="블로그, Git, 연결 상태를 요약합니다.")
+    update = commands.add_parser("update", help="origin/main을 fast-forward 방식으로 가져옵니다.")
+    update.add_argument("--yes", action="store_true")
+    publish = commands.add_parser("publish", help="검증된 블로그 관리 변경을 GitHub에 반영합니다.")
+    publish.add_argument("--yes", action="store_true")
 
     exclude = commands.add_parser("exclude", help="가져오지 않을 게시물을 관리합니다.")
     exclude_commands = exclude.add_subparsers(dest="exclude_command", required=True)
@@ -101,7 +105,10 @@ def print_summary(service: BlogService) -> None:
     print(f"  확인 필요: {snapshot['warnings']}개")
     print("\nGit")
     print(f"  브랜치: {snapshot['git']['branch']}")
-    print(f"  작업 폴더: {snapshot['git']['label']}")
+    print(f"  GitHub 반영 상태: {snapshot['git']['label']}")
+    print(f"  작업 폴더 변경: {len(snapshot['git']['changes'])}개")
+    if snapshot["git"]["unrelated_changes"]:
+        print(f"  자동 반영 제외 변경: {len(snapshot['git']['unrelated_changes'])}개")
     github = snapshot["github"]
     automatic = github.get("automatic")
     auto_label = "활성" if automatic is True else "비활성" if automatic is False else "확인할 수 없음"
@@ -154,6 +161,20 @@ def main(argv: list[str] | None = None, service: BlogService | None = None) -> i
         if args.command == "dry-run":
             print("Velog 변경 사항을 확인합니다...")
             return print_result(service.dry_run_result())
+        if args.command == "update":
+            if not args.yes and not confirm(
+                "origin/main이 앞선 경우에만 fast-forward로 가져옵니다. 자동 merge/reset은 하지 않습니다.",
+                "최신 상태 가져오기",
+            ):
+                return 1
+            return print_result(service.pull_ff_only())
+        if args.command == "publish":
+            if not args.yes and not confirm(
+                "허용된 블로그 관리 변경만 검사·commit한 뒤 origin/main에 push합니다.",
+                "GitHub에 반영",
+            ):
+                return 1
+            return print_result(service.publish(lambda label: print(label + "...")))
         if args.command == "sync":
             preview = service.snapshot(force=True)
             new_count = preview["counts"]["새로 등록 예정"]
@@ -190,14 +211,14 @@ def main(argv: list[str] | None = None, service: BlogService | None = None) -> i
             return 0
         if args.command == "hide":
             if not args.yes and not confirm(
-                "선택한 글을 GitHub.io에서 숨깁니다. Velog 원문과 이미지는 삭제되지 않습니다.",
+                "선택한 글과 공개 이미지 artifact를 사이트에서 내립니다. Velog 원문과 Git history를 완전히 삭제하는 기능은 아닙니다.",
                 "숨기기",
             ):
                 return 1
             selected = service.hide(args.posts)
             for item in selected:
                 print(f"'{item.post.title.strip()}' 글을 GitHub.io에서 숨김 처리했습니다.")
-            print("Velog 원문은 삭제되지 않으며 다음 자동 동기화에서도 다시 게시되지 않습니다.")
+            print("Velog 원문과 state metadata는 유지되며 다음 자동 동기화에서도 다시 게시되지 않습니다.")
             return 0
         if args.command == "unhide":
             selected = service.unhide(args.posts)

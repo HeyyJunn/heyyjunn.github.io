@@ -34,8 +34,6 @@ hidden_post_ids:
 - eff33e2b-cd18-49b3-a912-8c571eedf8c5
 - f1179499-6429-4c16-a458-4348d4abadc6
 - f8101d7b-45b5-4d37-ab06-fd05b84db18d
-exclude_slugs: []
-exclude_urls: []
 import_after: null
 series_category_map: {}
 images:

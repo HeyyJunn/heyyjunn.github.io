@@ -41,9 +41,9 @@ This work is published under [MIT][mit] License.
 ## Velog synchronization
 
 This site synchronizes public posts from Velog [`@ilwha`](https://velog.io/@ilwha/posts)
-into the Chirpy `_posts` collection. Velog's public GraphQL API is the primary source;
-the 20-item RSS feed is used only as a recent-post sanity check and limited body
-fallback, never as a complete inventory.
+into the Chirpy `_posts` collection. Velog's public GraphQL API is the authoritative
+inventory and raw-Markdown source. The 20-item RSS feed is used only as a recent-post
+health/sanity check, never as a complete inventory or body fallback.
 
 The mapping is intentionally narrow:
 
@@ -57,11 +57,19 @@ Velog as the source of truth, so manual edits to generated Markdown may be overw
 
 Images from the allowed Velog CDN are mirrored under
 `assets/img/velog/<post-uuid>/`. Failed image downloads retain their remote URL, and
-existing mirrored images are never automatically deleted.
+visible posts reuse verified local files. Hiding a post removes its deployable image
+directory while preserving state metadata so an unhide can download it again.
 
 Configure exclusions by UUID, exact normalized slug, or canonical URL in
-`.velog-sync/config.yml`. `import_after` filters new imports only; it never prevents
-updates to already managed posts.
+the local manager. Number, slug, and canonical URL inputs are resolved against the
+live inventory and persisted only as stable UUIDs in `.velog-sync/config.yml`.
+`import_after` filters new imports only; it never prevents updates to already managed
+posts.
+
+The configured Velog account is read-only in the everyday manager because the UUID
+ledger belongs to that source account. Changing accounts requires an explicit source
+migration, not a settings edit. RSS is health/recent-inventory information only;
+GraphQL raw Markdown is the sole canonical post body.
 
 Run a read-only preview locally with:
 
@@ -79,8 +87,7 @@ and htmlproofer validation are required before a changed tree is committed and
 deployed. No-change runs create no commit and skip deployment.
 
 GitHub may disable scheduled workflows after extended repository inactivity. Check
-the Actions schedule and keep `VELOG_SYNC_ENABLED` disabled until the initial import
-and production output have been reviewed.
+the Actions schedule and repository variables when automatic synchronization stops.
 
 ## 블로그 관리
 
@@ -101,6 +108,8 @@ GitHub Pages 사이트에는 포함되지 않습니다.
 ./blog list       # 게시물과 상태 보기
 ./blog dry-run    # 파일을 바꾸지 않고 변경 사항 확인
 ./blog sync       # 확인 후 로컬에 동기화
+./blog publish    # 검사 후 허용된 관리 변경만 commit/push
+./blog update     # 안전할 때만 origin/main을 fast-forward로 반영
 ./blog check      # 테스트, dry-run, 빌드, HTML 검사
 ./blog serve      # 127.0.0.1:4000에서 블로그 미리보기
 ```
@@ -108,7 +117,9 @@ GitHub Pages 사이트에는 포함되지 않습니다.
 게시물을 의도적으로 GitHub.io에서만 내릴 때 `_posts` 파일을 Finder나 VS Code로
 직접 삭제하면 안 됩니다. Velog 원문이 남아 있으면 다음 동기화에서 복원됩니다.
 반드시 `./blog hide <번호·UUID·slug>` 또는 관리 화면의 **GitHub에서 숨기기**를
-사용하세요. 숨긴 글의 Velog 원문과 이미지 자산은 삭제되지 않습니다.
+사용하세요. 숨긴 글의 Velog 원문과 state의 이미지 metadata는 유지되지만,
+GitHub Pages artifact에 노출되지 않도록 deployable 이미지 파일은 제거됩니다.
+이는 Git history에서 과거 데이터를 완전히 삭제하는 privacy 기능은 아닙니다.
 
 아직 GitHub에 가져오지 않을 글은 게시물 관리 화면이나
 `./blog exclude add <번호·UUID·slug>`로 설정합니다. 실제 설정에는 제목이나

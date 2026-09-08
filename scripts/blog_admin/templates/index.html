@@ -11,8 +11,8 @@
       <a class="brand" href="/">블로그 관리</a>
       <nav aria-label="관리 메뉴">
         <a href="/">대시보드</a><a href="/posts">게시물 관리</a><a href="/sync">동기화</a>
-        <a href="/checks">검사 및 테스트</a><a href="/preview">로컬 미리보기</a>
-        <a href="/settings">설정</a><a href="/history">작업 기록</a>
+        <a href="/preview">블로그 미리보기</a>
+        <details class="advanced-nav"><summary>고급 도구</summary><div><a href="/checks">검사 및 GitHub Actions</a><a href="/settings">고급 설정</a><a href="/history">작업 기록</a></div></details>
       </nav>
     </header>
     <main>
@@ -22,27 +22,28 @@
       <section id="dashboard" class="page hidden">
         <div class="page-title"><div><h1>대시보드</h1><p>Velog와 GitHub.io의 현재 상태를 한눈에 확인합니다.</p></div><button data-refresh>새로 확인</button></div>
         <div id="cards" class="cards"></div>
-        <div class="two-column"><article class="panel"><h2>연결 상태</h2><div id="connections"></div></article><article class="panel"><h2>최초 가져오기</h2><div id="initial-note"></div></article></div>
+        <article id="git-panel" class="panel git-panel"><h2>GitHub 반영 상태</h2><p id="git-summary">확인하고 있습니다.</p><div class="button-grid"><button id="pull-button" data-task="pull">최신 상태 가져오기</button><button id="publish-button" class="primary" data-task="publish">GitHub에 반영하기</button></div><details><summary>변경 내용 보기</summary><pre id="git-changes">없음</pre></details></article>
+        <div class="two-column"><article class="panel"><h2>연결 상태</h2><div id="connections"></div></article><article class="panel"><h2>동기화 안내</h2><div id="initial-note"></div></article></div>
       </section>
 
       <section id="posts" class="page hidden">
         <div class="page-title"><div><h1>게시물 관리</h1><p>가져올 글과 GitHub에서 숨길 글을 선택합니다.</p></div><button data-refresh>새로 확인</button></div>
-        <article class="info"><strong>가져오지 않기</strong>는 아직 게시하지 않을 글에 사용합니다. <strong>GitHub에서 숨기기</strong>는 이미 게시된 글을 GitHub.io에서만 내립니다.</article>
+        <article class="info"><strong>가져오지 않기</strong>는 아직 게시하지 않을 글에 사용합니다. <strong>사이트에서 숨기기</strong>는 GitHub Pages 게시물과 공개 이미지 artifact에서 내립니다. Velog 원문과 Git history를 완전히 삭제하는 privacy 기능은 아닙니다.</article>
         <div class="filters"><input id="search" type="search" placeholder="제목 검색"><select id="status-filter"><option value="">상태 전체</option></select><select id="series-filter"><option value="">시리즈 전체</option></select></div>
-        <div class="bulk"><strong>선택한 글 <span id="selected-count">0</span>개</strong><button id="exclude-selected">GitHub에 가져오지 않기</button><button id="unexclude-selected">제외 해제</button><button id="hide-selected" class="danger">GitHub에서 숨기기</button><button id="unhide-selected">숨김 해제</button></div>
+        <div class="bulk"><strong>선택한 글 <span id="selected-count">0</span>개</strong><button id="exclude-selected">GitHub에 가져오지 않기</button><button id="unexclude-selected">제외 해제</button><button id="hide-selected" class="danger">사이트에서 숨기기</button><button id="unhide-selected">숨김 해제</button></div>
         <div class="table-wrap"><table><thead><tr><th><input id="select-all" type="checkbox" aria-label="전체 선택"></th><th>번호</th><th>상태</th><th>제목</th><th>시리즈 / 카테고리</th><th>게시일</th><th>이미지</th><th>확인 사항</th><th>관리</th></tr></thead><tbody id="post-rows"></tbody></table></div>
       </section>
 
       <section id="sync" class="page hidden">
-        <div class="page-title"><div><h1>동기화</h1><p>로컬 작업과 GitHub Actions 작업을 구분해 실행합니다.</p></div></div>
-        <div class="cards action-cards"><article class="panel"><h2>로컬에서 관리</h2><p>먼저 미리보기로 변경 수를 확인하세요.</p><button data-task="dry-run">변경 사항 미리 확인</button><button class="danger" data-task="sync">지금 동기화하기</button></article><article class="panel"><h2>GitHub Actions에서 관리</h2><p id="remote-help">GitHub CLI 연결을 확인하고 있습니다.</p><button data-remote data-task="remote-dry-run">GitHub Actions에서 미리 확인</button><button data-remote class="danger" data-task="remote-sync">GitHub Actions에서 지금 동기화</button></article></div>
+        <div class="page-title"><div><h1>동기화</h1><p>Velog 원문과 로컬 GitHub Pages 파일을 비교하고 반영합니다.</p></div></div>
+        <article class="panel"><h2>로컬에서 관리</h2><p>먼저 미리보기로 변경 수를 확인한 뒤 동기화하세요. 완료 후 대시보드의 <strong>GitHub에 반영하기</strong>를 사용합니다.</p><button data-task="dry-run">변경 사항 미리 확인</button><button class="danger" data-task="sync">지금 동기화하기</button></article>
       </section>
 
-      <section id="checks" class="page hidden"><div class="page-title"><div><h1>검사 및 테스트</h1><p>변경 사항이 안전하게 빌드되는지 확인합니다.</p></div></div><article class="panel button-grid"><button data-task="test">Python 테스트 실행</button><button data-task="build">GitHub Pages 빌드 확인</button><button data-task="html">HTML 검사 실행</button><button data-task="check" class="primary">전체 검사 실행</button></article><div id="checks-task"></div></section>
+      <section id="checks" class="page hidden"><div class="page-title"><div><h1>고급 도구</h1><p>개발 검증과 GitHub Actions 원격 작업입니다.</p></div></div><article class="panel"><h2>검사 및 테스트</h2><div class="button-grid"><button data-task="test">Python 테스트 실행</button><button data-task="build">GitHub Pages 빌드 확인</button><button data-task="html">HTML 검사 실행</button><button data-task="check" class="primary">전체 검사 실행</button></div></article><article class="panel advanced-panel"><h2>GitHub Actions</h2><p id="remote-help">GitHub CLI 연결을 확인하고 있습니다.</p><div class="button-grid"><button data-remote data-task="remote-dry-run">GitHub Actions에서 미리 확인</button><button data-remote class="danger" data-task="remote-sync">GitHub Actions에서 지금 동기화</button></div></article><div id="checks-task"></div></section>
 
       <section id="preview" class="page hidden"><div class="page-title"><div><h1>로컬 미리보기</h1><p>관리 화면과 실제 블로그는 서로 다른 로컬 서버입니다.</p></div></div><article class="panel"><h2>GitHub Pages 블로그</h2><p>블로그를 <code>127.0.0.1:4000</code>에서만 실행합니다. 이미 실행 중이면 새 프로세스를 만들지 않습니다.</p><button data-task="serve">블로그 미리보기 실행</button><a class="button-link" href="http://127.0.0.1:4000" target="_blank" rel="noopener">새 탭에서 블로그 열기</a></article></section>
 
-      <section id="settings" class="page hidden"><div class="page-title"><div><h1>설정</h1><p>자주 사용하는 공개 설정을 관리합니다.</p></div></div><form id="settings-form" class="panel"><label>Velog 사용자명<input id="username" required></label><label>자동 가져오기 기준일<input id="import-after" type="date"></label><h2>시리즈 → 카테고리 설정</h2><p>설정하지 않은 시리즈는 이름 그대로 하나의 카테고리가 됩니다.</p><div id="mapping-rows"></div><button type="button" id="add-mapping">매핑 추가</button><button type="submit" class="primary">설정 저장</button><hr><p>Velog 태그는 이 블로그에서 사용하지 않습니다.</p><div class="two-column"><div><h3>가져오지 않는 UUID</h3><pre id="excluded-ids"></pre></div><div><h3>GitHub에서 숨긴 UUID</h3><pre id="hidden-ids"></pre></div></div></form></section>
+      <section id="settings" class="page hidden"><div class="page-title"><div><h1>고급 설정</h1><p>일상적으로 바꿀 필요가 없는 동기화 설정입니다.</p></div></div><form id="settings-form" class="panel"><div class="readonly-field"><strong>Velog 계정</strong><output id="username">확인 중</output><span class="subtext">현재 UUID ledger는 이 계정 전용입니다. 계정 변경은 별도 source migration이 필요합니다.</span></div><label>자동 가져오기 기준일<input id="import-after" type="date"></label><h2>시리즈 → 카테고리 설정</h2><p>설정하지 않은 시리즈는 이름 그대로 하나의 카테고리가 됩니다.</p><div id="mapping-rows"></div><button type="button" id="add-mapping">매핑 추가</button><button type="submit" class="primary">설정 저장</button><hr><p>Velog 태그는 이 블로그에서 사용하지 않습니다.</p><div class="two-column"><div><h3>가져오지 않는 UUID</h3><pre id="excluded-ids"></pre></div><div><h3>사이트에서 숨긴 UUID</h3><pre id="hidden-ids"></pre></div></div></form></section>
 
       <section id="history" class="page hidden"><div class="page-title"><div><h1>작업 기록</h1><p>현재 관리 서버를 실행한 동안의 작업 결과입니다.</p></div></div><div id="history-list"></div></section>
       <article id="task-panel" class="panel hidden"><h2 id="task-title">작업 상태</h2><p id="task-stage"></p><p id="task-summary"></p><details><summary>자세한 로그 보기</summary><pre id="task-output"></pre></details></article>

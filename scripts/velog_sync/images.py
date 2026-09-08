@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import os
+import shutil
 import time
 import urllib.error
 import urllib.parse
@@ -24,6 +25,34 @@ MIME_EXTENSIONS = {
     "image/webp": ".webp",
     "image/svg+xml": ".svg",
 }
+
+
+def post_image_directory(repository_root: Path, post_id: str) -> Path:
+    """Return a validated, UUID-scoped image directory inside the repository."""
+
+    try:
+        valid_id = str(uuid.UUID(post_id))
+    except (ValueError, AttributeError) as exc:
+        raise ImageError(f"unsafe post UUID for image path: {post_id}") from exc
+    if valid_id != post_id.lower():
+        raise ImageError(f"unsafe post UUID for image path: {post_id}")
+    root = (repository_root.resolve() / "assets" / "img" / "velog").resolve()
+    target = root / valid_id
+    if target.parent != root:
+        raise ImageError(f"unsafe image directory: {target}")
+    return target
+
+
+def remove_post_images(repository_root: Path, post_id: str) -> bool:
+    """Remove deployable image files for a hidden post, preserving its state metadata."""
+
+    target = post_image_directory(repository_root, post_id)
+    if not target.exists():
+        return False
+    if target.is_symlink() or not target.is_dir():
+        raise ImageError(f"unsafe image directory: {target}")
+    shutil.rmtree(target)
+    return True
 
 
 @dataclass(frozen=True)
@@ -133,14 +162,10 @@ class ImageMirror:
             return content_type, b"".join(chunks), final_url
 
     def _safe_target(self, post_id: str, url: str, extension: str) -> tuple[str, Path]:
-        try:
-            valid_id = str(uuid.UUID(post_id))
-        except (ValueError, AttributeError) as exc:
-            raise ImageError(f"unsafe post UUID for image path: {post_id}") from exc
-        if valid_id != post_id.lower():
-            raise ImageError(f"unsafe post UUID for image path: {post_id}")
+        image_dir = post_image_directory(self.root, post_id)
+        valid_id = image_dir.name
         name = hashlib.sha256(url.encode("utf-8")).hexdigest() + extension
-        relative = Path("assets") / "img" / "velog" / valid_id / name
+        relative = image_dir.relative_to(self.root) / name
         target = (self.root / relative).resolve()
         image_root = (self.root / "assets" / "img" / "velog").resolve()
         if target != image_root and image_root not in target.parents:

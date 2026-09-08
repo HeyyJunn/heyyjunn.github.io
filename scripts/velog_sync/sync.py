@@ -14,13 +14,13 @@ from zoneinfo import ZoneInfo
 
 from .client import GraphQLClient, RssClient
 from .config import SyncConfig
-from .images import ImageMirror, ImagePlan
-from .markdown import has_math, image_urls, normalize_markdown, rss_html_to_markdown, transform_images, unclosed_fence
+from .images import ImageMirror, ImagePlan, remove_post_images
+from .markdown import has_math, image_urls, normalize_markdown, transform_images, unclosed_fence
 from .models import PostMetadata, SourceError, SyncOutcome
 from .state import atomic_write_text, load_state, serialize_state, sha256_bytes, sha256_file
 
 
-TRANSFORMATION_SCHEMA = 1
+TRANSFORMATION_SCHEMA = 2
 
 
 @dataclass(frozen=True)
@@ -54,10 +54,6 @@ class SyncResult:
 
 def canonical_url(username: str, slug: str) -> str:
     return f"https://velog.io/@{username}/{urllib.parse.quote(slug, safe='-._~')}"
-
-
-def normalize_slug(value: str) -> str:
-    return unicodedata.normalize("NFC", urllib.parse.unquote(value)).strip().strip("/")
 
 
 def normalize_url(value: str) -> str:
@@ -159,7 +155,6 @@ def content_hash(
     body: str,
     categories: tuple[str, ...],
     published_at: str,
-    source_url: str,
     images: dict[str, Any],
 ) -> str:
     payload = {
@@ -169,8 +164,6 @@ def content_hash(
         "images": images,
         "published_at": published_at,
         "schema": TRANSFORMATION_SCHEMA,
-        "slug": post.slug,
-        "source_url": source_url,
         "title": post.title.strip(),
         "updated_at": post.updated_at,
     }
@@ -201,12 +194,8 @@ class SyncEngine:
         self.images = images or ImageMirror(self.root, config.images)
         self.state_path = self.root / ".velog-sync" / "state.json"
 
-    def _excluded(self, post: PostMetadata, source_url: str) -> bool:
-        return (
-            post.id.lower() in self.config.exclude_post_ids
-            or normalize_slug(post.slug) in {normalize_slug(x) for x in self.config.exclude_slugs}
-            or normalize_url(source_url) in {normalize_url(x) for x in self.config.exclude_urls}
-        )
+    def _excluded(self, post: PostMetadata) -> bool:
+        return post.id.lower() in self.config.exclude_post_ids
 
     def _state_entry(
         self,
@@ -223,7 +212,7 @@ class SyncEngine:
         return {
             "body_source": body_source,
             "categories": list(categories),
-            "content_hash": content_hash(post, body, categories, published_at, source_url, image_records),
+            "content_hash": content_hash(post, body, categories, published_at, image_records),
             "images": image_records,
             "metadata_hash": metadata_hash(post, categories, source_url),
             "post_path": path,
@@ -247,7 +236,6 @@ class SyncEngine:
             rss_items = self.rss.fetch_items()
         except SourceError as exc:
             rss_warning = str(exc)
-        rss_by_url = {normalize_url(item.url): item for item in (rss_items or ())}
         inventory_urls = {normalize_url(canonical_url(self.config.username, post.slug)) for post in inventory.posts}
         rss_unknown = [item.url for item in (rss_items or ()) if normalize_url(item.url) not in inventory_urls]
 
@@ -281,7 +269,7 @@ class SyncEngine:
                     )
                 )
                 continue
-            if self._excluded(post, source_url):
+            if self._excluded(post):
                 outcomes.append(SyncOutcome("EXCLUDED", post, existing.get("post_path") if isinstance(existing, dict) else None, categories))
                 continue
             if existing is None and self.config.import_after is not None:
@@ -315,29 +303,21 @@ class SyncEngine:
                 or existing.get("metadata_hash") != meta_hash
                 or drifted
                 or image_drift
+                or existing.get("body_source") != "graphql"
             )
             if not needs_detail:
                 warnings = [rss_warning] if rss_warning else []
                 outcomes.append(SyncOutcome("UNCHANGED", post, path, categories, warnings=warnings))
                 continue
 
-            body_source = "graphql"
             try:
                 detail = self.graphql.fetch_post(post)
                 if not detail.is_markdown:
                     raise SourceError(f"post {post.id} is not raw Markdown")
                 body = normalize_markdown(detail.body)
             except SourceError as exc:
-                rss_item = rss_by_url.get(normalize_url(source_url))
-                can_fallback = rss_item is not None and (
-                    existing is None
-                    or (isinstance(existing, dict) and existing.get("body_source") == "rss")
-                )
-                if not can_fallback:
-                    outcomes.append(SyncOutcome("ERROR", post, path, categories, error=str(exc)))
-                    continue
-                body = rss_html_to_markdown(rss_item.html)
-                body_source = "rss"
+                outcomes.append(SyncOutcome("ERROR", post, path, categories, error=str(exc)))
+                continue
 
             urls = image_urls(body)
             existing_images = existing.get("images", {}) if isinstance(existing, dict) else {}
@@ -363,10 +343,13 @@ class SyncEngine:
                 source_url,
                 planned_records,
                 rendered,
-                body_source,
+                "graphql",
             )
-            same = isinstance(existing, dict) and existing == entry and sha256_file(local_path) == entry["rendered_sha256"]
-            action = "UNCHANGED" if same else ("IMPORT" if existing is None else "UPDATE")
+            rendered_same = (
+                isinstance(existing, dict)
+                and sha256_file(local_path) == entry["rendered_sha256"]
+            )
+            action = "UNCHANGED" if rendered_same else ("IMPORT" if existing is None else "UPDATE")
             outcomes.append(
                 SyncOutcome(
                     action,
@@ -380,7 +363,7 @@ class SyncEngine:
                     state_entry=entry,
                     image_plans=list(plans.values()),
                     body=body,
-                    body_source=body_source,
+                    body_source="graphql",
                 )
             )
 
@@ -390,8 +373,13 @@ class SyncEngine:
         if dry_run or result.counts["ERROR"]:
             return result
 
+        # Hidden content is absent from the site, so its deployable image directory
+        # must also be absent. State records remain intact for a future unhide.
+        for post_id in self.config.hidden_post_ids:
+            remove_post_images(self.root, post_id)
+
         for outcome in outcomes:
-            if outcome.action not in {"IMPORT", "UPDATE"}:
+            if outcome.state_entry is None or outcome.action not in {"IMPORT", "UPDATE", "UNCHANGED"}:
                 continue
             records: dict[str, Any] = {}
             local_urls: dict[str, str] = {}

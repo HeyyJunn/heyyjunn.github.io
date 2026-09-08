@@ -16,7 +16,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from velog_sync.client import GraphQLClient, JsonTransport  # noqa: E402
 from velog_sync.config import ImageConfig, SyncConfig  # noqa: E402
 from velog_sync.images import ImageMirror, ImagePlan, ImageProbe  # noqa: E402
-from velog_sync.markdown import image_urls, rss_html_to_markdown, unclosed_fence  # noqa: E402
+from velog_sync.markdown import image_urls, unclosed_fence  # noqa: E402
 from velog_sync.models import (  # noqa: E402
     DetailedPost,
     Inventory,
@@ -193,12 +193,6 @@ class RenderingTests(unittest.TestCase):
         self.assertIsNone(unclosed_fence(body))
         self.assertEqual(unclosed_fence("text\n```c\nint x;\n"), (2, "```"))
 
-    def test_rss_html_fallback_conversion(self) -> None:
-        value = rss_html_to_markdown("<h2>제목</h2><p><strong>본문</strong></p>")
-        self.assertIn("## 제목", value)
-        self.assertIn("**본문**", value)
-
-
 class ImageTests(unittest.TestCase):
     def mirror(self, probe=None, download=None, **settings: object) -> tuple[tempfile.TemporaryDirectory[str], ImageMirror]:
         temp = tempfile.TemporaryDirectory()
@@ -332,11 +326,10 @@ class EngineTests(unittest.TestCase):
         self.assertNotEqual(result.outcomes[0].post_path, result.outcomes[1].post_path)
         self.assertIn(two.id[:8], result.outcomes[1].post_path or "")
 
-    def test_exclude_uuid_slug_import_after_and_imported_then_excluded(self) -> None:
+    def test_exclude_uuid_import_after_and_imported_then_excluded(self) -> None:
         item = post()
         for cfg in (
             config(exclude_post_ids=frozenset({item.id})),
-            config(exclude_slugs=frozenset({item.slug})),
             config(import_after=date(2025, 1, 3)),
         ):
             result = self.engine([item], {item.id: "body"}, cfg).run(dry_run=True)
@@ -355,7 +348,7 @@ class EngineTests(unittest.TestCase):
         self.assertTrue((self.root / (path_two or "missing")).exists())
         self.assertIn(two.id, json.loads((self.root / ".velog-sync/state.json").read_text())["posts"])
 
-    def test_detail_failure_preserves_existing_and_new_can_use_recent_rss_only(self) -> None:
+    def test_detail_failure_preserves_existing_and_rss_never_supplies_body(self) -> None:
         item = post()
         imported = self.engine([item], {item.id: "old"}).run().outcomes[0]
         changed = replace(item, updated_at="2025-02-01T00:00:00Z")
@@ -366,14 +359,14 @@ class EngineTests(unittest.TestCase):
 
         fresh_root = Path(tempfile.mkdtemp(dir=self.root))
         (fresh_root / "_posts").mkdir()
-        rss = RssItem(item.title, f"https://velog.io/@ilwha/{item.slug}", "g", item.released_at, "<p>fallback</p>")
+        rss = RssItem(item.title, f"https://velog.io/@ilwha/{item.slug}", "g", item.released_at)
         fallback = SyncEngine(fresh_root, config(), FakeGraphQL([item], {}, SourceError("raw failed")), FakeRss((rss,))).run(dry_run=True)
-        self.assertEqual(fallback.outcomes[0].action, "IMPORT")
-        self.assertEqual(fallback.outcomes[0].body_source, "rss")
+        self.assertEqual(fallback.outcomes[0].action, "ERROR")
+        self.assertIsNone(fallback.outcomes[0].desired_text)
 
     def test_inventory_failure_never_treats_rss_as_full_inventory(self) -> None:
         item = post()
-        rss = RssItem(item.title, "https://velog.io/@ilwha/x", "g", item.released_at, "body")
+        rss = RssItem(item.title, "https://velog.io/@ilwha/x", "g", item.released_at)
         with self.assertRaisesRegex(SourceError, "inventory unavailable"):
             SyncEngine(self.root, config(), BrokenInventory([], {}), FakeRss((rss,))).run()
 
@@ -435,6 +428,94 @@ class EngineTests(unittest.TestCase):
         ).run()
         self.assertEqual(result.outcomes[0].action, "HIDDEN")
         self.assertFalse(list(self.root.glob("_posts/*.md")))
+
+    def test_slug_only_change_updates_source_state_without_rewriting_markdown(self) -> None:
+        item = post()
+        first = self.engine([item], {item.id: "body"}).run().outcomes[0]
+        managed = self.root / (first.post_path or "missing")
+        before_bytes = managed.read_bytes()
+        before_stat = managed.stat().st_mtime_ns
+        changed = replace(item, slug="새-slug")
+        result = self.engine([changed], {item.id: "body"}).run()
+        self.assertEqual(result.outcomes[0].action, "UNCHANGED")
+        self.assertEqual(managed.read_bytes(), before_bytes)
+        self.assertEqual(managed.stat().st_mtime_ns, before_stat)
+        state = json.loads((self.root / ".velog-sync/state.json").read_text())
+        self.assertEqual(state["posts"][item.id]["source_slug"], "새-slug")
+        self.assertTrue(state["posts"][item.id]["source_url"].endswith("/%EC%83%88-slug"))
+
+    def test_hidden_missing_image_is_not_an_update_loop(self) -> None:
+        item = post()
+        image_path = self.root / "assets/img/velog" / item.id / "image.png"
+        image_path.parent.mkdir(parents=True)
+        image_path.write_bytes(b"image")
+        imported = self.engine([item], {item.id: "body"}).run().outcomes[0]
+        state_path = self.root / ".velog-sync/state.json"
+        state = json.loads(state_path.read_text())
+        state["posts"][item.id]["images"] = {
+            "https://velog.velcdn.com/x.png": {
+                "content_type": "image/png",
+                "path": image_path.relative_to(self.root).as_posix(),
+                "sha256": "sha256:missing",
+                "size": 5,
+            }
+        }
+        state_path.write_text(serialize_state(state))
+        image_path.unlink()
+        result = self.engine(
+            [item], {item.id: "must not be fetched"},
+            config(hidden_post_ids=frozenset({item.id})),
+        ).run(dry_run=True)
+        self.assertEqual(result.outcomes[0].action, "HIDDEN")
+        self.assertEqual(result.outcomes[0].post_path, imported.post_path)
+
+    def test_hidden_images_are_pruned_and_unhide_restores_them(self) -> None:
+        item = post()
+        url = "https://velog.velcdn.com/images/test.png"
+        body = f"![image]({url})\n"
+        cfg = SyncConfig(username="ilwha", images=ImageConfig(enabled=True, retries=1))
+        mirror = ImageMirror(
+            self.root,
+            cfg.images,
+            probe_func=lambda value: ImageProbe(value, "image/png", 3, value),
+            download_func=lambda value: ("image/png", b"png", value),
+        )
+        SyncEngine(self.root, cfg, FakeGraphQL([item], {item.id: body}), FakeRss(), mirror).run()
+        state = json.loads((self.root / ".velog-sync/state.json").read_text())
+        image = self.root / state["posts"][item.id]["images"][url]["path"]
+        self.assertTrue(image.is_file())
+
+        hidden_cfg = replace(cfg, hidden_post_ids=frozenset({item.id}))
+        hidden = SyncEngine(
+            self.root, hidden_cfg, FakeGraphQL([item], {item.id: body}), FakeRss(), mirror
+        ).run()
+        self.assertEqual(hidden.outcomes[0].action, "HIDDEN")
+        self.assertFalse(image.parent.exists())
+        self.assertIn(item.id, json.loads((self.root / ".velog-sync/state.json").read_text())["posts"])
+
+        restored = SyncEngine(
+            self.root, cfg, FakeGraphQL([item], {item.id: body}), FakeRss(), mirror
+        ).run()
+        self.assertEqual(restored.outcomes[0].action, "UNCHANGED")
+        self.assertTrue(image.is_file())
+
+    def test_pruning_hidden_images_does_not_touch_visible_post_images(self) -> None:
+        visible = post()
+        hidden = post("22222222-2222-2222-2222-222222222222", slug="hidden")
+        visible_dir = self.root / "assets/img/velog" / visible.id
+        hidden_dir = self.root / "assets/img/velog" / hidden.id
+        visible_dir.mkdir(parents=True)
+        hidden_dir.mkdir(parents=True)
+        (visible_dir / "keep.png").write_bytes(b"keep")
+        (hidden_dir / "remove.png").write_bytes(b"remove")
+        result = self.engine(
+            [visible, hidden],
+            {visible.id: "visible", hidden.id: "hidden"},
+            config(hidden_post_ids=frozenset({hidden.id})),
+        ).run()
+        self.assertEqual([item.action for item in result.outcomes], ["IMPORT", "HIDDEN"])
+        self.assertTrue((visible_dir / "keep.png").is_file())
+        self.assertFalse(hidden_dir.exists())
 
 
 if __name__ == "__main__":

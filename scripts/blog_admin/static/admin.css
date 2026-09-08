@@ -6,6 +6,11 @@ body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.55 system-u
 nav { display:flex; gap:6px; overflow:auto; }
 nav a { color:#dce7f1; padding:7px 10px; text-decoration:none; white-space:nowrap; border-radius:7px; }
 nav a:hover { background:#2b3947; }
+.advanced-nav { position:relative; }
+.advanced-nav summary { color:#dce7f1; padding:7px 10px; cursor:pointer; white-space:nowrap; list-style:none; border-radius:7px; }
+.advanced-nav summary:hover { background:#2b3947; }
+.advanced-nav div { position:absolute; right:0; top:40px; min-width:210px; padding:7px; background:#17212b; border:1px solid #43505d; border-radius:9px; box-shadow:0 12px 30px #0004; }
+.advanced-nav div a { display:block; }
 main { max-width:1320px; margin:0 auto; padding:28px 20px 60px; }
 h1,h2,h3 { line-height:1.25; } h1 { margin:0 0 5px; } h2 { font-size:18px; }
 .page-title { display:flex; justify-content:space-between; gap:20px; align-items:start; margin-bottom:20px; }
@@ -46,4 +51,10 @@ label { display:block; margin:12px 0; font-weight:650; } label input { display:b
 dialog { width:min(680px,calc(100% - 30px)); border:0; border-radius:13px; padding:24px; box-shadow:0 20px 70px #0005; }
 dialog::backdrop { background:#17212b88; }.close { float:right; border:0; font-size:25px; }.dialog-actions { display:flex; justify-content:flex-end; margin-top:20px; }
 .history-item { margin-bottom:12px; }
+.git-panel { margin-bottom:18px; border-left:5px solid var(--accent); }
+.git-panel[data-relation="current"] { border-left-color:var(--ok); }
+.git-panel[data-relation="behind"],.git-panel[data-relation="diverged"],.git-panel[data-relation="unavailable"] { border-left-color:var(--warn); }
+.advanced-panel { margin-top:16px; }
+.readonly-field { margin:12px 0 20px; }
+.readonly-field output { display:block; width:100%; max-width:520px; margin-top:5px; padding:9px 10px; background:#eef2f5; border:1px solid #cbd3da; border-radius:7px; font-weight:650; }
 @media (max-width:850px) { .topbar { align-items:flex-start; flex-direction:column; gap:7px; }.cards { grid-template-columns:repeat(2,1fr); }.two-column { grid-template-columns:1fr; }.mapping-row { grid-template-columns:1fr; }.topbar nav { width:100%; }.notice { top:120px; } }

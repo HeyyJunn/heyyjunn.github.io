@@ -220,7 +220,7 @@ class RssClient:
             raise SourceError(f"RSS request failed: {exc}") from exc
         items: list[RssItem] = []
         for item in root.findall("./channel/item"):
-            values = {name: item.findtext(name) for name in ("title", "link", "guid", "pubDate", "description")}
+            values = {name: item.findtext(name) for name in ("title", "link", "guid", "pubDate")}
             if any(value is None for value in values.values()):
                 raise SourceError("RSS item is missing a required field")
             try:
@@ -233,7 +233,6 @@ class RssClient:
                     url=values["link"] or "",
                     guid=values["guid"] or "",
                     published_at=values["pubDate"] or "",
-                    html=values["description"] or "",
                 )
             )
         return tuple(items)

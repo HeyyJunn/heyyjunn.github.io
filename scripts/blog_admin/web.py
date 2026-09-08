@@ -172,8 +172,8 @@ def create_app(service: BlogService, runner: TaskRunner | None = None) -> Flask:
             return guard
         try:
             selected = service.hide(values_from_request())
-            return jsonify({"ok": True, "message": f"선택한 {len(selected)}개 글을 GitHub에서 숨겼습니다. Velog 원문은 삭제되지 않았습니다."})
-        except (UserInputError, ValueError, OSError) as exc:
+            return jsonify({"ok": True, "message": f"선택한 {len(selected)}개 글과 공개 이미지 artifact를 사이트에서 숨겼습니다. Velog 원문과 Git history는 삭제되지 않았습니다."})
+        except (VelogSyncError, ValueError, OSError) as exc:
             return error_response("게시물을 숨기지 못했습니다.", str(exc))
 
     @app.post("/api/posts/unhide")
@@ -197,7 +197,7 @@ def create_app(service: BlogService, runner: TaskRunner | None = None) -> Flask:
         if not isinstance(mapping, dict) or not all(isinstance(value, list) for value in mapping.values()):
             return error_response("설정을 저장하지 못했습니다.", "시리즈 매핑 형식을 확인해 주세요.")
         try:
-            service.save_settings(str(payload.get("username", "")), payload.get("import_after") or None, mapping)
+            service.save_settings(payload.get("import_after") or None, mapping)
             return jsonify({"ok": True, "message": "설정을 안전하게 저장했습니다."})
         except (UserInputError, ValueError, OSError) as exc:
             return error_response("설정을 저장하지 못했습니다.", str(exc))
@@ -218,6 +218,8 @@ def create_app(service: BlogService, runner: TaskRunner | None = None) -> Flask:
             "html": ("HTML 검사", lambda progress: (progress("생성된 HTML을 검사하고 있습니다"), service.html_check())[1], False),
             "check": ("전체 검사", lambda progress: service.check(progress), False),
             "serve": ("로컬 미리보기", lambda progress: (progress("로컬 블로그를 실행하고 있습니다"), service.start_serve())[1], False),
+            "pull": ("최신 상태 가져오기", lambda progress: (progress("origin/main을 안전하게 확인하고 있습니다"), service.pull_ff_only())[1], True),
+            "publish": ("GitHub에 반영하기", lambda progress: service.publish(progress), True),
             "remote-dry-run": ("GitHub Actions 미리보기", lambda progress: (progress("GitHub Actions에 작업을 요청하고 있습니다"), service.remote_workflow("dry-run"))[1], False),
             "remote-sync": ("GitHub Actions 동기화", lambda progress: (progress("GitHub Actions에 동기화를 요청하고 있습니다"), service.remote_workflow("apply"))[1], True),
         }

@@ -17,9 +17,10 @@ from urllib.parse import quote
 import yaml
 
 from velog_sync.config import SyncConfig, load_config
-from velog_sync.models import SourceError, SyncOutcome, VelogSyncError
+from velog_sync.images import remove_post_images
+from velog_sync.models import SyncOutcome, VelogSyncError
 from velog_sync.state import load_state
-from velog_sync.sync import SyncEngine, SyncResult, canonical_url, validate_post_path
+from velog_sync.sync import SyncEngine, SyncResult, canonical_url, normalize_url, validate_post_path
 
 
 ACTION_LABELS = {
@@ -30,6 +31,36 @@ ACTION_LABELS = {
     "HIDDEN": "GitHub에서 숨김",
     "ERROR": "오류",
 }
+
+PUBLISH_PATHS = (
+    ".velog-sync/config.yml",
+    ".velog-sync/state.json",
+    "_posts",
+    "assets/img/velog",
+)
+
+
+def _is_publish_path(path: str) -> bool:
+    normalized = path.replace("\\", "/")
+    if normalized.startswith("./"):
+        normalized = normalized[2:]
+    return (
+        normalized in {".velog-sync/config.yml", ".velog-sync/state.json"}
+        or normalized.startswith("_posts/")
+        or normalized.startswith("assets/img/velog/")
+    )
+
+
+def _status_paths(output: str) -> list[str]:
+    paths: list[str] = []
+    for line in output.splitlines():
+        if len(line) < 4:
+            continue
+        value = line[3:]
+        if " -> " in value:
+            value = value.rsplit(" -> ", 1)[1]
+        paths.append(value.strip('"'))
+    return sorted(set(paths))
 
 
 class UserInputError(VelogSyncError):
@@ -105,12 +136,14 @@ class BlogService:
         self,
         root: Path,
         engine_factory: Callable[[Path, SyncConfig], SyncEngine] | None = None,
+        enforce_git_safety: bool = True,
     ):
         self.root = root.resolve()
         self.config_path = self.root / ".velog-sync" / "config.yml"
         self.state_path = self.root / ".velog-sync" / "state.json"
         self.store = ConfigStore(self.config_path)
         self.engine_factory = engine_factory or (lambda root, cfg: SyncEngine(root, cfg))
+        self.enforce_git_safety = enforce_git_safety
         self._preview_cache: SyncResult | None = None
         self._cache_lock = threading.Lock()
         self._serve_process: subprocess.Popen[str] | None = None
@@ -133,6 +166,7 @@ class BlogService:
         return result
 
     def apply(self) -> SyncResult:
+        self._ensure_write_safe()
         result = self.engine_factory(self.root, self.config()).run(dry_run=False)
         self.invalidate()
         return result
@@ -151,9 +185,9 @@ class BlogService:
             return "최근 글 확인용 RSS 연결을 확인해 주세요."
         return "원문 호환성을 확인해야 하는 항목이 있습니다."
 
-    def post_view(self, outcome: SyncOutcome, number: int) -> dict[str, Any]:
+    def post_view(self, outcome: SyncOutcome, number: int, username: str) -> dict[str, Any]:
         item = outcome.post
-        source_url = canonical_url(self.config().username, item.slug)
+        source_url = canonical_url(username, item.slug)
         github_url = None
         if outcome.post_path and (self.root / outcome.post_path).is_file() and outcome.action != "HIDDEN":
             stem = Path(outcome.post_path).stem
@@ -182,13 +216,14 @@ class BlogService:
 
     def snapshot(self, force: bool = False) -> dict[str, Any]:
         result = self.preview(force=force)
-        posts = [self.post_view(outcome, index) for index, outcome in enumerate(result.outcomes, 1)]
+        cfg = self.config()
+        posts = [self.post_view(outcome, index, cfg.username) for index, outcome in enumerate(result.outcomes, 1)]
         counts = {ACTION_LABELS[key]: result.counts[key] for key in ACTION_LABELS}
         state = load_state(self.state_path)
         published = sum(
             1
             for ident, entry in state["posts"].items()
-            if ident.lower() not in self.config().hidden_post_ids
+            if ident.lower() not in cfg.hidden_post_ids
             and isinstance(entry, dict)
             and isinstance(entry.get("post_path"), str)
             and (self.root / entry["post_path"]).is_file()
@@ -205,7 +240,7 @@ class BlogService:
             "inventory_complete": result.inventory_complete,
             "rss_count": result.rss_count,
             "initial_import": not bool(state["posts"]),
-            "git": self.git_status(),
+            "git": self.git_status(fetch=self.enforce_git_safety),
             "github": self.github_status(),
         }
 
@@ -229,6 +264,14 @@ class BlogService:
                     matches = [item for item in outcomes if item.post.id.lower() == normalized]
                 else:
                     matches = [item for item in outcomes if item.post.slug == value]
+                    if not matches and value.startswith(("https://", "http://")):
+                        wanted = normalize_url(value)
+                        username = self.config().username
+                        matches = [
+                            item
+                            for item in outcomes
+                            if normalize_url(canonical_url(username, item.post.slug)) == wanted
+                        ]
             if len(matches) != 1:
                 raise UserInputError(f"게시물을 찾을 수 없습니다: {value}")
             item = matches[0]
@@ -257,11 +300,13 @@ class BlogService:
         self.invalidate()
 
     def exclude(self, values: Iterable[str], add: bool) -> list[SyncOutcome]:
+        self._ensure_write_safe()
         selected = self._resolve(values)
         self._update_id_list("exclude_post_ids", (item.post.id for item in selected), add)
         return selected
 
     def hide(self, values: Iterable[str]) -> list[SyncOutcome]:
+        self._ensure_write_safe()
         selected = self._resolve(values)
         state = load_state(self.state_path)
         unmanaged = [item.post.title.strip() for item in selected if item.post.id not in state["posts"]]
@@ -277,23 +322,22 @@ class BlogService:
                 path = validate_post_path(self.root, entry["post_path"])
                 if path.is_file():
                     path.unlink()
+            remove_post_images(self.root, item.post.id)
         self.invalidate()
         return selected
 
     def unhide(self, values: Iterable[str]) -> list[SyncOutcome]:
+        self._ensure_write_safe()
         selected = self._resolve(values)
         self._update_id_list("hidden_post_ids", (item.post.id for item in selected), False)
         return selected
 
     def save_settings(
         self,
-        username: str,
         import_after: str | None,
         mapping: dict[str, list[str]],
     ) -> None:
-        username = username.strip().lstrip("@")
-        if not username or any(char.isspace() for char in username):
-            raise UserInputError("Velog 사용자명을 확인해 주세요.")
+        self._ensure_write_safe()
         if import_after:
             try:
                 datetime.strptime(import_after, "%Y-%m-%d")
@@ -308,25 +352,297 @@ class BlogService:
             cleaned[series] = values
 
         def mutate(raw: dict[str, Any]) -> None:
-            velog = raw.setdefault("velog", {})
-            if not isinstance(velog, dict):
-                raise UserInputError("velog 설정이 올바르지 않습니다.")
-            velog["username"] = username
-            velog["rss_url"] = f"https://v2.velog.io/rss/@{username}"
             raw["import_after"] = import_after or None
             raw["series_category_map"] = cleaned
 
         self.store.update(mutate)
         self.invalidate()
 
-    def git_status(self) -> dict[str, Any]:
-        branch = _run(["git", "branch", "--show-current"], self.root)
-        status = _run(["git", "status", "--porcelain"], self.root)
-        return {
-            "branch": branch.stdout.strip() or "확인할 수 없음",
-            "dirty": bool(status.stdout.strip()),
-            "label": "변경 있음" if status.stdout.strip() else "변경 없음",
+    def git_status(self, fetch: bool = False) -> dict[str, Any]:
+        """Describe local/main versus origin/main without modifying user work."""
+
+        inside = _run(["git", "rev-parse", "--is-inside-work-tree"], self.root)
+        if inside.returncode != 0 or inside.stdout.strip() != "true":
+            return {
+                "repository": False,
+                "branch": "확인할 수 없음",
+                "dirty": False,
+                "changes": [],
+                "managed_changes": [],
+                "unrelated_changes": [],
+                "ahead_paths": [],
+                "unrelated_ahead_paths": [],
+                "relation": "unavailable",
+                "label": "Git 저장소가 아닙니다",
+                "message": "현재 폴더는 Git 저장소가 아닙니다.",
+                "fetch_ok": False,
+                "can_pull": False,
+                "can_publish": False,
+                "ahead": 0,
+                "behind": 0,
+            }
+
+        branch_result = _run(["git", "branch", "--show-current"], self.root)
+        branch = branch_result.stdout.strip() or "확인할 수 없음"
+        raw_status = _run(
+            ["git", "status", "--porcelain=v1", "--untracked-files=all"], self.root
+        )
+        changes = _status_paths(raw_status.stdout)
+        managed = [path for path in changes if _is_publish_path(path)]
+        unrelated = [path for path in changes if not _is_publish_path(path)]
+
+        fetch_ok = not fetch
+        fetch_error = ""
+        if fetch:
+            fetched = _run(["git", "fetch", "--prune", "origin", "main"], self.root)
+            fetch_ok = fetched.returncode == 0
+            if not fetch_ok:
+                fetch_error = fetched.stdout.strip() or "origin/main을 가져오지 못했습니다."
+
+        head = _run(["git", "rev-parse", "HEAD"], self.root)
+        remote = _run(["git", "rev-parse", "--verify", "refs/remotes/origin/main"], self.root)
+        relation = "unavailable"
+        ahead = behind = 0
+        ahead_paths: list[str] = []
+        if head.returncode == 0 and remote.returncode == 0:
+            counts = _run(
+                ["git", "rev-list", "--left-right", "--count", "HEAD...refs/remotes/origin/main"],
+                self.root,
+            )
+            if counts.returncode == 0:
+                try:
+                    ahead, behind = (int(value) for value in counts.stdout.split())
+                except (TypeError, ValueError):
+                    ahead = behind = 0
+                if ahead == 0 and behind == 0:
+                    relation = "current"
+                elif ahead > 0 and behind == 0:
+                    relation = "ahead"
+                elif behind > 0 and ahead == 0:
+                    relation = "behind"
+                else:
+                    relation = "diverged"
+        if relation == "ahead":
+            committed = _run(
+                ["git", "diff", "--name-only", "refs/remotes/origin/main..HEAD"], self.root
+            )
+            if committed.returncode == 0:
+                ahead_paths = sorted(set(committed.stdout.splitlines()))
+        unrelated_ahead = [path for path in ahead_paths if not _is_publish_path(path)]
+
+        labels = {
+            "current": "GitHub와 최신 상태",
+            "ahead": "로컬에만 변경 있음",
+            "behind": "GitHub에 더 최신 변경 있음",
+            "diverged": "로컬과 GitHub 이력이 갈라짐",
+            "unavailable": "GitHub 상태를 확인할 수 없음",
         }
+        messages = {
+            "current": "로컬 커밋과 origin/main이 같습니다.",
+            "ahead": f"로컬에 아직 push하지 않은 커밋이 {ahead}개 있습니다.",
+            "behind": f"GitHub에 먼저 받아야 할 커밋이 {behind}개 있습니다.",
+            "diverged": "자동으로 merge/reset하지 않습니다. 이력을 직접 검토해야 합니다.",
+            "unavailable": "origin/main 비교 기준을 찾지 못했습니다.",
+        }
+        if branch != "main":
+            messages[relation] = f"현재 브랜치는 {branch}입니다. 관리 작업은 main에서만 허용됩니다."
+        if fetch and not fetch_ok:
+            messages[relation] = "GitHub 최신 상태를 확인하지 못했습니다. 네트워크 연결 후 다시 시도해 주세요."
+
+        safe_relation = relation in {"current", "ahead"}
+        return {
+            "repository": True,
+            "branch": branch,
+            "dirty": bool(changes),
+            "changes": changes,
+            "managed_changes": managed,
+            "unrelated_changes": unrelated,
+            "ahead_paths": ahead_paths,
+            "unrelated_ahead_paths": unrelated_ahead,
+            "relation": relation,
+            "label": labels[relation],
+            "message": messages[relation],
+            "fetch_ok": fetch_ok,
+            "fetch_error": fetch_error,
+            "can_pull": fetch_ok and branch == "main" and relation == "behind" and not changes,
+            "can_publish": (
+                fetch_ok
+                and branch == "main"
+                and safe_relation
+                and not unrelated
+                and not unrelated_ahead
+                and (bool(managed) or relation == "ahead")
+            ),
+            "ahead": ahead,
+            "behind": behind,
+        }
+
+    def _ensure_write_safe(self) -> dict[str, Any] | None:
+        if not self.enforce_git_safety:
+            return None
+        status = self.git_status(fetch=True)
+        if not status["repository"]:
+            raise UserInputError(status["message"])
+        if not status["fetch_ok"]:
+            raise UserInputError(
+                "GitHub 최신 상태를 확인하지 못해 쓰기 작업을 중단했습니다. "
+                "네트워크 연결을 확인해 주세요."
+            )
+        if status["branch"] != "main":
+            raise UserInputError("블로그 관리 쓰기 작업은 main 브랜치에서만 실행할 수 있습니다.")
+        if status["relation"] == "behind":
+            raise UserInputError(
+                "GitHub에 더 최신 변경 사항이 있습니다. 먼저 '최신 상태 가져오기'를 실행해 주세요."
+            )
+        if status["relation"] == "diverged":
+            raise UserInputError(
+                "로컬과 GitHub 이력이 갈라져 자동으로 처리할 수 없습니다. merge/reset 없이 이력을 직접 검토해 주세요."
+            )
+        if status["relation"] not in {"current", "ahead"}:
+            raise UserInputError("origin/main과 안전하게 비교하지 못해 쓰기 작업을 중단했습니다.")
+        return status
+
+    def pull_ff_only(self) -> CommandResult:
+        status = self.git_status(fetch=True)
+        if not status["repository"] or not status["fetch_ok"]:
+            return CommandResult(False, "최신 상태를 가져올 수 없습니다", status["message"])
+        if status["branch"] != "main":
+            return CommandResult(False, "최신 상태를 가져올 수 없습니다", "main 브랜치에서만 실행할 수 있습니다.")
+        if status["dirty"]:
+            return CommandResult(
+                False,
+                "최신 상태를 가져올 수 없습니다",
+                "로컬 변경 사항을 먼저 검토해 주세요. 자동 stash나 reset은 실행하지 않습니다.",
+                "\n".join(status["changes"]),
+            )
+        if status["relation"] == "current":
+            return CommandResult(True, "이미 최신 상태입니다", "로컬과 origin/main이 같습니다.")
+        if status["relation"] != "behind":
+            return CommandResult(False, "자동으로 가져올 수 없습니다", status["message"])
+        result = _run(["git", "pull", "--ff-only", "origin", "main"], self.root)
+        return CommandResult(
+            result.returncode == 0,
+            "최신 상태를 가져왔습니다" if result.returncode == 0 else "최신 상태 가져오기 실패",
+            "origin/main을 fast-forward 방식으로 반영했습니다."
+            if result.returncode == 0
+            else "자동 merge/reset 없이 중단했습니다.",
+            result.stdout,
+        )
+
+    def publish(self, progress: Callable[[str], None] | None = None) -> CommandResult:
+        status = self.git_status(fetch=True)
+        if not status["repository"] or not status["fetch_ok"]:
+            return CommandResult(False, "GitHub에 반영할 수 없습니다", status["message"])
+        if status["branch"] != "main" or status["relation"] not in {"current", "ahead"}:
+            return CommandResult(False, "GitHub에 반영할 수 없습니다", status["message"])
+        if status["unrelated_changes"]:
+            return CommandResult(
+                False,
+                "자동으로 반영할 수 없는 다른 변경 사항이 있습니다",
+                "관리 대상이 아닌 파일은 자동 stage하지 않습니다. 별도로 검토해 주세요.",
+                "\n".join(status["unrelated_changes"]),
+            )
+        if status["unrelated_ahead_paths"]:
+            return CommandResult(
+                False,
+                "자동으로 push할 수 없는 로컬 commit이 있습니다",
+                "origin/main 이후 commit에 블로그 관리 대상이 아닌 파일이 포함되어 있습니다.",
+                "\n".join(status["unrelated_ahead_paths"]),
+            )
+        if not status["managed_changes"] and status["relation"] != "ahead":
+            return CommandResult(True, "반영할 변경 사항이 없습니다", "로컬과 GitHub가 이미 같습니다.")
+
+        if progress:
+            progress("게시 전 테스트와 사이트 검사를 실행하고 있습니다")
+        checked = self.check()
+        if not checked.ok:
+            return CommandResult(
+                False,
+                "검사 실패로 GitHub 반영을 중단했습니다",
+                "commit과 push를 실행하지 않았습니다.",
+                checked.output,
+            )
+
+        if progress:
+            progress("GitHub 최신 상태를 다시 확인하고 있습니다")
+        ready = self.git_status(fetch=True)
+        if (
+            not ready["fetch_ok"]
+            or ready["branch"] != "main"
+            or ready["relation"] not in {"current", "ahead"}
+        ):
+            return CommandResult(False, "GitHub 반영을 안전하게 중단했습니다", ready["message"])
+        if ready["unrelated_changes"]:
+            return CommandResult(
+                False,
+                "자동으로 반영할 수 없는 다른 변경 사항이 있습니다",
+                "검사 중 생긴 관리 대상 외 변경을 자동 stage하지 않습니다.",
+                "\n".join(ready["unrelated_changes"]),
+            )
+        if ready["unrelated_ahead_paths"]:
+            return CommandResult(
+                False,
+                "자동으로 push할 수 없는 로컬 commit이 있습니다",
+                "origin/main 이후 commit 내용을 직접 검토해 주세요.",
+                "\n".join(ready["unrelated_ahead_paths"]),
+            )
+
+        output: list[str] = [checked.summary]
+        if ready["managed_changes"]:
+            name = _run(["git", "config", "user.name"], self.root)
+            email = _run(["git", "config", "user.email"], self.root)
+            if name.returncode != 0 or not name.stdout.strip() or email.returncode != 0 or not email.stdout.strip():
+                return CommandResult(
+                    False,
+                    "Git 작성자 설정이 필요합니다",
+                    "git user.name과 user.email을 설정한 뒤 다시 시도해 주세요.",
+                )
+            if progress:
+                progress("허용된 블로그 관리 파일만 commit하고 있습니다")
+            stage_paths = [
+                path
+                for path in PUBLISH_PATHS
+                if (self.root / path).exists()
+                or bool(_run(["git", "ls-files", "--", path], self.root).stdout.strip())
+            ]
+            staged = _run(["git", "add", "-A", "--", *stage_paths], self.root)
+            output.append(staged.stdout)
+            if staged.returncode != 0:
+                return CommandResult(False, "파일 stage 실패", "commit하지 않았습니다.", "\n".join(output))
+            staged_paths = _run(["git", "diff", "--cached", "--name-only"], self.root)
+            unexpected = [path for path in staged_paths.stdout.splitlines() if not _is_publish_path(path)]
+            if unexpected:
+                return CommandResult(
+                    False,
+                    "허용되지 않은 stage를 발견했습니다",
+                    "예상 밖 파일은 commit하지 않았습니다.",
+                    "\n".join(unexpected),
+                )
+            committed = _run(
+                ["git", "commit", "-m", "chore(blog): publish local manager changes"],
+                self.root,
+            )
+            output.append(committed.stdout)
+            if committed.returncode != 0:
+                return CommandResult(False, "commit 실패", "push를 실행하지 않았습니다.", "\n".join(output))
+
+        if progress:
+            progress("origin/main에 일반 push를 실행하고 있습니다")
+        pushed = _run(["git", "push", "origin", "HEAD:main"], self.root)
+        output.append(pushed.stdout)
+        if pushed.returncode != 0:
+            return CommandResult(
+                False,
+                "GitHub push에 실패했습니다",
+                "로컬 commit은 보존되어 있습니다. 네트워크와 원격 상태를 확인한 뒤 다시 반영하세요.",
+                "\n".join(output),
+            )
+        return CommandResult(
+            True,
+            "GitHub에 반영했습니다",
+            "허용된 블로그 관리 변경만 검증·commit·push했습니다.",
+            "\n".join(output),
+        )
 
     def github_status(self) -> dict[str, Any]:
         gh = shutil.which("gh")

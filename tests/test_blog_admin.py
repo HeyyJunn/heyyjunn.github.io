@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import subprocess
 import sys
 import tempfile
 import threading
@@ -15,6 +16,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+from blog_admin import service as service_module  # noqa: E402
 from blog_admin.service import BlogService, CommandResult, ConfigStore, UserInputError  # noqa: E402
 from blog_admin.web import TaskRunner, create_app  # noqa: E402
 from blog_manager import build_parser  # noqa: E402
@@ -47,7 +49,7 @@ def write_config(root: Path) -> None:
     path = root / ".velog-sync"
     path.mkdir(parents=True)
     (path / "config.yml").write_text(
-        "velog:\n  username: ilwha\nexclude_post_ids: []\nhidden_post_ids: []\nexclude_slugs: []\nexclude_urls: []\nimport_after: null\nseries_category_map: {}\nimages:\n  enabled: false\n",
+        "velog:\n  username: ilwha\nexclude_post_ids: []\nhidden_post_ids: []\nimport_after: null\nseries_category_map: {}\nimages:\n  enabled: false\n",
         encoding="utf-8",
     )
     (path / "state.json").write_text('{"posts": {}, "schema_version": 1}\n', encoding="utf-8")
@@ -59,7 +61,9 @@ class AdminFixture(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
         write_config(self.root)
-        self.service = BlogService(self.root, lambda root, cfg: FakeEngine(root, cfg))
+        self.service = BlogService(
+            self.root, lambda root, cfg: FakeEngine(root, cfg), enforce_git_safety=False
+        )
 
     def tearDown(self) -> None:
         self.temp.cleanup()
@@ -73,8 +77,17 @@ class CliAndConfigTests(AdminFixture):
         self.assertEqual((args.exclude_command, args.posts), ("add", ["1", "second"]))
 
     def test_number_slug_and_uuid_resolution(self) -> None:
-        selected = self.service.resolve_ids(["1", "second", POSTS[2].id])
+        selected = self.service.resolve_ids(
+            ["1", "second", POSTS[2].id]
+        )
         self.assertEqual([item.post.id for item in selected], [item.id for item in POSTS])
+
+    def test_url_input_resolves_to_uuid_exclusion(self) -> None:
+        self.service.exclude(["https://velog.io/@ilwha/second"], True)
+        raw = yaml.safe_load((self.root / ".velog-sync/config.yml").read_text())
+        self.assertEqual(raw["exclude_post_ids"], [POSTS[1].id])
+        self.assertNotIn("exclude_slugs", raw)
+        self.assertNotIn("exclude_urls", raw)
 
     def test_invalid_number_uuid_and_shell_text(self) -> None:
         marker = self.root / "injected"
@@ -94,10 +107,14 @@ class CliAndConfigTests(AdminFixture):
     def test_hide_removes_managed_post_but_keeps_state_and_unhide(self) -> None:
         managed = self.root / "_posts/2025-01-01-first.md"
         managed.write_text("managed", encoding="utf-8")
-        state = {"schema_version": 1, "posts": {POSTS[0].id: {"post_path": "_posts/2025-01-01-first.md"}}}
+        image = self.root / "assets/img/velog" / POSTS[0].id / "image.png"
+        image.parent.mkdir(parents=True)
+        image.write_bytes(b"image")
+        state = {"schema_version": 1, "posts": {POSTS[0].id: {"post_path": "_posts/2025-01-01-first.md", "images": {"url": {"path": image.relative_to(self.root).as_posix()}}}}}
         (self.root / ".velog-sync/state.json").write_text(json.dumps(state), encoding="utf-8")
         self.service.hide(["1"])
         self.assertFalse(managed.exists())
+        self.assertFalse(image.parent.exists())
         self.assertIn(POSTS[0].id, self.service.config().hidden_post_ids)
         self.assertIn(POSTS[0].id, json.loads((self.root / ".velog-sync/state.json").read_text())["posts"])
         self.service.unhide([POSTS[0].id])
@@ -119,7 +136,7 @@ class CliAndConfigTests(AdminFixture):
         self.assertFalse(list(path.parent.glob("*.part")))
 
     def test_settings_mapping_and_no_tags_state(self) -> None:
-        self.service.save_settings("ilwha", "2025-01-01", {"NLP": ["AI", "NLP"]})
+        self.service.save_settings("2025-01-01", {"NLP": ["AI", "NLP"]})
         raw = yaml.safe_load((self.root / ".velog-sync/config.yml").read_text())
         self.assertEqual(raw["series_category_map"]["NLP"], ["AI", "NLP"])
         self.assertNotIn("tags", raw)
@@ -178,6 +195,10 @@ class WebTests(AdminFixture):
         response = self.client.post("/api/tasks/sync", json={})
         self.assertEqual(response.status_code, 400)
         self.assertIn("확인이 필요한 작업", response.get_json()["message"])
+        for kind in ("pull", "publish"):
+            with self.subTest(kind=kind):
+                denied = self.client.post(f"/api/tasks/{kind}", json={})
+                self.assertEqual(denied.status_code, 400)
 
     def test_ui_dry_run_task_and_history(self) -> None:
         response = self.client.post("/api/tasks/dry-run", json={})
@@ -203,11 +224,197 @@ class WebTests(AdminFixture):
     def test_ui_settings_update(self) -> None:
         response = self.client.post(
             "/api/settings",
-            json={"username": "ilwha", "import_after": "2025-01-01", "series_category_map": {"NLP": ["AI", "NLP"]}},
+            json={"username": "someone-else", "import_after": "2025-01-01", "series_category_map": {"NLP": ["AI", "NLP"]}},
         )
         self.assertEqual(response.status_code, 200)
         config = self.client.get("/api/config").get_json()["data"]
+        self.assertEqual(config["username"], "ilwha")
         self.assertEqual(config["series_category_map"]["NLP"], ["AI", "NLP"])
+
+    def test_username_is_read_only_and_advanced_navigation_exists(self) -> None:
+        html = self.client.get("/settings").get_data(as_text=True)
+        self.assertIn('<output id="username">', html)
+        self.assertNotIn('<input id="username"', html)
+        self.assertIn("고급 도구", html)
+
+    def test_gh_absence_does_not_break_status(self) -> None:
+        with patch("blog_admin.service.shutil.which", return_value=None):
+            payload = self.client.get("/api/status").get_json()
+        self.assertTrue(payload["ok"])
+        self.assertFalse(payload["data"]["github"]["available"])
+        javascript = (ROOT / "scripts/blog_admin/static/admin.js").read_text(encoding="utf-8")
+        self.assertIn("s.github||", javascript)
+        self.assertIn("s.git||", javascript)
+
+
+def run_git(root: Path, *args: str) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        ["git", *args], cwd=root, text=True, stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT, check=True
+    )
+
+
+class GitSafetyTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temp = tempfile.TemporaryDirectory()
+        base = Path(self.temp.name)
+        self.remote = base / "remote.git"
+        self.root = base / "local"
+        run_git(base, "init", "--bare", self.remote.as_posix())
+        run_git(base, "init", "-b", "main", self.root.as_posix())
+        run_git(self.root, "config", "user.name", "Test User")
+        run_git(self.root, "config", "user.email", "test@example.com")
+        write_config(self.root)
+        run_git(self.root, "add", ".velog-sync", "_posts")
+        run_git(self.root, "commit", "-m", "initial")
+        run_git(self.root, "remote", "add", "origin", self.remote.as_posix())
+        run_git(self.root, "push", "-u", "origin", "main")
+        self.service = BlogService(self.root, lambda root, cfg: FakeEngine(root, cfg))
+
+    def tearDown(self) -> None:
+        self.temp.cleanup()
+
+    def remote_commit(self, name: str = "remote.txt") -> None:
+        other = Path(self.temp.name) / f"other-{name}"
+        run_git(Path(self.temp.name), "clone", "--branch", "main", self.remote.as_posix(), other.as_posix())
+        run_git(other, "config", "user.name", "Remote User")
+        run_git(other, "config", "user.email", "remote@example.com")
+        (other / name).write_text(name, encoding="utf-8")
+        run_git(other, "add", name)
+        run_git(other, "commit", "-m", name)
+        run_git(other, "push", "origin", "main")
+
+    def test_git_relation_current(self) -> None:
+        status = self.service.git_status(fetch=True)
+        self.assertEqual((status["relation"], status["ahead"], status["behind"]), ("current", 0, 0))
+
+    def test_git_relation_ahead(self) -> None:
+        (self.root / "local.txt").write_text("local", encoding="utf-8")
+        run_git(self.root, "add", "local.txt")
+        run_git(self.root, "commit", "-m", "local")
+        status = self.service.git_status(fetch=True)
+        self.assertEqual((status["relation"], status["ahead"]), ("ahead", 1))
+        self.assertIn("local.txt", status["unrelated_ahead_paths"])
+        self.assertFalse(status["can_publish"])
+        self.assertFalse(self.service.publish().ok)
+
+    def test_git_relation_behind_and_pull_ff_only(self) -> None:
+        self.remote_commit()
+        status = self.service.git_status(fetch=True)
+        self.assertEqual((status["relation"], status["behind"]), ("behind", 1))
+        self.assertTrue(status["can_pull"])
+        pulled = self.service.pull_ff_only()
+        self.assertTrue(pulled.ok, pulled.output)
+        self.assertEqual(self.service.git_status(fetch=True)["relation"], "current")
+
+    def test_write_operation_is_blocked_while_local_is_behind(self) -> None:
+        self.remote_commit()
+        before = (self.root / ".velog-sync/config.yml").read_bytes()
+        with self.assertRaisesRegex(UserInputError, "더 최신 변경"):
+            self.service.exclude(["1"], True)
+        self.assertEqual((self.root / ".velog-sync/config.yml").read_bytes(), before)
+
+    def test_git_relation_diverged_is_never_auto_resolved(self) -> None:
+        self.remote_commit()
+        (self.root / "local.txt").write_text("local", encoding="utf-8")
+        run_git(self.root, "add", "local.txt")
+        run_git(self.root, "commit", "-m", "local")
+        before = run_git(self.root, "rev-parse", "HEAD").stdout.strip()
+        status = self.service.git_status(fetch=True)
+        self.assertEqual(status["relation"], "diverged")
+        result = self.service.pull_ff_only()
+        self.assertFalse(result.ok)
+        self.assertEqual(run_git(self.root, "rev-parse", "HEAD").stdout.strip(), before)
+
+    def test_dirty_paths_separate_manager_and_unrelated_changes(self) -> None:
+        config_path = self.root / ".velog-sync/config.yml"
+        config_path.write_text(config_path.read_text() + "# manager\n", encoding="utf-8")
+        (self.root / "notes.txt").write_text("user", encoding="utf-8")
+        status = self.service.git_status(fetch=True)
+        self.assertIn(".velog-sync/config.yml", status["managed_changes"])
+        self.assertIn("notes.txt", status["unrelated_changes"])
+        self.assertFalse(status["can_publish"])
+
+    def test_publish_uses_allowlist_and_never_git_add_dot(self) -> None:
+        config_path = self.root / ".velog-sync/config.yml"
+        config_path.write_text(config_path.read_text() + "# publish\n", encoding="utf-8")
+        commands: list[list[str]] = []
+        real_run = service_module._run
+
+        def recording(argv: list[str], root: Path, env=None):
+            commands.append(list(argv))
+            return real_run(argv, root, env)
+
+        with patch("blog_admin.service._run", side_effect=recording), patch.object(
+            self.service, "check", return_value=CommandResult(True, "ok", "검사 통과")
+        ):
+            result = self.service.publish()
+        self.assertTrue(result.ok, result.output)
+        add = next(command for command in commands if command[:2] == ["git", "add"])
+        self.assertEqual(add[:4], ["git", "add", "-A", "--"])
+        self.assertNotIn(".", add[4:])
+        changed = run_git(self.root, "show", "--name-only", "--format=", "HEAD").stdout.splitlines()
+        self.assertEqual(changed, [".velog-sync/config.yml"])
+
+    def test_unrelated_dirty_worktree_blocks_publish(self) -> None:
+        (self.root / "notes.txt").write_text("user", encoding="utf-8")
+        before = run_git(self.root, "rev-parse", "HEAD").stdout.strip()
+        result = self.service.publish()
+        self.assertFalse(result.ok)
+        self.assertIn("다른 변경", result.title)
+        self.assertEqual(run_git(self.root, "rev-parse", "HEAD").stdout.strip(), before)
+
+    def test_failed_check_creates_no_commit(self) -> None:
+        config_path = self.root / ".velog-sync/config.yml"
+        config_path.write_text(config_path.read_text() + "# pending\n", encoding="utf-8")
+        before = run_git(self.root, "rev-parse", "HEAD").stdout.strip()
+        with patch.object(self.service, "check", return_value=CommandResult(False, "bad", "실패", "broken")):
+            result = self.service.publish()
+        self.assertFalse(result.ok)
+        self.assertEqual(run_git(self.root, "rev-parse", "HEAD").stdout.strip(), before)
+
+    def test_failed_push_preserves_and_reports_local_commit(self) -> None:
+        config_path = self.root / ".velog-sync/config.yml"
+        config_path.write_text(config_path.read_text() + "# pending\n", encoding="utf-8")
+        before = run_git(self.root, "rev-parse", "HEAD").stdout.strip()
+        real_run = service_module._run
+
+        def reject_push(argv: list[str], root: Path, env=None):
+            if argv[:2] == ["git", "push"]:
+                return subprocess.CompletedProcess(argv, 1, "rejected")
+            return real_run(argv, root, env)
+
+        with patch("blog_admin.service._run", side_effect=reject_push), patch.object(
+            self.service, "check", return_value=CommandResult(True, "ok", "검사 통과")
+        ):
+            result = self.service.publish()
+        self.assertFalse(result.ok)
+        self.assertIn("로컬 commit은 보존", result.summary)
+        self.assertNotEqual(run_git(self.root, "rev-parse", "HEAD").stdout.strip(), before)
+        self.assertEqual(self.service.git_status(fetch=True)["relation"], "ahead")
+
+
+class RepositoryPolicyTests(unittest.TestCase):
+    def test_post_heading_bold_css_is_scoped_to_rendered_post_content(self) -> None:
+        stylesheet = (ROOT / "assets/css/jekyll-theme-chirpy.scss").read_text(encoding="utf-8")
+        self.assertIn("article[data-toc] > .content", stylesheet)
+        for heading in range(1, 7):
+            self.assertIn(f"h{heading},", stylesheet)
+            self.assertIn(f"h{heading} a", stylesheet)
+        self.assertIn("font-weight: 700", stylesheet)
+
+    def test_tags_archive_is_removed(self) -> None:
+        config = (ROOT / "_config.yml").read_text(encoding="utf-8")
+        archive = config.split("jekyll-archives:", 1)[1]
+        self.assertIn("enabled: [categories]", archive)
+        self.assertNotIn("tag:", archive)
+
+    def test_schedule_skips_unit_tests_but_push_keeps_them(self) -> None:
+        workflow = (ROOT / ".github/workflows/pages-deploy.yml").read_text(encoding="utf-8")
+        self.assertIn('cron: "7,22,37,52 * * * *"', workflow)
+        self.assertEqual(workflow.count("if: github.event_name != 'schedule'"), 1)
+        self.assertIn("steps.changes.outputs.has_changes", workflow)
+        self.assertIn("steps.decision.outputs.should_deploy == 'true'", workflow)
 
 
 if __name__ == "__main__":

@@ -54,7 +54,6 @@ class RssItem:
     url: str
     guid: str
     published_at: str
-    html: str
 
 
 @dataclass
