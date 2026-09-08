@@ -571,6 +571,21 @@ cache-dependency-path: requirements-velog-sync.txt
 
 이 장애는 push build 실패다. 최근 schedule run이 `skipped`인 것은 build job의 `vars.VELOG_SYNC_ENABLED == 'true'` 조건이 충족되지 않은 별도 상태이며 같은 문제로 취급하지 않는다.
 
+### 14.2 GitHub-hosted 성공 및 live Pages 검증
+
+수정/migration commit `d209c66163d15c84b5735f16dda4feec575c12c6`의 [hosted run 34243120694](https://github.com/HeyyJunn/heyyjunn.github.io/actions/runs/34243120694)는 `completed / success`다. build job `102118105057`에서 Checkout, Setup Python, dependency install, 116 tests, Setup Pages, Setup Ruby, Jekyll build, HTML-Proofer, artifact upload가 모두 success였고 deploy job `102118317412`의 `Deploy to GitHub Pages`도 success였다.
+
+배포 뒤 `Cache-Control: no-cache`와 cache-busting query로 `https://heyyjunn.github.io/`, `/page2/`, CSS 및 visible 상세 페이지 13개의 raw HTTP response를 검사했다.
+
+- 홈 pagination 전체 카드: 13 (첫 페이지 10 + 둘째 페이지 3)
+- `.right-thumbnail`: 11, text-only: 2, legacy `.thumbnail-col`: 0
+- `.preview-description`: 3
+- 상세 페이지의 자동 thumbnail/description intro: 각각 0
+- 상세 페이지에 존재해야 하는 Markdown body image: 33개 모두 확인
+- live CSS: desktop 180px, tablet 140px, mobile 96px, `object-fit: cover`, post heading `font-weight: 700` 확인
+
+CSS 응답은 GitHub Pages의 `Cache-Control: max-age=600`을 사용한다. raw HTML/CSS는 최신인데 브라우저만 이전 모양이면 최대 10분 캐시 또는 PWA/service-worker 갱신 시점 차이를 먼저 의심하고 강력 새로고침한다. 임의 query-string을 코드에 영구 추가하지 않는다.
+
 ## 15. 실패 안전성과 원자성
 
 현재 구현의 안전 경계는 다음과 같다.
@@ -625,6 +640,7 @@ cache-dependency-path: requirements-velog-sync.txt
 2. live Velog dry-run: IMPORT 0, UPDATE 0, UNCHANGED 13, EXCLUDED 0, HIDDEN 27, ERROR 0, 경고 0
 3. Jekyll build: Chirpy site 정상 생성 (`_site`, 약 1.15초)
 4. HTML-Proofer: 22 HTML files, 196 internal links, 12 files의 internal hash 확인, 성공
+5. actionlint, Python/Bash/JavaScript syntax, `git diff --check`: 성공
 
 테스트 범위:
 
@@ -874,4 +890,4 @@ hide는 config, `_posts`, 해당 UUID의 deployable 이미지를 바꾸므로 co
 - HTML-Proofer 통과
 - workflow가 검증 뒤에만 commit/deploy함
 
-현재 저장소는 2026-09-09 기준 이 완료 조건을 충족한다. GitHub-hosted Actions 및 live Pages 검증 결과는 배포 커밋 뒤 이 문서에 기록한다.
+현재 저장소는 2026-09-09 기준 이 완료 조건을 충족한다. GitHub-hosted Actions 및 live Pages raw HTTP 검증 결과도 14.2절에 기록되어 있다.
