@@ -6,7 +6,9 @@
 >
 > 로컬 경로: `/Users/junn/heyyjunn.github.io`
 >
-> 기준 브랜치/커밋: `main` / `2e4b2e0ef0ccfe1271eb6b2e0bd10678ddf28c74`
+> Audit 시작 기준: `main` / `2e4b2e0ef0ccfe1271eb6b2e0bd10678ddf28c74`
+>
+> 구현 반영 커밋: `cab0977370c0487445cca4b435ab3b1f71cd7960`
 
 이 문서는 현재 저장소를 처음 넘겨받는 엔지니어 또는 LLM이 기존 설계 의도와 운영 상태를 훼손하지 않고 바로 작업을 이어갈 수 있도록 작성한 기술·운영 인수인계 문서다. 아래의 수치와 게시물 목록은 위 검증 시점의 스냅샷이며, 이후 Velog 원문이나 설정이 변경되면 `./blog status`, `./blog list`, `./blog dry-run` 결과를 우선한다.
 
@@ -31,8 +33,8 @@
 | 배포 가능한 visible 이미지 | 33개 |
 | visible 이미지 총 용량 | 6,025,669 bytes (약 5.75 MiB) |
 | hidden 이미지 state 참조 / 실제 파일 | 158개 / 0개 |
-| 로컬 작업 트리 | 이번 안전성 개선과 hidden 이미지 migration이 미커밋 상태 |
-| `main`과 `origin/main` | 모두 `2e4b2e0`을 가리킴 |
+| 로컬 작업 트리 | 안전성 개선과 hidden 이미지 migration은 `cab0977`로 `main`에 반영됨 |
+| `main`과 `origin/main` | 커밋/푸시 후 동일함을 확인함. 현재 SHA는 `git rev-parse HEAD`로 확인 |
 | 최신 전체 검사 | 65 tests, Jekyll build, HTML-Proofer, actionlint 모두 통과 |
 
 라이브 `./blog status`에서 Velog GraphQL 전체 목록과 RSS 연결은 정상으로 확인됐다. 로컬 환경에는 GitHub CLI(`gh`)가 없어 GitHub Actions 자동 동기화 변수 및 최근 실행 상태는 관리 도구에서 확인하지 못한다. 이는 동기화 엔진 오류가 아니라 로컬 도구 부재다.
@@ -750,7 +752,7 @@ hide는 config, `_posts`, 해당 UUID의 deployable 이미지를 바꾸므로 co
 
 1. 현재 디렉터리가 `/Users/junn/heyyjunn.github.io`인지 확인한다.
 2. `git status --short`로 사용자 변경을 먼저 확인하고 보존한다.
-3. `git log -1 --oneline --decorate`로 이 문서의 기준 커밋 이후 변경을 확인한다.
+3. `git log -1 --oneline --decorate`로 이 문서의 구현 반영 커밋 이후 변경을 확인한다.
 4. `./blog status`로 Velog 연결과 게시/숨김 수를 확인한다.
 5. `./blog dry-run`으로 IMPORT/UPDATE/ERROR를 확인한다.
 6. 동기화 엔진을 바꾼다면 관련 unit test를 먼저 추가하거나 갱신한다.
