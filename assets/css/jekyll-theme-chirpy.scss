@@ -44,10 +44,9 @@ article[data-toc] > .content {
       display: none !important;
     }
 
-    /* Keep comfortable spacing after removing Rouge's line-number gutter. */
+    /* Keep even spacing after removing Rouge's header and line-number gutter. */
     .rouge-table td.rouge-code {
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
+      padding: 1.25rem;
     }
   }
 }
