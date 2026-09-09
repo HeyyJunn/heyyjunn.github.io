@@ -1,7 +1,7 @@
 ---
 title: "[Spring] Spring Boot 기본 용어 정리"
 date: 2025-07-09 19:50:53 +0900
-last_modified_at: 2026-09-08 09:39:19 +0900
+last_modified_at: 2026-09-09 22:41:44 +0900
 thumbnail:
   path: "/assets/img/velog/dbf10a73-b92c-48ca-8964-642ef5cdc591/d27f1a9586ad3eb0a6766c1cd393f4ef6747ff0559ef45b3ee664f327a1df49c.png"
   alt: "[Spring] Spring Boot 기본 용어 정리"
