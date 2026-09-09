@@ -28,6 +28,17 @@ article[data-toc] > .content {
   h6 a {
     font-weight: 700;
   }
+
+  /* Chirpy 7.6 draws three macOS-style dots with this pseudo-element. */
+  div[class^='language-'] .code-header {
+    &::before {
+      display: none !important;
+    }
+
+    span {
+      margin-left: 0;
+    }
+  }
 }
 
 /* Home cards only: text-first layout with an optional compact right thumbnail. */
@@ -39,19 +50,6 @@ article[data-toc] > .content {
 
   .card-content-col {
     min-width: 0;
-  }
-
-  .preview-description {
-    color: var(--post-list-text-color);
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-
-    p {
-      margin: 0;
-    }
   }
 
   .right-thumbnail {
@@ -84,10 +82,6 @@ article[data-toc] > .content {
   }
 
   @media (max-width: 575.98px) {
-    .preview-description {
-      -webkit-line-clamp: 2;
-    }
-
     .right-thumbnail {
       flex-basis: 96px;
       margin: 0.75rem 0.75rem 0.75rem 0;

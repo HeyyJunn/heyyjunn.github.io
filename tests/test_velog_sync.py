@@ -10,8 +10,6 @@ from datetime import date
 from pathlib import Path
 from unittest.mock import patch
 
-import yaml
-
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
@@ -45,7 +43,6 @@ def post(
     updated: str = "2025-01-03T04:05:06.000Z",
     series: Series | None = Series("s1", "[Python] Notion📚", "python-notion"),
     thumbnail: str | None = None,
-    preview_description: str | None = None,
 ) -> PostMetadata:
     return PostMetadata(
         ident,
@@ -56,7 +53,6 @@ def post(
         series,
         False,
         thumbnail,
-        preview_description,
     )
 
 
@@ -70,7 +66,6 @@ def raw_metadata(item: PostMetadata, tags: list[str] | None = None) -> dict[str,
         "tags": tags or [],  # Extra source metadata is intentionally ignored.
         "is_private": item.is_private,
         "thumbnail": item.thumbnail,
-        "short_description": item.preview_description,
         "series": None
         if item.series is None
         else {"id": item.series.id, "name": item.series.name, "url_slug": item.series.slug},
@@ -196,36 +191,14 @@ class GraphQLTests(unittest.TestCase):
         with self.assertRaisesRegex(SourceError, "invalid thumbnail"):
             GraphQLClient("unused", "ilwha", transport=lambda _: {})._parse_metadata(invalid)
 
-    def test_short_description_is_parsed_from_inventory_metadata(self) -> None:
-        item = post(preview_description="Velog 미리보기 😊")
-        parsed = GraphQLClient(
-            "unused", "ilwha", transport=lambda _: {}
-        )._parse_metadata(raw_metadata(item))
-        self.assertEqual(parsed.preview_description, "Velog 미리보기 😊")
-
-    def test_short_description_is_compared_between_list_and_detail(self) -> None:
-        item = post(preview_description="authoritative")
-        payload = {**raw_metadata(item), "body": "body", "is_markdown": True}
-        detailed = GraphQLClient(
-            "unused", "ilwha", transport=lambda _: {"data": {"post": payload}}
-        ).fetch_post(item)
-        self.assertEqual(detailed.metadata.preview_description, "authoritative")
-
-    def test_short_description_null_empty_and_whitespace_are_none(self) -> None:
+    def test_short_description_extra_source_metadata_is_ignored(self) -> None:
         client = GraphQLClient("unused", "ilwha", transport=lambda _: {})
-        for value in (None, "", " ", "\n"):
-            with self.subTest(value=value):
-                raw = raw_metadata(post())
-                raw["short_description"] = value
-                self.assertIsNone(client._parse_metadata(raw).preview_description)
-
-    def test_invalid_short_description_type_is_rejected(self) -> None:
-        invalid = raw_metadata(post())
-        invalid["short_description"] = ["not", "text"]
-        with self.assertRaisesRegex(SourceError, "invalid short_description"):
-            GraphQLClient("unused", "ilwha", transport=lambda _: {})._parse_metadata(
-                invalid
-            )
+        first = raw_metadata(post())
+        second = raw_metadata(post())
+        first["short_description"] = "첫 설명"
+        second["short_description"] = "바뀐 설명"
+        self.assertEqual(client._parse_metadata(first), client._parse_metadata(second))
+        self.assertFalse(hasattr(client._parse_metadata(first), "preview_description"))
 
     def test_malformed_json_and_timeout_are_source_errors(self) -> None:
         class Response:
@@ -270,32 +243,8 @@ class RenderingTests(unittest.TestCase):
         self.assertNotIn("\nimage:", rendered)
         self.assertNotIn("tags:", rendered)
 
-    def test_preview_description_front_matter_uses_safe_yaml_quoting(self) -> None:
-        value = '설명: #1 "quote" \'single\' [list] {map} 😊\n다음 줄'
-        item = post(preview_description=value)
-        rendered = render_post(
-            item, "body", (), item.released_at, "Asia/Seoul"
-        )
-        front_matter = rendered.split("---", 2)[1]
-        self.assertEqual(yaml.safe_load(front_matter)["preview_description"], value)
-
-    def test_preview_description_is_omitted_when_none(self) -> None:
-        item = post(preview_description=None)
-        rendered = render_post(
-            item, "body", (), item.released_at, "Asia/Seoul"
-        )
-        self.assertNotIn("preview_description:", rendered)
-
-    def test_preview_description_does_not_create_description_field(self) -> None:
-        item = post(preview_description="목록 전용")
-        rendered = render_post(
-            item, "body", (), item.released_at, "Asia/Seoul"
-        )
-        self.assertIn('preview_description: "목록 전용"', rendered)
-        self.assertNotIn("\ndescription:", rendered)
-
-    def test_thumbnail_and_preview_description_can_coexist_without_tags(self) -> None:
-        item = post(preview_description="미리보기")
+    def test_thumbnail_front_matter_has_no_description_or_tags(self) -> None:
+        item = post()
         rendered = render_post(
             item,
             "body",
@@ -305,7 +254,8 @@ class RenderingTests(unittest.TestCase):
             {"path": "assets/img/velog/id/thumb.jpg"},
         )
         self.assertIn("thumbnail:\n", rendered)
-        self.assertIn("preview_description:", rendered)
+        self.assertNotIn("preview_description:", rendered)
+        self.assertNotIn("\ndescription:", rendered)
         self.assertNotIn("tags:", rendered)
 
     def test_markdown_fences_liquid_table_and_unclosed_warning(self) -> None:
@@ -570,81 +520,47 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(markdown_before, (self.root / (initial.post_path or "missing")).read_bytes())
         self.assertEqual(state_before, (self.root / ".velog-sync/state.json").read_bytes())
 
-    def test_preview_description_add_is_update(self) -> None:
+    def test_short_description_only_source_change_is_unchanged_bytes_and_state(self) -> None:
+        item = post()
+        raw_one, raw_two = raw_metadata(item), raw_metadata(item)
+        raw_one["short_description"] = "이전 설명"
+        raw_two["short_description"] = "바뀐 설명"
+        client = GraphQLClient("unused", "ilwha", transport=lambda _: {})
+        parsed_one = client._parse_metadata(raw_one)
+        parsed_two = client._parse_metadata(raw_two)
+        initial = self.engine([parsed_one], {item.id: "body"}).run().outcomes[0]
+        markdown_before = (self.root / (initial.post_path or "missing")).read_bytes()
+        state_before = (self.root / ".velog-sync/state.json").read_bytes()
+
+        result = self.engine(
+            [parsed_two], {item.id: "changed body must not be fetched"}
+        ).run()
+
+        self.assertEqual(result.outcomes[0].action, "UNCHANGED")
+        self.assertFalse(result.state_changed)
+        self.assertEqual(
+            markdown_before,
+            (self.root / (initial.post_path or "missing")).read_bytes(),
+        )
+        self.assertEqual(state_before, (self.root / ".velog-sync/state.json").read_bytes())
+
+    def test_legacy_preview_description_is_removed_from_state_without_markdown_change(self) -> None:
         item = post()
         first = self.engine([item], {item.id: "body"}).run().outcomes[0]
-        changed = replace(item, preview_description="새 미리보기 설명")
-        outcome = self.engine([changed], {item.id: "body"}).run().outcomes[0]
-        self.assertEqual((outcome.action, outcome.preview_description_change), ("UPDATE", "added"))
-        self.assertEqual(outcome.post_path, first.post_path)
+        markdown_path = self.root / (first.post_path or "missing")
+        markdown_before = markdown_path.read_bytes()
+        state_path = self.root / ".velog-sync/state.json"
+        state = json.loads(state_path.read_text())
+        state["posts"][item.id]["preview_description"] = "legacy"
+        state_path.write_text(serialize_state(state), encoding="utf-8")
 
-    def test_preview_description_change_is_update(self) -> None:
-        item = post(preview_description="이전 설명")
-        first = self.engine([item], {item.id: "body"}).run().outcomes[0]
-        changed = replace(item, preview_description="바뀐 설명")
-        outcome = self.engine([changed], {item.id: "body"}).run().outcomes[0]
-        self.assertEqual((outcome.action, outcome.preview_description_change), ("UPDATE", "changed"))
-        self.assertEqual(outcome.post_path, first.post_path)
-
-    def test_preview_description_remove_is_update(self) -> None:
-        item = post(preview_description="삭제할 설명")
-        first = self.engine([item], {item.id: "body"}).run().outcomes[0]
-        changed = replace(item, preview_description=None)
-        outcome = self.engine([changed], {item.id: "body"}).run().outcomes[0]
-        self.assertEqual((outcome.action, outcome.preview_description_change), ("UPDATE", "removed"))
-        self.assertNotIn(
-            "preview_description:",
-            (self.root / (first.post_path or "missing")).read_text(),
-        )
-
-    def test_unchanged_preview_description_is_no_op(self) -> None:
-        item = post(preview_description="같은 설명")
-        first = self.engine([item], {item.id: "body"}).run().outcomes[0]
-        markdown = (self.root / (first.post_path or "missing")).read_bytes()
-        state = (self.root / ".velog-sync/state.json").read_bytes()
         result = self.engine([item], {item.id: "must not be fetched"}).run()
+
         self.assertEqual(result.outcomes[0].action, "UNCHANGED")
-        self.assertEqual(result.outcomes[0].preview_description_change, "unchanged")
-        self.assertFalse(result.state_changed)
-        self.assertEqual(markdown, (self.root / (first.post_path or "missing")).read_bytes())
-        self.assertEqual(state, (self.root / ".velog-sync/state.json").read_bytes())
-
-    def test_preview_description_change_preserves_path_and_body(self) -> None:
-        item = post(preview_description="one")
-        body = "# 본문\n\n본문은 그대로입니다.\n"
-        first = self.engine([item], {item.id: body}).run().outcomes[0]
-        changed = replace(item, preview_description="two")
-        second = self.engine([changed], {item.id: body}).run().outcomes[0]
-        rendered = (self.root / (second.post_path or "missing")).read_text()
-        self.assertEqual(second.post_path, first.post_path)
-        self.assertTrue(rendered.endswith(body))
-
-    def test_hidden_preview_description_does_not_create_markdown(self) -> None:
-        item = post(preview_description="숨긴 글 설명")
-        result = self.engine(
-            [item],
-            {item.id: "body"},
-            config(hidden_post_ids=frozenset({item.id})),
-        ).run()
-        self.assertEqual(result.outcomes[0].action, "HIDDEN")
-        self.assertFalse(list((self.root / "_posts").glob("*.md")))
-
-    def test_preview_description_dry_run_is_zero_mutation(self) -> None:
-        item = post(preview_description="dry-run 설명")
-        marker = self.root / "marker"
-        marker.write_text("keep")
-        before = tree_digest(self.root)
-        outcome = self.engine([item], {item.id: "body"}).run(dry_run=True).outcomes[0]
-        self.assertEqual(outcome.preview_description_change, "added")
-        self.assertEqual(before, tree_digest(self.root))
-
-    def test_preview_description_is_recorded_in_state(self) -> None:
-        item = post(preview_description="state 설명")
-        self.engine([item], {item.id: "body"}).run()
-        state = json.loads((self.root / ".velog-sync/state.json").read_text())
-        self.assertEqual(
-            state["posts"][item.id]["preview_description"], "state 설명"
-        )
+        self.assertTrue(result.state_changed)
+        self.assertEqual(markdown_before, markdown_path.read_bytes())
+        migrated = json.loads(state_path.read_text())
+        self.assertNotIn("preview_description", migrated["posts"][item.id])
 
     def test_unclosed_fence_is_reported_not_repaired(self) -> None:
         item = post()

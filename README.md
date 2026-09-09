@@ -69,10 +69,8 @@ thumbnail, open the post detail in `./blog ui` to upload one. The tracked source
 under `.velog-sync/thumbnail-overrides/<post-uuid>/` and becomes a public asset only
 while it is the active preview.
 
-Home-card descriptions come directly from Velog GraphQL `short_description` and use
-custom `preview_description:` front matter. Blank or whitespace-only source values
-are omitted. The site does not derive a replacement from the Markdown body, and the
-custom field is never rendered as an introduction on the post detail page.
+Velog preview descriptions are intentionally not queried, stored, hashed, or shown.
+Home cards do not derive a replacement excerpt from the Markdown body.
 
 Configure exclusions by UUID, exact normalized slug, or canonical URL in
 the local manager. Number, slug, and canonical URL inputs are resolved against the
@@ -92,16 +90,16 @@ python -m pip install -r requirements-velog-sync.txt
 python scripts/sync_velog.py --dry-run
 ```
 
-The existing Pages workflow offers manual `dry-run` and `apply` modes. Manual apply
-works regardless of `VELOG_SYNC_ENABLED`. Scheduled apply runs at minutes 7, 22, 37,
-and 52 only when the repository variable `VELOG_SYNC_ENABLED` is exactly `true`.
-Automatic commits require both `BLOG_GIT_NAME` and `BLOG_GIT_EMAIL`; there is no
-guessed or bot fallback identity. A complete source inventory and successful Jekyll
-and htmlproofer validation are required before a changed tree is committed and
-deployed. No-change runs create no commit and skip deployment.
+The existing Pages workflow offers manual `dry-run` and `apply` modes. Scheduled
+apply is always enabled and runs at minutes 7, 22, 37, and 52 without a repository
+enable variable. `BLOG_GIT_NAME` and `BLOG_GIT_EMAIL` may customize automatic commit
+identity; when absent, the public GitHub Actions bot identity is used. A complete
+source inventory and successful Jekyll and htmlproofer validation are required before
+a changed tree is committed and deployed. No-change runs create no commit and skip
+deployment.
 
 GitHub may disable scheduled workflows after extended repository inactivity. Check
-the Actions schedule and repository variables when automatic synchronization stops.
+the Actions schedule when automatic synchronization stops.
 
 ## 블로그 관리
 

@@ -250,8 +250,6 @@ class BlogService:
             "thumbnail_override_exists": override is not None,
             "thumbnail_editable": item.thumbnail is None,
             "thumbnail_change": outcome.thumbnail_change,
-            "preview_description": item.preview_description,
-            "preview_description_change": outcome.preview_description_change,
         }
 
     def snapshot(self, force: bool = False) -> dict[str, Any]:
@@ -294,15 +292,6 @@ class BlogService:
                     for item in result.outcomes
                     if item.action not in {"HIDDEN", "EXCLUDED", "ERROR"}
                     and item.thumbnail_change == key
-                )
-                for key in ("added", "changed", "removed", "none", "unchanged")
-            },
-            "preview_description_changes": {
-                key: sum(
-                    1
-                    for item in result.outcomes
-                    if item.action not in {"HIDDEN", "EXCLUDED", "ERROR"}
-                    and item.preview_description_change == key
                 )
                 for key in ("added", "changed", "removed", "none", "unchanged")
             },
@@ -834,11 +823,18 @@ class BlogService:
     def github_status(self) -> dict[str, Any]:
         gh = shutil.which("gh")
         if not gh:
-            return {"available": False, "message": "GitHub CLI가 설치되어 있지 않습니다."}
+            return {
+                "available": False,
+                "automatic": True,
+                "message": "GitHub CLI가 설치되어 있지 않습니다.",
+            }
         auth = _run([gh, "auth", "status"], self.root)
         if auth.returncode != 0:
-            return {"available": False, "message": "GitHub CLI에 로그인되어 있지 않습니다."}
-        variable = _run([gh, "variable", "get", "VELOG_SYNC_ENABLED"], self.root)
+            return {
+                "available": False,
+                "automatic": True,
+                "message": "GitHub CLI에 로그인되어 있지 않습니다.",
+            }
         recent = _run(
             [gh, "run", "list", "--workflow", "pages-deploy.yml", "--limit", "1", "--json", "status,conclusion,name,createdAt,url"],
             self.root,
@@ -853,7 +849,7 @@ class BlogService:
         return {
             "available": True,
             "message": "GitHub Actions를 사용할 수 있습니다.",
-            "automatic": variable.stdout.strip() == "true" if variable.returncode == 0 else None,
+            "automatic": True,
             "recent": run,
         }
 
@@ -966,25 +962,6 @@ class BlogService:
         ]
         if reasons:
             lines.extend(("", "미리보기 이미지 변경 이유", *reasons))
-        description_changes = snapshot["preview_description_changes"]
-        lines.extend(
-            (
-                "",
-                "미리보기 설명",
-                f"추가: {description_changes['added']}개",
-                f"변경: {description_changes['changed']}개",
-                f"제거: {description_changes['removed']}개",
-                f"설명 없음: {description_changes['none']}개",
-            )
-        )
-        description_reasons = [
-            f"{item['number']}. {item['title']}: 미리보기 설명 "
-            f"{ {'added': '추가', 'changed': '변경', 'removed': '제거'}[item['preview_description_change']] }"
-            for item in snapshot["posts"]
-            if item["preview_description_change"] in {"added", "changed", "removed"}
-        ]
-        if description_reasons:
-            lines.extend(("", "미리보기 설명 변경 이유", *description_reasons))
         errors = [
             f"{item['number']}. {item['title']}: {item['error']}"
             for item in snapshot["posts"]

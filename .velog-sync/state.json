@@ -5,11 +5,10 @@
       "categories": [
         "[React.Js] Archive"
       ],
-      "content_hash": "sha256:2fcce70666cb7e4887531505fe3fe424eb78a56be058052c7c12eb4ca603af3c",
+      "content_hash": "sha256:82752a154876fa3f930c53faca04df62211587c5e97e90262f1c0444f6775d93",
       "images": {},
-      "metadata_hash": "sha256:ec8edceca14bbf8e7b133aa85d7b8ce0f0f570d4a6456f7c021d38ee533a1e58",
+      "metadata_hash": "sha256:5595a8cd1c7a79e092536a9b10c62e87abb10a48feb1924bba97aa8f9e6eb970",
       "post_path": "_posts/2025-02-02-React.JS-useReducer-useMemo-useCallback.md",
-      "preview_description": null,
       "published_at": "2025-02-02T12:29:20.693Z",
       "rendered_sha256": "sha256:6c7019b733cef3d174a128c9f105658a7f00bfadd04527edfc0852562c64ca1d",
       "source_slug": "React.JS-useReducer-useMemo-useCallback",
@@ -30,7 +29,7 @@
       "categories": [
         "[C++] Archive"
       ],
-      "content_hash": "sha256:1728148abf4517f0ec37f280d0f11885fbc98d0bafb325921fa60a6eec2003bd",
+      "content_hash": "sha256:dfa65a7850c79af3378c48ce014639c3862b169fa4adfebda2fa15706464f49c",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/c0cbdf1d-71c9-40a9-8e66-257a7dbf82a9/image.png": {
           "content_type": "image/png",
@@ -39,13 +38,12 @@
           "size": 316261
         }
       },
-      "metadata_hash": "sha256:b0618248154740784e39b6a8805c0e7e7a5272e750dc1530509b2a5ca7cc6977",
+      "metadata_hash": "sha256:0ff0d1bf13ea3b76ba0e036abb0ab137546f1725a5a2b189d974eae342b912fc",
       "post_path": "_posts/2024-11-02-C-객체지향프로그래밍1-C-language-review-Chapter-3-7.md",
-      "preview_description": "이 게시글은 대학교 객체지향프로그래밍1 (C++) 강의를 수강하며 교수님의 강의를 정리한 것입니다. 오직 개인적인 학습 기록으로 활용하기 위한 용도로 작성되었으며, 가독성이나 체계적인 정리가 부족할 수 있습니다.\n\n(시험대비 간단 요약)\n\n객체지향프로그래밍1 (C++)\n1. C언어 복습 (part1,part2)\n\n전처리 지시자: # 으로 시작되는 것들\n#i...",
       "published_at": "2024-11-02T07:30:32.999Z",
-      "rendered_sha256": "sha256:33ed9be806639b0e07faa5e0dd93cdf33050b0800f7288d5d990ed50c8e7b884",
+      "rendered_sha256": "sha256:41719b9e8f9d8d77e6f5c840817e59ceced2d1d4132b8468c88202bbacf4bf83",
       "source_slug": "C-객체지향프로그래밍1-C-language-review-Chapter-3-7",
-      "source_updated_at": "2026-09-01T18:56:47.034Z",
+      "source_updated_at": "2026-09-09T05:00:32.167Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-C-language-review-Chapter-3-7",
       "thumbnail": null,
       "title": "[C++] 객체지향프로그래밍1 : C-language review (Chapter 3 - 7)"
@@ -55,7 +53,7 @@
       "categories": [
         "[C++] Archive"
       ],
-      "content_hash": "sha256:f6c85a3adf785a484463c5d226051df8e7db1c431a495b4b1b4a95dd44e5ae8c",
+      "content_hash": "sha256:5221f020c701fd0ba56bedcb896e7d060cf782aff4a1c0a2f7125b627ed1a251",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/022dfd43-b5bc-4a4b-afa2-9464a2481a44/image.png": {
           "content_type": "image/png",
@@ -82,9 +80,8 @@
           "size": 33884
         }
       },
-      "metadata_hash": "sha256:40af7ec05b1f0a796908550a3f762447e55d9de398fc97e7e2568e71a5f2bd11",
+      "metadata_hash": "sha256:73e88388926b545377b1cfb572b0a0aacfd474633d968fbf109ae41ce9830c96",
       "post_path": "_posts/2024-11-10-C-객체지향프로그래밍1-Lambda-Expression-Namespace-ADL-Nested-Class-chapter-17-18.md",
-      "preview_description": null,
       "published_at": "2024-11-10T08:29:58.685Z",
       "rendered_sha256": "sha256:4da475301b23553a1418e0ec5e55120db23d70ecf0a901de69e3d03c1a945abc",
       "source_slug": "C-객체지향프로그래밍1-Lambda-Expression-Namespace-ADL-Nested-Class-chapter-17-18",
@@ -157,11 +154,10 @@
       "categories": [
         "[Java] Archive"
       ],
-      "content_hash": "sha256:80e6bf8b245d8537329a57af35e133d735e4757c6fc3911ee84852f38b81de7f",
+      "content_hash": "sha256:312963f7238c439cceb3473a8f312fea5c74af6f274387e07d802ece11e78bb2",
       "images": {},
-      "metadata_hash": "sha256:a59277331825476c780ea5fe7f2eab377bb971b1ccde33e1f398737c49095984",
+      "metadata_hash": "sha256:bad5c1f3758b9642065abd586ac948548928b2ca53cbdc6dfc1ac00645955d53",
       "post_path": "_posts/2025-03-14-Java-Polymorphism.md",
-      "preview_description": null,
       "published_at": "2025-03-14T11:31:33.993Z",
       "rendered_sha256": "sha256:cfcde445d0aea985a453b802f1871d47dae0da6d6c74a88cd951cd9fe5751117",
       "source_slug": "Java-Polymorphism",
@@ -182,7 +178,7 @@
       "categories": [
         "[C++] Archive"
       ],
-      "content_hash": "sha256:35c2dd9a928fa6ff5392e10b408ada1a13df2057d61a157de444a09bde8fff42",
+      "content_hash": "sha256:c89854e618d1fcd6fda3f039c9ffaf0a42043fae533e6bdfb27055d927691c4f",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/b39a7b32-0625-486d-9bd2-d3f95b6d6eec/image.png": {
           "content_type": "image/png",
@@ -191,9 +187,8 @@
           "size": 46211
         }
       },
-      "metadata_hash": "sha256:c668f76df05603117ce8fcd5c573d4768cf5f5b20e0457c4ce088383611462d2",
+      "metadata_hash": "sha256:c6219dafbb818d44278e9238954a2bf702a84a68f541bee2300a8d3fe7f90df6",
       "post_path": "_posts/2024-11-10-C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15.md",
-      "preview_description": null,
       "published_at": "2024-11-10T08:04:38.183Z",
       "rendered_sha256": "sha256:99895f748508b323e3fb17741fd4947593be35f47694629f9f734e011f2ad7a2",
       "source_slug": "C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15",
@@ -325,7 +320,7 @@
       "categories": [
         "[C++] Archive"
       ],
-      "content_hash": "sha256:83cf7c291e14e7a483b25c051b6bdfd5777d5d2297c18cdbb0421f2a6490a4eb",
+      "content_hash": "sha256:d59eb194acde33eac445f9f1e4c3fd1490d1ee183051594f36c33f6467c4e054",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/0c1b2236-b197-40b6-97b7-b18dbbf65c81/image.png": {
           "content_type": "image/png",
@@ -346,9 +341,8 @@
           "size": 323617
         }
       },
-      "metadata_hash": "sha256:c0775aad76947ef69f670345291bfd67704e25ada7bce1be931d5a41afab695d",
+      "metadata_hash": "sha256:a87e67951bac03d830b9473779338cadca350a78900a9326fad3142c5a35f633",
       "post_path": "_posts/2024-11-09-C-객체지향프로그래밍1-C언어-복습-Chapter-8-12.md",
-      "preview_description": null,
       "published_at": "2024-11-09T10:41:27.488Z",
       "rendered_sha256": "sha256:d1b3a4fdabdf20ebd04b3ef6e9ea629613eca48ac57cf5113dcafd8df3e63c12",
       "source_slug": "C-객체지향프로그래밍1-C언어-복습-Chapter-8-12",
@@ -572,7 +566,7 @@
       "categories": [
         "[Java] Archive"
       ],
-      "content_hash": "sha256:4b3d323d783dc7ff507c0d9b0506e66331bc2dcc23d4d816a7dcb1ff76d5728a",
+      "content_hash": "sha256:0f094816e0fa3fe107fb25c80aab9fcca67a8490c8980cd00f41102d71952556",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/22388ac3-f104-4ad4-b5b4-6661e24ade58/image.jpeg": {
           "content_type": "image/jpeg",
@@ -587,16 +581,50 @@
           "size": 286096
         }
       },
-      "metadata_hash": "sha256:29d0efeb8850efbecb03d077e720127523ae1d193348041ddd693d42519a235c",
+      "metadata_hash": "sha256:c9d8bf93cf7b3d2adce439171ba0b8155609bcc8ff5455ca53455ed6b09546f3",
       "post_path": "_posts/2025-03-08-Java-Dynamic-Method-Dispatch-V-Table-JVM.md",
-      "preview_description": "💡 이 게시글은 김영한 강사님의 자바 강의를 수강하며 학습한 내용을 중요한 키워드 중심으로 정리한 개인 학습 기록입니다. 오직 기억 복기를 위한 목적으로 작성되었으며, 모든 내용을 포함하지 않으므로 체계적인 학습 자료로는 적합하지 않습니다. \n\n\" Java는 C++처럼 virtual을 명시하지 않아도, (대부분의) 인스턴스 메서드 호출이 기본적으로 ‘런타...",
       "published_at": "2025-03-08T13:36:16.054Z",
-      "rendered_sha256": "sha256:c36590aca716f1db4073fe53fd7e0281b8c0fda240b08c9283669949aa708b6c",
+      "rendered_sha256": "sha256:0f2aa43827a1916c69593800eed74ff534c67a195fe802884953088748fbbf8c",
       "source_slug": "Java-Dynamic-Method-Dispatch-V-Table-JVM",
-      "source_updated_at": "2026-09-07T00:36:51.341Z",
+      "source_updated_at": "2026-09-09T09:23:36.492Z",
       "source_url": "https://velog.io/@ilwha/Java-Dynamic-Method-Dispatch-V-Table-JVM",
       "thumbnail": null,
       "title": "[Java] Dynamic Method Dispatch & V-Table (JVM)"
+    },
+    "7d4c85ee-4617-427a-8666-f6e98067001e": {
+      "body_source": "graphql",
+      "categories": [],
+      "content_hash": "sha256:ae2edb7bedfc968133ea2fd14f5fc499d4b29a972210e1fc409892688c8b44fa",
+      "images": {
+        "https://velog.velcdn.com/images/heyyjunn/post/03d253ab-bb60-4372-a1ed-3444f65f97c9/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/7d4c85ee-4617-427a-8666-f6e98067001e/8d5cdf66c9e5b41ea870b8eb4d97eadceb235577ecc548f677a7e9645afb3e36.png",
+          "sha256": "sha256:c055166f36e80b0945872c671cb561418ed0b418b9f9c0484e87d6940f252cdd",
+          "size": 474918
+        },
+        "https://velog.velcdn.com/images/heyyjunn/post/ccab3a60-515a-4265-b10c-c419bec252a6/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/7d4c85ee-4617-427a-8666-f6e98067001e/0cc6d61cd2b68e2f4d4f916b2831c79b51d111657d94eaca73b5c860b40f5b35.png",
+          "sha256": "sha256:3afeed45638b409f32a4cb9e370c10c497767c6b95fda32598a8528cb5c5fc63",
+          "size": 73275
+        }
+      },
+      "metadata_hash": "sha256:19c3b883ea2b958c4e1da972c142b50688a4b82937a6d9b9f6482de94fa2e0c9",
+      "post_path": "_posts/2026-09-09-대외활동-멋쟁이사자처럼백엔드-크로스오버-과제-API-설계-고민기록-Spring-Boot.md",
+      "published_at": "2026-09-09T09:22:33.775Z",
+      "rendered_sha256": "sha256:328d59c2cb89b9fe6a924aa0a91a50c75f7042f746d2133560ff27956e39968a",
+      "source_slug": "대외활동-멋쟁이사자처럼백엔드-크로스오버-과제-API-설계-고민기록-Spring-Boot",
+      "source_updated_at": "2026-09-09T09:39:48.041Z",
+      "source_url": "https://velog.io/@ilwha/%EB%8C%80%EC%99%B8%ED%99%9C%EB%8F%99-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC%EB%B0%B1%EC%97%94%EB%93%9C-%ED%81%AC%EB%A1%9C%EC%8A%A4%EC%98%A4%EB%B2%84-%EA%B3%BC%EC%A0%9C-API-%EC%84%A4%EA%B3%84-%EA%B3%A0%EB%AF%BC%EA%B8%B0%EB%A1%9D-Spring-Boot",
+      "thumbnail": {
+        "content_type": "image/png",
+        "kind": "velog",
+        "path": "assets/img/velog/7d4c85ee-4617-427a-8666-f6e98067001e/26b945ea969aa3c007428930527141e5c6ea0ca00935feb3b89ba1fa9338d044.png",
+        "sha256": "sha256:b3c2eda25177bc9d0c7c8e82df5504accd88545fa3c755373152300ab6a6f9bd",
+        "size": 528776,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/4860d628-03c5-4a18-b5a2-6fac52480ce9/image.png"
+      },
+      "title": "[대외활동] 멋쟁이사자처럼·백엔드 크로스오버 과제 API 설계 고민기록 (Spring Boot)"
     },
     "83861c49-4732-49dd-8fa1-4fa847c150e7": {
       "body_source": "graphql",
@@ -652,7 +680,7 @@
     "8916fba7-4c88-4768-aa6a-374feba00f14": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:aeabbc7a11636913251259891140b4acfab7d65751263d5bfbd4d4a48cf4d49c",
+      "content_hash": "sha256:4693c7b285e8b2fbe19b908abfecde44524b88e1657e7603ed344c33e8894d9c",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
           "content_type": "image/png",
@@ -703,11 +731,10 @@
           "size": 49195
         }
       },
-      "metadata_hash": "sha256:9cd333df1cb8d9d5121df9859da8771b74820df0dd46e674b3ef7ff9bdb82e55",
+      "metadata_hash": "sha256:6564262b3c866768d4d2f6d12e344cdf3846ef5d501d68a36a5040012bf7c155",
       "post_path": "_posts/2025-07-03-Spring.md",
-      "preview_description": "[Spring] JPA",
       "published_at": "2025-07-03T01:06:55.486Z",
-      "rendered_sha256": "sha256:3f4758c08e39f75bc36b18e93145c2797e8a7a17338e16f1c79b557ea40ecfb4",
+      "rendered_sha256": "sha256:f55c1881e2373c994649a1f0124a5bc594f7da18e2be1c1cebbd01dd6e9c53d2",
       "source_slug": "Spring",
       "source_updated_at": "2026-09-08T00:39:55.621Z",
       "source_url": "https://velog.io/@ilwha/Spring",
@@ -1363,7 +1390,7 @@
     "ca010783-034c-45e4-9551-5aecfa373dbe": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:7911b45ffe77eb0c51218a0aef4d8dad9def07287056465db377c0609e880946",
+      "content_hash": "sha256:8503d0a9a4d883176c426d469fc29760377b7ac92acfceeba351205686924b18",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/4393a409-495c-48da-84a2-382680a4f25f/image.png": {
           "content_type": "image/png",
@@ -1384,9 +1411,8 @@
           "size": 59923
         }
       },
-      "metadata_hash": "sha256:cb11d22bd5571a44d31e6343d96ca6f6a0730db85d562830b93f1366213429a7",
+      "metadata_hash": "sha256:01e06c3b6f35bcf3bb333a3338972497f3dfc726e66ea7bbfbe026e197518946",
       "post_path": "_posts/2025-05-06-Spring-내가-보려고-만든-MVC.md",
-      "preview_description": null,
       "published_at": "2025-05-06T07:12:07.910Z",
       "rendered_sha256": "sha256:047c7c55acdab2551d76f2e50e93a8c29fa8767ff3157e627beccce6e3064796",
       "source_slug": "Spring-내가-보려고-만든-MVC",
@@ -1407,11 +1433,10 @@
       "categories": [
         "[Java] Archive"
       ],
-      "content_hash": "sha256:7ff86951c1210e542c2162267b8a251a04ff96a21ca98fa8df01476b5c867d03",
+      "content_hash": "sha256:89536bfcacfdc129dc19ed211b1b62f7ecdb4e216c23ab8f714dca1fb80f912f",
       "images": {},
-      "metadata_hash": "sha256:0cb7b98f51df69b20f8c558991e7bf4febb04f40d8e2e5ff82a351802290b4fa",
+      "metadata_hash": "sha256:24c0f64f3858935f48946ddda93d91c2350cbc09305b6b48397bda378ef59f5b",
       "post_path": "_posts/2025-03-18-Java-Object-Class-Immutable-Object.md",
-      "preview_description": null,
       "published_at": "2025-03-18T09:56:00.530Z",
       "rendered_sha256": "sha256:a14b124bf93d3e72d93915aef71aae791195762fb7f5f661ea7346f324000cab",
       "source_slug": "Java-Object-Class-Immutable-Object",
@@ -1430,7 +1455,7 @@
     "dbf10a73-b92c-48ca-8964-642ef5cdc591": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:28159ceebe64f0e037cbb11ae92a51089e850a2be93ac9459165660996d326ac",
+      "content_hash": "sha256:d6dad782865f30ac5eeeeb2513ac0b4d3d2226881308a50fbd38f463b11f5741",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
           "content_type": "image/png",
@@ -1481,9 +1506,8 @@
           "size": 49195
         }
       },
-      "metadata_hash": "sha256:a6d0e18d9501bac966fe57f3161bb70ed3d5f5ec067844394cc75e1ec1f619b9",
+      "metadata_hash": "sha256:9ad60c1e566be9a1c1573392b284b7459fab3518e357d47a3642c3c472d0749f",
       "post_path": "_posts/2025-07-09-Spring-Spring-Boot-기본-용어-정리.md",
-      "preview_description": null,
       "published_at": "2025-07-09T10:50:53.174Z",
       "rendered_sha256": "sha256:5ebfe246a2581a4fb66b09663c70257b584bfcb6453517791758d373403833f7",
       "source_slug": "Spring-Spring-Boot-기본-용어-정리",
@@ -1604,11 +1628,10 @@
       "categories": [
         "[Java] Archive"
       ],
-      "content_hash": "sha256:482db3d1c3803d5b1f8815c49f34f5e87daf31412f86ebd557ce58c06f82c5c6",
+      "content_hash": "sha256:1f529d6644140f454056682f89e1bfe8b11bdb2bd257aac3317f92609312cd43",
       "images": {},
-      "metadata_hash": "sha256:eaa9e65b8a2f4cb6defaa452eda37398e979c8008cfc2cc338dd3d8e5fb01f0f",
+      "metadata_hash": "sha256:94b5950427349c399f63c1e22d34c829406362a43f5d2813899a4f5b677f96fe",
       "post_path": "_posts/2025-03-24-dvhiut7k.md",
-      "preview_description": null,
       "published_at": "2025-03-23T15:29:31.798Z",
       "rendered_sha256": "sha256:3eda3e6ad0d81d29729090d6aa02cb05179800776dffd726ad8c9761636f921d",
       "source_slug": "dvhiut7k",
@@ -1725,7 +1748,7 @@
       "categories": [
         "[React.Js] Archive"
       ],
-      "content_hash": "sha256:80a42aef4ff2ce5229a503620ceaf65d0853a0186cb776bc86687e6a57aad104",
+      "content_hash": "sha256:d86c247875e0bc65e6136afc88722e4011ff6ec4b36142625f759a18fa80fd07",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/9be990da-cdc1-4943-b837-903977731f2a/image.png": {
           "content_type": "image/png",
@@ -1746,9 +1769,8 @@
           "size": 47936
         }
       },
-      "metadata_hash": "sha256:493870f8cff8ae4412e4d2d1d206b696225e8942d9bbadb943c6631fd47ad291",
+      "metadata_hash": "sha256:18aa9c897124695880fe8ff21cf23c5190b54d629b15851ffdda0181b231ef22",
       "post_path": "_posts/2025-01-26-React.JS-Mini-Project-Todo-List.md",
-      "preview_description": null,
       "published_at": "2025-01-25T17:59:28.475Z",
       "rendered_sha256": "sha256:61538bcc073112159e720e6d5a4904f4e270c39fa99087e572534f3638a2560a",
       "source_slug": "React.JS-Mini-Project-Todo-List",

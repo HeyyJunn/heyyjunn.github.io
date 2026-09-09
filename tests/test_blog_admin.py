@@ -253,6 +253,7 @@ class WebTests(AdminFixture):
             payload = self.client.get("/api/status").get_json()
         self.assertTrue(payload["ok"])
         self.assertFalse(payload["data"]["github"]["available"])
+        self.assertTrue(payload["data"]["github"]["automatic"])
         javascript = (ROOT / "scripts/blog_admin/static/admin.js").read_text(encoding="utf-8")
         self.assertIn("s.github||", javascript)
         self.assertIn("s.git||", javascript)
@@ -530,8 +531,16 @@ class RepositoryPolicyTests(unittest.TestCase):
         workflow = (ROOT / ".github/workflows/pages-deploy.yml").read_text(encoding="utf-8")
         self.assertIn('cron: "7,22,37,52 * * * *"', workflow)
         self.assertEqual(workflow.count("if: github.event_name != 'schedule'"), 1)
+        self.assertNotIn("VELOG_SYNC_ENABLED", workflow)
+        apply_step = workflow.split("- name: Apply Velog sync", 1)[1].split("- name:", 1)[0]
+        self.assertIn("github.event_name == 'schedule'", apply_step)
         self.assertIn("steps.changes.outputs.has_changes", workflow)
         self.assertIn("steps.decision.outputs.should_deploy == 'true'", workflow)
+
+    def test_scheduled_commit_identity_has_safe_bot_defaults(self) -> None:
+        workflow = (ROOT / ".github/workflows/pages-deploy.yml").read_text(encoding="utf-8")
+        self.assertIn("${BLOG_GIT_NAME:-github-actions[bot]}", workflow)
+        self.assertIn("users.noreply.github.com", workflow)
 
     def test_home_uses_custom_thumbnail_but_post_detail_does_not(self) -> None:
         home = (ROOT / "_layouts/home.html").read_text(encoding="utf-8")
@@ -585,17 +594,31 @@ class RepositoryPolicyTests(unittest.TestCase):
         for legacy in ("preview-img", "thumbnail-col", "col-md-5", "flex-md-row-reverse"):
             self.assertNotIn(legacy, home)
 
-    def test_home_uses_preview_description_without_post_summary_fallback(self) -> None:
+    def test_home_has_no_description_or_body_summary_fallback(self) -> None:
         home = (ROOT / "_layouts/home.html").read_text(encoding="utf-8")
-        self.assertIn("{% if post.preview_description %}", home)
-        self.assertIn("post.preview_description | escape", home)
+        self.assertNotIn("preview_description", home)
         self.assertNotIn("include post-summary.html", home)
 
-    def test_preview_description_is_not_read_by_post_layout(self) -> None:
-        layouts = list((ROOT / "_layouts").glob("*.html"))
-        users = [path.name for path in layouts if "post.preview_description" in path.read_text(encoding="utf-8")]
-        self.assertEqual(users, ["home.html"])
-        self.assertFalse((ROOT / "_layouts/post.html").exists())
+    def test_preview_description_is_absent_from_runtime_source(self) -> None:
+        roots = (
+            ROOT / "scripts/blog_admin",
+            ROOT / "scripts/sync_velog.py",
+            ROOT / "scripts/velog_sync/client.py",
+            ROOT / "scripts/velog_sync/models.py",
+            ROOT / "_layouts",
+            ROOT / "assets/css",
+        )
+        users = [
+            path
+            for root in roots
+            for path in (root.rglob("*") if root.is_dir() else (root,))
+            if path.is_file()
+            and path.suffix in {".py", ".js", ".html", ".scss"}
+            and "preview_description" in path.read_text(encoding="utf-8")
+        ]
+        self.assertEqual(users, [])
+        migration = (ROOT / "scripts/velog_sync/sync.py").read_text(encoding="utf-8")
+        self.assertEqual(migration.count('entry.pop("preview_description", None)'), 1)
 
     def test_right_thumbnail_has_desktop_tablet_and_mobile_sizes(self) -> None:
         stylesheet = (ROOT / "assets/css/jekyll-theme-chirpy.scss").read_text(encoding="utf-8")
@@ -609,18 +632,13 @@ class RepositoryPolicyTests(unittest.TestCase):
         self.assertNotIn("placeholder", home.lower())
         self.assertNotIn("dummy", home.lower())
 
-    def test_preview_description_is_css_clamped_without_source_truncation(self) -> None:
+    def test_code_header_dots_are_removed_without_hiding_post_categories(self) -> None:
         stylesheet = (ROOT / "assets/css/jekyll-theme-chirpy.scss").read_text(encoding="utf-8")
-        sync = (ROOT / "scripts/velog_sync/sync.py").read_text(encoding="utf-8")
-        self.assertIn("-webkit-line-clamp: 3", stylesheet)
-        self.assertIn("-webkit-line-clamp: 2", stylesheet)
-        self.assertNotIn("preview_description[:", sync)
-
-    def test_manager_shows_velog_description_as_read_only(self) -> None:
-        javascript = (ROOT / "scripts/blog_admin/static/admin.js").read_text(encoding="utf-8")
-        self.assertIn("Velog short_description", javascript)
-        self.assertIn("Velog에서만 변경할 수 있습니다", javascript)
-        self.assertNotIn("description-editor", javascript)
+        self.assertIn("div[class^='language-'] .code-header", stylesheet)
+        self.assertIn("&::before", stylesheet)
+        self.assertIn("display: none !important", stylesheet)
+        self.assertNotIn("post-tail-wrapper", stylesheet)
+        self.assertNotIn("> .d-flex > .post-meta", stylesheet)
 
     def test_no_first_body_image_thumbnail_fallback_or_tags(self) -> None:
         sync = (ROOT / "scripts/velog_sync/sync.py").read_text(encoding="utf-8")

@@ -20,7 +20,7 @@ from .models import ImageError, PostMetadata, SourceError, SyncOutcome
 from .state import atomic_write_text, load_state, serialize_state, sha256_bytes, sha256_file
 
 
-TRANSFORMATION_SCHEMA = 4
+TRANSFORMATION_SCHEMA = 5
 
 
 @dataclass(frozen=True)
@@ -92,7 +92,6 @@ def metadata_hash(
     payload = {
         "categories": categories,
         "id": post.id,
-        "preview_description": post.preview_description,
         "released_at": post.released_at,
         "schema": TRANSFORMATION_SCHEMA,
         "slug": post.slug,
@@ -162,10 +161,6 @@ def render_post(
                 f"  alt: {yaml_quote(post.title.strip())}",
             )
         )
-    if post.preview_description is not None:
-        lines.append(
-            f"preview_description: {yaml_quote(post.preview_description)}"
-        )
     if has_math(body):
         lines.append("math: true")
     lines.extend(("render_with_liquid: false", "---", ""))
@@ -186,7 +181,6 @@ def content_hash(
         "id": post.id,
         "images": images,
         "published_at": published_at,
-        "preview_description": post.preview_description,
         "released_at": post.released_at,
         "schema": TRANSFORMATION_SCHEMA,
         "source_slug": post.slug,
@@ -246,17 +240,6 @@ class SyncEngine:
             return "removed"
         return "unchanged" if old_identity == new_identity else "changed"
 
-    @staticmethod
-    def _preview_description_change(old: Any, new: str | None) -> str:
-        old_value = old if isinstance(old, str) and old.strip() else None
-        if old_value is None and new is None:
-            return "none"
-        if old_value is None:
-            return "added"
-        if new is None:
-            return "removed"
-        return "unchanged" if old_value == new else "changed"
-
     def _state_entry(
         self,
         post: PostMetadata,
@@ -284,7 +267,6 @@ class SyncEngine:
                 self._thumbnail_hash_input(post, thumbnail),
             ),
             "post_path": path,
-            "preview_description": post.preview_description,
             "published_at": published_at,
             "rendered_sha256": sha256_bytes(rendered.encode("utf-8")),
             "source_slug": post.slug,
@@ -325,6 +307,9 @@ class SyncEngine:
 
         old_posts: dict[str, Any] = state["posts"]
         new_state = copy.deepcopy(state)
+        for entry in new_state["posts"].values():
+            if isinstance(entry, dict):
+                entry.pop("preview_description", None)
         used_paths = {
             entry.get("post_path")
             for entry in old_posts.values()
@@ -344,9 +329,6 @@ class SyncEngine:
             categories = resolved_categories(post, self.config)
             existing = old_posts.get(post.id)
             existing_thumbnail = existing.get("thumbnail") if isinstance(existing, dict) else None
-            existing_preview_description = (
-                existing.get("preview_description") if isinstance(existing, dict) else None
-            )
             if post.id.lower() in self.config.hidden_post_ids:
                 outcomes.append(
                     SyncOutcome(
@@ -355,7 +337,6 @@ class SyncEngine:
                         existing.get("post_path") if isinstance(existing, dict) else None,
                         categories,
                         thumbnail_change="none",
-                        preview_description_change="none",
                     )
                 )
                 continue
@@ -445,9 +426,6 @@ class SyncEngine:
                         image_count=len(existing_paths), warnings=warnings,
                         thumbnail=existing_thumbnail,
                         thumbnail_change=self._thumbnail_change(existing_thumbnail, existing_thumbnail),
-                        preview_description_change=self._preview_description_change(
-                            existing_preview_description, post.preview_description
-                        ),
                     )
                 )
                 continue
@@ -543,9 +521,6 @@ class SyncEngine:
                     thumbnail=planned_thumbnail,
                     thumbnail_plan=thumbnail_plan,
                     thumbnail_change=self._thumbnail_change(existing_thumbnail, planned_thumbnail),
-                    preview_description_change=self._preview_description_change(
-                        existing_preview_description, post.preview_description
-                    ),
                 )
             )
 

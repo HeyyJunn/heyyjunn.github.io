@@ -33,10 +33,6 @@ concurrency:
 
 jobs:
   build:
-    if: >-
-      github.event_name == 'push' ||
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'schedule' && vars.VELOG_SYNC_ENABLED == 'true')
     runs-on: ubuntu-latest
     env:
       PYTHONDONTWRITEBYTECODE: "1"
@@ -71,7 +67,7 @@ jobs:
       - name: Apply Velog sync
         if: >-
           (github.event_name == 'workflow_dispatch' && inputs.mode == 'apply') ||
-          (github.event_name == 'schedule' && vars.VELOG_SYNC_ENABLED == 'true')
+          github.event_name == 'schedule'
         run: python scripts/sync_velog.py
 
       - name: Validate sync-managed paths
@@ -146,12 +142,10 @@ jobs:
           BLOG_GIT_NAME: ${{ vars.BLOG_GIT_NAME }}
           BLOG_GIT_EMAIL: ${{ vars.BLOG_GIT_EMAIL }}
         run: |
-          if [ -z "$BLOG_GIT_NAME" ] || [ -z "$BLOG_GIT_EMAIL" ]; then
-            echo "BLOG_GIT_NAME and BLOG_GIT_EMAIL repository variables are required." >&2
-            exit 1
-          fi
-          git config user.name "$BLOG_GIT_NAME"
-          git config user.email "$BLOG_GIT_EMAIL"
+          git_name="${BLOG_GIT_NAME:-github-actions[bot]}"
+          git_email="${BLOG_GIT_EMAIL:-41898282+github-actions[bot]@users.noreply.github.com}"
+          git config user.name "$git_name"
+          git config user.email "$git_email"
           git add -A -- _posts .velog-sync/state.json
           if [ -d assets/img/velog ]; then
             git add -A -- assets/img/velog

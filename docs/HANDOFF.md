@@ -21,21 +21,21 @@
 | 항목 | 현재 값 |
 |---|---:|
 | Velog 사용자 | `@ilwha` |
-| GraphQL에서 확인한 공개 글 | 40개 |
-| 현재 GitHub Pages 게시 글 | 13개 |
+| GraphQL에서 확인한 공개 글 | 41개 |
+| 현재 GitHub Pages 게시 글 | 14개 |
 | GitHub에서 숨긴 글 | 27개 |
 | 가져오기 제외 글 | 0개 |
 | 다음 동기화 시 IMPORT | 0개 |
 | 다음 동기화 시 UPDATE | 0개 |
-| UNCHANGED | 13개 |
+| UNCHANGED | 14개 |
 | 오류 / 경고 | 0개 / 0개 |
-| state 레코드 | 40개 |
-| 배포 가능한 visible 이미지 | 44개 (본문 33 + 목록 thumbnail 11) |
-| visible 이미지 총 용량 | 7,062,707 bytes (본문 6,025,669 + thumbnail 1,037,038) |
+| state 레코드 | 41개 |
+| 배포 가능한 visible 이미지 | 47개 (본문 35 + 목록 thumbnail 12) |
+| visible 이미지 총 용량 | 8,139,676 bytes |
 | hidden 이미지 state 참조 / 실제 파일 | 158개 / 0개 |
 | 로컬 작업 트리 | compact preview feature commit/push 후 clean 상태인지 `git status --short`로 확인 |
 | `main`과 `origin/main` | 커밋/푸시 후 동일함을 확인함. 현재 SHA는 `git rev-parse HEAD`로 확인 |
-| 최신 전체 검사 | 116 tests, clean Jekyll build, HTML-Proofer, actionlint 모두 통과 |
+| 최신 전체 검사 | 104 tests, clean Jekyll build, HTML-Proofer, actionlint 모두 통과 |
 
 라이브 `./blog status`에서 Velog GraphQL 전체 목록과 RSS 연결은 정상으로 확인됐다. 로컬 환경에는 GitHub CLI(`gh`)가 없어 GitHub Actions 자동 동기화 변수 및 최근 실행 상태는 관리 도구에서 확인하지 못한다. 이는 동기화 엔진 오류가 아니라 로컬 도구 부재다.
 
@@ -101,11 +101,11 @@ Velog 전체 목록에서 더 이상 보이지 않는 UUID가 있어도 기존 s
 | `scripts/velog_sync/state.py` | state schema 검증, SHA-256, 결정적 JSON 직렬화, 원자적 text write |
 | `.velog-sync/config.yml` | 운영 설정. 제외/숨김 UUID, series 매핑, 이미지 정책 포함 |
 | `.velog-sync/thumbnail-overrides/<uuid>/` | Local Blog Manager에서 올린 GitHub 전용 미리보기 원본. Git에는 추적하지만 Jekyll 산출물에서는 제외 |
-| `.velog-sync/state.json` | 40개 UUID의 고정 경로, hash, 이미지 매핑 등을 보관하는 동기화 ledger |
-| `_posts/` | 현재 공개되는 13개 Chirpy Markdown 포스트 |
-| `assets/img/velog/` | 게시 중인 13개 글의 deployable Velog 이미지 미러. hidden UUID 디렉터리는 배포에서 제외하기 위해 제거 |
+| `.velog-sync/state.json` | 41개 UUID의 고정 경로, hash, 이미지 매핑 등을 보관하는 동기화 ledger |
+| `_posts/` | 현재 공개되는 14개 Chirpy Markdown 포스트 |
+| `assets/img/velog/` | 게시 중인 14개 글의 deployable Velog 이미지 미러. hidden UUID 디렉터리는 배포에서 제외하기 위해 제거 |
 | `_layouts/home.html` | Chirpy 7.6 홈 카드의 custom `post.thumbnail` 렌더링 최소 override |
-| `.github/workflows/pages-deploy.yml` | push 빌드·배포, 수동 dry-run/apply, 조건부 예약 동기화 |
+| `.github/workflows/pages-deploy.yml` | push 빌드·배포, 수동 dry-run/apply, 항상 활성인 예약 동기화 |
 | `tests/test_velog_sync.py` | 소스/렌더링/이미지/분류/안전성 테스트 |
 | `tests/test_blog_admin.py` | CLI, 설정, 숨김/제외, UI API, 동시 실행 방지 테스트 |
 | `_config.yml` | Chirpy/Jekyll 및 배포 제외 경로 설정 |
@@ -118,13 +118,12 @@ Velog 전체 목록에서 더 이상 보이지 않는 UUID가 있어도 기존 s
 
 ```text
 Velog GraphQL 전체 목록
-  ├─ UUID/제목/slug/발행·수정일/series/thumbnail/short_description 검증
+  ├─ UUID/제목/slug/발행·수정일/series/thumbnail 검증
   ├─ hidden / excluded / import_after 판정
   ├─ state hash와 로컬 파일 hash로 상세 본문 조회 필요성 판정
   └─ 필요한 글만 readPost GraphQL 조회
        ├─ raw Markdown 확인
        ├─ 본문 이미지와 독립적인 thumbnail 우선순위 결정
-       ├─ short_description을 목록 전용 설명으로 보존
        ├─ 이미지 URL 추출 및 안전성 검사
        ├─ Velog series를 categories로 변환
        ├─ Chirpy front matter + 본문 렌더링
@@ -150,12 +149,12 @@ RSS는 전체 inventory가 아니다. GraphQL 전체 목록 조회가 실패하�
 - detail operation: `readPost`
 - page size: 20
 - max pages: 1000
-- 현재 관찰된 pagination: `20 → 20 → 0`
+- 현재 관찰된 pagination: `20 → 20 → 1 → 0`
 - retry: 3회, 0.4초 기반 지수 backoff
 - timeout: 20초
 - User-Agent: `heyyjunn-velog-sync/1`
 
-전체 목록은 UUID 중복, 반복 cursor, 최대 페이지 도달, GraphQL `errors`, 누락/잘못된 필드, authoritative series 필드 누락을 오류로 처리한다. 상세 조회에서는 목록과 detail의 UUID 및 metadata가 맞는지도 검증한다. `short_description`도 양쪽에서 받아 동일성을 검사하며 GraphQL이 돌려준 최종 값을 source of truth로 사용한다. 공개 글만 처리하며 private 글은 건너뛴다.
+전체 목록은 UUID 중복, 반복 cursor, 최대 페이지 도달, GraphQL `errors`, 누락/잘못된 필드, authoritative series 필드 누락을 오류로 처리한다. 상세 조회에서는 목록과 detail의 UUID 및 metadata가 맞는지도 검증한다. 공개 글만 처리하며 private 글은 건너뛴다. Velog의 설명/excerpt 계열 metadata는 query와 비교 대상에서 제외한다.
 
 GraphQL query는 의도적으로 tags를 요청하지 않는다.
 
@@ -215,7 +214,7 @@ render_with_liquid: false
 - 날짜는 `Asia/Seoul`로 변환한다.
 - 최초 `published_at`은 고정 보존하고 `updated_at`은 `last_modified_at`에 반영한다.
 
-### 6.4 목록 전용 미리보기 front matter와 우선순위
+### 6.4 목록 전용 미리보기 이미지 front matter와 우선순위
 
 Velog thumbnail 또는 활성 GitHub override가 있으면 Chirpy 기본 `image:`가 아니라 다음 custom field를 추가한다.
 
@@ -223,14 +222,11 @@ Velog thumbnail 또는 활성 GitHub override가 있으면 Chirpy 기본 `image:
 thumbnail:
   path: "/assets/img/velog/<uuid>/<hash>.jpg"
   alt: "게시물 제목"
-preview_description: "Velog short_description 원문"
 ```
 
 thumbnail이 없으면 field 자체를 생략한다. alt fallback은 게시물 제목이며 AI로 생성하지 않는다. 우선순위는 반드시 `Velog thumbnail > GitHub 직접 지정 > 없음`이다. 본문 첫 이미지는 fallback이 아니다. Velog thumbnail이 새로 생기면 기존 override는 삭제하지 않고 비활성 보존하며, Velog thumbnail이 다시 null이 되면 그 override가 복귀한다. Velog thumbnail이 활성인 동안 dormant override만 바뀌어도 Markdown/state/render hash는 바뀌지 않는다.
 
-`preview_description`은 Velog GraphQL `short_description` 전용이다. 서버가 반환한 non-blank 문자열을 안전한 JSON/YAML double quote로 그대로 저장하며 로컬에서 본문 요약을 재계산하거나 자르지 않는다. 실제 `@ilwha` 데이터처럼 공백 또는 개행뿐인 값은 empty로 정규화하여 field를 생략한다. 설명 변경은 `UPDATE`, 동일 값은 `UNCHANGED`다.
-
-`_layouts/home.html`만 `post.thumbnail`과 `post.preview_description`을 읽으며 post detail layout은 두 field를 모두 읽지 않는다. 홈 카드는 왼쪽 title/description/metadata, 오른쪽 작은 thumbnail 순서다. 따라서 동일 URL이 Markdown 본문에도 실제로 있을 때의 본문 image를 제외하면 상세 글 위·아래에는 대표 이미지나 별도 설명이 자동 표시되지 않는다.
+Velog 설명 metadata는 GraphQL에서 요청하지 않고 Markdown/state/hash/UI에도 사용하지 않는다. 홈 카드는 왼쪽 title/metadata, 오른쪽 작은 thumbnail 순서이며 본문 첫 문단을 설명처럼 잘라 표시하지 않는다. `_layouts/home.html`만 `post.thumbnail`을 읽고 post detail layout은 이를 읽지 않으므로, Markdown 본문에 실제로 있는 이미지를 제외하면 상세 글에 대표 이미지가 자동 삽입되지 않는다.
 
 ## 7. 분류 상태와 파일 변경 의미
 
@@ -258,7 +254,7 @@ state의 `rendered_sha256`과 실제 Markdown SHA-256이 다르거나 state가 �
 
 ## 8. state.json schema와 hash 원칙
 
-현재 state file schema version은 `1`, render transformation schema는 `4`다.
+현재 state file schema version은 `1`, render transformation schema는 `5`다.
 
 ```json
 {
@@ -278,7 +274,6 @@ state의 `rendered_sha256`과 실제 Markdown SHA-256이 다르거나 state가 �
       },
       "metadata_hash": "sha256:...",
       "post_path": "_posts/YYYY-MM-DD-slug.md",
-      "preview_description": "Velog short_description 또는 null",
       "published_at": "...",
       "rendered_sha256": "sha256:...",
       "source_slug": "...",
@@ -308,12 +303,11 @@ state의 `rendered_sha256`과 실제 Markdown SHA-256이 다르거나 state가 �
 - updated timestamp
 - image mapping
 - resolved thumbnail의 kind/source/path/hash/MIME/size 또는 null
-- canonical preview_description 또는 null
 - transformation schema version
 
-`metadata_hash`는 상세 본문을 다시 가져와야 하는지 빠르게 판정하기 위해 UUID, title, slug, source URL, released/updated timestamp, resolved categories, canonical preview description과 실제 활성 thumbnail source를 사용한다. Velog thumbnail이 있으면 dormant override는 두 hash 모두에서 제외된다. slug-only 변경은 Markdown을 다시 쓰지 않고 state의 source metadata만 최신화한다.
+`metadata_hash`는 상세 본문을 다시 가져와야 하는지 빠르게 판정하기 위해 UUID, title, slug, source URL, released/updated timestamp, resolved categories와 실제 활성 thumbnail source를 사용한다. Velog thumbnail이 있으면 dormant override는 두 hash 모두에서 제외된다. slug-only 변경은 Markdown을 다시 쓰지 않고 state의 source metadata만 최신화한다.
 
-Velog tags는 어떤 hash와 state에도 포함되지 않는다. tag-only 변경은 `UNCHANGED`여야 한다. JSON은 key 정렬, UTF-8, 2-space indent, 마지막 newline으로 결정적으로 직렬화한다. state write는 같은 디렉터리의 `.part` 임시 파일을 `fsync`한 뒤 `os.replace`하는 방식이다.
+Velog tags와 설명 metadata는 어떤 hash와 state에도 포함되지 않는다. tag-only 또는 description-only 변경은 `UNCHANGED`여야 한다. JSON은 key 정렬, UTF-8, 2-space indent, 마지막 newline으로 결정적으로 직렬화한다. state write는 같은 디렉터리의 `.part` 임시 파일을 `fsync`한 뒤 `os.replace`하는 방식이다. 이전 state에 남은 설명 key는 apply 시 한 번 제거된다.
 
 ## 9. 이미지 미러링
 
@@ -339,7 +333,7 @@ assets/img/velog/<post-uuid>/<sha256-of-full-source-url>.<extension>
 - probe/download/MIME mismatch 실패 시 해당 이미지는 원격 URL을 유지하고 경고를 남김
 - fenced code block 내부의 이미지처럼 보이는 텍스트는 변환하지 않음
 
-같은 원격 이미지 URL이 여러 글에 쓰여도 포스트 UUID 디렉터리가 다르므로 글마다 별도 파일이 존재할 수 있다. 숨긴 글은 state의 158개 source body-image record를 유지하지만 deployable UUID 디렉터리는 제거한다. 현재 visible 13개 글에는 본문 이미지 33개와 목록 thumbnail 11개, 합계 44개만 로컬과 `_site`에 존재하며 hidden 이미지는 둘 다 0개다. unhide 시 GraphQL 원문을 다시 확인해 필요한 본문 이미지와 thumbnail을 다운로드한다.
+같은 원격 이미지 URL이 여러 글에 쓰여도 포스트 UUID 디렉터리가 다르므로 글마다 별도 파일이 존재할 수 있다. 숨긴 글은 state의 158개 source body-image record를 유지하지만 deployable UUID 디렉터리는 제거한다. 현재 visible 14개 글에는 본문 이미지 35개와 목록 thumbnail 12개, 합계 47개만 로컬과 `_site`에 존재하며 hidden 이미지는 둘 다 0개다. unhide 시 GraphQL 원문을 다시 확인해 필요한 본문 이미지와 thumbnail을 다운로드한다.
 
 ### 9.1 Thumbnail과 manual override
 
@@ -435,14 +429,14 @@ unrelated dirty file이나 origin/main 이후의 local commit에 unrelated file�
 | `./blog help` | 전체 명령 도움말 |
 | `./blog ui` | `127.0.0.1:8765` 관리 화면 실행 및 브라우저 열기 |
 | `./blog ui --no-browser` | 브라우저 자동 실행 없이 UI 서버 시작 |
-| `./blog list` | Velog 40개와 한국어 상태, UUID, slug, category, 이미지 수 표시 |
+| `./blog list` | Velog 41개와 한국어 상태, UUID, slug, category, 이미지 수 표시 |
 | `./blog status` | Velog/GitHub.io/Git/GitHub Actions 요약 |
 | `./blog update` | clean worktree에서 origin/main이 앞선 경우에만 `pull --ff-only` |
 | `./blog publish` | Git preflight와 전체 검사 후 허용된 관리 파일만 commit/push |
 | `./blog dry-run` | 파일 변경 없이 실제 원격 상태와 분류 확인 |
 | `./blog sync` | 로컬에 실제 반영. 신규 import가 있으면 `동기화` 입력 요구 |
 | `./blog sync --yes` | 비대화형 실제 반영 |
-| `./blog test` | 116개 Python unit test 실행 |
+| `./blog test` | 104개 Python unit test 실행 |
 | `./blog build` | `.bundle-blog` 의존성 준비 후 `_site` 빌드 |
 | `./blog check` | test → live dry-run → build → HTML-Proofer 순서의 전체 검사 |
 | `./blog serve` | `127.0.0.1:4000` 로컬 Jekyll preview. 같은 서비스 인스턴스의 중복 실행 방지 |
@@ -527,7 +521,7 @@ workflow: `.github/workflows/pages-deploy.yml`
 - schedule: 매시간 `7, 22, 37, 52`분
 - workflow dispatch: `dry-run` 또는 `apply`, 기본값 `dry-run`
 
-schedule job은 repository variable `VELOG_SYNC_ENABLED`가 정확히 `true`일 때만 실행된다. 수동 `apply`는 이 변수와 무관하게 실행된다. GitHub가 장기 inactivity 뒤 scheduled workflow를 비활성화할 수 있으므로 Actions UI도 주기적으로 확인한다.
+schedule job은 별도 활성화 변수 없이 항상 실제 Velog sync를 실행한다. GitHub가 장기 inactivity 뒤 scheduled workflow를 비활성화할 수 있으므로 Actions UI도 주기적으로 확인한다.
 
 ### 필요한 권한과 변수
 
@@ -537,20 +531,20 @@ workflow permissions:
 - `pages: write`
 - `id-token: write`
 
-변경을 자동 commit하려면 repository variables가 필요하다.
+자동 commit identity는 다음 repository variables로 선택해서 덮어쓸 수 있다.
 
 - `BLOG_GIT_NAME`
 - `BLOG_GIT_EMAIL`
 
-값이 없으면 추측한 bot identity로 commit하지 않고 실패한다.
+값이 없으면 GitHub Actions의 공개 기본 bot identity(`github-actions[bot]` 및 noreply 주소)를 사용한다. 따라서 예약 동기화에 사용자가 반드시 만들어야 하는 variable은 없다.
 
 ### 실행 순서
 
 1. main checkout (`fetch-depth: 0`)
 2. 모든 event에서 Python 3.13과 sync 의존성 설치. setup-python pip cache는 실제 source-of-truth인 `requirements-velog-sync.txt`를 `cache-dependency-path`로 명시
-3. push와 수동 dispatch에서는 116개 unit test 실행; 15분 schedule에서는 반복하지 않음
+3. push와 수동 dispatch에서는 104개 unit test 실행; 15분 schedule에서는 반복하지 않음
 4. manual dry-run이면 변경 미리보기
-5. manual apply 또는 enabled schedule이면 실제 sync
+5. manual apply 또는 schedule이면 실제 sync
 6. 변경 경로가 `_posts/*`, `assets/img/velog/*`, `.velog-sync/state.json`뿐인지 검증
 7. 변경 유무 판정
 8. push 또는 sync 변경이 있을 때만 Ruby 3.4/Jekyll build와 HTML-Proofer
@@ -569,7 +563,7 @@ commit `e57a86dc5c1e08d58082adfa9c98b2ade811a726`의 hosted run `34220446103`은
 cache-dependency-path: requirements-velog-sync.txt
 ```
 
-이 장애는 push build 실패다. 최근 schedule run이 `skipped`인 것은 build job의 `vars.VELOG_SYNC_ENABLED == 'true'` 조건이 충족되지 않은 별도 상태이며 같은 문제로 취급하지 않는다.
+이 장애는 push build 실패다. 과거 schedule run이 `skipped`였던 원인은 build job이 `vars.VELOG_SYNC_ENABLED == 'true'`에 묶여 있었기 때문이며, 현재는 이 gate를 제거했다.
 
 ### 14.2 GitHub-hosted 성공 및 live Pages 검증
 
@@ -623,24 +617,15 @@ CSS 응답은 GitHub Pages의 `Cache-Control: max-age=600`을 사용한다. raw 
 
 ### 16.2 검증 결과
 
-2026-09-09에는 운영 파일 수정 전에 `short_description`도 inventory 20→20→0과 40개 `readPost`에서 전수 대조했다.
+2026-09-09 최종 요구에 따라 Velog 설명 metadata 기능을 제거했다. GraphQL query, 모델, front matter, state/hash, CLI/관리 UI 로그, 홈 카드 렌더링에서 모두 제외했으며 본문 요약 fallback도 없다. 기존 visible Markdown 3개의 설명 field와 state 41개의 legacy key는 migration으로 제거했다.
 
-- raw GraphQL: null 0, 빈 문자열 0, non-null 문자열 40
-- 공백/개행만 있는 의미상 빈 값: 37 (visible 10, hidden 27)
-- 실제 내용이 있는 값: 3 (visible 3, hidden 0)
-- inventory/readPost 불일치: 0
-- raw 문자열 길이: 1~203 code points
-- 실제 내용이 있는 문자열 길이: 12~203 code points
+`./blog check`를 설명 제거와 신규 공개 글 1개 동기화 후 현재 state에서 다시 실행했고 다음을 모두 통과했다.
 
-공백-only 값을 `preview_description`으로 생성하지 않으며, 실제 내용 3개만 기존 visible Markdown에 migration했다. 이때 UUID, post path, published date, title, categories, Markdown body와 body image mapping은 그대로 유지했다.
-
-`./blog check`를 preview-description migration 후 현재 state에서 다시 실행했고 다음을 모두 통과했다.
-
-1. Python unit tests: **116개 통과** (`Ran 116 tests ... OK`)
-2. live Velog dry-run: IMPORT 0, UPDATE 0, UNCHANGED 13, EXCLUDED 0, HIDDEN 27, ERROR 0, 경고 0
-3. Jekyll build: Chirpy site 정상 생성 (`_site`, 약 1.15초)
-4. HTML-Proofer: 22 HTML files, 196 internal links, 12 files의 internal hash 확인, 성공
-5. actionlint, Python/Bash/JavaScript syntax, `git diff --check`: 성공
+1. Python unit tests: **104개 통과** (`Ran 104 tests ... OK`)
+2. live Velog dry-run: IMPORT 0, UPDATE 0, UNCHANGED 14, EXCLUDED 0, HIDDEN 27, ERROR 0, 기존 원문 code fence 경고 1
+3. Jekyll build: Chirpy site 정상 생성 (`_site`)
+4. HTML-Proofer: 23 HTML files, 204 internal links, 13 files의 internal hash 확인, 성공
+5. actionlint, Python/Bash/JavaScript syntax: 성공. 신규 Velog 원문에는 source-authored trailing whitespace 4줄이 있으며 Markdown 의미와 동기화 결정성을 보존하기 위해 임의 수정하지 않음
 
 테스트 범위:
 
@@ -667,9 +652,9 @@ CSS 응답은 GitHub Pages의 `Cache-Control: max-age=600`을 사용한다. raw 
 - thumbnail add/change/remove, 고정 post_path, dormant override rendered no-op
 - manual upload magic/MIME/size/UUID/path traversal, 원본 비공개 경로, publish allowlist
 - home thumbnail/text-only card, post detail 자동 미표시, heading bold/Tags 회귀
-- `short_description` present/null/blank/type 검증과 목록/detail 일치
-- preview description add/change/remove/unchanged, YAML 특수문자·한글·emoji, hidden/no-op/dry-run
-- compact right-thumbnail markup, desktop/tablet/mobile 크기, text-only 카드, CSS clamp
+- source의 설명 metadata 무시, legacy state 설명 key 제거, front matter/UI/로그 미생성
+- compact right-thumbnail markup, desktop/tablet/mobile 크기, text-only 카드
+- post code header 점 제거 및 post category UI 유지 검증
 - setup-python pip cache dependency path와 push test/build/deploy 흐름
 
 변경 후 최소 검증 명령은 다음이다.
@@ -685,7 +670,7 @@ git status --short
 ./blog test
 ```
 
-## 17. 현재 게시 중인 13개 포스트
+## 17. 현재 게시 중인 14개 포스트
 
 아래는 state UUID, title, source slug, 고정 post path, state에 기록된 이미지 수다.
 
@@ -704,6 +689,7 @@ git status --short
 | `ca010783-034c-45e4-9551-5aecfa373dbe` | [Spring] 내가 보려고 만든 MVC 기초흐름도 | `Spring-내가-보려고-만든-MVC` | `_posts/2025-05-06-Spring-내가-보려고-만든-MVC.md` | 3 |
 | `8916fba7-4c88-4768-aa6a-374feba00f14` | [Spring] JPA | `Spring` | `_posts/2025-07-03-Spring.md` | 8 |
 | `dbf10a73-b92c-48ca-8964-642ef5cdc591` | [Spring] Spring Boot 기본 용어 정리 | `Spring-Spring-Boot-기본-용어-정리` | `_posts/2025-07-09-Spring-Spring-Boot-기본-용어-정리.md` | 8 |
+| `7d4c85ee-4617-427a-8666-f6e98067001e` | [대외활동] 멋쟁이사자처럼·백엔드 크로스오버 과제 API 설계 고민기록 (Spring Boot) | `대외활동-멋쟁이사자처럼백엔드-크로스오버-과제-API-설계-고민기록-Spring-Boot` | `_posts/2026-09-09-대외활동-멋쟁이사자처럼백엔드-크로스오버-과제-API-설계-고민기록-Spring-Boot.md` | 2 |
 
 ## 18. 현재 숨긴 27개 포스트
 
@@ -852,8 +838,8 @@ hide는 config, `_posts`, 해당 UUID의 deployable 이미지를 바꾸므로 co
 
 현재 구현은 기능적으로 완료되어 있고 전체 검사를 통과하지만 다음 운영 사항은 로컬 코드만으로 확정할 수 없다.
 
-1. **GitHub Actions 변수 상태**: 로컬에 인증된 `gh`가 없고 public REST API는 repository variable 값을 노출하지 않으므로 `VELOG_SYNC_ENABLED`, `BLOG_GIT_NAME`, `BLOG_GIT_EMAIL`의 존재 여부는 확인할 수 없다. 임의 값을 설정하지 않는다.
-2. **예약 실행 활성 여부**: workflow 코드가 있어도 `VELOG_SYNC_ENABLED=true`가 아니면 schedule은 의도적으로 아무 일도 하지 않는다.
+1. **GitHub Actions 변수 상태**: 로컬에 인증된 `gh`가 없고 public REST API는 repository variable 값을 노출하지 않는다. `BLOG_GIT_NAME`, `BLOG_GIT_EMAIL`은 선택적이며 없으면 안전한 Actions bot identity를 쓴다.
+2. **예약 실행 활성 여부**: 코드상 schedule은 별도 변수 없이 항상 실행되지만 GitHub의 장기 inactivity 정책 등 hosted 상태는 Actions UI에서 확인한다.
 3. **UI task history 영속성**: 현재 메모리 전용이다. 브라우저/서버 재시작 후 과거 history가 필요한 요구가 생기면 별도 로컬 ledger 설계가 필요하다. sync state에 섞으면 안 된다.
 4. **전체 트랜잭션 부재**: fatal source 오류는 쓰기 전에 막지만, 여러 파일을 하나의 filesystem transaction으로 묶지는 않는다. 현재 atomic-per-file 정책과 테스트 범위를 이해하고 변경한다.
 5. **브라우저 자동화 환경**: 2026-09-08 검증에서는 브라우저 런타임 초기화 제한으로 화면 자동 조작까지 수행하지 못했다. Flask 실제 HTTP/API 응답, JavaScript syntax, UI unit test로 회귀 검증했다.
@@ -885,7 +871,7 @@ hide는 config, `_posts`, 해당 UUID의 deployable 이미지를 바꾸므로 co
 - 숨긴 글이 재생성되지 않음
 - 변경 없는 run이 Markdown/state/commit을 만들지 않음
 - 이미지가 허용 정책 안에서 미러링되거나 실패 시 원격 URL로 안전하게 남음
-- 116개 unit test 통과
+- 104개 unit test 통과
 - Jekyll production build 통과
 - HTML-Proofer 통과
 - workflow가 검증 뒤에만 commit/deploy함

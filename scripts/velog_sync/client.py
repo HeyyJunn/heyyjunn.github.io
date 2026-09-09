@@ -14,7 +14,7 @@ from .models import DetailedPost, Inventory, PostMetadata, RssItem, Series, Sour
 POSTS_QUERY = """
 query velogPosts($input: GetPostsInput!) {
   posts(input: $input) {
-    id title url_slug released_at updated_at is_private thumbnail short_description
+    id title url_slug released_at updated_at is_private thumbnail
     series { id name url_slug }
   }
 }
@@ -23,7 +23,7 @@ query velogPosts($input: GetPostsInput!) {
 READ_POST_QUERY = """
 query readPost($input: ReadPostInput!) {
   post(input: $input) {
-    id title url_slug released_at updated_at is_private thumbnail short_description
+    id title url_slug released_at updated_at is_private thumbnail
     body is_markdown
     series { id name url_slug }
   }
@@ -111,11 +111,6 @@ class GraphQLClient:
         thumbnail = raw.get("thumbnail")
         if thumbnail is not None and not isinstance(thumbnail, str):
             raise SourceError(f"post {post_id} has invalid thumbnail metadata")
-        preview_description = raw.get("short_description")
-        if preview_description is not None and not isinstance(preview_description, str):
-            raise SourceError(f"post {post_id} has invalid short_description metadata")
-        if isinstance(preview_description, str) and not preview_description.strip():
-            preview_description = None
         if "series" not in raw:
             raise SourceError(f"post {post_id} is missing authoritative series metadata")
         series_raw = raw["series"]
@@ -137,7 +132,6 @@ class GraphQLClient:
             series=series,
             is_private=is_private,
             thumbnail=thumbnail,
-            preview_description=preview_description,
         )
 
     def fetch_inventory(self) -> Inventory:
@@ -197,7 +191,6 @@ class GraphQLClient:
             or metadata.series != expected.series
             or metadata.is_private != expected.is_private
             or metadata.thumbnail != expected.thumbnail
-            or metadata.preview_description != expected.preview_description
         ):
             raise SourceError(f"list/readPost metadata mismatch for UUID {expected.id}")
         body = raw.get("body")
