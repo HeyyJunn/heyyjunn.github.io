@@ -38,6 +38,7 @@ article[data-toc] > .content {
     .highlight {
       border-top-left-radius: inherit;
       border-top-right-radius: inherit;
+      padding-bottom: 0;
     }
 
     .rouge-table td:first-child {
@@ -46,12 +47,7 @@ article[data-toc] > .content {
 
     /* Keep compact, even spacing after removing the header and number gutter. */
     .rouge-table td.rouge-code {
-      padding: 0.75rem;
-
-      /* Rouge preserves a final newline, which otherwise adds a blank line below. */
-      > pre {
-        margin-bottom: -1.4rem;
-      }
+      padding: 0.75rem !important;
     }
   }
 }
