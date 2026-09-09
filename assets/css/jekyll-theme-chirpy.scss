@@ -43,6 +43,12 @@ article[data-toc] > .content {
     .rouge-table td:first-child {
       display: none !important;
     }
+
+    /* Keep comfortable spacing after removing Rouge's line-number gutter. */
+    .rouge-table td.rouge-code {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
   }
 }
 
