@@ -44,9 +44,14 @@ article[data-toc] > .content {
       display: none !important;
     }
 
-    /* Keep even spacing after removing Rouge's header and line-number gutter. */
+    /* Keep compact, even spacing after removing the header and number gutter. */
     .rouge-table td.rouge-code {
-      padding: 1.25rem;
+      padding: 0.75rem;
+
+      /* Rouge preserves a final newline, which otherwise adds a blank line below. */
+      > pre {
+        margin-bottom: -1.4rem;
+      }
     }
   }
 }
