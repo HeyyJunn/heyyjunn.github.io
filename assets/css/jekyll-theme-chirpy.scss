@@ -29,14 +29,19 @@ article[data-toc] > .content {
     font-weight: 700;
   }
 
-  /* Chirpy 7.6 draws three macOS-style dots with this pseudo-element. */
-  div[class^='language-'] .code-header {
-    &::before {
-      display: none !important;
+  /* Minimal code blocks: no window dots, language label, copy button, or gutter. */
+  div[class^='language-'] {
+    .code-header {
+      display: none;
     }
 
-    span {
-      margin-left: 0;
+    .highlight {
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+
+    .rouge-table td:first-child {
+      display: none !important;
     }
   }
 }

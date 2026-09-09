@@ -654,7 +654,7 @@ CSS 응답은 GitHub Pages의 `Cache-Control: max-age=600`을 사용한다. raw 
 - home thumbnail/text-only card, post detail 자동 미표시, heading bold/Tags 회귀
 - source의 설명 metadata 무시, legacy state 설명 key 제거, front matter/UI/로그 미생성
 - compact right-thumbnail markup, desktop/tablet/mobile 크기, text-only 카드
-- post code header 점 제거 및 post category UI 유지 검증
+- post code header(점·언어·copy)와 줄 번호 gutter 제거, 코드 모서리 및 post category UI 유지 검증
 - setup-python pip cache dependency path와 push test/build/deploy 흐름
 
 변경 후 최소 검증 명령은 다음이다.

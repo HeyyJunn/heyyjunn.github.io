@@ -632,11 +632,11 @@ class RepositoryPolicyTests(unittest.TestCase):
         self.assertNotIn("placeholder", home.lower())
         self.assertNotIn("dummy", home.lower())
 
-    def test_code_header_dots_are_removed_without_hiding_post_categories(self) -> None:
+    def test_code_header_and_line_numbers_are_hidden_without_hiding_categories(self) -> None:
         stylesheet = (ROOT / "assets/css/jekyll-theme-chirpy.scss").read_text(encoding="utf-8")
-        self.assertIn("div[class^='language-'] .code-header", stylesheet)
-        self.assertIn("&::before", stylesheet)
-        self.assertIn("display: none !important", stylesheet)
+        self.assertIn(".code-header {\n      display: none;", stylesheet)
+        self.assertIn(".rouge-table td:first-child", stylesheet)
+        self.assertIn("border-top-left-radius: inherit", stylesheet)
         self.assertNotIn("post-tail-wrapper", stylesheet)
         self.assertNotIn("> .d-flex > .post-meta", stylesheet)
 

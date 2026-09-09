@@ -1,7 +1,7 @@
 ---
 title: "[대외활동] 멋쟁이사자처럼·백엔드 크로스오버 과제 API 설계 고민기록 (Spring Boot)"
 date: 2026-09-09 18:22:33 +0900
-last_modified_at: 2026-09-09 18:39:48 +0900
+last_modified_at: 2026-09-09 19:19:18 +0900
 thumbnail:
   path: "/assets/img/velog/7d4c85ee-4617-427a-8666-f6e98067001e/26b945ea969aa3c007428930527141e5c6ea0ca00935feb3b89ba1fa9338d044.png"
   alt: "[대외활동] 멋쟁이사자처럼·백엔드 크로스오버 과제 API 설계 고민기록 (Spring Boot)"
