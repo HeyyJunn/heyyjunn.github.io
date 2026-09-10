@@ -24,6 +24,79 @@
       },
       "title": "[ React.JS ] useReducer, useMemo, useCallback"
     },
+    "21c1f72e-6ba4-4ae7-9613-6a0974abf602": {
+      "body_source": "graphql",
+      "categories": [
+        "Paper"
+      ],
+      "content_hash": "sha256:a6a60c8fcfac61875fd70a583ac479b172714518e3dd67e03d246aff3e57d6c5",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/21c1f72e-6ba4-4ae7-9613-6a0974abf602/63f84114ca5640aca423e2878dfa5ba3786ac297c6e4232fc418515219eb530c.png",
+          "sha256": "sha256:f3703fb60cd436b79ce2c8c53dcb1d53b3b2657d79d5abb14a48551ee1f795c0",
+          "size": 414928
+        },
+        "https://velog.velcdn.com/images/ilwha/post/43d20245-f847-46e8-8df8-ab70fcc5f3f8/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/21c1f72e-6ba4-4ae7-9613-6a0974abf602/6c9080f3f6076634e0ae3547df5115d8e07389ff2c888d18f4a373d2e0aa7d2f.png",
+          "sha256": "sha256:1c32ebba1fd0fa3bee1c699883b633076b1da04613dcb98cf5861bd3dfeeac03",
+          "size": 72126
+        },
+        "https://velog.velcdn.com/images/ilwha/post/624a76c2-0b54-4738-8213-b40fc9d9ce7d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/21c1f72e-6ba4-4ae7-9613-6a0974abf602/dc4b49446f2f58e6055441f4133a992a8283ccadc000c1c8b4325c7e54ac1c05.png",
+          "sha256": "sha256:1538ba64c473d0f5474ea55a604da18725c986dfe8bc85cf7763b2e30fcd1a85",
+          "size": 189433
+        },
+        "https://velog.velcdn.com/images/ilwha/post/7dd3e278-0a48-4c36-9278-5fe67ea45464/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/21c1f72e-6ba4-4ae7-9613-6a0974abf602/a113dd8a59e095f99e1d24660838ee1017c30f45fc0bf15622638b222f2c8dee.png",
+          "sha256": "sha256:67ba50eb798ed82f3ca016c4df99a45b9d144e12a928fcce72aa73644f74097c",
+          "size": 489943
+        },
+        "https://velog.velcdn.com/images/ilwha/post/96a9fe68-5367-49eb-ba4a-1504797ed614/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/21c1f72e-6ba4-4ae7-9613-6a0974abf602/b423bddf14620d10d5c8dc1fc4334f0851814d8c3156514dffe6b55fb4e262fb.png",
+          "sha256": "sha256:1472a9f343238104d40dc8d6331503c3f6d4d9b511606dc8b9bb5fbcb6a2335f",
+          "size": 167398
+        },
+        "https://velog.velcdn.com/images/ilwha/post/d18fcfde-0db0-46de-ac7b-e1c2460ebce9/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/21c1f72e-6ba4-4ae7-9613-6a0974abf602/6b3a37f750e2e9a532ad89a390338af2c7b58485b3b95c6ac9e825f94ba93442.png",
+          "sha256": "sha256:a24c37b1e80e9afc813e2ac81e23f32bb3549eb5dd3a0f2fe6760e1ea3e4a794",
+          "size": 596077
+        },
+        "https://velog.velcdn.com/images/ilwha/post/d7ee69c5-71d3-4be3-8b87-44e3298ef7a3/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/21c1f72e-6ba4-4ae7-9613-6a0974abf602/f0316e452e84628a8926e5a448f92f9bbc870c8f85e9127212398c43528f3a43.png",
+          "sha256": "sha256:bd932aa8ee99bd3fd255c1776d35b675b3703bbb491aa54219fced9e9edc2d26",
+          "size": 378185
+        },
+        "https://velog.velcdn.com/images/ilwha/post/fb29f05d-a379-4515-95f9-735e6122f1cd/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/21c1f72e-6ba4-4ae7-9613-6a0974abf602/cde0bb273997e6290b17ef1c9378f01a68217b4b9000274983728636cf196dd6.png",
+          "sha256": "sha256:b22eb23a4123e458f7c47abadad40b6c860e872b3167639e2ee2b123cb497c8b",
+          "size": 877948
+        }
+      },
+      "metadata_hash": "sha256:0fe4f92d6a4975863f560ff822898049594c54070993cd488976f33f39d3ff41",
+      "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
+      "published_at": "2026-09-10T07:51:11.581Z",
+      "rendered_sha256": "sha256:3f6ac977158f74264ae6fca2a0005964ef40ab0c9ae6e00577a75828c1955450",
+      "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
+      "source_updated_at": "2026-09-10T07:51:11.880Z",
+      "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
+      "thumbnail": {
+        "content_type": "image/webp",
+        "kind": "velog",
+        "path": "assets/img/velog/21c1f72e-6ba4-4ae7-9613-6a0974abf602/2191b60dc090b16aba830eb3f7b975dbc763ceea2592fa5f680262fa5c23a336.webp",
+        "sha256": "sha256:cc4de035dfbccc3b0d99d6ff315a3d440deda04e0d344ecaa8f7d766799228b8",
+        "size": 312174,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/95c7317f-e9b9-433d-bdaa-e3581f64fdac/image.webp"
+      },
+      "title": "[Paper] GPT-1: Improving Language Understanding by Generative Pre-Training"
+    },
     "24104f88-d139-4945-b4d0-a020b26912b2": {
       "body_source": "graphql",
       "categories": [
