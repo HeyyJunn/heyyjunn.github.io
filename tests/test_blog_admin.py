@@ -667,6 +667,15 @@ class RepositoryPolicyTests(unittest.TestCase):
         self.assertIn("self.registration.unregister()", worker)
         self.assertNotIn("addEventListener('fetch'", worker)
 
+    def test_footer_keeps_copyright_without_theme_credit(self) -> None:
+        footer = (ROOT / "_includes/footer.html").read_text(encoding="utf-8")
+        self.assertIn("site.social.name", footer)
+        self.assertIn("copyright.brief", footer)
+        self.assertIn("{% comment %}", footer)
+        self.assertIn("jekyllrb.com", footer)
+        self.assertIn("jekyll-theme-chirpy", footer)
+        self.assertIn("{% endcomment %}", footer)
+
 
 if __name__ == "__main__":
     unittest.main()
