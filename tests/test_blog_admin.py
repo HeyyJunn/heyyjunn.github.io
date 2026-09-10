@@ -654,6 +654,19 @@ class RepositoryPolicyTests(unittest.TestCase):
         config = (ROOT / "_config.yml").read_text(encoding="utf-8")
         self.assertIn("  - .velog-sync", config)
 
+    def test_pwa_cache_uses_blank_value_during_unregistration_migration(self) -> None:
+        config = yaml.safe_load((ROOT / "_config.yml").read_text(encoding="utf-8"))
+        self.assertIs(config["pwa"]["enabled"], True)
+        self.assertIsNone(config["pwa"]["cache"]["enabled"])
+
+    def test_pwa_migration_worker_purges_cache_and_unregisters(self) -> None:
+        worker = (ROOT / "assets/js/dist/sw.min.js").read_text(encoding="utf-8")
+        self.assertIn("self.skipWaiting()", worker)
+        self.assertIn("caches.delete(name)", worker)
+        self.assertIn("self.clients.claim()", worker)
+        self.assertIn("self.registration.unregister()", worker)
+        self.assertNotIn("addEventListener('fetch'", worker)
+
 
 if __name__ == "__main__":
     unittest.main()

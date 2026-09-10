@@ -151,7 +151,9 @@ assets:
 pwa:
   enabled: true # The option for PWA feature (installable)
   cache:
-    enabled: true # The option for PWA offline cache
+    # Intentionally blank during the Service Worker removal migration.
+    # Do not use `false`: Chirpy 7.6 renders it as the truthy query string "false".
+    enabled:
     # Paths defined here will be excluded from the PWA cache.
     # Usually its value is the `baseurl` of another website that
     # shares the same domain name as the current website.
