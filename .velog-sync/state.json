@@ -27,9 +27,9 @@
     "24104f88-d139-4945-b4d0-a020b26912b2": {
       "body_source": "graphql",
       "categories": [
-        "[C++] Archive"
+        "C++"
       ],
-      "content_hash": "sha256:dfa65a7850c79af3378c48ce014639c3862b169fa4adfebda2fa15706464f49c",
+      "content_hash": "sha256:c29a150daf51b12027e67b1f6f93053fbf5e857beea2805ae2c712c33c407f81",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/c0cbdf1d-71c9-40a9-8e66-257a7dbf82a9/image.png": {
           "content_type": "image/png",
@@ -38,22 +38,29 @@
           "size": 316261
         }
       },
-      "metadata_hash": "sha256:0ff0d1bf13ea3b76ba0e036abb0ab137546f1725a5a2b189d974eae342b912fc",
+      "metadata_hash": "sha256:9e79da06b71559489e7747b2c4294abf1efdf185e983152f9b06a77c2d4ab8b5",
       "post_path": "_posts/2024-11-02-C-객체지향프로그래밍1-C-language-review-Chapter-3-7.md",
       "published_at": "2024-11-02T07:30:32.999Z",
-      "rendered_sha256": "sha256:41719b9e8f9d8d77e6f5c840817e59ceced2d1d4132b8468c88202bbacf4bf83",
+      "rendered_sha256": "sha256:33046450920225971962008e3697793e60a7ad7048958e135c2c36df76551104",
       "source_slug": "C-객체지향프로그래밍1-C-language-review-Chapter-3-7",
-      "source_updated_at": "2026-09-09T05:00:32.167Z",
+      "source_updated_at": "2026-09-10T07:08:23.573Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-C-language-review-Chapter-3-7",
-      "thumbnail": null,
+      "thumbnail": {
+        "content_type": "image/png",
+        "kind": "velog",
+        "path": "assets/img/velog/24104f88-d139-4945-b4d0-a020b26912b2/69687ec4e3e87fcd5855a6007d4ab7bbca361164e6ac32108601f81856f721b7.png",
+        "sha256": "sha256:23fc889054126785c55e14618b4ce42f682851383369a4c760e580b9e39af630",
+        "size": 494326,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/9a379205-168a-46c9-9b34-c5868fed4d0f/image.png"
+      },
       "title": "[C++] 객체지향프로그래밍1 : C-language review (Chapter 3 - 7)"
     },
     "2b9b7e47-2e14-4612-ab10-e6c81055dd8e": {
       "body_source": "graphql",
       "categories": [
-        "[C++] Archive"
+        "C++"
       ],
-      "content_hash": "sha256:517b67d0ddb3a510e1a5947439e666372e126c7170e0928f10e1f48dc440e60f",
+      "content_hash": "sha256:de15b67a4c246420ff1bbadd4146a15d588a1b0822bb59518cd27331db96d0fb",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/022dfd43-b5bc-4a4b-afa2-9464a2481a44/image.png": {
           "content_type": "image/png",
@@ -80,10 +87,10 @@
           "size": 33884
         }
       },
-      "metadata_hash": "sha256:1a92f5642984416d88e83fd01ec71558ad603e8df94e23722ef75aae367b4c8a",
+      "metadata_hash": "sha256:f89c312590cfefc3900948995d69a3a6e8452bffe5c3ff2dd5eeef1218b21ea3",
       "post_path": "_posts/2024-11-10-C-객체지향프로그래밍1-Lambda-Expression-Namespace-ADL-Nested-Class-chapter-17-18.md",
       "published_at": "2024-11-10T08:29:58.685Z",
-      "rendered_sha256": "sha256:274d4f5cf083dbc5801e1e79c922fbee3d129bf554b86d96b6d11cf7c25a6540",
+      "rendered_sha256": "sha256:337eaa12d03ab631691cd3c6a2391afb852e67b2472981148c523c11dac8e47e",
       "source_slug": "C-객체지향프로그래밍1-Lambda-Expression-Namespace-ADL-Nested-Class-chapter-17-18",
       "source_updated_at": "2026-09-09T21:13:39.010Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-Lambda-Expression-Namespace-ADL-Nested-Class-chapter-17-18",
@@ -176,9 +183,9 @@
     "3bbd2352-464c-4b86-be90-a7f08b232073": {
       "body_source": "graphql",
       "categories": [
-        "[C++] Archive"
+        "C++"
       ],
-      "content_hash": "sha256:c89854e618d1fcd6fda3f039c9ffaf0a42043fae533e6bdfb27055d927691c4f",
+      "content_hash": "sha256:06f739c890935f046ac14fdd797de1b3badbf22dcd08787cd429fc1af387b2c4",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/b39a7b32-0625-486d-9bd2-d3f95b6d6eec/image.png": {
           "content_type": "image/png",
@@ -187,10 +194,10 @@
           "size": 46211
         }
       },
-      "metadata_hash": "sha256:c6219dafbb818d44278e9238954a2bf702a84a68f541bee2300a8d3fe7f90df6",
+      "metadata_hash": "sha256:1dddc289abd2f1d2553aedbbf66f92079882e6bd2a119663d0d48e32fea31887",
       "post_path": "_posts/2024-11-10-C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15.md",
       "published_at": "2024-11-10T08:04:38.183Z",
-      "rendered_sha256": "sha256:99895f748508b323e3fb17741fd4947593be35f47694629f9f734e011f2ad7a2",
+      "rendered_sha256": "sha256:fe5ed4845e96754897b31defac9ed5a4892271f185224e444d3168419eddc62c",
       "source_slug": "C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15",
       "source_updated_at": "2026-09-01T18:56:42.088Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15",
@@ -318,9 +325,9 @@
     "461d37cf-5955-4b3a-9b6a-414c60fc9863": {
       "body_source": "graphql",
       "categories": [
-        "[C++] Archive"
+        "C++"
       ],
-      "content_hash": "sha256:4d377af88dec03f03d4a9df4172f6ba8225573d56cd55606270aac524ccfc0e2",
+      "content_hash": "sha256:527daffe55730a2306dcfbce7572d2549840eccc2fbc86116766ff926fd847b7",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/0c1b2236-b197-40b6-97b7-b18dbbf65c81/image.png": {
           "content_type": "image/png",
@@ -341,10 +348,10 @@
           "size": 323617
         }
       },
-      "metadata_hash": "sha256:0cb1b671378128f8c7c7b1daf51063c42e9bff69558770945bbe815b73663ce4",
+      "metadata_hash": "sha256:ca8952871991bd07307896d9fed0e462bf78fae7fb41aca69248bac059d84df7",
       "post_path": "_posts/2024-11-09-C-객체지향프로그래밍1-C언어-복습-Chapter-8-12.md",
       "published_at": "2024-11-09T10:41:27.488Z",
-      "rendered_sha256": "sha256:7d699bd5e1a431f03e88e238960aae77dd8f5a83b2cdfeffb128c8f497dc1858",
+      "rendered_sha256": "sha256:4097d1d8fbfe54b8356c70a2f6cf53b5571fa045597d428f5120570a4d9b40be",
       "source_slug": "C-객체지향프로그래밍1-C언어-복습-Chapter-8-12",
       "source_updated_at": "2026-09-09T13:34:45.187Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-C%EC%96%B8%EC%96%B4-%EB%B3%B5%EC%8A%B5-Chapter-8-12",
@@ -566,7 +573,7 @@
       "categories": [
         "[Java] Archive"
       ],
-      "content_hash": "sha256:0f094816e0fa3fe107fb25c80aab9fcca67a8490c8980cd00f41102d71952556",
+      "content_hash": "sha256:a9ded19085171b22efcbd540ebae0bf7c0c7ddba4d428d03767504b8eab912d5",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/22388ac3-f104-4ad4-b5b4-6661e24ade58/image.jpeg": {
           "content_type": "image/jpeg",
@@ -581,14 +588,21 @@
           "size": 286096
         }
       },
-      "metadata_hash": "sha256:c9d8bf93cf7b3d2adce439171ba0b8155609bcc8ff5455ca53455ed6b09546f3",
+      "metadata_hash": "sha256:bd46bd3ab6feac5d5d01c4b53a4427d511ec315e27ddcf2eb13fb2414faeb2d3",
       "post_path": "_posts/2025-03-08-Java-Dynamic-Method-Dispatch-V-Table-JVM.md",
       "published_at": "2025-03-08T13:36:16.054Z",
-      "rendered_sha256": "sha256:0f2aa43827a1916c69593800eed74ff534c67a195fe802884953088748fbbf8c",
+      "rendered_sha256": "sha256:8dbdf2f4b8eedcb7b119115fc627626269a282d8ead611c8d48be7acd6206cc2",
       "source_slug": "Java-Dynamic-Method-Dispatch-V-Table-JVM",
-      "source_updated_at": "2026-09-09T09:23:36.492Z",
+      "source_updated_at": "2026-09-10T07:07:41.022Z",
       "source_url": "https://velog.io/@ilwha/Java-Dynamic-Method-Dispatch-V-Table-JVM",
-      "thumbnail": null,
+      "thumbnail": {
+        "content_type": "image/webp",
+        "kind": "velog",
+        "path": "assets/img/velog/7bd24f35-d6e6-471c-becc-2dbb512acc4d/b1d9c8ae50122631fb7eb96f11619cbc173dc903f1c1eb9270210c94d5ccd6da.webp",
+        "sha256": "sha256:d5b40a69322d8987faf6f2648ae9d5867b23f2f7ddc1dc466bdc1ed2a503b369",
+        "size": 310862,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/42c7e16a-fdd3-4539-9b6c-55959b9cb800/image.webp"
+      },
       "title": "[Java] Dynamic Method Dispatch & V-Table (JVM)"
     },
     "7d4c85ee-4617-427a-8666-f6e98067001e": {
@@ -1622,6 +1636,103 @@
       "source_updated_at": "2026-09-01T18:54:29.039Z",
       "source_url": "https://velog.io/@ilwha/DataStructures-Binary-Search-%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89",
       "title": "[Data_Structures] Binary Search (이진탐색)"
+    },
+    "e023351c-1668-4585-80bc-d2c152a16821": {
+      "body_source": "graphql",
+      "categories": [
+        "Paper"
+      ],
+      "content_hash": "sha256:259051c0096a0c8b820815f91e15f14eee7f9b203a7b2b9f5d0fbdb2a402c6e4",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/06eea5ba-db0a-4e4c-ad15-092860c6fb5c/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/19b796295fa2dd2ce9148185d9fdbe78c1dc8c6bb867c161141e8ea6a5819de8.png",
+          "sha256": "sha256:2af6083a1c4779c4dcd9bb03b8916c2c9f99e29f30cb03e179641ad698e25865",
+          "size": 221072
+        },
+        "https://velog.velcdn.com/images/ilwha/post/0f80afa8-5eed-43d3-a612-c702b73be414/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/20130bfb33d34ea66e1df243daa5337d4fb318aa7cdfeec9dc4ab1144ea058e7.png",
+          "sha256": "sha256:8290c696bf21197aced14788c3c47cdcb0c2e217f8cfa2c4952638cdd46c8615",
+          "size": 382845
+        },
+        "https://velog.velcdn.com/images/ilwha/post/2ec9de2c-59fe-41a5-8dd7-9baeba789e43/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/95e5b0568624d97a620391873e6c666bb6ae7bc4fead83a3136b290a1ad7311f.png",
+          "sha256": "sha256:ed80229364077ea207142e7c4ae7c47508c2dcd356886cda644432d846f7ca28",
+          "size": 277256
+        },
+        "https://velog.velcdn.com/images/ilwha/post/343f4a75-90be-4404-9b5e-a4ccd69d5573/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/5c4bee7fec60e661968d72e36b654ac9498d991c95608841b82f5cfb2202413a.png",
+          "sha256": "sha256:2a98770faaabf4c4414959b9f841255cbadc8c05bc1becc6168615ae69652a3e",
+          "size": 166094
+        },
+        "https://velog.velcdn.com/images/ilwha/post/3574f2ab-1b48-4d20-be5e-e59629548d2b/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/4a288bbf32baa6e3824c8ebb1b3692ccfc956788e6f56cbef6f86fb708c8c72d.png",
+          "sha256": "sha256:2817bef570527f23732a78051dacd344e8691c88dc4d464e52f50be7b0c6ed52",
+          "size": 99401
+        },
+        "https://velog.velcdn.com/images/ilwha/post/45ecea90-8c67-4d1f-894d-dd389862bdfd/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/280fa69e660ba40affd7737ef89b9180990015277c6f9f5e3d29977db33b3481.png",
+          "sha256": "sha256:73b2689f1975ab295a2c44da8912c57b88adbc49bceb28f0836a2b087aa26d53",
+          "size": 109726
+        },
+        "https://velog.velcdn.com/images/ilwha/post/4cc586a2-79ee-4c53-9d71-ea91bcaa8eb2/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/65590ea1eaa174f2b4e91993d02a22fc561d80ea455c9f86290a8b12d427101d.png",
+          "sha256": "sha256:9160fc7e4e600f89c93d00ef49c5895004058ae681bc0a6ba2c43b7ea18054b6",
+          "size": 295486
+        },
+        "https://velog.velcdn.com/images/ilwha/post/8f5da35f-7837-48b8-8042-d9d0a7f7fd44/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/e3648d584d408f1f4a2b6f118584a50e5e1f54ae2f228724d834782e512a3e24.png",
+          "sha256": "sha256:675df92888b94c2dde7505756c0e5bdae742ca25ccb2cb1dfd6fd55e23d5efcf",
+          "size": 425136
+        },
+        "https://velog.velcdn.com/images/ilwha/post/94c480d4-2856-4a47-ab2f-6602ed2c2573/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/b0a866dab007a3915e71282d4bf4295e9e4b88e3e58546d516c2177ccf85ef90.png",
+          "sha256": "sha256:476ac5fb885d55ffbb4226c66bcae9eb20865464cfafbb72cf2475990153f2e5",
+          "size": 324986
+        },
+        "https://velog.velcdn.com/images/ilwha/post/957eef66-45b1-46bd-9930-3cad818b51c6/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/12403965afb6184f8d7a330ea69ffea93e26e068f4c62837b59c9bbbbdcb7bcb.png",
+          "sha256": "sha256:eaece9f0460fb731cb7e9177ecb77fbb90a5b48de93eae83583d250af67dae06",
+          "size": 142794
+        },
+        "https://velog.velcdn.com/images/ilwha/post/9a44e02e-01de-4b00-afcf-24980c3ed7ee/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/3d8f9723b30c843a318f6c9ab84275acce7f5e8b1955dbfcd0f95f28309fe70a.png",
+          "sha256": "sha256:9cbb99fd0c808156bd93c72f1e74a47147a4e8decfef8becf96a5583dba40723",
+          "size": 1114496
+        },
+        "https://velog.velcdn.com/images/ilwha/post/c618c6d0-55b6-4867-8bfd-692ee6beede3/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/270b531542fe6eae7d7a107871f34ba9e45686288fe3dcfa3fb05d193770e7fd.png",
+          "sha256": "sha256:15e221fecbb11b9ce24a2ea2e7732ab4c61cf0d8e4f1294690f80c7670b4132c",
+          "size": 338871
+        }
+      },
+      "metadata_hash": "sha256:8e819b9bced7511cba7b2bd554b20b6d71ae28ae773a31e569bbd0eeb0a8bf53",
+      "post_path": "_posts/2026-09-10-Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models.md",
+      "published_at": "2026-09-10T07:06:03.076Z",
+      "rendered_sha256": "sha256:b98903925a269fdd79a36904cbe37a10316d5f04d1d83ed3d4b613555a6d3288",
+      "source_slug": "Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
+      "source_updated_at": "2026-09-10T07:28:02.209Z",
+      "source_url": "https://velog.io/@ilwha/Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
+      "thumbnail": {
+        "content_type": "image/webp",
+        "kind": "velog",
+        "path": "assets/img/velog/e023351c-1668-4585-80bc-d2c152a16821/5de4343d75d7663b8000ebe8d526bc3bce9aec50091ba85575b48ebba5430f36.webp",
+        "sha256": "sha256:cc4de035dfbccc3b0d99d6ff315a3d440deda04e0d344ecaa8f7d766799228b8",
+        "size": 312174,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/9f32e55c-c719-4ffd-a384-93367ca49db4/image.webp"
+      },
+      "title": "[Paper] LoRA: Low-Rank Adaptation of Large Language Models"
     },
     "e4107974-4393-4fec-84dd-318cdb9e56af": {
       "body_source": "graphql",

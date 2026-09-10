@@ -3,7 +3,7 @@ title: "[C++] 객체지향프로그래밍1 : Lambda Expression / Namespace / ADL
 date: 2024-11-10 17:29:58 +0900
 last_modified_at: 2026-09-10 06:13:39 +0900
 categories:
-  - "[C++] Archive"
+  - "C++"
 thumbnail:
   path: "/assets/img/velog/2b9b7e47-2e14-4612-ab10-e6c81055dd8e/1a6537ad1010cab1056a99dc3a77033ffc3da9fe8a26eae0a55eb826735f1cb3.jpg"
   alt: "[C++] 객체지향프로그래밍1 : Lambda Expression / Namespace / ADL / Nested Class (chapter 17 - 18)"

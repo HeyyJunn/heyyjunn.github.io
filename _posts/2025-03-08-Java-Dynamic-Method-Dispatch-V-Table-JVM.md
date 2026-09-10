@@ -1,9 +1,12 @@
 ---
 title: "[Java] Dynamic Method Dispatch & V-Table (JVM)"
 date: 2025-03-08 22:36:16 +0900
-last_modified_at: 2026-09-09 18:23:36 +0900
+last_modified_at: 2026-09-10 16:07:41 +0900
 categories:
   - "[Java] Archive"
+thumbnail:
+  path: "/assets/img/velog/7bd24f35-d6e6-471c-becc-2dbb512acc4d/b1d9c8ae50122631fb7eb96f11619cbc173dc903f1c1eb9270210c94d5ccd6da.webp"
+  alt: "[Java] Dynamic Method Dispatch & V-Table (JVM)"
 render_with_liquid: false
 ---
 >💡 이 게시글은 김영한 강사님의 자바 강의를 수강하며 학습한 내용을 중요한 키워드 중심으로 정리한 개인 학습 기록입니다. **오직 기억 복기를 위한 목적으로 작성되었으며, 모든 내용을 포함하지 않으므로 체계적인 학습 자료로는 적합하지 않습니다.** 

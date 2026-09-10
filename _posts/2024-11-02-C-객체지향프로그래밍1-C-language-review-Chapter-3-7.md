@@ -1,9 +1,12 @@
 ---
 title: "[C++] 객체지향프로그래밍1 : C-language review (Chapter 3 - 7)"
 date: 2024-11-02 16:30:32 +0900
-last_modified_at: 2026-09-09 14:00:32 +0900
+last_modified_at: 2026-09-10 16:08:23 +0900
 categories:
-  - "[C++] Archive"
+  - "C++"
+thumbnail:
+  path: "/assets/img/velog/24104f88-d139-4945-b4d0-a020b26912b2/69687ec4e3e87fcd5855a6007d4ab7bbca361164e6ac32108601f81856f721b7.png"
+  alt: "[C++] 객체지향프로그래밍1 : C-language review (Chapter 3 - 7)"
 render_with_liquid: false
 ---
 > 이 게시글은 대학교 객체지향프로그래밍1 (C++) 강의를 수강하며 교수님의 강의를 정리한 것입니다. **오직 개인적인 학습 기록으로 활용하기 위한 용도로 작성되었으며, 가독성이나 체계적인 정리가 부족할 수 있습니다.**
