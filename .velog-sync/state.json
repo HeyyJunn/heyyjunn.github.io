@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:62dfe75a91e22f221d89044b43eaf6248478e7e8c61763621d9f5fb8f9ddbe53",
+      "content_hash": "sha256:5d7e2c58701f3dc08236c746f246c802edc384efcc4be542373bf658aeb5f2b3",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:4121f73e9a498bd9ded1713bdaeeaa1c57acb67bb4cb82d90958406bbac8cc2a",
+      "metadata_hash": "sha256:484cf71e7017b9bcc8f9f4b2ec908a2e5f51e959cc51d229a66364d3a7672a31",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:9176722ec3aa291cc2ff547b8b35b9909183f728692096a6862e270ff94b7272",
+      "rendered_sha256": "sha256:3bcfe15578d4e1291298d91cad6aab8e11da1898b85152936c0ebd8eb792e7af",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-09-10T08:02:01.651Z",
+      "source_updated_at": "2026-09-10T08:28:36.669Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
@@ -767,7 +767,7 @@
     "8916fba7-4c88-4768-aa6a-374feba00f14": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:4693c7b285e8b2fbe19b908abfecde44524b88e1657e7603ed344c33e8894d9c",
+      "content_hash": "sha256:01ad59fe1e8c3b4106f8690097dddeb02e378981797bf3116750c1ae9ef9cc00",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
           "content_type": "image/png",
@@ -818,12 +818,12 @@
           "size": 49195
         }
       },
-      "metadata_hash": "sha256:6564262b3c866768d4d2f6d12e344cdf3846ef5d501d68a36a5040012bf7c155",
+      "metadata_hash": "sha256:846f0d4845f3381310fae87fdf2d50d2bb23c244ab84a19264286a195f640d81",
       "post_path": "_posts/2025-07-03-Spring.md",
       "published_at": "2025-07-03T01:06:55.486Z",
-      "rendered_sha256": "sha256:f55c1881e2373c994649a1f0124a5bc594f7da18e2be1c1cebbd01dd6e9c53d2",
+      "rendered_sha256": "sha256:6e10a793ae24d98d954a5e592cf0885736049da1356750e3364caa5358204c99",
       "source_slug": "Spring",
-      "source_updated_at": "2026-09-08T00:39:55.621Z",
+      "source_updated_at": "2026-09-10T08:18:26.017Z",
       "source_url": "https://velog.io/@ilwha/Spring",
       "thumbnail": {
         "content_type": "image/jpeg",
