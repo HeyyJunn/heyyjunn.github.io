@@ -676,6 +676,13 @@ class RepositoryPolicyTests(unittest.TestCase):
         self.assertIn("jekyll-theme-chirpy", footer)
         self.assertIn("{% endcomment %}", footer)
 
+    def test_read_time_is_retained_inside_liquid_comment(self) -> None:
+        read_time = (ROOT / "_includes/read-time.html").read_text(encoding="utf-8")
+        self.assertIn("{% comment %}", read_time)
+        self.assertIn('class="readtime"', read_time)
+        self.assertIn("number_of_words", read_time)
+        self.assertIn("{% endcomment %}", read_time)
+
 
 if __name__ == "__main__":
     unittest.main()
