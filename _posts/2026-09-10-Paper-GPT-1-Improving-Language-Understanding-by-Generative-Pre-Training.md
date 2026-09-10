@@ -1,7 +1,7 @@
 ---
 title: "[Paper] GPT-1: Improving Language Understanding by Generative Pre-Training"
 date: 2026-09-10 16:51:11 +0900
-last_modified_at: 2026-09-10 16:51:11 +0900
+last_modified_at: 2026-09-10 17:02:01 +0900
 categories:
   - "Paper"
 thumbnail:
@@ -24,7 +24,6 @@ GPT-1은 **대규모 비지도 텍스트로 Transformer 언어모델을 먼저 �
 즉 핵심 흐름은 **텍스트 입력 → Transformer → hidden representations → 다음 단어 예측 또는 downstream task 정답 출력**
 
 # 1. Introduction
-
 
 - 논문의 저자들이 주장하고자 하는 background: Unlabeled dataset ↔ Labeled dataset 을 비교했을 때 Unlabeled dataset 의 양이 훨씬 많음.
     

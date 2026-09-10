@@ -3,14 +3,14 @@
     "039e20bd-5c5d-442a-8170-285a3f991802": {
       "body_source": "graphql",
       "categories": [
-        "[React.Js] Archive"
+        "React.JS"
       ],
-      "content_hash": "sha256:82752a154876fa3f930c53faca04df62211587c5e97e90262f1c0444f6775d93",
+      "content_hash": "sha256:1f8f56d2a1156d85b07eff7dfaaae1978018dfd760e3426c90189ba1bdf1bf94",
       "images": {},
-      "metadata_hash": "sha256:5595a8cd1c7a79e092536a9b10c62e87abb10a48feb1924bba97aa8f9e6eb970",
+      "metadata_hash": "sha256:1a42a5291485e02473d3c619146482bddccea545c7d24c64eceef28cbc1a7757",
       "post_path": "_posts/2025-02-02-React.JS-useReducer-useMemo-useCallback.md",
       "published_at": "2025-02-02T12:29:20.693Z",
-      "rendered_sha256": "sha256:6c7019b733cef3d174a128c9f105658a7f00bfadd04527edfc0852562c64ca1d",
+      "rendered_sha256": "sha256:fd07e0beb884a7c4f97321dd11066b8c04482d11182fd467bd991a32e2226e8d",
       "source_slug": "React.JS-useReducer-useMemo-useCallback",
       "source_updated_at": "2026-09-06T09:10:55.612Z",
       "source_url": "https://velog.io/@ilwha/React.JS-useReducer-useMemo-useCallback",
@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:a6a60c8fcfac61875fd70a583ac479b172714518e3dd67e03d246aff3e57d6c5",
+      "content_hash": "sha256:62dfe75a91e22f221d89044b43eaf6248478e7e8c61763621d9f5fb8f9ddbe53",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:0fe4f92d6a4975863f560ff822898049594c54070993cd488976f33f39d3ff41",
+      "metadata_hash": "sha256:4121f73e9a498bd9ded1713bdaeeaa1c57acb67bb4cb82d90958406bbac8cc2a",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:3f6ac977158f74264ae6fca2a0005964ef40ab0c9ae6e00577a75828c1955450",
+      "rendered_sha256": "sha256:9176722ec3aa291cc2ff547b8b35b9909183f728692096a6862e270ff94b7272",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-09-10T07:51:11.880Z",
+      "source_updated_at": "2026-09-10T08:02:01.651Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
@@ -232,14 +232,14 @@
     "37a2bbb0-0fe1-4a3b-8de3-405a08a9e1b7": {
       "body_source": "graphql",
       "categories": [
-        "[Java] Archive"
+        "Java"
       ],
-      "content_hash": "sha256:312963f7238c439cceb3473a8f312fea5c74af6f274387e07d802ece11e78bb2",
+      "content_hash": "sha256:1f5e92e5a1650f567cad64de327f833754a86510876a1d5a8f5fd953f2f8e40f",
       "images": {},
-      "metadata_hash": "sha256:bad5c1f3758b9642065abd586ac948548928b2ca53cbdc6dfc1ac00645955d53",
+      "metadata_hash": "sha256:82d79f514f16894f8568f0abd0386855e73c0a058627635922845383ad7fd964",
       "post_path": "_posts/2025-03-14-Java-Polymorphism.md",
       "published_at": "2025-03-14T11:31:33.993Z",
-      "rendered_sha256": "sha256:cfcde445d0aea985a453b802f1871d47dae0da6d6c74a88cd951cd9fe5751117",
+      "rendered_sha256": "sha256:f84c83753a226e23db6189c4a62699dbc01ac04c8ef9088f16410d3c19ca1cd2",
       "source_slug": "Java-Polymorphism",
       "source_updated_at": "2026-09-01T18:56:04.481Z",
       "source_url": "https://velog.io/@ilwha/Java-Polymorphism",
@@ -644,9 +644,9 @@
     "7bd24f35-d6e6-471c-becc-2dbb512acc4d": {
       "body_source": "graphql",
       "categories": [
-        "[Java] Archive"
+        "Java"
       ],
-      "content_hash": "sha256:a9ded19085171b22efcbd540ebae0bf7c0c7ddba4d428d03767504b8eab912d5",
+      "content_hash": "sha256:17f4a038a30698a271517411e146fa4abea4b12661b168f8735076e2cfd5e93c",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/22388ac3-f104-4ad4-b5b4-6661e24ade58/image.jpeg": {
           "content_type": "image/jpeg",
@@ -661,10 +661,10 @@
           "size": 286096
         }
       },
-      "metadata_hash": "sha256:bd46bd3ab6feac5d5d01c4b53a4427d511ec315e27ddcf2eb13fb2414faeb2d3",
+      "metadata_hash": "sha256:e06937fa3db4ccf8e659b1088ca1eab0bab656f14b5b7e9d77835b3c9ca8a597",
       "post_path": "_posts/2025-03-08-Java-Dynamic-Method-Dispatch-V-Table-JVM.md",
       "published_at": "2025-03-08T13:36:16.054Z",
-      "rendered_sha256": "sha256:8dbdf2f4b8eedcb7b119115fc627626269a282d8ead611c8d48be7acd6206cc2",
+      "rendered_sha256": "sha256:c109445139ed302d69a9aae142caf3fc25c95295ab6f49fc91b6ffc55aca243a",
       "source_slug": "Java-Dynamic-Method-Dispatch-V-Table-JVM",
       "source_updated_at": "2026-09-10T07:07:41.022Z",
       "source_url": "https://velog.io/@ilwha/Java-Dynamic-Method-Dispatch-V-Table-JVM",
@@ -1518,14 +1518,14 @@
     "cf211993-d985-4368-9091-dd1cb1b952a2": {
       "body_source": "graphql",
       "categories": [
-        "[Java] Archive"
+        "Java"
       ],
-      "content_hash": "sha256:89536bfcacfdc129dc19ed211b1b62f7ecdb4e216c23ab8f714dca1fb80f912f",
+      "content_hash": "sha256:8e27bebbb83cf43af8f1cc1a3558580541411895e64dcff685b998f5db37938f",
       "images": {},
-      "metadata_hash": "sha256:24c0f64f3858935f48946ddda93d91c2350cbc09305b6b48397bda378ef59f5b",
+      "metadata_hash": "sha256:08150bb7734552f00fd110fc8b6593bee4b008073101f29ab124e7ce412332c5",
       "post_path": "_posts/2025-03-18-Java-Object-Class-Immutable-Object.md",
       "published_at": "2025-03-18T09:56:00.530Z",
-      "rendered_sha256": "sha256:a14b124bf93d3e72d93915aef71aae791195762fb7f5f661ea7346f324000cab",
+      "rendered_sha256": "sha256:613899f2a13f5fa5ad10d8336d3195a6fe2c45236c8e03835c9b415b56f39c5c",
       "source_slug": "Java-Object-Class-Immutable-Object",
       "source_updated_at": "2026-09-01T18:56:11.197Z",
       "source_url": "https://velog.io/@ilwha/Java-Object-Class-Immutable-Object",
@@ -1715,7 +1715,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:259051c0096a0c8b820815f91e15f14eee7f9b203a7b2b9f5d0fbdb2a402c6e4",
+      "content_hash": "sha256:dad26e697ee40d24a28a0cf00864922fbe5c79821a22cc1ec69d397549e0ace9",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/06eea5ba-db0a-4e4c-ad15-092860c6fb5c/image.png": {
           "content_type": "image/png",
@@ -1790,12 +1790,12 @@
           "size": 338871
         }
       },
-      "metadata_hash": "sha256:8e819b9bced7511cba7b2bd554b20b6d71ae28ae773a31e569bbd0eeb0a8bf53",
+      "metadata_hash": "sha256:1ddd82e3a4b4ad6e78e808bad31371fb9fdf6351c3eaee68bb707af915fc76e6",
       "post_path": "_posts/2026-09-10-Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models.md",
       "published_at": "2026-09-10T07:06:03.076Z",
-      "rendered_sha256": "sha256:b98903925a269fdd79a36904cbe37a10316d5f04d1d83ed3d4b613555a6d3288",
+      "rendered_sha256": "sha256:4d7593dd50f7d38ebf5866876835b461952bffc55a59672aaf4a271be8c21fe8",
       "source_slug": "Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
-      "source_updated_at": "2026-09-10T07:28:02.209Z",
+      "source_updated_at": "2026-09-10T07:58:34.963Z",
       "source_url": "https://velog.io/@ilwha/Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
       "thumbnail": {
         "content_type": "image/webp",
@@ -1810,14 +1810,14 @@
     "e4107974-4393-4fec-84dd-318cdb9e56af": {
       "body_source": "graphql",
       "categories": [
-        "[Java] Archive"
+        "Java"
       ],
-      "content_hash": "sha256:1f529d6644140f454056682f89e1bfe8b11bdb2bd257aac3317f92609312cd43",
+      "content_hash": "sha256:19f0660e2b8b4c552eb444e721531a0857db8ec9888ffb61a1b13424dd6c9c99",
       "images": {},
-      "metadata_hash": "sha256:94b5950427349c399f63c1e22d34c829406362a43f5d2813899a4f5b677f96fe",
+      "metadata_hash": "sha256:cb87539209003af9beb371e7aba598629287b69d4c539d72c8035bac9daf742f",
       "post_path": "_posts/2025-03-24-dvhiut7k.md",
       "published_at": "2025-03-23T15:29:31.798Z",
-      "rendered_sha256": "sha256:3eda3e6ad0d81d29729090d6aa02cb05179800776dffd726ad8c9761636f921d",
+      "rendered_sha256": "sha256:38aad9b38bfdf86e9a2c494b7519ce68e67129e9a20e277804d11800f16432fc",
       "source_slug": "dvhiut7k",
       "source_updated_at": "2026-09-01T18:55:37.496Z",
       "source_url": "https://velog.io/@ilwha/dvhiut7k",
@@ -1930,9 +1930,9 @@
     "efdd96a3-22b3-4e08-854f-46a6cbbd0514": {
       "body_source": "graphql",
       "categories": [
-        "[React.Js] Archive"
+        "React.JS"
       ],
-      "content_hash": "sha256:d86c247875e0bc65e6136afc88722e4011ff6ec4b36142625f759a18fa80fd07",
+      "content_hash": "sha256:1a07a63b8ea41fac9020360f9d8a17b8f5244bf51306421bf9785ef162e94c0d",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/9be990da-cdc1-4943-b837-903977731f2a/image.png": {
           "content_type": "image/png",
@@ -1953,10 +1953,10 @@
           "size": 47936
         }
       },
-      "metadata_hash": "sha256:18aa9c897124695880fe8ff21cf23c5190b54d629b15851ffdda0181b231ef22",
+      "metadata_hash": "sha256:91ba605fd1381409f7b041f418be6e56c0a23b0267f073cd291883f25b3b16c8",
       "post_path": "_posts/2025-01-26-React.JS-Mini-Project-Todo-List.md",
       "published_at": "2025-01-25T17:59:28.475Z",
-      "rendered_sha256": "sha256:61538bcc073112159e720e6d5a4904f4e270c39fa99087e572534f3638a2560a",
+      "rendered_sha256": "sha256:e6a83cbdd47977b982e58dabc30e45b31a7704058e3f46e9362b6c2a93b67b6e",
       "source_slug": "React.JS-Mini-Project-Todo-List",
       "source_updated_at": "2026-09-01T18:56:24.387Z",
       "source_url": "https://velog.io/@ilwha/React.JS-Mini-Project-Todo-List",

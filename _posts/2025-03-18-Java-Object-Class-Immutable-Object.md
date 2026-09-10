@@ -3,7 +3,7 @@ title: "[Java] Object Class, Immutable Object"
 date: 2025-03-18 18:56:00 +0900
 last_modified_at: 2026-09-02 03:56:11 +0900
 categories:
-  - "[Java] Archive"
+  - "Java"
 thumbnail:
   path: "/assets/img/velog/cf211993-d985-4368-9091-dd1cb1b952a2/f340b9b2ab3bfdbda7e069de204203c35a60fa3f785f3e7fe00d8e0e2aae3331.jpg"
   alt: "[Java] Object Class, Immutable Object"

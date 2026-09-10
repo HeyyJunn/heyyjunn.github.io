@@ -3,7 +3,7 @@ title: "[Java] Polymorphism"
 date: 2025-03-14 20:31:33 +0900
 last_modified_at: 2026-09-02 03:56:04 +0900
 categories:
-  - "[Java] Archive"
+  - "Java"
 thumbnail:
   path: "/assets/img/velog/37a2bbb0-0fe1-4a3b-8de3-405a08a9e1b7/00bc1e9539f68d2e5bd93c7911d6e950200c3afafea695a1beda4401843833b9.jpg"
   alt: "[Java] Polymorphism"
