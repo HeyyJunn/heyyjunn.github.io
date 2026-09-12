@@ -1,7 +1,7 @@
 ---
 title: "[Paper] LoRA: Low-Rank Adaptation of Large Language Models"
 date: 2026-09-10 16:06:03 +0900
-last_modified_at: 2026-09-10 16:58:34 +0900
+last_modified_at: 2026-09-12 10:43:09 +0900
 categories:
   - "Paper"
 thumbnail:
