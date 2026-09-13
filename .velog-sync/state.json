@@ -584,6 +584,67 @@
       "source_url": "https://velog.io/@ilwha/Py-Notion-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EC%9A%94%EC%86%8C%EB%93%A4",
       "title": "[파이썬] Notion📚 : 파이썬의 기본 요소들 01"
     },
+    "6545ba41-c62a-4dd0-bd0a-acd12767e755": {
+      "body_source": "graphql",
+      "categories": [
+        "Paper"
+      ],
+      "content_hash": "sha256:7877f5636527177ab2df70b6e31abce8acfa0b4d703cd99cc62830c4cbf14994",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/1f97e1dd-7bb6-4343-aeb6-1ffff1e0c406/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/5f7aa003ed5b328311a116dc22f46851d01d778ffb263bc35143a17b15fc8cd7.png",
+          "sha256": "sha256:65ed4c256b44f7d5fd1e269282b54de0b2f89bea636fc4aeac274cbbfb30d3a7",
+          "size": 599928
+        },
+        "https://velog.velcdn.com/images/ilwha/post/be1137ae-5ffb-4ced-9fe5-f738a90a1502/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/a63c1c2ffe0798452ecb6851878ca5490aa27c625ce966848a08dea5cd7c0192.png",
+          "sha256": "sha256:12093bd3f7f90379903a731721c2c38bdb085ac8e048e2464471549481a7acc7",
+          "size": 25759
+        },
+        "https://velog.velcdn.com/images/ilwha/post/c2db14d3-c731-4bb9-a947-7dd30eb2f4d6/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/aee705a49e6c651efce093839c1b878328b233a0bd97189d10350db2ff060648.png",
+          "sha256": "sha256:7c9dbcac5c6513f19551fd24f1cfdbb6df594c64d93d6e1166f9dd1ea4e74059",
+          "size": 25987
+        },
+        "https://velog.velcdn.com/images/ilwha/post/c560c9e1-9b08-47ce-b49d-00613614bd6d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/219770e8bf806e639b24c2a38d3f78c3a33ab4e8c6826e2cc3cab018bcfde7c4.png",
+          "sha256": "sha256:250964b6f4b90b74aaac59fc518ee4b04bb17c4ae667266f79fcb2111245ce6d",
+          "size": 552338
+        },
+        "https://velog.velcdn.com/images/ilwha/post/cc9f14c4-4c6d-44c4-8e23-44f0b677213c/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/578e72fdd6b2e3d2261ed677ff3ac6a6694353cf1e63b0f42b8e535f733a7c8c.png",
+          "sha256": "sha256:f9052904e1aa7321ba11642fbe5873c5d97286a0e88c4ed16cb41fed72e5e530",
+          "size": 116491
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f400e342-2331-4ba7-8d8c-ab0ef5e1a9a2/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/09d1f1dca30346b90e7a3859e8cc53a0728ed99e5d770e1c03ee12a875f90b07.png",
+          "sha256": "sha256:0b47fa3dc2577c2bcef722220253e7a0b974e657c7e76f368d682e9563ec7827",
+          "size": 99995
+        }
+      },
+      "metadata_hash": "sha256:97dd9ab1153a3e324166d70835947efce400460db92ba09de0f3738620816650",
+      "post_path": "_posts/2026-09-14-CV-AlexNet-ImageNet-Classification-with-Deep-CNN.md",
+      "published_at": "2026-09-13T18:27:08.793Z",
+      "rendered_sha256": "sha256:589c378e213a0680aa7babb17363fc7ff54f210847f1b2dedd8fda51cd3de81a",
+      "source_slug": "CV-AlexNet-ImageNet-Classification-with-Deep-CNN",
+      "source_updated_at": "2026-09-13T18:27:09.147Z",
+      "source_url": "https://velog.io/@ilwha/CV-AlexNet-ImageNet-Classification-with-Deep-CNN",
+      "thumbnail": {
+        "content_type": "image/webp",
+        "kind": "velog",
+        "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/6cd80002fd2410eaa2e8ded80206a40879e6c83dd4e41c24711438170df4b9b5.webp",
+        "sha256": "sha256:cc4de035dfbccc3b0d99d6ff315a3d440deda04e0d344ecaa8f7d766799228b8",
+        "size": 312174,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/856ba430-a0a8-412e-8eee-0ff2bf491797/image.webp"
+      },
+      "title": "[CV] AlexNet: ImageNet Classification with Deep CNN"
+    },
     "66f7be36-5b6e-4cd8-89bb-903a7367b80e": {
       "body_source": "graphql",
       "categories": [
