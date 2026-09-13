@@ -1,12 +1,12 @@
 ---
-title: "[CV] AlexNet: ImageNet Classification with Deep CNN"
+title: "[Paper] AlexNet: ImageNet Classification with Deep CNN"
 date: 2026-09-14 03:27:08 +0900
-last_modified_at: 2026-09-14 03:27:09 +0900
+last_modified_at: 2026-09-14 05:47:50 +0900
 categories:
   - "Paper"
 thumbnail:
   path: "/assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/6cd80002fd2410eaa2e8ded80206a40879e6c83dd4e41c24711438170df4b9b5.webp"
-  alt: "[CV] AlexNet: ImageNet Classification with Deep CNN"
+  alt: "[Paper] AlexNet: ImageNet Classification with Deep CNN"
 math: true
 render_with_liquid: false
 ---

@@ -589,7 +589,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:7877f5636527177ab2df70b6e31abce8acfa0b4d703cd99cc62830c4cbf14994",
+      "content_hash": "sha256:c8094bab9468a2963b305dde9a36d4f9bd54baa1be730eef3b6d2564dbc3896c",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/1f97e1dd-7bb6-4343-aeb6-1ffff1e0c406/image.png": {
           "content_type": "image/png",
@@ -628,12 +628,12 @@
           "size": 99995
         }
       },
-      "metadata_hash": "sha256:97dd9ab1153a3e324166d70835947efce400460db92ba09de0f3738620816650",
+      "metadata_hash": "sha256:c133f5b03053cd9d20f110ffe12bc526dad7e8528b21c0f7bf2a4aacef90ee75",
       "post_path": "_posts/2026-09-14-CV-AlexNet-ImageNet-Classification-with-Deep-CNN.md",
       "published_at": "2026-09-13T18:27:08.793Z",
-      "rendered_sha256": "sha256:589c378e213a0680aa7babb17363fc7ff54f210847f1b2dedd8fda51cd3de81a",
+      "rendered_sha256": "sha256:d67469049c000d5fe93915e378794be56f4f78785b5339a1819c61bccfa57fed",
       "source_slug": "CV-AlexNet-ImageNet-Classification-with-Deep-CNN",
-      "source_updated_at": "2026-09-13T18:27:09.147Z",
+      "source_updated_at": "2026-09-13T20:47:50.082Z",
       "source_url": "https://velog.io/@ilwha/CV-AlexNet-ImageNet-Classification-with-Deep-CNN",
       "thumbnail": {
         "content_type": "image/webp",
@@ -643,7 +643,7 @@
         "size": 312174,
         "source_url": "https://velog.velcdn.com/images/ilwha/post/856ba430-a0a8-412e-8eee-0ff2bf491797/image.webp"
       },
-      "title": "[CV] AlexNet: ImageNet Classification with Deep CNN"
+      "title": "[Paper] AlexNet: ImageNet Classification with Deep CNN"
     },
     "66f7be36-5b6e-4cd8-89bb-903a7367b80e": {
       "body_source": "graphql",
@@ -1776,7 +1776,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:b2a61d13882feb21d2fece0da67f592e9bc14f11a67c8740aff3cdbf120f572c",
+      "content_hash": "sha256:6f5745e080354350110fd900674677b63b4339d0dcbb3f6a9d0be3edc768a3b2",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/06eea5ba-db0a-4e4c-ad15-092860c6fb5c/image.png": {
           "content_type": "image/png",
@@ -1851,12 +1851,12 @@
           "size": 338871
         }
       },
-      "metadata_hash": "sha256:0f11fab02eb2f1317974af288cad633689c67bdecbaca574ec0460a1d1634eff",
+      "metadata_hash": "sha256:fc83afafacbefc8b560d53375cc11eba4c5b3a6944a543cdd9c2bb6e4b4b29d4",
       "post_path": "_posts/2026-09-10-Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models.md",
       "published_at": "2026-09-10T07:06:03.076Z",
-      "rendered_sha256": "sha256:e1986054e6f98127071fb181859a497509ded8a1f7fd48e4e0c4badef49095e2",
+      "rendered_sha256": "sha256:a0d5f3e3d14bc820e1c3395c785b19c79871aca32f1f5a7721720f6140895b41",
       "source_slug": "Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
-      "source_updated_at": "2026-09-12T01:43:09.979Z",
+      "source_updated_at": "2026-09-13T19:01:04.458Z",
       "source_url": "https://velog.io/@ilwha/Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
       "thumbnail": {
         "content_type": "image/webp",
