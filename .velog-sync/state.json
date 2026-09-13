@@ -5,14 +5,14 @@
       "categories": [
         "React.JS"
       ],
-      "content_hash": "sha256:1f8f56d2a1156d85b07eff7dfaaae1978018dfd760e3426c90189ba1bdf1bf94",
+      "content_hash": "sha256:09097cdb081025896539db4fc80e39264a19507ab25bb1bf88dd7f132fedd77d",
       "images": {},
-      "metadata_hash": "sha256:1a42a5291485e02473d3c619146482bddccea545c7d24c64eceef28cbc1a7757",
+      "metadata_hash": "sha256:777cc5d42b4e906e458d8befcb61ece14989b406868a70680cf94aca98938bf2",
       "post_path": "_posts/2025-02-02-React.JS-useReducer-useMemo-useCallback.md",
       "published_at": "2025-02-02T12:29:20.693Z",
-      "rendered_sha256": "sha256:fd07e0beb884a7c4f97321dd11066b8c04482d11182fd467bd991a32e2226e8d",
+      "rendered_sha256": "sha256:af323fec12ceaa576b3c64e9c828ca992f960fa38ad4d6b8d3012696f904b9e3",
       "source_slug": "React.JS-useReducer-useMemo-useCallback",
-      "source_updated_at": "2026-09-06T09:10:55.612Z",
+      "source_updated_at": "2026-09-13T05:05:03.097Z",
       "source_url": "https://velog.io/@ilwha/React.JS-useReducer-useMemo-useCallback",
       "thumbnail": {
         "content_type": "image/jpeg",
