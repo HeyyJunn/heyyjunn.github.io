@@ -1477,7 +1477,7 @@
     "ca010783-034c-45e4-9551-5aecfa373dbe": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:8503d0a9a4d883176c426d469fc29760377b7ac92acfceeba351205686924b18",
+      "content_hash": "sha256:caccf7bc9fb83737e41e85f8813a0989e8f4b8533c9a6c7456e1ecfa5e976f2c",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/4393a409-495c-48da-84a2-382680a4f25f/image.png": {
           "content_type": "image/png",
@@ -1498,12 +1498,12 @@
           "size": 59923
         }
       },
-      "metadata_hash": "sha256:01e06c3b6f35bcf3bb333a3338972497f3dfc726e66ea7bbfbe026e197518946",
+      "metadata_hash": "sha256:51e0c3c1a4f1ef8c5df450793b21b55a6d1d74303884d3ea1194d7d7a7748d41",
       "post_path": "_posts/2025-05-06-Spring-내가-보려고-만든-MVC.md",
       "published_at": "2025-05-06T07:12:07.910Z",
-      "rendered_sha256": "sha256:047c7c55acdab2551d76f2e50e93a8c29fa8767ff3157e627beccce6e3064796",
+      "rendered_sha256": "sha256:0b3025c6d027017939adaac9449480dd43083a440c664f121ad8cd3df426b8d1",
       "source_slug": "Spring-내가-보려고-만든-MVC",
-      "source_updated_at": "2026-09-08T01:12:48.591Z",
+      "source_updated_at": "2026-09-13T09:30:53.664Z",
       "source_url": "https://velog.io/@ilwha/Spring-%EB%82%B4%EA%B0%80-%EB%B3%B4%EB%A0%A4%EA%B3%A0-%EB%A7%8C%EB%93%A0-MVC",
       "thumbnail": {
         "content_type": "image/jpeg",
