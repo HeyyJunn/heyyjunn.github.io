@@ -589,7 +589,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:75d6eac5fd9a3daef44145cafd8ab1fab802b550f06d9b41bce8b984ce4a3cb2",
+      "content_hash": "sha256:982825fddd37263282ff863311edeb7600dc0d077d0f45a3b121586a4c04125f",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/1f97e1dd-7bb6-4343-aeb6-1ffff1e0c406/image.png": {
           "content_type": "image/png",
@@ -628,12 +628,12 @@
           "size": 99995
         }
       },
-      "metadata_hash": "sha256:30b71f1ee4951422a9387b64d894548d11692eafab38b486e162ac1665a62ab6",
+      "metadata_hash": "sha256:0f12af250b70d5d591b6471f009ce4498b49e781accea7dd676c3bfd8fa0de0a",
       "post_path": "_posts/2026-09-14-CV-AlexNet-ImageNet-Classification-with-Deep-CNN.md",
       "published_at": "2026-09-13T18:27:08.793Z",
-      "rendered_sha256": "sha256:6874230eb8a38b7360beb0b39eb846cc1611cdaf1c666f571de39d414bd9d6f3",
+      "rendered_sha256": "sha256:dcc1f988e1f7b2c6c03b31420d0adc56ef73f2dfd790a3a970a6525d88c0081e",
       "source_slug": "CV-AlexNet-ImageNet-Classification-with-Deep-CNN",
-      "source_updated_at": "2026-09-14T05:58:33.153Z",
+      "source_updated_at": "2026-09-14T06:05:20.031Z",
       "source_url": "https://velog.io/@ilwha/CV-AlexNet-ImageNet-Classification-with-Deep-CNN",
       "thumbnail": {
         "content_type": "image/webp",

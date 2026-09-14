@@ -1,7 +1,7 @@
 ---
 title: "[Paper] AlexNet: ImageNet Classification with Deep CNN"
 date: 2026-09-14 03:27:08 +0900
-last_modified_at: 2026-09-14 14:58:33 +0900
+last_modified_at: 2026-09-14 15:05:20 +0900
 categories:
   - "Paper"
 thumbnail:
@@ -55,7 +55,7 @@ saturating한 활성화함수를 사용하는 것보다 ReLU와 같은 non-satur
 
 ReLU(실선)을 사용하는 것이 6 epoch 으로 training error 25%에 도달했지만, tanh(점선)은 같은 수준에 도달하는데 38 epoch가 필요함을 볼 수 있음.
 
- ## Training on Multiple GPUs
+## Training on Multiple GPUs
 저자들이 학습에서 사용한 GPU는 GTX580 으로 3GB 메모리 제한으로 인해 120만장의 이미지를 학습하기에 제약이 있어, **2개의 GPU를 병렬로 학습하여** 학습을 수행함.
 
 ![](/assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/5f7aa003ed5b328311a116dc22f46851d01d778ffb263bc35143a17b15fc8cd7.png)
