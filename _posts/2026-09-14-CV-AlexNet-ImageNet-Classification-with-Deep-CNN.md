@@ -1,12 +1,9 @@
 ---
 title: "[Paper] AlexNet: ImageNet Classification with Deep CNN"
 date: 2026-09-14 03:27:08 +0900
-last_modified_at: 2026-09-14 15:05:20 +0900
+last_modified_at: 2026-09-14 22:59:26 +0900
 categories:
   - "Paper"
-thumbnail:
-  path: "/assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/6cd80002fd2410eaa2e8ded80206a40879e6c83dd4e41c24711438170df4b9b5.webp"
-  alt: "[Paper] AlexNet: ImageNet Classification with Deep CNN"
 math: true
 render_with_liquid: false
 ---
@@ -136,3 +133,21 @@ Overlapping Pooling 연산을 수행: Top-1 error 0.4%, Top-5 error 0.3% 감소.
 8개의 Layer로 구성됨.
 - 5개의 Convolution Layers
 - 3개의 Fully Connected Layers
+
+| 단계     | 연산                                   | 핵심                      |
+| ------ | ------------------------------------ | ----------------------- |
+| Input  | RGB image                            | $224\times224\times3$ |
+| Conv1  | $11\times11$, 96 filters, stride 4 | 저수준 특징                  |
+|        | ReLU → LRN → MaxPool                 |                         |
+| Conv2  | $5\times5$, 256 filters            | 특징 확장                   |
+|        | ReLU → LRN → MaxPool                 |                         |
+| Conv3  | $3\times3$, 384 filters            |                         |
+|        | ReLU                                 |                         |
+| Conv4  | $3\times3$, 384 filters            |                         |
+|        | ReLU                                 |                         |
+| Conv5  | $3\times3$, 256 filters            |                         |
+|        | ReLU → MaxPool                       |                         |
+| FC1    | 4096                                 | ReLU → Dropout          |
+| FC2    | 4096                                 | ReLU → Dropout          |
+| FC3    | 1000                                 | logits                  |
+| Output | Softmax                              | 1000-class probability  |
