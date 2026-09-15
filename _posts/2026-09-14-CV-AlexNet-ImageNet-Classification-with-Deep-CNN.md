@@ -1,7 +1,7 @@
 ---
 title: "[Paper] AlexNet: ImageNet Classification with Deep CNN"
 date: 2026-09-14 03:27:08 +0900
-last_modified_at: 2026-09-15 10:07:36 +0900
+last_modified_at: 2026-09-15 20:42:07 +0900
 categories:
   - "Paper"
 math: true
