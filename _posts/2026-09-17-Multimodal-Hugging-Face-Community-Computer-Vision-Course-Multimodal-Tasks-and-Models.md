@@ -1,7 +1,7 @@
 ---
 title: "[Multimodal] Hugging Face Community Computer Vision Course - Multimodal Tasks and Models"
 date: 2026-09-17 04:12:03 +0900
-last_modified_at: 2026-09-17 04:12:23 +0900
+last_modified_at: 2026-09-17 04:39:39 +0900
 categories:
   - "Multimodal"
 thumbnail:
@@ -20,8 +20,8 @@ render_with_liquid: false
 
 멀티모달 모델은 텍스트, 이미지, 오디오, 센서 데이터와 같은 여러 출처의 정보를 통합함으로써 이러한 차이를 줄이는 것을 목표로 함.
 
-**modality** 모델에게 들어오는 정보의 종류
-
+**modality** 
+모델에게 들어오는 정보의 종류
 텍스트 → text modality 
 이미지 → image modality 
 음성 → audio modality
