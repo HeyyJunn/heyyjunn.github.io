@@ -1,7 +1,7 @@
 ---
 title: "[Paper] AlexNet: ImageNet Classification with Deep CNN"
 date: 2026-09-14 03:27:08 +0900
-last_modified_at: 2026-09-15 20:42:07 +0900
+last_modified_at: 2026-09-16 23:52:44 +0900
 categories:
   - "Paper"
 math: true
@@ -103,8 +103,28 @@ Alexnet은 이 96개를 두 GPU에 나눠 병렬로 계산함.
 ## LRN (Local Response Normalization) 
 ![](/assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/aee705a49e6c651efce093839c1b878328b233a0bd97189d10350db2ff060648.png)
 
-LRN: 모델이 과도하게 특정 뉴런에 의존하지 않도록, 이웃 채널의 출력값을 기반으로 정규화하는 기법임. 즉, 같은 위치에서 여러 채널의 뉴런들이 너무 크게 활성화되면, 서로 경쟁시키는 정규화임.
+- $a^i_{x,y}$ : $(x,y)$ 위치에서 $i$번째 커널(출력 채널)을 통해 계산된 값에 ReLU를 적용한 activation 값
 
+- $b^i_{x,y}$ : $a^i_{x,y}$에 LRN(Local Response Normalization)을 적용한 이후의 값
+
+- $i$ : 현재 정규화하려는 출력 채널의 인덱스
+
+- $j$ : 주변 채널들을 순회하기 위한 인덱스
+
+- $N$ : 해당 레이어에 존재하는 전체 출력 채널(feature map)의 수
+
+- $n$ : LRN을 적용할 주변 채널의 범위(window size)를 결정하는 하이퍼파라미터
+
+- $k$ : 분모가 너무 작아지는 것을 방지하기 위해 더해주는 상수
+
+- $\alpha$ : 주변 채널의 activation 값이 현재 activation을 얼마나 강하게 억제할지 결정하는 하이퍼파라미터
+
+- $\beta$ : 정규화의 강도를 조절하는 하이퍼파라미터
+
+- $\sum_{j=\max(0,i-n/2)}^{\min(N-1,i+n/2)} (a^j_{x,y})^2$ :
+  현재 채널 $i$를 중심으로 인접한 채널들의 동일한 $(x,y)$ 위치 activation 값을 제곱하여 더한 값
+  
+**LRN**: 모델이 과도하게 특정 뉴런에 의존하지 않도록, 이웃 채널의 출력값을 기반으로 정규화하는 기법임. 즉, 같은 위치에서 여러 채널의 뉴런들이 너무 크게 활성화되면, 서로 경쟁시키는 정규화임.
 (당시에는 ReLU의 결과값이 너무 커져서 주변 뉴런에 영향을 주는 것을 방지하기 위해 정규화 기법이 필요하였음.)
 
 예를 들어 Conv를 통과한 뒤 같은 위치에서 5개 채널의 ReLU 출력이 $[1,\;2,\;\boxed{20},\;3,\;1]$ 이라고 하자.
@@ -123,6 +143,9 @@ CNN에서 Pooling Layer는 공간적 해상도의 축소 및 불변성 확보를
 
 전통적 Pooling Layer는 stride S와 window Z를 동일하게 설정함.
 
+![](/assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/fe40953b11dfdbaac5a61190ea9758548eeb0910b617788f953e6fd0d96372ff.png)
+
+
 논문의 저자들은 **stride < window 조건을 도입하여 겹치도록 pooling을 수행**함.
 
 Overlapping Pooling 연산을 수행: Top-1 error 0.4%, Top-5 error 0.3% 감소. (stride=2, kernel=3x3 사용)
@@ -134,20 +157,49 @@ Overlapping Pooling 연산을 수행: Top-1 error 0.4%, Top-5 error 0.3% 감소.
 - 5개의 Convolution Layers
 - 3개의 Fully Connected Layers
 
-| 단계     | 연산                                   | 핵심                      |
-| ------ | ------------------------------------ | ----------------------- |
-| Input  | RGB image                            | $224\times224\times3$ |
-| Conv1  | $11\times11$, 96 filters, stride 4 | 저수준 특징                  |
-|        | ReLU → LRN → MaxPool                 |                         |
-| Conv2  | $5\times5$, 256 filters            | 특징 확장                   |
-|        | ReLU → LRN → MaxPool                 |                         |
-| Conv3  | $3\times3$, 384 filters            |                         |
-|        | ReLU                                 |                         |
-| Conv4  | $3\times3$, 384 filters            |                         |
-|        | ReLU                                 |                         |
-| Conv5  | $3\times3$, 256 filters            |                         |
-|        | ReLU → MaxPool                       |                         |
-| FC1    | 4096                                 | ReLU → Dropout          |
-| FC2    | 4096                                 | ReLU → Dropout          |
-| FC3    | 1000                                 | logits                  |
-| Output | Softmax                              | 1000-class probability  |
+| 단계          | 연산 흐름                                                                                                                                                                                                                | 의미                                   |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| **Input**   | **Input:** RGB Image<br>**Output:** $227 \times 227 \times 3$                                                                                                                                                        | $3$은 RGB 채널                          |
+| **Conv1**   | **Input:** $227 \times 227 \times 3$<br>**Filter:** $11 \times 11 \times 3$ 필터 96개, stride $4$<br>**Conv Output:** $55 \times 55 \times 96$<br>**후처리:** ReLU → LRN → MaxPool<br>**Output:** $27 \times 27 \times 96$ | Edge, 색상 등 저수준 특징 추출                 |
+| **Conv2**   | **Input:** $27 \times 27 \times 96$<br>**Filter:** $5 \times 5$ 필터 256개<br>**Conv Output:** $27 \times 27 \times 256$<br>**후처리:** ReLU → LRN → MaxPool<br>**Output:** $13 \times 13 \times 256$                      | 저수준 특징을 조합해 더 복잡한 특징 추출 <br>(Conv2~5: padding 사용 → Conv 자체는 공간 크기 유지)            |
+| **Conv3**   | **Input:** $13 \times 13 \times 256$<br>**Filter:** $3 \times 3$ 필터 384개<br>**Conv Output:** $13 \times 13 \times 384$<br>**후처리:** ReLU<br>**Output:** $13 \times 13 \times 384$                                     | 보다 복잡한 중·고수준 특징 추출                   |
+| **Conv4**   | **Input:** $13 \times 13 \times 384$<br>**Filter:** $3 \times 3$ 필터 384개<br>**Conv Output:** $13 \times 13 \times 384$<br>**후처리:** ReLU<br>**Output:** $13 \times 13 \times 384$                                     | 특징들을 다시 조합하여 더 추상적인 특징 학습            |
+| **Conv5**   | **Input:** $13 \times 13 \times 384$<br>**Filter:** $3 \times 3$ 필터 256개<br>**Conv Output:** $13 \times 13 \times 256$<br>**후처리:** ReLU → MaxPool<br>**Output:** $6 \times 6 \times 256$                             | 최종 convolution feature 추출 및 공간 크기 축소 |
+| **Flatten** | **Input:** $6 \times 6 \times 256$<br>**연산:** Flatten<br>**Output:** $9216$                                                                                                                                          | 3차원 feature map을 1차원 벡터로 변환          |
+| **FC1**     | **Input:** $9216$<br>**연산:** Fully Connected → ReLU → Dropout<br>**Output:** $4096$                                                                                                                                  | 추출된 특징들을 종합                          |
+| **FC2**     | **Input:** $4096$<br>**연산:** Fully Connected → ReLU → Dropout<br>**Output:** $4096$                                                                                                                                  | 고수준 특징을 추가로 조합                       |
+| **FC3**     | **Input:** $4096$<br>**연산:** Fully Connected<br>**Output:** $1000$ logits                                                                                                                                            | 1000개 클래스 각각에 대한 점수 계산               |
+| **Output**  | **Input:** $1000$ logits<br>**연산:** Softmax<br>**Output:** $1000$ class probabilities                                                                                                                                | 각 클래스에 속할 확률 출력                      |
+
+
+# Reducing Overfitting
+## Data Augmentation
+![](/assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/d1a33108d752b0efdb6e889d632863ac36cb30f01e9d693a9ceb7f210fc01d90.png)
+
+AlexNet에서는 오버피팅을 줄이기 위해 원래 이미지의 라벨이 변하지 않는 범위에서 데이터를 인위적으로 변형해 학습 데이터의 다양성을 늘렸다. 저자들은 크게 두 가지 데이터 증강 방법을 사용했는데, 하나는 이미지에서 임의의 영역을 잘라내거나 좌우 반전하는 방법이고(**Random  Crop + Horizontal Flip**), 다른 하나는 RGB 채널의 밝기와 색상 값을 조금씩 변화시키는 방법이다.(**RGB PCA**) 이러한 변형은 계산량이 크지 않아 별도의 증강 이미지를 저장하지 않고 학습할 때마다 실시간으로 생성하여 사용할 수 있다.
+
+즉 ImageNet Dataset을 기반으로 6천만개의 파라미터를 가진 모델을 학습시키게 되는데, 많은 파라미터에 비해서 데이터가 부족하여 과적합 위험이 큰 상황. 다양한 데이터 증강 기법 도입으로 데이터의 다양성과 일반화 능력을 확보하고자 함.
+
+### Image Size Transformation & Horizontal Flip
+![](/assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/64d1724500d49bf6fed2c53ab026b751cf1a141511801ee29c28c438fcf57543.png)
+
+256 X 256 크기의 이미지에서 무작위로 224 X 224 크기의 패치를 **추출 + 수평반전** 을 적용함.
+Training set 크기를 2048배 증가시켜 일반화 성능 향상을 도모하고자 함.
+테스트 시에는 10개의 패치(5개 원본 + 5개 반전)의 평균 softmax로 최종 예측을 수행하였다.
+모델이 위치와 방향 변화에 견고해짐.
+
+### RGB Channel Intensity Change
+![](/assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/4277582139e66452931b9e08c46286740f1bcbd61aee566f4efac343b8ae9a89.png)
+
+전체 Training set의 RGB 픽셀 값에 PCA를 적용함.
+
+각 주성분 방향으로 **평균 0, 표준편차 0.1**를 갖는 가우시안 분포에서 랜덤 변수를 추출한 후, 해당 noise를 더해 밝기 변화 시뮬레이션을 적용함.
+
+조명의 강도 및 색상 변화에 강건한 특성을 학습함.
+
+이 augmentation만으로도 top-1 error가 1% 이상 감소했다고 보고한다.
+
+## Dropout
+![](/assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/a2e7dbee6a06acfdb2b96fa90a120b7f3f07fff64b4da2df1773a5a30e46ffd4.png)
+
+Droptout 기법은 사용자가 지정한 확률을 근거로 하여 특정 뉴런에 신호를 전달하지 않는 방법을 말하며, 이를 통해 모델의 복잡성을 크게 감소시키는 것이 가능함.

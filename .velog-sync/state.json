@@ -589,19 +589,43 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:9d6dfe16937e3714f8b36586d8a39dfaafe9e87020459062b3f9cf994e5428ac",
+      "content_hash": "sha256:0da611a19ac242099928173fa1facf4580a5f55979262a1fa61df040ba985249",
       "images": {
+        "https://velog.velcdn.com/images/ilwha/post/1bb8befa-61e7-4b2f-a3ce-e9828d9e3114/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/d1a33108d752b0efdb6e889d632863ac36cb30f01e9d693a9ceb7f210fc01d90.png",
+          "sha256": "sha256:f7c523a84776808d8d1a5f40484e63cde9c625c369aca48e6f486fdc62b99224",
+          "size": 412680
+        },
         "https://velog.velcdn.com/images/ilwha/post/1f97e1dd-7bb6-4343-aeb6-1ffff1e0c406/image.png": {
           "content_type": "image/png",
           "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/5f7aa003ed5b328311a116dc22f46851d01d778ffb263bc35143a17b15fc8cd7.png",
           "sha256": "sha256:65ed4c256b44f7d5fd1e269282b54de0b2f89bea636fc4aeac274cbbfb30d3a7",
           "size": 599928
         },
+        "https://velog.velcdn.com/images/ilwha/post/47dd1f10-f88b-4fe8-aa3b-206d1e9f0249/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/a2e7dbee6a06acfdb2b96fa90a120b7f3f07fff64b4da2df1773a5a30e46ffd4.png",
+          "sha256": "sha256:0de08a7ffc1e1747f6e2a23fb1ff22a4734e999987d7f733f3f36104383e7397",
+          "size": 245018
+        },
+        "https://velog.velcdn.com/images/ilwha/post/96815f2f-c1e2-47a5-b334-1ec0ae017a4a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/4277582139e66452931b9e08c46286740f1bcbd61aee566f4efac343b8ae9a89.png",
+          "sha256": "sha256:05a85fd557afb7c1a88727b66c8ef2a640ff3d6cc0674fb28aadcb221859c9d2",
+          "size": 115037
+        },
         "https://velog.velcdn.com/images/ilwha/post/be1137ae-5ffb-4ced-9fe5-f738a90a1502/image.png": {
           "content_type": "image/png",
           "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/a63c1c2ffe0798452ecb6851878ca5490aa27c625ce966848a08dea5cd7c0192.png",
           "sha256": "sha256:12093bd3f7f90379903a731721c2c38bdb085ac8e048e2464471549481a7acc7",
           "size": 25759
+        },
+        "https://velog.velcdn.com/images/ilwha/post/c118e062-ecdf-4ac8-890a-d7fbb23d6c81/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/64d1724500d49bf6fed2c53ab026b751cf1a141511801ee29c28c438fcf57543.png",
+          "sha256": "sha256:1acd00b897edb91067a3df1bfac747297cd537327687100e6b96ecb95000f2d0",
+          "size": 227960
         },
         "https://velog.velcdn.com/images/ilwha/post/c2db14d3-c731-4bb9-a947-7dd30eb2f4d6/image.png": {
           "content_type": "image/png",
@@ -621,6 +645,12 @@
           "sha256": "sha256:f9052904e1aa7321ba11642fbe5873c5d97286a0e88c4ed16cb41fed72e5e530",
           "size": 116491
         },
+        "https://velog.velcdn.com/images/ilwha/post/e94b832a-fef8-404d-99e8-d029f5506a00/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/fe40953b11dfdbaac5a61190ea9758548eeb0910b617788f953e6fd0d96372ff.png",
+          "sha256": "sha256:804a9a6fd46abb4057e9f61b1bcfd065ef0726862ca8220b110c174da098d413",
+          "size": 12133
+        },
         "https://velog.velcdn.com/images/ilwha/post/f400e342-2331-4ba7-8d8c-ab0ef5e1a9a2/image.png": {
           "content_type": "image/png",
           "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/09d1f1dca30346b90e7a3859e8cc53a0728ed99e5d770e1c03ee12a875f90b07.png",
@@ -628,12 +658,12 @@
           "size": 99995
         }
       },
-      "metadata_hash": "sha256:d39fe96fa6373ce8ce9c09a0265376773dbc9754e2fc1d56ce827d83d6320756",
+      "metadata_hash": "sha256:47045049975813346cf876f39a63ed825a93d7cb8f761c629abec958aad657c4",
       "post_path": "_posts/2026-09-14-CV-AlexNet-ImageNet-Classification-with-Deep-CNN.md",
       "published_at": "2026-09-13T18:27:08.793Z",
-      "rendered_sha256": "sha256:4da8d357bf2d4ceb21a245fdeab01a0d9e9d37153d0e593c5f41bd214fd03937",
+      "rendered_sha256": "sha256:cdf6c6c469219178648aae822cfb226a1d01480c52545b95dd0c19a50c1d0e44",
       "source_slug": "Paper-AlexNet-ImageNet-Classification-with-Deep-CNN",
-      "source_updated_at": "2026-09-15T11:42:07.596Z",
+      "source_updated_at": "2026-09-16T14:52:44.153Z",
       "source_url": "https://velog.io/@ilwha/Paper-AlexNet-ImageNet-Classification-with-Deep-CNN",
       "thumbnail": null,
       "title": "[Paper] AlexNet: ImageNet Classification with Deep CNN"
