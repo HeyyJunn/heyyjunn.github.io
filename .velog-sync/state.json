@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:972277fab43301d4c5f0740b33fafb1ee931b96951e35a92283b0b778dbc22c5",
+      "content_hash": "sha256:34a7ba240b0d55494da5c18730e4ee1585e3d55b66b733db4cde867e16732854",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:36eae37cb0d33c9a1b09b37acdcdb17b85182b0ac81cc0ce56e77c655b1a0730",
+      "metadata_hash": "sha256:aeb452700e3bdb63ee7604a9d9c6f42a2b89a7f9f678cb28011481bfd8bf232a",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:09ebbd2449a5668cc4077be032b0cf0dacbc0af46265450ff17d56d7f7715207",
+      "rendered_sha256": "sha256:bceb5178e3b7b19ff0122fb601ee1c5d66723c1a51b5c2accd935675bd0f68a3",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-09-16T09:44:57.480Z",
+      "source_updated_at": "2026-09-16T16:13:08.679Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
@@ -589,7 +589,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:0da611a19ac242099928173fa1facf4580a5f55979262a1fa61df040ba985249",
+      "content_hash": "sha256:b17b19a34a30443efb7b93ca961383a8a184c92f1d5f357d9f25474458ef5ecb",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/1bb8befa-61e7-4b2f-a3ce-e9828d9e3114/image.png": {
           "content_type": "image/png",
@@ -658,14 +658,21 @@
           "size": 99995
         }
       },
-      "metadata_hash": "sha256:47045049975813346cf876f39a63ed825a93d7cb8f761c629abec958aad657c4",
+      "metadata_hash": "sha256:cc1686e71ddd2f52e19350324984f62782d313076a5a25888b941e5d5eafe3b7",
       "post_path": "_posts/2026-09-14-CV-AlexNet-ImageNet-Classification-with-Deep-CNN.md",
       "published_at": "2026-09-13T18:27:08.793Z",
-      "rendered_sha256": "sha256:cdf6c6c469219178648aae822cfb226a1d01480c52545b95dd0c19a50c1d0e44",
+      "rendered_sha256": "sha256:5a1d5a596894715c6776968f46e9e51ceb1c57a799a308455d25a93546cd0a2b",
       "source_slug": "Paper-AlexNet-ImageNet-Classification-with-Deep-CNN",
-      "source_updated_at": "2026-09-16T14:52:44.153Z",
+      "source_updated_at": "2026-09-16T14:57:40.096Z",
       "source_url": "https://velog.io/@ilwha/Paper-AlexNet-ImageNet-Classification-with-Deep-CNN",
-      "thumbnail": null,
+      "thumbnail": {
+        "content_type": "image/webp",
+        "kind": "velog",
+        "path": "assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/6766359ed0d2b0ed41661cbaafcfa1066c6a7998088108b67724565aea357c36.webp",
+        "sha256": "sha256:cc4de035dfbccc3b0d99d6ff315a3d440deda04e0d344ecaa8f7d766799228b8",
+        "size": 312174,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/0cc3359f-e0db-4400-8fa2-1c5eab3ba1bd/image.webp"
+      },
       "title": "[Paper] AlexNet: ImageNet Classification with Deep CNN"
     },
     "66f7be36-5b6e-4cd8-89bb-903a7367b80e": {
@@ -1799,7 +1806,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:ccda89f4f45b0052101b0c05ed804fbb9a828fd1b94a8f9dbe94d28dbadb6ac9",
+      "content_hash": "sha256:d12c8e1bcc3cf03f8237b344856d659c04c4034b0e7c2fa7706ccadef8cc9f77",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/06eea5ba-db0a-4e4c-ad15-092860c6fb5c/image.png": {
           "content_type": "image/png",
@@ -1874,12 +1881,12 @@
           "size": 338871
         }
       },
-      "metadata_hash": "sha256:5e93abcc4525eb616f676859a1026a910e18a8d498ad5607fd0a23abf0fb6357",
+      "metadata_hash": "sha256:5a44485ab7912b11caafcf724c0dd975300f64cd032dd8111741501dbf2113ab",
       "post_path": "_posts/2026-09-10-Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models.md",
       "published_at": "2026-09-10T07:06:03.076Z",
-      "rendered_sha256": "sha256:bb7ff81935ae064276ef3599c9d1002a950571dfda77e6fa0155285af865d2dd",
+      "rendered_sha256": "sha256:a97ac0f91cb4e7dc3522039d6edf7a202e4471383e3529ed06730eeb6c16ba57",
       "source_slug": "Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
-      "source_updated_at": "2026-09-14T06:21:46.360Z",
+      "source_updated_at": "2026-09-16T16:11:45.593Z",
       "source_url": "https://velog.io/@ilwha/Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
       "thumbnail": {
         "content_type": "image/webp",

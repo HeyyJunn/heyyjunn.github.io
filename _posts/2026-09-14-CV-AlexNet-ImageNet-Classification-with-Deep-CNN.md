@@ -1,9 +1,12 @@
 ---
 title: "[Paper] AlexNet: ImageNet Classification with Deep CNN"
 date: 2026-09-14 03:27:08 +0900
-last_modified_at: 2026-09-16 23:52:44 +0900
+last_modified_at: 2026-09-16 23:57:40 +0900
 categories:
   - "Paper"
+thumbnail:
+  path: "/assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/6766359ed0d2b0ed41661cbaafcfa1066c6a7998088108b67724565aea357c36.webp"
+  alt: "[Paper] AlexNet: ImageNet Classification with Deep CNN"
 math: true
 render_with_liquid: false
 ---
@@ -200,6 +203,18 @@ Training set 크기를 2048배 증가시켜 일반화 성능 향상을 도모하
 이 augmentation만으로도 top-1 error가 1% 이상 감소했다고 보고한다.
 
 ## Dropout
+앙상블처럼 여러 모델의 예측을 결합하면 과적합 방지에는 효과적이지만, **훈련시간이 길고 비효율적임**.
+Dropout: 훈련 시 일부 뉴런을 무작위로 제거하여 간단하게 과적합을 줄이는 효과적인 기법으로, 약 2배의 계산 비용만으로 앙상블에 준하는 일반화 성능을 확보함.
+
 ![](/assets/img/velog/6545ba41-c62a-4dd0-bd0a-acd12767e755/a2e7dbee6a06acfdb2b96fa90a120b7f3f07fff64b4da2df1773a5a30e46ffd4.png)
 
 Droptout 기법은 사용자가 지정한 확률을 근거로 하여 특정 뉴런에 신호를 전달하지 않는 방법을 말하며, 이를 통해 모델의 복잡성을 크게 감소시키는 것이 가능함.
+
+각 hidden layer 들의 출력을 50%의 확률로 0으로 설정함.
+출력이 0이 된 뉴런들은 forward/backward에 참여하지 않음.
+이는 다양한 서브 네트워크를 학습하는 것과 유사한 효과를 가짐.
+
+Dropout은 다른 뉴런들에게 의존할 수 없게 하여 co-adaptations 을 줄임.
+즉, 다른 하위 집합의 뉴런들과 같이 robust한 특징을 학습하도록 함.
+
+테스트 시에는 모든 뉴런을 사용하되, 학습 시 제거된 확률 (0.5) 을 보정 계수로 곱함.
