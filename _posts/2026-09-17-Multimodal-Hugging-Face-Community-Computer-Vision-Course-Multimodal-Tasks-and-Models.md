@@ -1,7 +1,7 @@
 ---
 title: "[Multimodal] Hugging Face Community Computer Vision Course - Multimodal Tasks and Models"
 date: 2026-09-17 04:12:03 +0900
-last_modified_at: 2026-09-17 07:16:42 +0900
+last_modified_at: 2026-09-17 09:34:58 +0900
 categories:
   - "Multimodal"
 thumbnail:
@@ -121,8 +121,8 @@ image
 이미지와 그 이미지에 대한 질문의 쌍. (Image, Question)
 
 **Ouput**
-객관식: 미리 정의된 답 중 올바른 답에 해당하는 label을 출력.
-자유응답방식: 이미지와 질문을 기반으로 자연어 답변을 생성함.
+**객관식**: 미리 정의된 답 중 올바른 답에 해당하는 label을 출력.
+**자유응답방식**: 이미지와 질문을 기반으로 자연어 답변을 생성함.
 
 **Task**
 이미지에 대한 질문에 답하는 것.
@@ -193,7 +193,7 @@ VQAv2 데이터셋을 이용해 자연어 이미지 질문에 답하도록 fine-
 
 ViLT의 기본 모델은 B32 크기의 비교적 큰 구조를 사용하고, 이미지와 텍스트를 함께 학습함. 이 덕분에 여러 vision-language task, 특히 VQA에서 경쟁력 있는 성능을 보임.
 
-### Vision Transformer
+**Vision Transformer**
 Vit는 이미지를 작은 조각인 **patch**로 나눔.
 224×224 → image  16×16 patch들로 분할.
 
