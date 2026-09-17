@@ -1,7 +1,7 @@
 ---
 title: "[Java] Object Class, Immutable Object"
 date: 2025-03-18 18:56:00 +0900
-last_modified_at: 2026-09-02 03:56:11 +0900
+last_modified_at: 2026-09-17 14:39:00 +0900
 categories:
   - "Java"
 thumbnail:

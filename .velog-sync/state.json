@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:9315b9e74e4a5705255263107a0fc0bdf1ed45cf2c491c56748e9d09ebb56465",
+      "content_hash": "sha256:4dbf4fe357c6b6552dfb26032a910eafbbfc92cbcd675304fc1cf12d25b56274",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:3198b3967929736f7615f5ab5515cace7871f97ff2fc27d3de6f1ba8a8b61de1",
+      "metadata_hash": "sha256:4ad664643a5d2e96ac48c0dd3a2b86a28c3d10447474b66041f89c210a0f40e5",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:9b40eed540394cdcf61ab87b08a720c95ca36cf842495b99f62d50836a17e47f",
+      "rendered_sha256": "sha256:e23571d7c4a69e8d96711220c6897c6c24ec8009972ac081ca76c390bfcc146d",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-09-17T00:26:33.753Z",
+      "source_updated_at": "2026-09-17T09:39:35.880Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
@@ -1750,14 +1750,14 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:8e27bebbb83cf43af8f1cc1a3558580541411895e64dcff685b998f5db37938f",
+      "content_hash": "sha256:c2fe3f38319399a3497905ddea22d3446ee987bf74bfb34bb4bffb15419a64e7",
       "images": {},
-      "metadata_hash": "sha256:08150bb7734552f00fd110fc8b6593bee4b008073101f29ab124e7ce412332c5",
+      "metadata_hash": "sha256:82ca5d5bb6455ac137fe9804ad6fb5682abb6eae5b44b5b7a2b78204664aa91b",
       "post_path": "_posts/2025-03-18-Java-Object-Class-Immutable-Object.md",
       "published_at": "2025-03-18T09:56:00.530Z",
-      "rendered_sha256": "sha256:613899f2a13f5fa5ad10d8336d3195a6fe2c45236c8e03835c9b415b56f39c5c",
+      "rendered_sha256": "sha256:846808e85ff4059d7038fe14186c6a864002a3c00f5475be27b3c661f1698c94",
       "source_slug": "Java-Object-Class-Immutable-Object",
-      "source_updated_at": "2026-09-01T18:56:11.197Z",
+      "source_updated_at": "2026-09-17T05:39:00.005Z",
       "source_url": "https://velog.io/@ilwha/Java-Object-Class-Immutable-Object",
       "thumbnail": {
         "content_type": "image/jpeg",
