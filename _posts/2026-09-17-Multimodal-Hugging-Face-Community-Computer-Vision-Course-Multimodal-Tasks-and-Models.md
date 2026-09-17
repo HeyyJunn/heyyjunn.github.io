@@ -1,7 +1,7 @@
 ---
 title: "[Multimodal] Hugging Face Community Computer Vision Course - Multimodal Tasks and Models"
 date: 2026-09-17 04:12:03 +0900
-last_modified_at: 2026-09-17 09:34:58 +0900
+last_modified_at: 2026-09-17 12:12:24 +0900
 categories:
   - "Multimodal"
 thumbnail:
