@@ -1945,7 +1945,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:d12c8e1bcc3cf03f8237b344856d659c04c4034b0e7c2fa7706ccadef8cc9f77",
+      "content_hash": "sha256:b5eaaa778ccff3b339c141a0bcb6524e09bec02fe490734c28d9249ee72b799f",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/06eea5ba-db0a-4e4c-ad15-092860c6fb5c/image.png": {
           "content_type": "image/png",
@@ -2020,12 +2020,12 @@
           "size": 338871
         }
       },
-      "metadata_hash": "sha256:5a44485ab7912b11caafcf724c0dd975300f64cd032dd8111741501dbf2113ab",
+      "metadata_hash": "sha256:17df573a586a35316e3fff14d7b378cfbb53e3c7931ba0f59f5b8dc3d4ad86eb",
       "post_path": "_posts/2026-09-10-Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models.md",
       "published_at": "2026-09-10T07:06:03.076Z",
-      "rendered_sha256": "sha256:a97ac0f91cb4e7dc3522039d6edf7a202e4471383e3529ed06730eeb6c16ba57",
+      "rendered_sha256": "sha256:6eb174d86f9153e0c651f37a5dad7f0302983124a423d1cfb5d6385120357d63",
       "source_slug": "Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
-      "source_updated_at": "2026-09-16T16:11:45.593Z",
+      "source_updated_at": "2026-09-18T15:54:21.777Z",
       "source_url": "https://velog.io/@ilwha/Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
       "thumbnail": {
         "content_type": "image/webp",
