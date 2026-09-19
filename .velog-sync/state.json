@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:c1360419f03eebe300c4c5ce132b3b30dedbfb1596c1ef7fcccda3aa81b49ac1",
+      "content_hash": "sha256:8415a1bd1b600cc1c050c5fce6fc15b89f8c5f7c583628a190e45d17f9142dcf",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:e488fdd448e354e5ae70b786ea53cf7425351b28619842402a5d1d7b19ff4c86",
+      "metadata_hash": "sha256:c36f2d01eecf48525d653f7fe1654543ee17c147cbea69c67923435e381644c7",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:a8a1f2c5fbca6ef69bbaa7629164cb70a955c2525d7fa0ec74d87c4a088ab4dd",
+      "rendered_sha256": "sha256:061269d6d26957420105c8601947d8119dc03cba0ae591f1b9b66f128fa83cf9",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-09-18T09:40:29.078Z",
+      "source_updated_at": "2026-09-19T22:49:06.048Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
@@ -1482,7 +1482,7 @@
       "categories": [
         "Multimodal"
       ],
-      "content_hash": "sha256:a3403fd1b897b717e40ddcadf397a40f5877f6babec6414f7f5313e8b8fc1c1c",
+      "content_hash": "sha256:16463d9319f4c4f76acaabc7ffe9b293ec94dc321c613c8eb4eaf9dcea118444",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/0f6e57cd-fdde-4d0d-9a0f-40dbaa8ef8c9/image.png": {
           "content_type": "image/png",
@@ -1599,12 +1599,12 @@
           "size": 528213
         }
       },
-      "metadata_hash": "sha256:ff7be8452925089b7fa327b51df4ca98eb6c8eab90136fab24b42b775cd1de38",
+      "metadata_hash": "sha256:8c8dfbe2accd4bd7971f13c2c4a319678cced1d9d63ee6a9bc3913a65422b80e",
       "post_path": "_posts/2026-09-17-Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models.md",
       "published_at": "2026-09-16T19:12:03.413Z",
-      "rendered_sha256": "sha256:6a860f574b55e83e9ebf7e25be85340f9cbf9b9aef92143f230d88adeb48ba10",
+      "rendered_sha256": "sha256:41faccd59ed362e6c996b14baf13d91c88c4a32aef5e7a47ac518ba9ba8c3911",
       "source_slug": "Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models",
-      "source_updated_at": "2026-09-19T03:56:20.091Z",
+      "source_updated_at": "2026-09-19T22:29:19.059Z",
       "source_url": "https://velog.io/@ilwha/Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models",
       "thumbnail": {
         "content_type": "image/webp",
