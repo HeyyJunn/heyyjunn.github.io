@@ -1,7 +1,7 @@
 ---
 title: "[Java] Dynamic Method Dispatch & V-Table (JVM)"
 date: 2025-03-08 22:36:16 +0900
-last_modified_at: 2026-09-10 16:07:41 +0900
+last_modified_at: 2026-09-24 21:03:05 +0900
 categories:
   - "Java"
 thumbnail:
