@@ -2162,7 +2162,7 @@
       "categories": [
         "React.JS"
       ],
-      "content_hash": "sha256:1a07a63b8ea41fac9020360f9d8a17b8f5244bf51306421bf9785ef162e94c0d",
+      "content_hash": "sha256:42b81330f22641bc07034e77a2b032f272b8d439b8b9f36de72265201ce3223b",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/9be990da-cdc1-4943-b837-903977731f2a/image.png": {
           "content_type": "image/png",
@@ -2183,12 +2183,12 @@
           "size": 47936
         }
       },
-      "metadata_hash": "sha256:91ba605fd1381409f7b041f418be6e56c0a23b0267f073cd291883f25b3b16c8",
+      "metadata_hash": "sha256:c8cf7f2dea8fe538dc3a8778ee048b181e32302636a6e9e9ff94380841ffeacd",
       "post_path": "_posts/2025-01-26-React.JS-Mini-Project-Todo-List.md",
       "published_at": "2025-01-25T17:59:28.475Z",
-      "rendered_sha256": "sha256:e6a83cbdd47977b982e58dabc30e45b31a7704058e3f46e9362b6c2a93b67b6e",
+      "rendered_sha256": "sha256:ee44cc0e6d078febb4d09b5d017916e62ada44993f0c0f716a1495e7ead9f463",
       "source_slug": "React.JS-Mini-Project-Todo-List",
-      "source_updated_at": "2026-09-01T18:56:24.387Z",
+      "source_updated_at": "2026-09-25T10:28:57.340Z",
       "source_url": "https://velog.io/@ilwha/React.JS-Mini-Project-Todo-List",
       "thumbnail": {
         "content_type": "image/jpeg",
