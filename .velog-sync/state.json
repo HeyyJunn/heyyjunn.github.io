@@ -1750,14 +1750,14 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:c2fe3f38319399a3497905ddea22d3446ee987bf74bfb34bb4bffb15419a64e7",
+      "content_hash": "sha256:e3af02d1b2e742eaa31231f733248ee4c8ae608600993ff8039ffd33b8d2f62e",
       "images": {},
-      "metadata_hash": "sha256:82ca5d5bb6455ac137fe9804ad6fb5682abb6eae5b44b5b7a2b78204664aa91b",
+      "metadata_hash": "sha256:8dc56dc4a38663425ce10ff78aa25192f2ad5bdc276280224a2b9dae0a5290f1",
       "post_path": "_posts/2025-03-18-Java-Object-Class-Immutable-Object.md",
       "published_at": "2025-03-18T09:56:00.530Z",
-      "rendered_sha256": "sha256:846808e85ff4059d7038fe14186c6a864002a3c00f5475be27b3c661f1698c94",
+      "rendered_sha256": "sha256:221a02c5377f6c6586696eed2408d9a28fab00cef4b4f2e66f8c62c583373e66",
       "source_slug": "Java-Object-Class-Immutable-Object",
-      "source_updated_at": "2026-09-17T05:39:00.005Z",
+      "source_updated_at": "2026-09-26T03:03:55.493Z",
       "source_url": "https://velog.io/@ilwha/Java-Object-Class-Immutable-Object",
       "thumbnail": {
         "content_type": "image/jpeg",
