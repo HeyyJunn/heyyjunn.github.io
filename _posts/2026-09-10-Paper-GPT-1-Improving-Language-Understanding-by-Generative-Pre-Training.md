@@ -1,7 +1,7 @@
 ---
 title: "[Paper] GPT-1: Improving Language Understanding by Generative Pre-Training"
 date: 2026-09-10 16:51:11 +0900
-last_modified_at: 2026-09-29 17:59:28 +0900
+last_modified_at: 2026-09-30 14:16:15 +0900
 categories:
   - "Paper"
 thumbnail:
