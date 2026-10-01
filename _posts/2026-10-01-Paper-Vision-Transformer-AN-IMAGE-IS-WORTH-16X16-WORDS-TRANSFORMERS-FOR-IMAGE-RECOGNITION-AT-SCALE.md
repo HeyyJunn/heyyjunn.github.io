@@ -1,12 +1,9 @@
 ---
 title: "[Paper] Vision Transformer: An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
 date: 2026-10-01 18:24:08 +0900
-last_modified_at: 2026-10-01 18:26:00 +0900
+last_modified_at: 2026-10-01 19:28:46 +0900
 categories:
   - "Paper"
-thumbnail:
-  path: "/assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/1d7ca99402ffd1f2245879881e2bcbb7c07ba00999e3a9b473ed09114ff6b603.webp"
-  alt: "[Paper] Vision Transformer: An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
 math: true
 render_with_liquid: false
 ---
@@ -59,7 +56,7 @@ fine-tuning 때 해상도가 바뀌면 position embedding을 2D interpolation할
 - patch 개수가 달라지니까 기존 position embedding을 2D 격자 기준으로 늘려 맞춤
 ```
 
-### Hybrid Architecture
+### Hybrid Architecture.
 raw image를 바로 patch로 만드는 대신 CNN feature map을 token으로 만들어 Transformer에 넣는 방식을 사용할 수 있음을 언급함.
 
 ## 3.2 Fine-Tuning and Higher Resolution
@@ -103,4 +100,54 @@ Oxford-IIIT Pets (개·고양이 품종 분류)
 Oxford Flowers-102 (꽃 종류 분류)
 등의 benchmark task로 transfer함.
 
-...
+pre-training data를 점점 크게 만들었을 때 ViT의 성능이 어떻게 scailing 되는가를 보고자 함. (모델 크기나 연산량을 키웠을 때 성능이 얼마나 잘 따라 올라가는지 보고자)
+
+❓**de-duplicate**: downstream test image가 pre-training dataset에 우연히 들어가 있는 것을 제거한다는 뜻
+
+또한 19개의 task로 구성된 VTAB classification suite에서도 모델을 평가. VTAB은 각 task마다 단 1,000개의 training example만 사용하며, 적은 데이터 환경에서 다양한 task로 transfer 하는 능력을 평가함. (적은 데이터만 가지고 새로운 문제에 얼마나 잘 적응하냐를 평가하는 benchmark임)
+
+```
+Natural
+Pets, CIFAR 등 일반적인 자연 이미지 관련 task
+
+Specialized
+의료 영상이나 위성 영상처럼 특정 분야에 특화된 이미지 task
+
+Structured
+localization처럼 이미지의 위치나 기하학적 구조를 이해해야 하는 task
+```
+
+### Model Variants
+![](/assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/f62e4c5a01217805520ee821d0f39fbd44f84bb09ac257fecea8f43390d73d47.png)
+
+ViT configuration은 BERT에서 사용된 모델 configuration을 기반으로 함.
+
+Vit-Base,Large 는 BERT의 모델 크기를 직접 가져옴. 거기에 더 큰 Huge 모델을 추가함.
+
+Baseline 으로는 CNN을 사용하고 ResNet을 사용하지만, Batch Normalization layers를 Group Normalization으로 대체하고 standardized convolution (=convolution filter의 weight를 표준화한 뒤 convolution을 수행하는 방식을 말함)을 사용함. transfer learning 성능을 향상시키는 변경임.
+
+Hybrid 모델에서는 CNN의 intermediate feature map을 ViT에 입력하고, 이때 CNN feature map에서 하나의 pixel을 하나의 patch처럼 취급함. 
+
+### Training & Fine-tuning
+#### In Pre-training,
+모든 모델을 Adam optimizer로 학습하였음. 
+(세부 hyperparameter 설정은 작성 생략)
+Learning Rate Linear Warmup 과 Learning Rate decay를 사용함. (learning rate는 한번 업데이트 할 때 얼마나 크게 움직일지 정하는지의 개념으로서, 초반에는 LR을 선형적으로 올리고, 이후에는 선형적으로 줄였다.)
+
+❓**Adam**: gradient의 방향과 크기를 함께 추적하면서 각 parameter의 learning rate를 자동 조절.
+❓**Weight decay**: 모델이 학습하면서 weight 값이 지나치게 커지는 것을 억제하는 regularization
+
+$$
+L_{\text{total}} = L(w) + \lambda \|w\|^2
+$$ 
+에서 $$\lambda$$ 에 해당하는 개념. 
+
+#### In Fine-tuning,
+SGD with momentum optimizer를 사용함. batch size = 512.
+Fine-tuning 시에는, pre-training 때보다 더 큰 크기의 이미지를 넣어서 fine-tuning 함. 
+
+예를 들어, ViT-L/16 에서는 Pre-training: 224 x 224 $$\rightarrow$$ Fine-tuning: 512 x 512 로 입력 이미지의 해상도를 높임.
+
+❓**SGD+Momentum VS. Adam**(헷갈렸던 부분)
+**SGD + Momentum**: 과거 gradient의 방향을 누적해서 관성 있게 이동한다.
+**Adam**: 방향도 누적하면서, gradient의 크기까지 추적해서 각 parameter마다 업데이트 크기를 자동 조절한다.

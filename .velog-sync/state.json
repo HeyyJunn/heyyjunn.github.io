@@ -696,7 +696,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:feba5cb95c1fafe61864950af4c89bca10728515a3323702fd6bb6e1fdce0646",
+      "content_hash": "sha256:21289b3cc7661fb0bb767c2bfd27d0bbc378e3dd1564a5dcf07e264f7db52418",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/216df42c-fd8d-4a24-bd38-f602edd851e9/image.jpg": {
           "content_type": "image/jpeg",
@@ -709,23 +709,22 @@
           "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/6aec18c4d97b393e7cda06823c4901ef87421882bab639dfdf90c0d607200082.jpg",
           "sha256": "sha256:119d536a0923f78bc089a5dbe42689d7eee260ad04b9dcb52e6e9148d76eb669",
           "size": 202346
+        },
+        "https://velog.velcdn.com/images/ilwha/post/d64860b5-2214-43c6-b3d2-96d5459c622e/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/f62e4c5a01217805520ee821d0f39fbd44f84bb09ac257fecea8f43390d73d47.png",
+          "sha256": "sha256:6734b3a5ecda4441c5bd330e1090724e77ace606567463b5c2ac0925cb5716e0",
+          "size": 28131
         }
       },
-      "metadata_hash": "sha256:d68ea8c4d226ab132e8d2252bd308bacb3997ee594f2a9a6df3cb798fc3802ed",
+      "metadata_hash": "sha256:cf80716e47c072e25889224191959252080c176fd3b698d37fb01d1c8c38e2ff",
       "post_path": "_posts/2026-10-01-Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE.md",
       "published_at": "2026-10-01T09:24:08.068Z",
-      "rendered_sha256": "sha256:037ce7793da287b479c4b8c8800de8f79d196bc8137e093a9e68152a87a11673",
-      "source_slug": "Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE",
-      "source_updated_at": "2026-10-01T09:26:00.816Z",
-      "source_url": "https://velog.io/@ilwha/Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE",
-      "thumbnail": {
-        "content_type": "image/webp",
-        "kind": "velog",
-        "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/1d7ca99402ffd1f2245879881e2bcbb7c07ba00999e3a9b473ed09114ff6b603.webp",
-        "sha256": "sha256:cc4de035dfbccc3b0d99d6ff315a3d440deda04e0d344ecaa8f7d766799228b8",
-        "size": 312174,
-        "source_url": "https://velog.velcdn.com/images/ilwha/post/e8e4b3d0-ad8d-4319-8595-34419c2063b8/image.webp"
-      },
+      "rendered_sha256": "sha256:597c1b19cc39ff180cabcba48d3be2258b1bdca1763bacb1faf33820e885a43a",
+      "source_slug": "Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
+      "source_updated_at": "2026-10-01T10:28:46.831Z",
+      "source_url": "https://velog.io/@ilwha/Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
+      "thumbnail": null,
       "title": "[Paper] Vision Transformer: An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
     },
     "7460c503-b467-4aec-8a2d-aea1d40a1094": {
