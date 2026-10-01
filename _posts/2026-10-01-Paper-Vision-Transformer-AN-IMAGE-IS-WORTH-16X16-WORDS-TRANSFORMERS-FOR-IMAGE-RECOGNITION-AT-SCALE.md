@@ -1,12 +1,12 @@
 ---
-title: "[Paper] Vision Transformer: AN IMAGE IS WORTH 16X16 WORDS, TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE"
+title: "[Paper] Vision Transformer: An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
 date: 2026-10-01 18:24:08 +0900
-last_modified_at: 2026-10-01 18:24:08 +0900
+last_modified_at: 2026-10-01 18:26:00 +0900
 categories:
   - "Paper"
 thumbnail:
   path: "/assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/1d7ca99402ffd1f2245879881e2bcbb7c07ba00999e3a9b473ed09114ff6b603.webp"
-  alt: "[Paper] Vision Transformer: AN IMAGE IS WORTH 16X16 WORDS, TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE"
+  alt: "[Paper] Vision Transformer: An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
 math: true
 render_with_liquid: false
 ---
