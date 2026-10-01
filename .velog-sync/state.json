@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:4bb4d03399c226f545af50388c38dddbba6b912a6ca8de98c63fae5b493701a8",
+      "content_hash": "sha256:f3327c3679c1a9343b0b05ff34d2823e79c13c1e3bec2b99b52f326e668fe8fe",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:1b41abbb583ff7142a4befa5dad443466151166677e53e5bd332e2d4e21b0a7a",
+      "metadata_hash": "sha256:d0436401e4d842216ebb60816a4b768d20636a279f3333396d163ee46ecf7f26",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:ecec814862dd3efe96ed97b81ba90475964d22ee2b20067bb500ee623720b032",
+      "rendered_sha256": "sha256:ae74236b95eb450fb148df882ea01542daa547bc7213d6c37679e4a801efdd49",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-10-01T04:45:28.903Z",
+      "source_updated_at": "2026-10-01T08:23:47.047Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
@@ -690,6 +690,43 @@
       "source_updated_at": "2026-09-01T18:54:17.158Z",
       "source_url": "https://velog.io/@ilwha/DataStructures-String-Compression",
       "title": "[Data_Structures] String Compression"
+    },
+    "6b656f86-cbf6-4450-bb30-f548fc4d9348": {
+      "body_source": "graphql",
+      "categories": [
+        "Paper"
+      ],
+      "content_hash": "sha256:fd57ee53685d0589e63afd6536a664a8f3d42f75ad00b14d6c253feeae47a743",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/216df42c-fd8d-4a24-bd38-f602edd851e9/image.jpg": {
+          "content_type": "image/jpeg",
+          "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/f9021ae2573b8976afcdabb3bf151ff41e2431eea004173815497449fa0d6994.jpg",
+          "sha256": "sha256:28d4c500dbab04cfa396a8ddde006576efc55c553214a8bdec4633ece9ee452c",
+          "size": 289235
+        },
+        "https://velog.velcdn.com/images/ilwha/post/7e1eef50-68b0-465b-b915-ea67028cdd27/image.jpeg": {
+          "content_type": "image/jpeg",
+          "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/6aec18c4d97b393e7cda06823c4901ef87421882bab639dfdf90c0d607200082.jpg",
+          "sha256": "sha256:119d536a0923f78bc089a5dbe42689d7eee260ad04b9dcb52e6e9148d76eb669",
+          "size": 202346
+        }
+      },
+      "metadata_hash": "sha256:06c4926763e08183e51fae63d2e91f5bfd3ec430a4b3a2836b0c547226af71c0",
+      "post_path": "_posts/2026-10-01-Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE.md",
+      "published_at": "2026-10-01T09:24:08.068Z",
+      "rendered_sha256": "sha256:c1d0964046c07aa51a223afe7bf7b42002e453cb5d75ff895f6cd91a21aa4f01",
+      "source_slug": "Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE",
+      "source_updated_at": "2026-10-01T09:24:08.344Z",
+      "source_url": "https://velog.io/@ilwha/Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE",
+      "thumbnail": {
+        "content_type": "image/webp",
+        "kind": "velog",
+        "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/1d7ca99402ffd1f2245879881e2bcbb7c07ba00999e3a9b473ed09114ff6b603.webp",
+        "sha256": "sha256:cc4de035dfbccc3b0d99d6ff315a3d440deda04e0d344ecaa8f7d766799228b8",
+        "size": 312174,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/e8e4b3d0-ad8d-4319-8595-34419c2063b8/image.webp"
+      },
+      "title": "[Paper] Vision Transformer: AN IMAGE IS WORTH 16X16 WORDS, TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE"
     },
     "7460c503-b467-4aec-8a2d-aea1d40a1094": {
       "body_source": "graphql",
