@@ -696,13 +696,31 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:21289b3cc7661fb0bb767c2bfd27d0bbc378e3dd1564a5dcf07e264f7db52418",
+      "content_hash": "sha256:de3f723ffdb6fab4f5e7437a2f9118232e7123208cca4e8ffe9c5892fc9625de",
       "images": {
+        "https://velog.velcdn.com/images/ilwha/post/12f4e646-efcc-473f-8de2-6188e997c48e/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/37a76ae4ebcb3bba4abbc0f858aee16c3957eb8055a66895df34e3af2f83f439.png",
+          "sha256": "sha256:a5564d12c23780b3500fa23dd5a8b7f153103cdd9c28e484b4f6343159433018",
+          "size": 443926
+        },
         "https://velog.velcdn.com/images/ilwha/post/216df42c-fd8d-4a24-bd38-f602edd851e9/image.jpg": {
           "content_type": "image/jpeg",
           "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/f9021ae2573b8976afcdabb3bf151ff41e2431eea004173815497449fa0d6994.jpg",
           "sha256": "sha256:28d4c500dbab04cfa396a8ddde006576efc55c553214a8bdec4633ece9ee452c",
           "size": 289235
+        },
+        "https://velog.velcdn.com/images/ilwha/post/289fee6c-c81f-4e6c-af58-4706a20d4529/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/2ad32bd77ba1c63880cc31293d3b0623a343443bd80c0e7ac3b1687b893a896e.png",
+          "sha256": "sha256:041af013f6018a390ff7a496aca2e60ff18cf9e7d96c6cc17cacdfd37590bfbe",
+          "size": 230207
+        },
+        "https://velog.velcdn.com/images/ilwha/post/4fc3af22-bd2b-4103-a5d0-d6571ac4f4f7/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/f8139159c920fb302b5cd487ad91b01602056e09e0eeeea35a770dece8c1f383.png",
+          "sha256": "sha256:359c7e317ad2f489b037fc484d73f3c12da79865154f338dad3c2a372c9cd055",
+          "size": 41455
         },
         "https://velog.velcdn.com/images/ilwha/post/7e1eef50-68b0-465b-b915-ea67028cdd27/image.jpeg": {
           "content_type": "image/jpeg",
@@ -710,21 +728,40 @@
           "sha256": "sha256:119d536a0923f78bc089a5dbe42689d7eee260ad04b9dcb52e6e9148d76eb669",
           "size": 202346
         },
+        "https://velog.velcdn.com/images/ilwha/post/d372c923-b494-4001-b1ce-c6f7b2db0bc7/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/117f1b988100ebec327a6ed6b862b25f97e9245efd2fd69e2329abdaa1cebccb.png",
+          "sha256": "sha256:85285d43a2124111509af076a1ff843f3c88fb3e4fef52045a022a2e9e810f5d",
+          "size": 200074
+        },
         "https://velog.velcdn.com/images/ilwha/post/d64860b5-2214-43c6-b3d2-96d5459c622e/image.png": {
           "content_type": "image/png",
           "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/f62e4c5a01217805520ee821d0f39fbd44f84bb09ac257fecea8f43390d73d47.png",
           "sha256": "sha256:6734b3a5ecda4441c5bd330e1090724e77ace606567463b5c2ac0925cb5716e0",
           "size": 28131
+        },
+        "https://velog.velcdn.com/images/ilwha/post/efb74943-5f82-4a13-a52c-5cc67ca18b9c/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/4e246f66f6d2d2875691ce340fe5dfb8f9ed957c1197ef06694cef6a6451145d.png",
+          "sha256": "sha256:7c5f1ef4fa22e1b7955f6deebc8a171904b78a01e377a80a4a473e5015f00731",
+          "size": 126906
         }
       },
-      "metadata_hash": "sha256:cf80716e47c072e25889224191959252080c176fd3b698d37fb01d1c8c38e2ff",
+      "metadata_hash": "sha256:2eff8619e3c10282015a9ddbb2694bdd94310d5dddb4e498e9bf9289ad153cae",
       "post_path": "_posts/2026-10-01-Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE.md",
       "published_at": "2026-10-01T09:24:08.068Z",
-      "rendered_sha256": "sha256:597c1b19cc39ff180cabcba48d3be2258b1bdca1763bacb1faf33820e885a43a",
+      "rendered_sha256": "sha256:db1637e829c1b9588efc4a4addb82b5f3eb438b39cd5f1cd57f0f10cacac150a",
       "source_slug": "Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
-      "source_updated_at": "2026-10-01T10:28:46.831Z",
+      "source_updated_at": "2026-10-02T12:28:14.417Z",
       "source_url": "https://velog.io/@ilwha/Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
-      "thumbnail": null,
+      "thumbnail": {
+        "content_type": "image/webp",
+        "kind": "velog",
+        "path": "assets/img/velog/6b656f86-cbf6-4450-bb30-f548fc4d9348/72c509af69d638f8bb12839f261704493dfe1377c24a8634a86c6cd3e69af669.webp",
+        "sha256": "sha256:cc4de035dfbccc3b0d99d6ff315a3d440deda04e0d344ecaa8f7d766799228b8",
+        "size": 312174,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/dac89e19-ecc9-4c02-9c09-1603c04f50b6/image.webp"
+      },
       "title": "[Paper] Vision Transformer: An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
     },
     "7460c503-b467-4aec-8a2d-aea1d40a1094": {
@@ -1786,14 +1823,14 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:e3af02d1b2e742eaa31231f733248ee4c8ae608600993ff8039ffd33b8d2f62e",
+      "content_hash": "sha256:b2dc55e9103e355d953615a988dcfaf9d12e36b7e68de2e010790d20b7176df6",
       "images": {},
-      "metadata_hash": "sha256:8dc56dc4a38663425ce10ff78aa25192f2ad5bdc276280224a2b9dae0a5290f1",
+      "metadata_hash": "sha256:b549e408f1728f57a7511eafda69dce70f64639acb9a3b5492e45916e317e636",
       "post_path": "_posts/2025-03-18-Java-Object-Class-Immutable-Object.md",
       "published_at": "2025-03-18T09:56:00.530Z",
-      "rendered_sha256": "sha256:221a02c5377f6c6586696eed2408d9a28fab00cef4b4f2e66f8c62c583373e66",
+      "rendered_sha256": "sha256:116c68127e671a7a2dc6beb131c01f94b980e3bc05fc9f1d29c94e2df34a7e1c",
       "source_slug": "Java-Object-Class-Immutable-Object",
-      "source_updated_at": "2026-09-26T03:03:55.493Z",
+      "source_updated_at": "2026-10-02T09:10:56.222Z",
       "source_url": "https://velog.io/@ilwha/Java-Object-Class-Immutable-Object",
       "thumbnail": {
         "content_type": "image/jpeg",
@@ -2198,7 +2235,7 @@
       "categories": [
         "React.JS"
       ],
-      "content_hash": "sha256:42b81330f22641bc07034e77a2b032f272b8d439b8b9f36de72265201ce3223b",
+      "content_hash": "sha256:d1e26b7a214902d041ddc546a42464c3bfdd477cf64f34fe365be132b65ab69f",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/9be990da-cdc1-4943-b837-903977731f2a/image.png": {
           "content_type": "image/png",
@@ -2219,12 +2256,12 @@
           "size": 47936
         }
       },
-      "metadata_hash": "sha256:c8cf7f2dea8fe538dc3a8778ee048b181e32302636a6e9e9ff94380841ffeacd",
+      "metadata_hash": "sha256:194327b802e7c997d31cabefde0ef45d83e76d7d0f13073ad86ae53cb3ba5b3d",
       "post_path": "_posts/2025-01-26-React.JS-Mini-Project-Todo-List.md",
       "published_at": "2025-01-25T17:59:28.475Z",
-      "rendered_sha256": "sha256:ee44cc0e6d078febb4d09b5d017916e62ada44993f0c0f716a1495e7ead9f463",
+      "rendered_sha256": "sha256:a3f74614d51fa372cf5dc9ce22b1cfbe28a60ef08c6a9fcb5980230ca722a679",
       "source_slug": "React.JS-Mini-Project-Todo-List",
-      "source_updated_at": "2026-09-25T10:28:57.340Z",
+      "source_updated_at": "2026-10-02T09:02:10.336Z",
       "source_url": "https://velog.io/@ilwha/React.JS-Mini-Project-Todo-List",
       "thumbnail": {
         "content_type": "image/jpeg",
