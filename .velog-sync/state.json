@@ -696,7 +696,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:de3f723ffdb6fab4f5e7437a2f9118232e7123208cca4e8ffe9c5892fc9625de",
+      "content_hash": "sha256:5289a6b0d4cb59a16d48b38aef92f04d423042882a4f4701a1b21fea2a1c466a",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/12f4e646-efcc-473f-8de2-6188e997c48e/image.png": {
           "content_type": "image/png",
@@ -747,12 +747,12 @@
           "size": 126906
         }
       },
-      "metadata_hash": "sha256:2eff8619e3c10282015a9ddbb2694bdd94310d5dddb4e498e9bf9289ad153cae",
+      "metadata_hash": "sha256:b7ca8c08007596d16986362c9dbed0fd69b0be1f0ef17c93fe34ac45eb37324e",
       "post_path": "_posts/2026-10-01-Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE.md",
       "published_at": "2026-10-01T09:24:08.068Z",
-      "rendered_sha256": "sha256:db1637e829c1b9588efc4a4addb82b5f3eb438b39cd5f1cd57f0f10cacac150a",
+      "rendered_sha256": "sha256:56448e2c513269b782983d26b4b3cd44c6273bc542a70281893270c3e817d012",
       "source_slug": "Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
-      "source_updated_at": "2026-10-02T12:28:14.417Z",
+      "source_updated_at": "2026-10-03T06:07:18.924Z",
       "source_url": "https://velog.io/@ilwha/Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
       "thumbnail": {
         "content_type": "image/webp",
@@ -2018,7 +2018,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:50e837c6040a39bdeafdf9a1ec4443c285fc64b5be2a06fd9e4e76b2f76f288d",
+      "content_hash": "sha256:acacaa12d61646311e2270e29d6c1746a62caf8e1e02a5d4dd1cf45131022aca",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/06eea5ba-db0a-4e4c-ad15-092860c6fb5c/image.png": {
           "content_type": "image/png",
@@ -2093,12 +2093,12 @@
           "size": 338871
         }
       },
-      "metadata_hash": "sha256:55ec9e22130afec531f0fd0b25415fbdd0e02b0cb94249cdb21c7cc9c3143fe5",
+      "metadata_hash": "sha256:601ecf55a5234bc4eadacafda47eeaecdcf1e56aed02946ff6c5dac7a4d7d44f",
       "post_path": "_posts/2026-09-10-Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models.md",
       "published_at": "2026-09-10T07:06:03.076Z",
-      "rendered_sha256": "sha256:4508c9d1ed9cb5862344d7d218f1a80521aa76c7e4aa2de95c83bd8061caa8dd",
+      "rendered_sha256": "sha256:271ed14dcbe210299b49c2967e99d0f76ad2ec95993f1c7a0862c956d7260dc4",
       "source_slug": "Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
-      "source_updated_at": "2026-09-20T15:32:01.614Z",
+      "source_updated_at": "2026-10-03T02:45:06.362Z",
       "source_url": "https://velog.io/@ilwha/Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
       "thumbnail": {
         "content_type": "image/webp",
