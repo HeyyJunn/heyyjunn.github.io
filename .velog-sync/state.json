@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:f3327c3679c1a9343b0b05ff34d2823e79c13c1e3bec2b99b52f326e668fe8fe",
+      "content_hash": "sha256:c215f78f6f5176ae7c532eabdee5101de5dc59f1f4bdb57eba850526ae94f877",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:d0436401e4d842216ebb60816a4b768d20636a279f3333396d163ee46ecf7f26",
+      "metadata_hash": "sha256:3ff07ee0675014cd4a64ae3c88615e966958cc83f3aa4037bdccf4bb653bb968",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:ae74236b95eb450fb148df882ea01542daa547bc7213d6c37679e4a801efdd49",
+      "rendered_sha256": "sha256:016d15b66ed1b2d8e33a75fc98df324113abda28384921fe84275ec05c9bf42a",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-10-01T08:23:47.047Z",
+      "source_updated_at": "2026-10-03T20:57:05.929Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
@@ -589,7 +589,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:c15c37cdcadbe3c1fb58affa7c1edc0c1e734a3d5d4a463c00f795c9724c35ef",
+      "content_hash": "sha256:28f7df4864655f176a35c84cee1db47531417d58ff948ef89fc4fe4904c7e1c6",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/1bb8befa-61e7-4b2f-a3ce-e9828d9e3114/image.png": {
           "content_type": "image/png",
@@ -658,12 +658,12 @@
           "size": 99995
         }
       },
-      "metadata_hash": "sha256:9461023cbab69b3faae4ae3799511d2cc7d9f4fa0130b83b00d83064baa37ca3",
+      "metadata_hash": "sha256:e0b264377fd0cecf7970ade7e26658fa3e68c78e647d5982b7d6df3cbab33386",
       "post_path": "_posts/2026-09-14-CV-AlexNet-ImageNet-Classification-with-Deep-CNN.md",
       "published_at": "2026-09-13T18:27:08.793Z",
-      "rendered_sha256": "sha256:48d4776d480eeb50fcf67cec98479e941d477cdbd6369465cee7b6462aa8c152",
+      "rendered_sha256": "sha256:55424cc36a067d50e60b19bb596e8e4cafecd02c1bc3201e8b0b838aac15089f",
       "source_slug": "Paper-AlexNet-ImageNet-Classification-with-Deep-CNN",
-      "source_updated_at": "2026-09-21T11:36:10.142Z",
+      "source_updated_at": "2026-10-03T22:01:56.001Z",
       "source_url": "https://velog.io/@ilwha/Paper-AlexNet-ImageNet-Classification-with-Deep-CNN",
       "thumbnail": {
         "content_type": "image/webp",
