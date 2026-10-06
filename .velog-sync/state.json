@@ -177,6 +177,121 @@
       },
       "title": "[C++] 객체지향프로그래밍1 : Lambda Expression / Namespace / ADL / Nested Class (chapter 17 - 18)"
     },
+    "2f72a50f-57ac-4d18-8330-678e91fd46a7": {
+      "body_source": "graphql",
+      "categories": [
+        "Paper"
+      ],
+      "content_hash": "sha256:1ee3f6df7d695bd8850439d92570dbd82d251c68f6b0dbafc989becbfb6bbcfe",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/067c79a6-5573-4a2c-ae2a-fc5ff2e4bad2/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/c97cc9ecaa1e548b90c8060e7215899fb7d8fb5e337fbb1fbf1e890e91eadc28.png",
+          "sha256": "sha256:58597b9207d240807e88b62e8cad582141f0f13a978f0fc977249ceacf9dd1b1",
+          "size": 354254
+        },
+        "https://velog.velcdn.com/images/ilwha/post/10be0fab-5f7c-4ce1-a8c9-a26b881ab157/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/ecb562f7bdb9e44f617bb91692f11a26014566506d17ccb99fef004b547622db.png",
+          "sha256": "sha256:97f9cf11ac9c4560de5fdcba196b55e499d3375762654e3329500608602f2ea2",
+          "size": 2654613
+        },
+        "https://velog.velcdn.com/images/ilwha/post/1a281e2a-f49d-4817-89d6-49bb704252c2/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/524fc481a1b8089d316e1b5466ebae353dcae90effb54aa79ced77a566db6360.png",
+          "sha256": "sha256:5b2ce1cd434e8585c93323e2091aa630a5051a0a86e413566b83e1c37823ab5a",
+          "size": 192738
+        },
+        "https://velog.velcdn.com/images/ilwha/post/43a7d699-2e32-4c67-8dae-02b65eaefe49/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/1c487244ace4089cf5d5cbdc119b3b056b3991ebe99a2b03e136fdc93181dac3.png",
+          "sha256": "sha256:8d548d4df80f604b407731665681ff284ba22e8227bde7a34403f3ded860571a",
+          "size": 58901
+        },
+        "https://velog.velcdn.com/images/ilwha/post/56237f3d-96e5-4c5a-9dd7-f5f57caecfeb/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/e285c8a777bc281d6894472a6fc758d1a09bbeec5b4b3ac6e9a13b73c516031a.png",
+          "sha256": "sha256:ae694c793e5cd07eacf78c3ae9181176fe33362e2eca90527ccd279d06ae340a",
+          "size": 1070344
+        },
+        "https://velog.velcdn.com/images/ilwha/post/63e521cb-3caf-456a-a5e8-86a8439beeb1/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/4d52981d5c61e0734c68b3efa9f05e477316dd986c8dcea3a9ebbb6e7874b2d9.png",
+          "sha256": "sha256:e00f96b8ff703fb7357b6d3e66d63b1b80eb0ff30dd9c91d8eb08b251c4c69ac",
+          "size": 159695
+        },
+        "https://velog.velcdn.com/images/ilwha/post/740f0279-6d7c-45bb-b3d6-8f4e3b85d1b5/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/134988ba2f1c1203b1e3d7d49063a11a7e6092068717ab9eeaa01baf3df37a68.png",
+          "sha256": "sha256:26ba158e809f07313e89efe55984802e73e94756e1729afcce7e5b4db0a6f419",
+          "size": 27103
+        },
+        "https://velog.velcdn.com/images/ilwha/post/7d5974ef-14cd-4b70-9847-94ab4d3f264b/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/a91175b6e59d3b203455ca7619e88fb2f4b32cd1189377961bfeb27a038b5d57.png",
+          "sha256": "sha256:ff83c00431518ce8efbdaa0a590b01a8357f810a0ecc63037618290942e1351c",
+          "size": 710015
+        },
+        "https://velog.velcdn.com/images/ilwha/post/9d5de2c3-9d04-4d19-a833-ccee8a89bc84/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/7d20cb90dfd13c8ba234d88a4574dbb14395bfe08c0c264637d3946af8300f00.png",
+          "sha256": "sha256:5da0a8aad60e74731e2aa5479cdbefeb33f793ab1fa645211c9b07f3cd014eea",
+          "size": 194265
+        },
+        "https://velog.velcdn.com/images/ilwha/post/aad9a012-19ce-46e2-8ec2-d4373e840aeb/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/8c0b21ab06fc70ace89213ed86553ae501223057f62aa817ad5acaaf9a876b2f.png",
+          "sha256": "sha256:09a4cfe2e34949bf0ea12e523d81ed2bf7292cc236dc8b0911f9981504e2cd37",
+          "size": 99147
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b2a9eca0-1842-4f2f-8dad-b0f2e8d5e9ac/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/3ac128ce4fc46e9871cb71eeb5793eaccfa6264e70fbc9ae14f1a441f15553b9.png",
+          "sha256": "sha256:41a59d6ee0c0359321667b147d95a73028554db89577c12e8b3fd3fc6f5eb7fd",
+          "size": 886134
+        },
+        "https://velog.velcdn.com/images/ilwha/post/bfbeec49-f5e1-4d0c-985c-a9cc38af3768/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/4547a069f91c4490d27ac857aae7378c74285561cf0b595cf0c3058f9c79b238.png",
+          "sha256": "sha256:ab1e1e1df015f04a8dba11e1aef144f58dd76de66f4a831512dbce227b8afdfa",
+          "size": 320824
+        },
+        "https://velog.velcdn.com/images/ilwha/post/cfc7fe5e-13be-4fab-bd04-aa16f4754011/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/3bf667836084a739c7bb6830c1d765f93a08e7df4f7188ef4fff8c02366abe7f.png",
+          "sha256": "sha256:c02a5421fa8a897483a31966c102ac24b017f49f3714bd514fe990e817a88b0c",
+          "size": 704556
+        },
+        "https://velog.velcdn.com/images/ilwha/post/d74162a6-d51b-4640-bd74-0ffc8062da21/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/79469bf802fd0d6e9fb06b6c396ffb05edd4e8ebc51a79edbd9f83bb96424d7c.png",
+          "sha256": "sha256:82f88b83f214b420406440076f42ba96a3f7f80f2b08f48074d898ce49b3005d",
+          "size": 44046
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f6208d27-8e52-48c3-900a-8bc76bebdf49/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/6007605a8cf1b971a01f6a58c50b648e292d181a3c69fcba907ac38f5a170049.png",
+          "sha256": "sha256:e7195fcdd62a6ab2cc5fc9870ac7329deff50f73023eadcaefe95e07765cdb16",
+          "size": 75297
+        }
+      },
+      "metadata_hash": "sha256:2ca2043f2f427a76cdf6222337c7ad59dbede52951c73205785640c2ebd0f58f",
+      "post_path": "_posts/2026-10-07-Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection.md",
+      "published_at": "2026-10-06T17:10:22.630Z",
+      "rendered_sha256": "sha256:1fb191ecb578bc27bfee858416a7bcb161f5d89bf67346cd01412bed06e6acef",
+      "source_slug": "Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
+      "source_updated_at": "2026-10-06T17:10:23.146Z",
+      "source_url": "https://velog.io/@ilwha/Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
+      "thumbnail": {
+        "content_type": "image/webp",
+        "kind": "velog",
+        "path": "assets/img/velog/2f72a50f-57ac-4d18-8330-678e91fd46a7/0154f70579357e7b0e14fd4cc6d1a3e0af08c71711f2b425938a58b22257d4da.webp",
+        "sha256": "sha256:cc4de035dfbccc3b0d99d6ff315a3d440deda04e0d344ecaa8f7d766799228b8",
+        "size": 312174,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/9713f344-8dc1-4175-b2d5-53d8f311639f/image.webp"
+      },
+      "title": "[Paper] You Only Look Once:\nUnified, Real-Time Object Detection"
+    },
     "31f0f369-b238-4fce-b631-950a6d2ffb4c": {
       "body_source": "graphql",
       "categories": [
