@@ -182,7 +182,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:1b387c8f9a5fd7e501aa156e1a4f41b556cd86271c940e92088d66cabf6b2944",
+      "content_hash": "sha256:011e325c4c420732fb83efe322a17776476bee69ac5f98d7659cfb2bc094799f",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/067c79a6-5573-4a2c-ae2a-fc5ff2e4bad2/image.png": {
           "content_type": "image/png",
@@ -275,12 +275,12 @@
           "size": 75297
         }
       },
-      "metadata_hash": "sha256:d28283514f90ec3d52ec2914618859ad6a93f028fb0af3910efea3bf128db938",
+      "metadata_hash": "sha256:8e598c09b8a36f45657e975cfa462c3567812b344669e09314e1f0bdb73e8480",
       "post_path": "_posts/2026-10-07-Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection.md",
       "published_at": "2026-10-06T17:10:22.630Z",
-      "rendered_sha256": "sha256:f389d2be9cede472ea3deddd5951f850582f736c8c3029fae15505c7fe206dc1",
+      "rendered_sha256": "sha256:d706dff7161685889ac40a7847f30247b91bb59d46c067ab4833efeab641e87e",
       "source_slug": "Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
-      "source_updated_at": "2026-10-06T21:36:45.672Z",
+      "source_updated_at": "2026-10-08T15:38:51.199Z",
       "source_url": "https://velog.io/@ilwha/Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
       "thumbnail": {
         "content_type": "image/webp",
@@ -811,7 +811,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:b43e9f4aa7f0ffcb310ad68e393dab9d5edaea442655ee6a337dc112ad0d156f",
+      "content_hash": "sha256:868e28e35880078f6efcfe12f4165b8b780262bcc2663bf69ace50e488edef06",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/12f4e646-efcc-473f-8de2-6188e997c48e/image.png": {
           "content_type": "image/png",
@@ -862,12 +862,12 @@
           "size": 126906
         }
       },
-      "metadata_hash": "sha256:dd8ce007557495b03e7e1de9c8f522ecd917d3245daba794675c92ae3d40f172",
+      "metadata_hash": "sha256:79ce12a9ff8e8428d4f3d0c5c5bce3cc97bdcd61c8b5669a192f02626d4c878c",
       "post_path": "_posts/2026-10-01-Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE.md",
       "published_at": "2026-10-01T09:24:08.068Z",
-      "rendered_sha256": "sha256:a6fae224c1466bd3d3657f276406f720b7c9971d682ac595d0170a3d46b3c389",
+      "rendered_sha256": "sha256:76b0d3e1bf847accfa88659e44649c00195dfba46951bb87f65a7310a7209f1a",
       "source_slug": "Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
-      "source_updated_at": "2026-10-06T14:03:33.762Z",
+      "source_updated_at": "2026-10-08T13:40:37.814Z",
       "source_url": "https://velog.io/@ilwha/Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
       "thumbnail": {
         "content_type": "image/webp",
