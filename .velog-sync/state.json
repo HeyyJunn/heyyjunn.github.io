@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:cc977540d239d039984a36374160dddeed9b4f74d4d8896f8bc0aa2e0f5fef81",
+      "content_hash": "sha256:a35db9197922e8659598ed1f04947585a61d0dafedef084c752a1299629dc014",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:189c4e7e5792687010d2350030cc1d1299fa7b178036b99efe00718e106a5760",
+      "metadata_hash": "sha256:3829dd746084fd617fd04658f31ce520a0af23eeac9cde75031e50061aac7fc5",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:a6e2c6a654c8c54ca285494d42f1d488ddc9d76efcd7c08c6842a0b3165a8758",
+      "rendered_sha256": "sha256:855d342427f3d995ce59eb071e77234c73ce39c4ca762443378f408854a85fe6",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-10-08T10:20:24.689Z",
+      "source_updated_at": "2026-10-14T03:25:59.793Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
@@ -1386,6 +1386,37 @@
       "source_updated_at": "2026-09-01T18:58:17.437Z",
       "source_url": "https://velog.io/@ilwha/Py-Notion-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%98-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EB%B3%84-%EB%A9%94%EC%84%9C%EB%93%9C%EC%99%80-%ED%95%A8%EC%88%98",
       "title": "[Py] Notion📚 : 파이썬의 컨테이너 별 메서드와 함수"
+    },
+    "90d93412-0a57-40fc-87bc-f5806acf8f12": {
+      "body_source": "graphql",
+      "categories": [
+        "Lab"
+      ],
+      "content_hash": "sha256:1bafee12f158377bf311ea9befb2688baedfc6708edc25c892091cfacc7cbd40",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/b66ab259-b143-42e2-92ad-5d002acda054/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/90d93412-0a57-40fc-87bc-f5806acf8f12/c8b8660614f57296c8e98eaaa7086bde20524ca9aef295f416f7dcd687cfd39e.png",
+          "sha256": "sha256:376f88a28f3175133ad8873f5192c062b1ab092a51d678382b5453aa6571c440",
+          "size": 252522
+        }
+      },
+      "metadata_hash": "sha256:0a8830938e5b94c7558b9852c4b8cb35a16358fc720be4f9f3fbd77f2fae4dc0",
+      "post_path": "_posts/2026-10-14-LAB-1014-Lab-Meeting.md",
+      "published_at": "2026-10-14T05:04:26.676Z",
+      "rendered_sha256": "sha256:0b3329e01eac8c6c017cdb7097cb415fb19e9845274f5b8fa81bf489e691e86b",
+      "source_slug": "LAB-1014-Lab-Meeting",
+      "source_updated_at": "2026-10-14T05:56:30.572Z",
+      "source_url": "https://velog.io/@ilwha/LAB-1014-Lab-Meeting",
+      "thumbnail": {
+        "content_type": "image/png",
+        "kind": "velog",
+        "path": "assets/img/velog/90d93412-0a57-40fc-87bc-f5806acf8f12/f84dd643657b299a82db47e1d762dc456272193059701e925e6717aec85c9a0d.png",
+        "sha256": "sha256:376f88a28f3175133ad8873f5192c062b1ab092a51d678382b5453aa6571c440",
+        "size": 252522,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/336712eb-01f4-41e8-9ba4-d921add177f6/image.png"
+      },
+      "title": "[LAB] 261014 Lab Meeting"
     },
     "9659c4f8-18da-4a2b-9a4a-eb9e0b17bf30": {
       "body_source": "graphql",
