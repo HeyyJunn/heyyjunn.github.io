@@ -182,7 +182,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:b695af5b0f325d5f223392fbfac20b0c0d2a21a8c0d9b7584d6025a41d2ab7f2",
+      "content_hash": "sha256:f3c43631167763fdd2e6a5c295b1356eb9d3131339d4dc63781dc5ecd2c8b180",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/067c79a6-5573-4a2c-ae2a-fc5ff2e4bad2/image.png": {
           "content_type": "image/png",
@@ -275,12 +275,12 @@
           "size": 75297
         }
       },
-      "metadata_hash": "sha256:9175d4918f943d236d45bb0aab39d06507efa887c60d656fe1537ff6ede94d4d",
+      "metadata_hash": "sha256:d22ec64f340fae570d388ef54e02ac14bc996046b9fd3ac19ac7e40825ce7ecf",
       "post_path": "_posts/2026-10-07-Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection.md",
       "published_at": "2026-10-06T17:10:22.630Z",
-      "rendered_sha256": "sha256:d799e6bf1fdaac805bd7b49357a991b58935e0f2d190e2554cde76a582935931",
+      "rendered_sha256": "sha256:e26644df3dd76a865fd38826b836e2935648fb3eb292e5d69d2797556560d0b6",
       "source_slug": "Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
-      "source_updated_at": "2026-10-12T19:06:12.643Z",
+      "source_updated_at": "2026-10-14T19:04:11.558Z",
       "source_url": "https://velog.io/@ilwha/Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
       "thumbnail": {
         "content_type": "image/webp",
