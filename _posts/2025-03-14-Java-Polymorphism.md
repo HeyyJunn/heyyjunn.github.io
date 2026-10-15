@@ -1,7 +1,7 @@
 ---
 title: "[Java] Polymorphism"
 date: 2025-03-14 20:31:33 +0900
-last_modified_at: 2026-09-02 03:56:04 +0900
+last_modified_at: 2026-10-15 22:46:11 +0900
 categories:
   - "Java"
 thumbnail:

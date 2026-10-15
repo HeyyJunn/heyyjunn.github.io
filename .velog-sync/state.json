@@ -349,14 +349,14 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:1f5e92e5a1650f567cad64de327f833754a86510876a1d5a8f5fd953f2f8e40f",
+      "content_hash": "sha256:7dd6649bf312be2bbf33ca93b541a004d44b5eccdbf2ee20f7fb9b95ba28a3fe",
       "images": {},
-      "metadata_hash": "sha256:82d79f514f16894f8568f0abd0386855e73c0a058627635922845383ad7fd964",
+      "metadata_hash": "sha256:ced3e2179ace2fbae53a64823349449be4ab48c106dcec164c28741be07fcc68",
       "post_path": "_posts/2025-03-14-Java-Polymorphism.md",
       "published_at": "2025-03-14T11:31:33.993Z",
-      "rendered_sha256": "sha256:f84c83753a226e23db6189c4a62699dbc01ac04c8ef9088f16410d3c19ca1cd2",
+      "rendered_sha256": "sha256:c1c66fa44391d95e66215d4b06adb8498a814c26db5e33a54022bf049067c88a",
       "source_slug": "Java-Polymorphism",
-      "source_updated_at": "2026-09-01T18:56:04.481Z",
+      "source_updated_at": "2026-10-15T13:46:11.139Z",
       "source_url": "https://velog.io/@ilwha/Java-Polymorphism",
       "thumbnail": {
         "content_type": "image/jpeg",
@@ -1701,7 +1701,7 @@
       "categories": [
         "Multimodal"
       ],
-      "content_hash": "sha256:d05b652ed772b239e151ca611c3a6df1a3de2899b42861fcb401e01aa8af504c",
+      "content_hash": "sha256:6ef629b98eacb37404224c7c0b2ae482a05be4473bd79b12b0a225d11175232e",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/0f6e57cd-fdde-4d0d-9a0f-40dbaa8ef8c9/image.png": {
           "content_type": "image/png",
@@ -1818,12 +1818,12 @@
           "size": 528213
         }
       },
-      "metadata_hash": "sha256:9d617c373b87da6676254f00b2a768b35a647bd2fe9c818224aa899ced616f6a",
+      "metadata_hash": "sha256:354f98bda0f7edaaa920dab8ea8606ef512856e57a21a79fc587ee5f455df18b",
       "post_path": "_posts/2026-09-17-Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models.md",
       "published_at": "2026-09-16T19:12:03.413Z",
-      "rendered_sha256": "sha256:61bbaa4f851d51b96f747d76c401dd71468778561988511adc83139d17be02bf",
+      "rendered_sha256": "sha256:8bd771d5b9f7972e346fe0ce31b82dcc55c7c3cd9e9bc955be353162bfe582a9",
       "source_slug": "Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models",
-      "source_updated_at": "2026-10-04T00:44:06.441Z",
+      "source_updated_at": "2026-10-15T11:37:45.767Z",
       "source_url": "https://velog.io/@ilwha/Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models",
       "thumbnail": {
         "content_type": "image/webp",
