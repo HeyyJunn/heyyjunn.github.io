@@ -811,7 +811,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:b6199b2d0538ba7121f9d90066bb24db52862597644103581ee5bfca8af48fa2",
+      "content_hash": "sha256:67c1cf1780e31ea03925fe1e63adfc0e8feacf10183eae101453dc3472c249c6",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/12f4e646-efcc-473f-8de2-6188e997c48e/image.png": {
           "content_type": "image/png",
@@ -862,12 +862,12 @@
           "size": 126906
         }
       },
-      "metadata_hash": "sha256:fc5c062be2fc3b3552d911e0ca9b442805d6675f72264870f1db85c35583792e",
+      "metadata_hash": "sha256:d3ffc9d42308d946349be9f743a8ecc577b3c07d4f552efd7e07a3c637b59409",
       "post_path": "_posts/2026-10-01-Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE.md",
       "published_at": "2026-10-01T09:24:08.068Z",
-      "rendered_sha256": "sha256:90693ca660a67d9adecbd377e258aa4e7c29ccac7619a6e7f858d84be4685deb",
+      "rendered_sha256": "sha256:b1f082889c4250059d5a6b101256e4d7d51f298f6728a4174d0fd2b031db6ec0",
       "source_slug": "Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
-      "source_updated_at": "2026-10-12T18:45:57.513Z",
+      "source_updated_at": "2026-10-15T09:00:08.096Z",
       "source_url": "https://velog.io/@ilwha/Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
       "thumbnail": {
         "content_type": "image/webp",
@@ -925,7 +925,7 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:65da2e4eb1ed1dfb5457c8ac0414b0427bc6970ae2865fc48bcc928c58e64d46",
+      "content_hash": "sha256:1967177ec12139f72a81b1e7976d5aa1fa187120d5b3c04942f71d5a634628cc",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/22388ac3-f104-4ad4-b5b4-6661e24ade58/image.jpeg": {
           "content_type": "image/jpeg",
@@ -940,12 +940,12 @@
           "size": 286096
         }
       },
-      "metadata_hash": "sha256:f6c7d57dfd4c65476b3e9e39d641cfa2a8ca3c4e918143395a382d9de2ddd015",
+      "metadata_hash": "sha256:36ee8b586a4546530e3d6bf02a8fda230719c544b77787e850804218de163fda",
       "post_path": "_posts/2025-03-08-Java-Dynamic-Method-Dispatch-V-Table-JVM.md",
       "published_at": "2025-03-08T13:36:16.054Z",
-      "rendered_sha256": "sha256:65ddb80295789685e60513fd6ec8d0e626efbf3cbb6fe68146bc6494c139cba0",
+      "rendered_sha256": "sha256:2ccce03019f4db3633c394a0a7c10c7fbe1bfaf36710fddc1a7807ada5c4e81b",
       "source_slug": "Java-Dynamic-Method-Dispatch-V-Table-JVM",
-      "source_updated_at": "2026-09-27T06:06:11.582Z",
+      "source_updated_at": "2026-10-15T06:26:15.097Z",
       "source_url": "https://velog.io/@ilwha/Java-Dynamic-Method-Dispatch-V-Table-JVM",
       "thumbnail": {
         "content_type": "image/webp",
