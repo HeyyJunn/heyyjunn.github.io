@@ -182,7 +182,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:f3c43631167763fdd2e6a5c295b1356eb9d3131339d4dc63781dc5ecd2c8b180",
+      "content_hash": "sha256:b07a1cc5644c035aa196df442f792d9ef16aee116bdbe6f352a97dae13c9f463",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/067c79a6-5573-4a2c-ae2a-fc5ff2e4bad2/image.png": {
           "content_type": "image/png",
@@ -275,12 +275,12 @@
           "size": 75297
         }
       },
-      "metadata_hash": "sha256:d22ec64f340fae570d388ef54e02ac14bc996046b9fd3ac19ac7e40825ce7ecf",
+      "metadata_hash": "sha256:6b1d81a8b5a7d75995444ba38244ee2be5846888fa8cca1d9688a9650ecde76f",
       "post_path": "_posts/2026-10-07-Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection.md",
       "published_at": "2026-10-06T17:10:22.630Z",
-      "rendered_sha256": "sha256:e26644df3dd76a865fd38826b836e2935648fb3eb292e5d69d2797556560d0b6",
+      "rendered_sha256": "sha256:e5fc3a7fc05ddc11dd911e73c5e9437026060a00f6bbe582ef1867c220f77b0e",
       "source_slug": "Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
-      "source_updated_at": "2026-10-14T19:04:11.558Z",
+      "source_updated_at": "2026-10-16T12:27:37.583Z",
       "source_url": "https://velog.io/@ilwha/Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
       "thumbnail": {
         "content_type": "image/webp",
@@ -349,14 +349,14 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:7dd6649bf312be2bbf33ca93b541a004d44b5eccdbf2ee20f7fb9b95ba28a3fe",
+      "content_hash": "sha256:859e3fec087bca515e29b3d3d74af5c12eb4e8794f6f0e9bb577befc3f55b6dc",
       "images": {},
-      "metadata_hash": "sha256:ced3e2179ace2fbae53a64823349449be4ab48c106dcec164c28741be07fcc68",
+      "metadata_hash": "sha256:352a500c439056424265fd35482297fd287429392e353a5959a17e50b2e1b0e4",
       "post_path": "_posts/2025-03-14-Java-Polymorphism.md",
       "published_at": "2025-03-14T11:31:33.993Z",
-      "rendered_sha256": "sha256:c1c66fa44391d95e66215d4b06adb8498a814c26db5e33a54022bf049067c88a",
+      "rendered_sha256": "sha256:d2c089e8a5f8d4d932be3c1705224ab1177b868c01df7a3fc6bf0bc39a6b3b49",
       "source_slug": "Java-Polymorphism",
-      "source_updated_at": "2026-10-15T13:46:11.139Z",
+      "source_updated_at": "2026-10-16T12:27:43.687Z",
       "source_url": "https://velog.io/@ilwha/Java-Polymorphism",
       "thumbnail": {
         "content_type": "image/jpeg",
@@ -704,7 +704,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:28f7df4864655f176a35c84cee1db47531417d58ff948ef89fc4fe4904c7e1c6",
+      "content_hash": "sha256:8287fdbacfe93d4e0d9df88349448586ae3a12a9e66cfb330914d1abaa1064ba",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/1bb8befa-61e7-4b2f-a3ce-e9828d9e3114/image.png": {
           "content_type": "image/png",
@@ -773,12 +773,12 @@
           "size": 99995
         }
       },
-      "metadata_hash": "sha256:e0b264377fd0cecf7970ade7e26658fa3e68c78e647d5982b7d6df3cbab33386",
+      "metadata_hash": "sha256:e88e08685fd034644dbc3ee9279491b7be06bfff4318eaa5d598892069991452",
       "post_path": "_posts/2026-09-14-CV-AlexNet-ImageNet-Classification-with-Deep-CNN.md",
       "published_at": "2026-09-13T18:27:08.793Z",
-      "rendered_sha256": "sha256:55424cc36a067d50e60b19bb596e8e4cafecd02c1bc3201e8b0b838aac15089f",
+      "rendered_sha256": "sha256:f51ab71b524e9242a488c3d90ed44c7eb53aeb088e43682bf2196cdb850f7165",
       "source_slug": "Paper-AlexNet-ImageNet-Classification-with-Deep-CNN",
-      "source_updated_at": "2026-10-03T22:01:56.001Z",
+      "source_updated_at": "2026-10-16T12:27:48.450Z",
       "source_url": "https://velog.io/@ilwha/Paper-AlexNet-ImageNet-Classification-with-Deep-CNN",
       "thumbnail": {
         "content_type": "image/webp",
@@ -811,7 +811,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:67c1cf1780e31ea03925fe1e63adfc0e8feacf10183eae101453dc3472c249c6",
+      "content_hash": "sha256:dadd4fbc3cba96d6765826b3ea2766b15fc2225b9c73267685f3d68d03cbd4cf",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/12f4e646-efcc-473f-8de2-6188e997c48e/image.png": {
           "content_type": "image/png",
@@ -862,12 +862,12 @@
           "size": 126906
         }
       },
-      "metadata_hash": "sha256:d3ffc9d42308d946349be9f743a8ecc577b3c07d4f552efd7e07a3c637b59409",
+      "metadata_hash": "sha256:dcdf91084a2172e200df76c86bf0d3a64bc24c75dda3d5d4ce4d8db17df7ed4a",
       "post_path": "_posts/2026-10-01-Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE.md",
       "published_at": "2026-10-01T09:24:08.068Z",
-      "rendered_sha256": "sha256:b1f082889c4250059d5a6b101256e4d7d51f298f6728a4174d0fd2b031db6ec0",
+      "rendered_sha256": "sha256:c3dbfafca6b3d23dec550fca74fd1143a79bf4decea1d31a313d55f1be118edb",
       "source_slug": "Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
-      "source_updated_at": "2026-10-15T09:00:08.096Z",
+      "source_updated_at": "2026-10-16T12:28:00.026Z",
       "source_url": "https://velog.io/@ilwha/Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
       "thumbnail": {
         "content_type": "image/webp",
@@ -925,7 +925,7 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:1967177ec12139f72a81b1e7976d5aa1fa187120d5b3c04942f71d5a634628cc",
+      "content_hash": "sha256:82180d4c53b8adcd2677b9a4c0368cf291f810ece892abc14bb3f945002ae4a1",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/22388ac3-f104-4ad4-b5b4-6661e24ade58/image.jpeg": {
           "content_type": "image/jpeg",
@@ -940,12 +940,12 @@
           "size": 286096
         }
       },
-      "metadata_hash": "sha256:36ee8b586a4546530e3d6bf02a8fda230719c544b77787e850804218de163fda",
+      "metadata_hash": "sha256:789dcd392a3e20ced759008f9a72c582edb7d69cb5745d43b62799844c724a9c",
       "post_path": "_posts/2025-03-08-Java-Dynamic-Method-Dispatch-V-Table-JVM.md",
       "published_at": "2025-03-08T13:36:16.054Z",
-      "rendered_sha256": "sha256:2ccce03019f4db3633c394a0a7c10c7fbe1bfaf36710fddc1a7807ada5c4e81b",
+      "rendered_sha256": "sha256:38bd3d9961763f164149a1e9c03862a818c1a018f2130932e6fd8c704f8beb1a",
       "source_slug": "Java-Dynamic-Method-Dispatch-V-Table-JVM",
-      "source_updated_at": "2026-10-15T06:26:15.097Z",
+      "source_updated_at": "2026-10-16T12:27:55.322Z",
       "source_url": "https://velog.io/@ilwha/Java-Dynamic-Method-Dispatch-V-Table-JVM",
       "thumbnail": {
         "content_type": "image/webp",
@@ -1046,7 +1046,7 @@
     "8916fba7-4c88-4768-aa6a-374feba00f14": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:ce31609ad4323c6fa144af5a2c7b90b54e76f533d91dbf4811a138a8f84dd49d",
+      "content_hash": "sha256:e1c5e1881837bdc1b005689fffcbf4fe8c9d09c7e5a41509842741464c6a1081",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
           "content_type": "image/png",
@@ -1097,12 +1097,12 @@
           "size": 49195
         }
       },
-      "metadata_hash": "sha256:deaa9cf7095a8f514321f6b829fed4b1bf949e0a6a2d0f07007a6ee2f5673581",
+      "metadata_hash": "sha256:9d499a061191a307924acdcb1d349c04358419bfec52081b341da4a8f8df0d23",
       "post_path": "_posts/2025-07-03-Spring.md",
       "published_at": "2025-07-03T01:06:55.486Z",
-      "rendered_sha256": "sha256:e684f3c2a83da1d9b7debfaef8a211c0f9e7d79090d4c3dd6dde6b264ab34dfe",
+      "rendered_sha256": "sha256:db2bfea246a4ce0a915064a9bdfff64cb30691ef5c67b7c2aef5c9ec88cbe6cb",
       "source_slug": "Spring",
-      "source_updated_at": "2026-09-12T01:43:45.156Z",
+      "source_updated_at": "2026-10-16T12:27:43.369Z",
       "source_url": "https://velog.io/@ilwha/Spring",
       "thumbnail": {
         "content_type": "image/jpeg",
@@ -1926,7 +1926,7 @@
     "ca010783-034c-45e4-9551-5aecfa373dbe": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:e6d5064045edcb07f71e3693796f763a18a823c11732bb61e2225983de07a2d3",
+      "content_hash": "sha256:26be6f26ccbe4ba56670fae4ef217f9aab6f69c73974576a53e7ba3611fe9acf",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/4393a409-495c-48da-84a2-382680a4f25f/image.png": {
           "content_type": "image/png",
@@ -1947,12 +1947,12 @@
           "size": 59923
         }
       },
-      "metadata_hash": "sha256:8bce14320b98dc4b2081a6132b8765e32e200d30d299db1f304feaa901acd3d5",
+      "metadata_hash": "sha256:42ea8c841327f9401ef8ba366eef9e48c2eba00d9fb1331ba8d845133c27a8da",
       "post_path": "_posts/2025-05-06-Spring-내가-보려고-만든-MVC.md",
       "published_at": "2025-05-06T07:12:07.910Z",
-      "rendered_sha256": "sha256:76645031c2431adbafb7174187aaf44a1afd80e6397bbaeb9caf0c2e678129bc",
+      "rendered_sha256": "sha256:80d787206eab004e7ce9b0168690035c707eb97f41257ee1d9a1c3431be05ebd",
       "source_slug": "Spring-내가-보려고-만든-MVC",
-      "source_updated_at": "2026-10-15T22:30:54.104Z",
+      "source_updated_at": "2026-10-16T12:27:46.479Z",
       "source_url": "https://velog.io/@ilwha/Spring-%EB%82%B4%EA%B0%80-%EB%B3%B4%EB%A0%A4%EA%B3%A0-%EB%A7%8C%EB%93%A0-MVC",
       "thumbnail": {
         "content_type": "image/jpeg",
@@ -1969,14 +1969,14 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:c69a22e80bcbb3aafa1d93db7a50c9a433b6d462b485cf945e5e5db7bd120a78",
+      "content_hash": "sha256:d99c1fdbb46afe9905ba9e96039990f119070da0b7e0b550dd5584b1634521e3",
       "images": {},
-      "metadata_hash": "sha256:a07e9cef2eccefe097d3918b2507b1eef5e343561db7121e38d5e103ae31a591",
+      "metadata_hash": "sha256:d7b82041a233cc1ab401eb94004691969b2160422e791662086d39196a0c31a4",
       "post_path": "_posts/2025-03-18-Java-Object-Class-Immutable-Object.md",
       "published_at": "2025-03-18T09:56:00.530Z",
-      "rendered_sha256": "sha256:d907bb4e9883dfd45bfd5b1044cb015de5041956ee0ffd25f0e21596c8ec178d",
+      "rendered_sha256": "sha256:36ba7a372ad03315db4c00235c5ed18ce5e94e6c1aa432edce002bda386dc7b6",
       "source_slug": "Java-Object-Class-Immutable-Object",
-      "source_updated_at": "2026-10-10T05:35:48.917Z",
+      "source_updated_at": "2026-10-16T12:27:55.288Z",
       "source_url": "https://velog.io/@ilwha/Java-Object-Class-Immutable-Object",
       "thumbnail": {
         "content_type": "image/jpeg",
@@ -1991,7 +1991,7 @@
     "dbf10a73-b92c-48ca-8964-642ef5cdc591": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:da0eb447714d263a6f8165a7a27bfd0ee58a7c31636479ddb2d34c6a6abddb55",
+      "content_hash": "sha256:1a6f4804b9c6889197c2a1704def6f240df6f7612e23dd9fd1124d23a88e213d",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
           "content_type": "image/png",
@@ -2042,12 +2042,12 @@
           "size": 49195
         }
       },
-      "metadata_hash": "sha256:19710d5d1caeb1f8844e0a3dc6baf3f9d39ab7f62ed6363fc0f29144d3a18234",
+      "metadata_hash": "sha256:8d73eb779908f3c22881cada15819441675a0c743a110788b1843429d9d9724b",
       "post_path": "_posts/2025-07-09-Spring-Spring-Boot-기본-용어-정리.md",
       "published_at": "2025-07-09T10:50:53.174Z",
-      "rendered_sha256": "sha256:31ab9d16a1d2497a86caf8b8c7b38ed0b84f341e79d8b47610a156a1339ca4d9",
+      "rendered_sha256": "sha256:f26af885ae678be7f81e896072bc5b95bd10a24c4cc634d4c5db19b6530ab780",
       "source_slug": "Spring-Spring-Boot-기본-용어-정리",
-      "source_updated_at": "2026-09-17T21:31:11.282Z",
+      "source_updated_at": "2026-10-16T12:27:46.166Z",
       "source_url": "https://velog.io/@ilwha/Spring-Spring-Boot-%EA%B8%B0%EB%B3%B8-%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC",
       "thumbnail": {
         "content_type": "image/png",
@@ -2261,14 +2261,14 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:19f0660e2b8b4c552eb444e721531a0857db8ec9888ffb61a1b13424dd6c9c99",
+      "content_hash": "sha256:f644b97633b7d71eb2e1b588e227a48894e907667e0f3dcfe23f59ff522d0dd6",
       "images": {},
-      "metadata_hash": "sha256:cb87539209003af9beb371e7aba598629287b69d4c539d72c8035bac9daf742f",
+      "metadata_hash": "sha256:792fbdbe0d3c745f5c454aba8210f6cadbbe84d84368fe8740a651befb46a163",
       "post_path": "_posts/2025-03-24-dvhiut7k.md",
       "published_at": "2025-03-23T15:29:31.798Z",
-      "rendered_sha256": "sha256:38aad9b38bfdf86e9a2c494b7519ce68e67129e9a20e277804d11800f16432fc",
+      "rendered_sha256": "sha256:eaa0a882d17483919ef406fb4c578dcbcaa4c7ef35fc3cc6dd833080c40bfa77",
       "source_slug": "dvhiut7k",
-      "source_updated_at": "2026-09-01T18:55:37.496Z",
+      "source_updated_at": "2026-10-16T12:27:35.219Z",
       "source_url": "https://velog.io/@ilwha/dvhiut7k",
       "thumbnail": {
         "content_type": "image/jpeg",

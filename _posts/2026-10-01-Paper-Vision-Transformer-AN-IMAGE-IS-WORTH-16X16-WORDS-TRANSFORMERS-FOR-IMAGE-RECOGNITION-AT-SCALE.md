@@ -1,7 +1,7 @@
 ---
 title: "[Paper] Vision Transformer: An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
 date: 2026-10-01 18:24:08 +0900
-last_modified_at: 2026-10-15 18:00:08 +0900
+last_modified_at: 2026-10-16 21:28:00 +0900
 categories:
   - "Paper"
 thumbnail:

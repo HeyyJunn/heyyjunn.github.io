@@ -1,7 +1,7 @@
 ---
 title: "[Paper] You Only Look Once:\nUnified, Real-Time Object Detection"
 date: 2026-10-07 02:10:22 +0900
-last_modified_at: 2026-10-15 04:04:11 +0900
+last_modified_at: 2026-10-16 21:27:37 +0900
 categories:
   - "Paper"
 thumbnail:
