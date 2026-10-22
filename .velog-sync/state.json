@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:21709d7485a4850e254d7849555c4b1239ab45476328662853b47755f61f17e3",
+      "content_hash": "sha256:7b1c25f277f229c1722d7e478d39cf5454cc4f28c517d380f1a710fe94e5dd2c",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:d846640e2ba1fa9bbdfff219c76e7ee18146bfffb2366534aa5793fd1464fa72",
+      "metadata_hash": "sha256:2a7cb98e35ffb67e9f73f5a3ed7b48e94ebab51b84f4ae1c7392ea5b87afcba6",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:fb77c98ee1651b7f936ac190133776cfcb9c777ec5234b3460275725db2a6c93",
+      "rendered_sha256": "sha256:fa47bf030ec76dc730b2ae4118e01ca555658349c42fdeaf27a7746190df8165",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-10-18T09:14:39.872Z",
+      "source_updated_at": "2026-10-22T09:22:12.451Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
