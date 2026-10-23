@@ -1701,7 +1701,7 @@
       "categories": [
         "Multimodal"
       ],
-      "content_hash": "sha256:6ef629b98eacb37404224c7c0b2ae482a05be4473bd79b12b0a225d11175232e",
+      "content_hash": "sha256:38e7be30ae256715ec0500c9b98033dbc6a0df6dd9ed259d54c72a1cade74f97",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/0f6e57cd-fdde-4d0d-9a0f-40dbaa8ef8c9/image.png": {
           "content_type": "image/png",
@@ -1818,12 +1818,12 @@
           "size": 528213
         }
       },
-      "metadata_hash": "sha256:354f98bda0f7edaaa920dab8ea8606ef512856e57a21a79fc587ee5f455df18b",
+      "metadata_hash": "sha256:f6795cc682daeac6ee7c5bf3035e29a7f1a2660a0b3bf8206f8c0b8584eede7f",
       "post_path": "_posts/2026-09-17-Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models.md",
       "published_at": "2026-09-16T19:12:03.413Z",
-      "rendered_sha256": "sha256:8bd771d5b9f7972e346fe0ce31b82dcc55c7c3cd9e9bc955be353162bfe582a9",
+      "rendered_sha256": "sha256:6e68c0de3bd3bbfcedab5c01e31d57f9ebfe1472aa2029dfd4ad72e6ae4bbd0b",
       "source_slug": "Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models",
-      "source_updated_at": "2026-10-15T11:37:45.767Z",
+      "source_updated_at": "2026-10-23T11:20:44.000Z",
       "source_url": "https://velog.io/@ilwha/Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models",
       "thumbnail": {
         "content_type": "image/webp",
@@ -1926,7 +1926,7 @@
     "ca010783-034c-45e4-9551-5aecfa373dbe": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:26be6f26ccbe4ba56670fae4ef217f9aab6f69c73974576a53e7ba3611fe9acf",
+      "content_hash": "sha256:b26db178f0831f792c63dd57ed4b484ea844d766f9a2a0bd9d9298b94b5b20dd",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/4393a409-495c-48da-84a2-382680a4f25f/image.png": {
           "content_type": "image/png",
@@ -1947,12 +1947,12 @@
           "size": 59923
         }
       },
-      "metadata_hash": "sha256:42ea8c841327f9401ef8ba366eef9e48c2eba00d9fb1331ba8d845133c27a8da",
+      "metadata_hash": "sha256:658e5e02add9295d9c44199c43b12547317f65b74e8fb8f149b7a3ea51451d65",
       "post_path": "_posts/2025-05-06-Spring-내가-보려고-만든-MVC.md",
       "published_at": "2025-05-06T07:12:07.910Z",
-      "rendered_sha256": "sha256:80d787206eab004e7ce9b0168690035c707eb97f41257ee1d9a1c3431be05ebd",
+      "rendered_sha256": "sha256:b94614a92393474d65940f4df70ac2c1e9a8eadc8042778ead3198d53bdba77c",
       "source_slug": "Spring-내가-보려고-만든-MVC",
-      "source_updated_at": "2026-10-16T12:27:46.479Z",
+      "source_updated_at": "2026-10-23T07:26:34.449Z",
       "source_url": "https://velog.io/@ilwha/Spring-%EB%82%B4%EA%B0%80-%EB%B3%B4%EB%A0%A4%EA%B3%A0-%EB%A7%8C%EB%93%A0-MVC",
       "thumbnail": {
         "content_type": "image/jpeg",
