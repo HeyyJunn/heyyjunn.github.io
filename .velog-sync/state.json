@@ -1969,14 +1969,14 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:d99c1fdbb46afe9905ba9e96039990f119070da0b7e0b550dd5584b1634521e3",
+      "content_hash": "sha256:caffbd2a3e8846ec5852fa386c45c19d957b10d40edc493aa1206ad43fa4c673",
       "images": {},
-      "metadata_hash": "sha256:d7b82041a233cc1ab401eb94004691969b2160422e791662086d39196a0c31a4",
+      "metadata_hash": "sha256:f873ae139969953fdd2a4876fea2641dcc30264929b8e9ade51538cd2904673b",
       "post_path": "_posts/2025-03-18-Java-Object-Class-Immutable-Object.md",
       "published_at": "2025-03-18T09:56:00.530Z",
-      "rendered_sha256": "sha256:36ba7a372ad03315db4c00235c5ed18ce5e94e6c1aa432edce002bda386dc7b6",
+      "rendered_sha256": "sha256:a7f329e3b4790940d716922df7c9d4deb700551d5c751910f47d6315da6b734b",
       "source_slug": "Java-Object-Class-Immutable-Object",
-      "source_updated_at": "2026-10-16T12:27:55.288Z",
+      "source_updated_at": "2026-10-24T09:02:56.314Z",
       "source_url": "https://velog.io/@ilwha/Java-Object-Class-Immutable-Object",
       "thumbnail": {
         "content_type": "image/jpeg",
@@ -1991,7 +1991,7 @@
     "dbf10a73-b92c-48ca-8964-642ef5cdc591": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:922eb92a43e4e6c330ac7f95024caeff89fd4a63ef03d47927a32e4cc4b05790",
+      "content_hash": "sha256:2fac0642a7bdee6ee84faa5b0d4edaffc0eae06e73c210031c35917c66f30c1a",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
           "content_type": "image/png",
@@ -2042,12 +2042,12 @@
           "size": 49195
         }
       },
-      "metadata_hash": "sha256:8d249f6836227595fdbcd64c64b3abcd367e30d4a49d7ccfc8c97a3d60bdfe35",
+      "metadata_hash": "sha256:fd8d1987710891d50c4864c4681e3c9619b612739c427791fd7cd1c6d1ac70fa",
       "post_path": "_posts/2025-07-09-Spring-Spring-Boot-기본-용어-정리.md",
       "published_at": "2025-07-09T10:50:53.174Z",
-      "rendered_sha256": "sha256:1854bd9075d01637b4eedcada07ee3e0709859533e1e2b3c2c00f5fd21f7e65c",
+      "rendered_sha256": "sha256:bb76d3a83fd89c4ffbc42948d7f8a0a8358e9b49913b28889d9e3c1b4c06ad5c",
       "source_slug": "Spring-Spring-Boot-기본-용어-정리",
-      "source_updated_at": "2026-10-17T09:12:30.250Z",
+      "source_updated_at": "2026-10-24T07:21:19.817Z",
       "source_url": "https://velog.io/@ilwha/Spring-Spring-Boot-%EA%B8%B0%EB%B3%B8-%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC",
       "thumbnail": {
         "content_type": "image/png",
