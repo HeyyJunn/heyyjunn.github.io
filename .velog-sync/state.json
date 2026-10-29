@@ -806,6 +806,30 @@
       "source_url": "https://velog.io/@ilwha/DataStructures-String-Compression",
       "title": "[Data_Structures] String Compression"
     },
+    "6b627159-d750-490a-9a8f-bc1b31c66fbb": {
+      "body_source": "graphql",
+      "categories": [
+        "Deep Learning"
+      ],
+      "content_hash": "sha256:6152cc740cfea21c61791500085f02f5f788b680c9b2f5a2f1944a803fb7cc09",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/bebd3807-6f29-463f-8568-b2cbb16191a7/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/6b627159-d750-490a-9a8f-bc1b31c66fbb/d52070dfcf8b73a7d294f3415816ae8caa10233c06d714ba181cc85f4fe00cca.png",
+          "sha256": "sha256:fa68cfd57976f91e9d0e368e5ceca8af61a67b4850dbb2f8e838238d468cd8f4",
+          "size": 1634651
+        }
+      },
+      "metadata_hash": "sha256:68bcb898f5cc468e375a7485d19069cce042ef0f90d82f6e9f203fc7720f7162",
+      "post_path": "_posts/2026-10-29-DL-작은-MLP의-초기화에-따른-학습-결과-비교.md",
+      "published_at": "2026-10-29T04:08:47.967Z",
+      "rendered_sha256": "sha256:bfa24d588b09ed1aeea2262f931bdfa126d8a6a223d0890d97de4387048f49bf",
+      "source_slug": "DL-작은-MLP의-초기화에-따른-학습-결과-비교",
+      "source_updated_at": "2026-10-29T04:12:34.696Z",
+      "source_url": "https://velog.io/@ilwha/DL-%EC%9E%91%EC%9D%80-MLP%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%95%99%EC%8A%B5-%EA%B2%B0%EA%B3%BC-%EB%B9%84%EA%B5%90",
+      "thumbnail": null,
+      "title": "[DL] [DL] Comparison of Training Results Across Different Initializations in a Small MLP"
+    },
     "6b656f86-cbf6-4450-bb30-f548fc4d9348": {
       "body_source": "graphql",
       "categories": [
