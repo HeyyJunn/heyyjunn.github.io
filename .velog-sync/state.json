@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:7b1c25f277f229c1722d7e478d39cf5454cc4f28c517d380f1a710fe94e5dd2c",
+      "content_hash": "sha256:c2ea6ce9ba8665266dce12ceb3218d384ea60f0aa82d451677a3ba422db2a58f",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:2a7cb98e35ffb67e9f73f5a3ed7b48e94ebab51b84f4ae1c7392ea5b87afcba6",
+      "metadata_hash": "sha256:bca9f47f172f0429c6badf4459eddc25dae101e3dbe239772242e6b9094b86a4",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:fa47bf030ec76dc730b2ae4118e01ca555658349c42fdeaf27a7746190df8165",
+      "rendered_sha256": "sha256:0a8dcaeaeff6194110f030331c5f4d2218b43db7ca9c2471c949fe133696243c",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-10-22T09:22:12.451Z",
+      "source_updated_at": "2026-11-04T14:46:49.836Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
@@ -2188,7 +2188,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:d32359547f8f107e3318ba8374d34d7e52d0f937b5b62f70351a28c608a9b432",
+      "content_hash": "sha256:91e0a8c8b9a3895493973eb70b4e1d8dccf4d5c978808311adeb5fb23fad8e4b",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/06eea5ba-db0a-4e4c-ad15-092860c6fb5c/image.png": {
           "content_type": "image/png",
@@ -2263,12 +2263,12 @@
           "size": 338871
         }
       },
-      "metadata_hash": "sha256:65aa00a5b369a52fb65d58456502d0d2044de4510364c678b0b7aaaa069cb259",
+      "metadata_hash": "sha256:e37c5cd21464a9146f433903775b10e4d753d7f8d50d44f844be25124b9356c1",
       "post_path": "_posts/2026-09-10-Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models.md",
       "published_at": "2026-09-10T07:06:03.076Z",
-      "rendered_sha256": "sha256:3691fd2faf1a9f66cd7d9fab9933ae26a6891c40521ced73cb9f7267cf0f08a8",
+      "rendered_sha256": "sha256:be71a9856bc6b784e829c7ef73b0017eae34e4f8335f735b472b5c2661b817a1",
       "source_slug": "Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
-      "source_updated_at": "2026-10-21T09:22:47.360Z",
+      "source_updated_at": "2026-11-04T15:32:29.952Z",
       "source_url": "https://velog.io/@ilwha/Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
       "thumbnail": {
         "content_type": "image/webp",
