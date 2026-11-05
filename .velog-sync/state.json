@@ -569,6 +569,217 @@
       "source_url": "https://velog.io/@ilwha/DataStructures-Sequential-Search-%EC%88%9C%EC%B0%A8%ED%83%90%EC%83%89",
       "title": "[Data_Structures] Sequential Search (순차탐색)"
     },
+    "4b8c2184-90be-4da4-83ab-f5f26ac550c6": {
+      "body_source": "graphql",
+      "categories": [
+        "Paper"
+      ],
+      "content_hash": "sha256:207b6a586cd4eca0ad0accffba796fe6117490b97fa4de136338e401540b4fc3",
+      "images": {
+        "https://velog.velcdn.com/images/ilwha/post/11071c5f-9431-429f-9ded-52f2658ef328/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/aa0f25b7acac31f5bb88cf6ead3089bbcf7148fd24d59270bc3332c67ae5730b.png",
+          "sha256": "sha256:e67211be0341b66b4d4d49a67674e0f8c6de671fe67585f530835bb28dc953b9",
+          "size": 224826
+        },
+        "https://velog.velcdn.com/images/ilwha/post/13d64653-0b86-44d5-a060-1481b5bdcee3/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/cd9f545ed0eb4e7d688d2c2a7c4a14018a771ca5962ed91ffcd10d939d387ede.png",
+          "sha256": "sha256:9ef96070f7dc9cd0f081ab2c93561c686c32e3bf44a35248c056fd5c0a9a3ca0",
+          "size": 55484
+        },
+        "https://velog.velcdn.com/images/ilwha/post/163e6f1f-73ef-4feb-b128-8c3634833dc4/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/a7a44608bfac004fcfcb1e2d08860b855c33c7f234e6a6caef7eaee188bb28bb.png",
+          "sha256": "sha256:e1b1fe81a100ee5ad4cbfadeebc9d38dffe9fa3defb1e060657099a4d0f0749f",
+          "size": 83914
+        },
+        "https://velog.velcdn.com/images/ilwha/post/247a9a37-9474-469b-bd1b-f194147ebeb7/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/716113bb41b14dcb5ead4000b44cf07e9e9ef064a8fd3a20db37d9a5d9d4b96f.png",
+          "sha256": "sha256:2e4d331268278ff526f77fef94bdd46a54b624321c6cac37f558606da9776450",
+          "size": 48457
+        },
+        "https://velog.velcdn.com/images/ilwha/post/27f2f0d7-6827-4b88-b58a-fc2c7e3fb29d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/1897a39c1011c4258e357b441fb8c041051bc09d170d6a2c46698207c912bd03.png",
+          "sha256": "sha256:32a4f3d6e06ef516dcfba47d9d841a9e5b59ebac50d676d9ee1d277437e9d710",
+          "size": 46671
+        },
+        "https://velog.velcdn.com/images/ilwha/post/3e491288-fc98-4b37-ae9c-5412b0e36ba4/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/e6346aa67af65e4a167de823daabaa4595a2f96b10a84a7f9a9fee7e8f33b489.png",
+          "sha256": "sha256:a6c076dba50fe565598a27614bfc55ccdbf207e10aabfb8120d07b540e652dd6",
+          "size": 13162
+        },
+        "https://velog.velcdn.com/images/ilwha/post/4e222b4c-7e01-4c0d-a176-65c86eb8f897/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/055f71d398d104b85c1ec9bbfe6c1fb27e61a0b505f83aec8cfdb9d68106361a.png",
+          "sha256": "sha256:57ac0a200cf41978e1bd1ba96df64c4b5c93659d1fd93f2048d1eaee5e755e9b",
+          "size": 85574
+        },
+        "https://velog.velcdn.com/images/ilwha/post/56c4dbd9-7974-49ee-b6a3-ee85f5acdf72/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/1a6ec2317c7cf3337108b8ee97688683cf9cb29c411d2a296841a5b5439231da.png",
+          "sha256": "sha256:1ac673ded19d5b0c05b4446e54b911afc70f20a3d1e2f8d6d526bc1d12ef9b0a",
+          "size": 43668
+        },
+        "https://velog.velcdn.com/images/ilwha/post/65cf6193-ae1f-430f-8eb7-de998fbda7ab/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/4970db954d0fcac6ad64118bd61a0752d7a621c4aadb4ef18ca8c5658435805b.png",
+          "sha256": "sha256:cdeb7197962621e2c011541135c2a31474ff2b6510b396ec892cc25148cca5e8",
+          "size": 164964
+        },
+        "https://velog.velcdn.com/images/ilwha/post/66fd784a-6e9b-459e-81cc-3fa5048b64d7/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/5b99f530270821d9c31c08190c2f0e61730dddcb8e897e64cad48d0ec1de58a9.png",
+          "sha256": "sha256:634a2101e15f824dace85ef172c62acdfeaa2e898d213df3e7288a88bdbebc6b",
+          "size": 71023
+        },
+        "https://velog.velcdn.com/images/ilwha/post/7b76f615-28ce-464e-867e-dfaea5b925bf/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/8840ab81089f62e6582a5104ab299a9f878c817544e152efc6b03195f3b868d1.png",
+          "sha256": "sha256:a42b0738df77367152269e9352635192423bdfce8ec5f3abdb957c949da59d20",
+          "size": 148348
+        },
+        "https://velog.velcdn.com/images/ilwha/post/7eeeba0b-accb-4769-98a4-dc563fb45b6e/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/8cef36fc259444a4078f5d5edcab8b203433c01e515bd8a6149a347ff69d1616.png",
+          "sha256": "sha256:c6e1a6b02faf399095a8cf60b6b32952a2a8058c713b51326cd0333f53dc3adb",
+          "size": 61378
+        },
+        "https://velog.velcdn.com/images/ilwha/post/84a49d39-82f8-4d45-8773-198df60ab331/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/569eb0cb28028ab664a367c9ec593c4cdd61d7ee89b19d28f3244f943653104b.png",
+          "sha256": "sha256:bde3ae435fe03e970384c8dc84a2c32f04a152fe2fab57c74d3647dd92677e4b",
+          "size": 41633
+        },
+        "https://velog.velcdn.com/images/ilwha/post/8e698779-0e62-46a3-94ca-c8a1e92f82aa/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/7b224fc155610b51ef1ecbb72a2c192e26a08f091f0247ea9a183ab3e4e21399.png",
+          "sha256": "sha256:d425d5ff5c7a481bbbed24d4a66736c6232b590943c92bdfbba4f40a81403119",
+          "size": 63125
+        },
+        "https://velog.velcdn.com/images/ilwha/post/9c8deaae-dcf0-4153-bc2c-823ec92b905d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/89d0c7781648d246157edd0bb5903438eb91f33ac33e5a2bf14d1ab5dae27eb5.png",
+          "sha256": "sha256:11c7ab1aae9ece2f273d3d365ffe199daa743a84aea11058c204d4e881e16e5c",
+          "size": 89297
+        },
+        "https://velog.velcdn.com/images/ilwha/post/9edb625c-0068-490e-9afc-bf977c8f9279/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/741ac9f76ecf92c02ed20a43faeb7948b535853c635793bed53b7c86b8512848.png",
+          "sha256": "sha256:50148bd5bbca9882b81797385182695bd282aa13b5469de3df23c5ef697cbdac",
+          "size": 77712
+        },
+        "https://velog.velcdn.com/images/ilwha/post/a5cabc4c-cbd8-4599-a521-366850c18a0d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/e16513aa16fde510dc40f1ce0b9efe5e200434d1ed402a9214d8d28a0942e64b.png",
+          "sha256": "sha256:aa659b59c9febef2db9ad0223f7306c59f985eeb8dcf35ff94a1f8718e6c0382",
+          "size": 39920
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b261dbc2-ff12-40ec-9a64-184ad8172043/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/8bd7269956d3adbb1aa94f1cfc1530c376f10da73c04b8b1cbedf31dc74ce450.png",
+          "sha256": "sha256:e6e388110e82488c897c8ed0d610052f42fe07df56bc64e55a7e1b322aeef214",
+          "size": 87210
+        },
+        "https://velog.velcdn.com/images/ilwha/post/b95cb96a-fb79-4a57-aba4-0d369a302dbb/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/0b49e770725f4d2bb7d5e385c2b2037398025b4f5248869751bda4ff495e0c80.png",
+          "sha256": "sha256:0a2d9d8196d2684a75bfb24cfea749c1a8f1af5277e7cc69f9f89cfaec918af6",
+          "size": 66216
+        },
+        "https://velog.velcdn.com/images/ilwha/post/ba64c800-3dde-40d5-8290-92ef07a2a3c5/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/9f7de7410cf23d7ba72d0c421e7919990c57616389dfbea1fd4fbb15a0a254f8.png",
+          "sha256": "sha256:6797749485454cc85771a270e573c80e5c6e4f8616a42110c317d4c5eac0315b",
+          "size": 69742
+        },
+        "https://velog.velcdn.com/images/ilwha/post/c1f87fd4-f1ac-41a0-88e3-b9f4a72b2359/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/2b0bcc7c01707bc34946f627975434aef886c6fb88f7d8c7301fc9f8b2966c14.png",
+          "sha256": "sha256:e6a799839bfb21e32ad977f4d624265eebd92e3eef371f7c42dda1d78b64efe4",
+          "size": 97371
+        },
+        "https://velog.velcdn.com/images/ilwha/post/c29d9eee-9710-4f41-9add-cf3403bd3af3/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/8c521f48ef6a12d0e800e077c2f589d0a14fd2b1c236dd2927169ebb485f47ce.png",
+          "sha256": "sha256:4bf97fc9e361c07a74b16a1c312971e805001abf7bcaa0028da4dafa8c45d6ce",
+          "size": 89367
+        },
+        "https://velog.velcdn.com/images/ilwha/post/d4287de8-9d82-4a78-96a6-803f0029e76d/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/ac5bb9020487eae767279e4503ee2ba794b9f2dd2544d17c67701ef23db10bac.png",
+          "sha256": "sha256:a6e50c6e85aaaa32a1d79e986225a30837bf48c1772a775a21117ff47d68e9b8",
+          "size": 111227
+        },
+        "https://velog.velcdn.com/images/ilwha/post/d460505f-a2c1-48be-807a-49b84edd9978/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/99d79d32d73c2e6351c82b3858846c4d2251c1473cf58a94f15ba357e553ffe5.png",
+          "sha256": "sha256:ab2e9b6dcbf5971f45c5aa616122a997caac25e5737ea7b2b5229c9ea08f78ea",
+          "size": 40529
+        },
+        "https://velog.velcdn.com/images/ilwha/post/db724c90-8c8b-4eab-a6a3-151e0b371e8c/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/919061fef02e81800a592bfec75fdbbbabcc7fb0610f8d7a0edd52f06aa2d644.png",
+          "sha256": "sha256:d23f74647c193270e457f7146cd085dad0ebe064813cf5124dc11c9b2df9c6ca",
+          "size": 54265
+        },
+        "https://velog.velcdn.com/images/ilwha/post/de84cfae-c73f-466e-927e-ebe90237a182/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/b3dcf4b3e4b30012205f49a7377ffd9c024a5fcade5ff3ab305c881d8d50d67c.png",
+          "sha256": "sha256:d98b216e4c4a3ef9ed223a64b77d9cb5abb6587cfd49e7e1e6e3ed1506f065b2",
+          "size": 40939
+        },
+        "https://velog.velcdn.com/images/ilwha/post/e1524be8-b5c2-4a82-a802-9269aacfc5a9/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/226d7424c8300edad1551de21e0a9adf786384a6265f64212675e0efc314d789.png",
+          "sha256": "sha256:6c58242a2ae4c9b6383c8a77d4c5c55db86714963df19e4d4ee6ad30231583e9",
+          "size": 38634
+        },
+        "https://velog.velcdn.com/images/ilwha/post/e1a09ab8-5a46-4d80-80e4-46596dd12d2e/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/a33c80498767d207d9fcb658f48f6d0769c80100dfdcf5a1cb9a2d5677128e1a.png",
+          "sha256": "sha256:6bc864972401686f03dddd293449a38807d5455c641cc516f98ad18be79e6ea5",
+          "size": 39237
+        },
+        "https://velog.velcdn.com/images/ilwha/post/eb01fa01-ca33-4438-b808-3dbc3702bee5/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/487dfd3fcd03c6048df19b5ffe68bb48e9dd9adc22a9adc4fd402c3ca1aab5b4.png",
+          "sha256": "sha256:07cb53f48b4c7aa03a30120022f9d1a9a74d527862319bd77d90a5f021ca7a98",
+          "size": 54464
+        },
+        "https://velog.velcdn.com/images/ilwha/post/f600b092-fe6b-49f2-9a43-bb8ccd227d5a/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/774fa635f0f8dc3ecd8a450269fd1019cebb686cdb24418dc8fecb309d4eb8d0.png",
+          "sha256": "sha256:3a3f93bbd79353fcd14fbb78fcc98b0307c73398340f18810adc40b5a9c1f517",
+          "size": 200427
+        },
+        "https://velog.velcdn.com/images/ilwha/post/fe64df61-358e-4faa-b206-229cc1ab3c71/image.png": {
+          "content_type": "image/png",
+          "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/7064b4bfff78f12b5e2d5f0996bf5f4454d129394d48c8aa741ee6e885044c5f.png",
+          "sha256": "sha256:26c7a50c721bf0dd32fb601f6f99ff6210a385213280bd2439336315b3009c4d",
+          "size": 21422
+        }
+      },
+      "metadata_hash": "sha256:c7fdb26a636bbd72d1c54543db240c3cbb6bb8794ee2f97c80c307f33251f4b9",
+      "post_path": "_posts/2026-11-05-Paper-DDPM-Denoising-Diffusion-Probabilistic-Models.md",
+      "published_at": "2026-11-05T02:10:17.805Z",
+      "rendered_sha256": "sha256:e04b9cf53695e8a383a2774b61cd7f754e4498c2efb1df7ae84f3e9cb9179acd",
+      "source_slug": "Paper-DDPM-Denoising-Diffusion-Probabilistic-Models",
+      "source_updated_at": "2026-11-05T02:10:18.885Z",
+      "source_url": "https://velog.io/@ilwha/Paper-DDPM-Denoising-Diffusion-Probabilistic-Models",
+      "thumbnail": {
+        "content_type": "image/webp",
+        "kind": "velog",
+        "path": "assets/img/velog/4b8c2184-90be-4da4-83ab-f5f26ac550c6/0cd9a00d60e5c60227e2591c6e25fac37d2fa4b024fc59b62c405985e88dc612.webp",
+        "sha256": "sha256:cc4de035dfbccc3b0d99d6ff315a3d440deda04e0d344ecaa8f7d766799228b8",
+        "size": 312174,
+        "source_url": "https://velog.velcdn.com/images/ilwha/post/68e17048-6d6a-4a08-a84f-8021e94b24c9/image.webp"
+      },
+      "title": "[Paper] DDPM: Denoising Diffusion Probabilistic Models"
+    },
     "4f176559-46f2-419f-a89e-68a038ce2470": {
       "body_source": "graphql",
       "categories": [
@@ -811,7 +1022,7 @@
       "categories": [
         "Deep Learning"
       ],
-      "content_hash": "sha256:6152cc740cfea21c61791500085f02f5f788b680c9b2f5a2f1944a803fb7cc09",
+      "content_hash": "sha256:99d56028704b6476e216d13dd05177979e648be4a65a4148a9875a54c74e749b",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/bebd3807-6f29-463f-8568-b2cbb16191a7/image.png": {
           "content_type": "image/png",
@@ -820,15 +1031,15 @@
           "size": 1634651
         }
       },
-      "metadata_hash": "sha256:68bcb898f5cc468e375a7485d19069cce042ef0f90d82f6e9f203fc7720f7162",
+      "metadata_hash": "sha256:f5ea8daccac4e5e4df6ed5cd7ca640c30e0ac55c2197dd8946143a9e41b28dd9",
       "post_path": "_posts/2026-10-29-DL-작은-MLP의-초기화에-따른-학습-결과-비교.md",
       "published_at": "2026-10-29T04:08:47.967Z",
-      "rendered_sha256": "sha256:bfa24d588b09ed1aeea2262f931bdfa126d8a6a223d0890d97de4387048f49bf",
+      "rendered_sha256": "sha256:e05a532d52a0b2b0bf8145628d8d13dcdf89708063c25b30ee21f51984648784",
       "source_slug": "DL-작은-MLP의-초기화에-따른-학습-결과-비교",
-      "source_updated_at": "2026-10-29T04:12:34.696Z",
+      "source_updated_at": "2026-11-05T02:01:43.160Z",
       "source_url": "https://velog.io/@ilwha/DL-%EC%9E%91%EC%9D%80-MLP%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%95%99%EC%8A%B5-%EA%B2%B0%EA%B3%BC-%EB%B9%84%EA%B5%90",
       "thumbnail": null,
-      "title": "[DL] [DL] Comparison of Training Results Across Different Initializations in a Small MLP"
+      "title": "[DL] Comparison of Training Results Across Different Initializations in a Small MLP"
     },
     "6b656f86-cbf6-4450-bb30-f548fc4d9348": {
       "body_source": "graphql",
