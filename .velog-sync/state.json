@@ -2226,7 +2226,7 @@
     "dbf10a73-b92c-48ca-8964-642ef5cdc591": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:af2b16efaf1a9b5c6c3ab452e2de269d57fa79968c3e5fc00599de9c4718127a",
+      "content_hash": "sha256:fb86c230b8c03a43c40a4a8db16931e7b8bfb591478b5863fe725d35b982cfe8",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
           "content_type": "image/png",
@@ -2277,12 +2277,12 @@
           "size": 49195
         }
       },
-      "metadata_hash": "sha256:dcf13311258f014f8d633f0b6e4efce754eb55c3ec188e9470e1f9ce3503f59b",
+      "metadata_hash": "sha256:6c502a073f0977ef809949f8f27250342d6e52267383e8b8b91d8231ca662505",
       "post_path": "_posts/2025-07-09-Spring-Spring-Boot-기본-용어-정리.md",
       "published_at": "2025-07-09T10:50:53.174Z",
-      "rendered_sha256": "sha256:08b58030d98cec56f8273003b95b9dfe0c3d4b78912b2ff10cf30983fef45298",
+      "rendered_sha256": "sha256:e7fd0bb3c3fc0a0b26a7e3c7832365cfcb2795d852c1d4715ba7e67b84b6f08d",
       "source_slug": "Spring-Spring-Boot-기본-용어-정리",
-      "source_updated_at": "2026-10-26T13:55:27.661Z",
+      "source_updated_at": "2026-11-05T18:21:33.597Z",
       "source_url": "https://velog.io/@ilwha/Spring-Spring-Boot-%EA%B8%B0%EB%B3%B8-%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC",
       "thumbnail": {
         "content_type": "image/png",
