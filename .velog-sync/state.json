@@ -182,7 +182,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:b07a1cc5644c035aa196df442f792d9ef16aee116bdbe6f352a97dae13c9f463",
+      "content_hash": "sha256:3902c10e50025ef7a3a0a76a46c951cd989931ee4311dc02c486b93d0464b131",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/067c79a6-5573-4a2c-ae2a-fc5ff2e4bad2/image.png": {
           "content_type": "image/png",
@@ -275,12 +275,12 @@
           "size": 75297
         }
       },
-      "metadata_hash": "sha256:6b1d81a8b5a7d75995444ba38244ee2be5846888fa8cca1d9688a9650ecde76f",
+      "metadata_hash": "sha256:871c57c9dc4a6bb63730362bbd20885f55534fe94d3e086c07de142d17a70232",
       "post_path": "_posts/2026-10-07-Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection.md",
       "published_at": "2026-10-06T17:10:22.630Z",
-      "rendered_sha256": "sha256:e5fc3a7fc05ddc11dd911e73c5e9437026060a00f6bbe582ef1867c220f77b0e",
+      "rendered_sha256": "sha256:bc152bfd6801e52f62c0a880aae13a4e9a36df844b516fe032b584e8eb102123",
       "source_slug": "Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
-      "source_updated_at": "2026-10-16T12:27:37.583Z",
+      "source_updated_at": "2026-11-05T02:32:39.021Z",
       "source_url": "https://velog.io/@ilwha/Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
       "thumbnail": {
         "content_type": "image/webp",
@@ -1627,7 +1627,7 @@
       "categories": [
         "Lab"
       ],
-      "content_hash": "sha256:4b648e5d499bdd8d7f9e07566b7004a54f661ae3c151bffdfebd7fa0e49e8dd9",
+      "content_hash": "sha256:0cc608646696f35fc6dd4eabcde34b7519602dae3ce372b22841c71bca4d44e9",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/b66ab259-b143-42e2-92ad-5d002acda054/image.png": {
           "content_type": "image/png",
@@ -1636,12 +1636,12 @@
           "size": 252522
         }
       },
-      "metadata_hash": "sha256:24dd39b43a485594abf420396b1676a20b89aa541e6606b7caa5d23a3f508d31",
+      "metadata_hash": "sha256:612aea863c2cd874b07c3fe4c7e250843d96d6b09b8f292178318be22bbd9742",
       "post_path": "_posts/2026-10-14-LAB-1014-Lab-Meeting.md",
       "published_at": "2026-10-14T05:04:26.676Z",
-      "rendered_sha256": "sha256:ee8b68c4c1c22a6450a52eed9fb626b04c06436705fc1aaa39b7a31fc9aaa1d9",
+      "rendered_sha256": "sha256:2f4a340c8c7027ab00adbacf958193e8c91932b3314ba7da4e2222d9615b49e9",
       "source_slug": "LAB-1014-Lab-Meeting",
-      "source_updated_at": "2026-10-17T09:42:52.875Z",
+      "source_updated_at": "2026-11-05T02:13:02.724Z",
       "source_url": "https://velog.io/@ilwha/LAB-1014-Lab-Meeting",
       "thumbnail": {
         "content_type": "image/png",
