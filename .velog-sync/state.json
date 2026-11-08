@@ -1936,7 +1936,7 @@
       "categories": [
         "Multimodal"
       ],
-      "content_hash": "sha256:38e7be30ae256715ec0500c9b98033dbc6a0df6dd9ed259d54c72a1cade74f97",
+      "content_hash": "sha256:b848473eef8760b7eccf7818365d208409ceca8d851dbe40d47ee6124ae1c3a4",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/0f6e57cd-fdde-4d0d-9a0f-40dbaa8ef8c9/image.png": {
           "content_type": "image/png",
@@ -2053,12 +2053,12 @@
           "size": 528213
         }
       },
-      "metadata_hash": "sha256:f6795cc682daeac6ee7c5bf3035e29a7f1a2660a0b3bf8206f8c0b8584eede7f",
+      "metadata_hash": "sha256:17cca7d05b7119632dae3ea4bf0afc02b2dddee884753205bbb320381b8172fe",
       "post_path": "_posts/2026-09-17-Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models.md",
       "published_at": "2026-09-16T19:12:03.413Z",
-      "rendered_sha256": "sha256:6e68c0de3bd3bbfcedab5c01e31d57f9ebfe1472aa2029dfd4ad72e6ae4bbd0b",
+      "rendered_sha256": "sha256:2fd42d0ded34edbd7d77d8bd69ea88fbb8ee7100a830b9fdab83c977e84e4a59",
       "source_slug": "Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models",
-      "source_updated_at": "2026-10-23T11:20:44.000Z",
+      "source_updated_at": "2026-11-08T07:17:00.228Z",
       "source_url": "https://velog.io/@ilwha/Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models",
       "thumbnail": {
         "content_type": "image/webp",
