@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:4ae70e0bc789ea2560c880dcabd21611504656006c5d7cd0035725c0c26e82ed",
+      "content_hash": "sha256:0f00ba7e0467c8e85750fc685be6c7207bfca08556bb38d08e132529a8075301",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:296f491342d1f45d660518385551555cd454026e8d1c1e942a1edcde17a5697b",
+      "metadata_hash": "sha256:75d10d804c7f04ef4a95e463b4478f1817fb2578fdccba7ac7e1f8d38c564238",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:654f391671234fdc6a3013072927b90de0589cdca080666102ff7561528cba08",
+      "rendered_sha256": "sha256:2bcc861685803e391f4f3b1e724f15b272ad2ae00ec7e2f315a717608fc6c13c",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-11-05T02:36:58.745Z",
+      "source_updated_at": "2026-11-11T21:12:09.599Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
@@ -1195,7 +1195,7 @@
     "7d4c85ee-4617-427a-8666-f6e98067001e": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:2e83f768b167edf559ddab02b342f1380fd2e382f47a1472dad65911ce57e38d",
+      "content_hash": "sha256:b448b861761b2497e34b101a7d47af9e5df801cde31b4d638cce6a3d67c9e03f",
       "images": {
         "https://velog.velcdn.com/images/heyyjunn/post/03d253ab-bb60-4372-a1ed-3444f65f97c9/image.png": {
           "content_type": "image/png",
@@ -1210,12 +1210,12 @@
           "size": 73275
         }
       },
-      "metadata_hash": "sha256:4aa7581a1ab07490096e2acb29772f4994c47f6c1bc38328151cf9fb87109ea6",
+      "metadata_hash": "sha256:2f19cd1c69d8c81fb824ec4f636543793e416d4a9f1ca0373e59c2ac5fdc9b7d",
       "post_path": "_posts/2026-09-09-대외활동-멋쟁이사자처럼백엔드-크로스오버-과제-API-설계-고민기록-Spring-Boot.md",
       "published_at": "2026-09-09T09:22:33.775Z",
-      "rendered_sha256": "sha256:849b0e1290392750e54e9fd1d6349186c67f851825d0c63f958fbe32483a2933",
+      "rendered_sha256": "sha256:62e3a4554d4161d405271accd814ca570bbd7cb8c345e8619fa613d11e0c412f",
       "source_slug": "대외활동-멋쟁이사자처럼백엔드-크로스오버-과제-API-설계-고민기록-Spring-Boot",
-      "source_updated_at": "2026-09-09T10:19:18.170Z",
+      "source_updated_at": "2026-11-11T22:06:56.987Z",
       "source_url": "https://velog.io/@ilwha/%EB%8C%80%EC%99%B8%ED%99%9C%EB%8F%99-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC%EB%B0%B1%EC%97%94%EB%93%9C-%ED%81%AC%EB%A1%9C%EC%8A%A4%EC%98%A4%EB%B2%84-%EA%B3%BC%EC%A0%9C-API-%EC%84%A4%EA%B3%84-%EA%B3%A0%EB%AF%BC%EA%B8%B0%EB%A1%9D-Spring-Boot",
       "thumbnail": {
         "content_type": "image/png",
