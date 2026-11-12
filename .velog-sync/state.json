@@ -1160,7 +1160,7 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:dbf01e97a509f78f3930c3fce3ac515cfae20882a17518e8469685ed1c655f4d",
+      "content_hash": "sha256:36b8b290e77150620ec57fd355277bcf74ee59c094fb5d870142b1c31998896a",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/22388ac3-f104-4ad4-b5b4-6661e24ade58/image.jpeg": {
           "content_type": "image/jpeg",
@@ -1175,12 +1175,12 @@
           "size": 286096
         }
       },
-      "metadata_hash": "sha256:2fc28eb116ed2ae0d02ab3a15bc0d100ddf5d289096d41f40fd40b6fba2b7530",
+      "metadata_hash": "sha256:dedcd3b8819fb68e1e05e3d6cc8083a3a97db5d8bb8eec05327a61901c5bbddb",
       "post_path": "_posts/2025-03-08-Java-Dynamic-Method-Dispatch-V-Table-JVM.md",
       "published_at": "2025-03-08T13:36:16.054Z",
-      "rendered_sha256": "sha256:de80735ab5ad36471b7e81031ef7466ff30bc06ee50240e3d3dc270df2cb891b",
+      "rendered_sha256": "sha256:af0712b9cc432988198e2f0915e0128ead2276aaf01c72ca52427b1eeb397939",
       "source_slug": "Java-Dynamic-Method-Dispatch-V-Table-JVM",
-      "source_updated_at": "2026-11-04T02:57:33.096Z",
+      "source_updated_at": "2026-11-12T00:52:06.722Z",
       "source_url": "https://velog.io/@ilwha/Java-Dynamic-Method-Dispatch-V-Table-JVM",
       "thumbnail": {
         "content_type": "image/webp",
