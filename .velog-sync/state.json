@@ -574,7 +574,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:ee95affa6577bf579eb88f005dc68c154d677a40badf308f78b1949a2356bb21",
+      "content_hash": "sha256:9085f4ba34fce76acbb16e5fc8953496f7b08096ae1644bc569a560de1f49f15",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/11071c5f-9431-429f-9ded-52f2658ef328/image.png": {
           "content_type": "image/png",
@@ -763,12 +763,12 @@
           "size": 21422
         }
       },
-      "metadata_hash": "sha256:43fd8b58e7725a85164ed7b7f590f845c94f3abbe2052af5b67e61f510310bf3",
+      "metadata_hash": "sha256:d904f5db9457aa04aaf7eb1689956c2a84d1c25f7f75e42186d90028df8b956f",
       "post_path": "_posts/2026-11-05-Paper-DDPM-Denoising-Diffusion-Probabilistic-Models.md",
       "published_at": "2026-11-05T02:10:17.805Z",
-      "rendered_sha256": "sha256:2e5a1d32f48c3fadc8134c7337ec27e69d6bcc59f4309c5a254d38cb0804a6e2",
+      "rendered_sha256": "sha256:40c0f4ef7438942ca4a89c1a3251f4d83eea15c288b907ed6795491e6a84af8f",
       "source_slug": "Paper-DDPM-Denoising-Diffusion-Probabilistic-Models",
-      "source_updated_at": "2026-11-17T21:30:46.296Z",
+      "source_updated_at": "2026-11-19T21:27:06.876Z",
       "source_url": "https://velog.io/@ilwha/Paper-DDPM-Denoising-Diffusion-Probabilistic-Models",
       "thumbnail": {
         "content_type": "image/webp",
@@ -2204,14 +2204,14 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:caffbd2a3e8846ec5852fa386c45c19d957b10d40edc493aa1206ad43fa4c673",
+      "content_hash": "sha256:b013532bb5a61bf4e7435c82dbe95b8f19eca7e9fc4c4d7359696c735ffaeb1d",
       "images": {},
-      "metadata_hash": "sha256:f873ae139969953fdd2a4876fea2641dcc30264929b8e9ade51538cd2904673b",
+      "metadata_hash": "sha256:d9359f1925bc00effd996ace71ed326e01dea664a5e11e17fee0897de1643155",
       "post_path": "_posts/2025-03-18-Java-Object-Class-Immutable-Object.md",
       "published_at": "2025-03-18T09:56:00.530Z",
-      "rendered_sha256": "sha256:a7f329e3b4790940d716922df7c9d4deb700551d5c751910f47d6315da6b734b",
+      "rendered_sha256": "sha256:e7850133a2075dd9f4f037d01084702f83679d018f8eb5f8d1ba9abe00d137f5",
       "source_slug": "Java-Object-Class-Immutable-Object",
-      "source_updated_at": "2026-10-24T09:02:56.314Z",
+      "source_updated_at": "2026-11-19T20:45:42.051Z",
       "source_url": "https://velog.io/@ilwha/Java-Object-Class-Immutable-Object",
       "thumbnail": {
         "content_type": "image/jpeg",

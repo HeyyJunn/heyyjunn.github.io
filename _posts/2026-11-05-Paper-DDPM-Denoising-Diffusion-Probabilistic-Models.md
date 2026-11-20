@@ -1,7 +1,7 @@
 ---
 title: "[Paper] DDPM: Denoising Diffusion Probabilistic Models"
 date: 2026-11-05 11:10:17 +0900
-last_modified_at: 2026-11-18 06:30:46 +0900
+last_modified_at: 2026-11-20 06:27:06 +0900
 categories:
   - "Paper"
 thumbnail:
