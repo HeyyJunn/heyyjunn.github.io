@@ -29,7 +29,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:0f00ba7e0467c8e85750fc685be6c7207bfca08556bb38d08e132529a8075301",
+      "content_hash": "sha256:275fb9267f65ac7130b4853aab14ab012b1eda6696d81e5a2fa9663207f02e03",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/2b50608e-49c6-42b9-9aa4-d7d9f8a7065a/image.png": {
           "content_type": "image/png",
@@ -80,12 +80,12 @@
           "size": 877948
         }
       },
-      "metadata_hash": "sha256:75d10d804c7f04ef4a95e463b4478f1817fb2578fdccba7ac7e1f8d38c564238",
+      "metadata_hash": "sha256:c16b6b4e3c0fff1119947cef6eaba6c957be7edf83cf2d1eb86c9551e3697132",
       "post_path": "_posts/2026-09-10-Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training.md",
       "published_at": "2026-09-10T07:51:11.581Z",
-      "rendered_sha256": "sha256:2bcc861685803e391f4f3b1e724f15b272ad2ae00ec7e2f315a717608fc6c13c",
+      "rendered_sha256": "sha256:ce5445888af1040e3fd58b1cce9e3effe2d9b924c77b75855e54a9e476750a79",
       "source_slug": "Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
-      "source_updated_at": "2026-11-11T21:12:09.599Z",
+      "source_updated_at": "2026-11-21T11:19:47.030Z",
       "source_url": "https://velog.io/@ilwha/Paper-GPT-1-Improving-Language-Understanding-by-Generative-Pre-Training",
       "thumbnail": {
         "content_type": "image/webp",
@@ -373,7 +373,7 @@
       "categories": [
         "C++"
       ],
-      "content_hash": "sha256:06f739c890935f046ac14fdd797de1b3badbf22dcd08787cd429fc1af387b2c4",
+      "content_hash": "sha256:de225e91eec43aba58c9eb5804cabfea793dbc3cfa35a25299abf1193cee538c",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/b39a7b32-0625-486d-9bd2-d3f95b6d6eec/image.png": {
           "content_type": "image/png",
@@ -382,12 +382,12 @@
           "size": 46211
         }
       },
-      "metadata_hash": "sha256:1dddc289abd2f1d2553aedbbf66f92079882e6bd2a119663d0d48e32fea31887",
+      "metadata_hash": "sha256:7d102f0b028ccf1dda7304384227982bbe316540cffb2ab32f029103f71bd3d3",
       "post_path": "_posts/2024-11-10-C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15.md",
       "published_at": "2024-11-10T08:04:38.183Z",
-      "rendered_sha256": "sha256:fe5ed4845e96754897b31defac9ed5a4892271f185224e444d3168419eddc62c",
+      "rendered_sha256": "sha256:a35d5cb71a3084bc906ec155f34d225f85a3ecdb567bd0cec40f0a9f5a902b70",
       "source_slug": "C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15",
-      "source_updated_at": "2026-09-01T18:56:42.088Z",
+      "source_updated_at": "2026-11-21T11:29:34.478Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15",
       "thumbnail": {
         "content_type": "image/jpeg",
@@ -915,7 +915,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:cccf307e029068ead4eaa69cd56bc3335b3e870509ae3666b7d91e38246f5372",
+      "content_hash": "sha256:a3c7e13664238959eb9b272f01bec666da5b5a0f2a8b69090666e3ddf0a93626",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/1bb8befa-61e7-4b2f-a3ce-e9828d9e3114/image.png": {
           "content_type": "image/png",
@@ -984,12 +984,12 @@
           "size": 99995
         }
       },
-      "metadata_hash": "sha256:d33a51a24ee085d336755b1730fa5ec880413d6cdc40a7bfbf5e85bb07af8f27",
+      "metadata_hash": "sha256:89dea1c422fcb51281af5365e49ba5faeb626f67353e13658f7608cea939a70a",
       "post_path": "_posts/2026-09-14-CV-AlexNet-ImageNet-Classification-with-Deep-CNN.md",
       "published_at": "2026-09-13T18:27:08.793Z",
-      "rendered_sha256": "sha256:177a6c9a1c020fb5cd2a5dea7b9782ecc0f6555e774a1f63582967dd71751e63",
+      "rendered_sha256": "sha256:d48fd01e3dee1221d1d297fe95b22eb5e0cf2699cac84ac2c81006d20acb8bf9",
       "source_slug": "Paper-AlexNet-ImageNet-Classification-with-Deep-CNN",
-      "source_updated_at": "2026-11-07T15:37:53.069Z",
+      "source_updated_at": "2026-11-21T11:19:55.449Z",
       "source_url": "https://velog.io/@ilwha/Paper-AlexNet-ImageNet-Classification-with-Deep-CNN",
       "thumbnail": {
         "content_type": "image/webp",
@@ -1022,7 +1022,7 @@
       "categories": [
         "Deep Learning"
       ],
-      "content_hash": "sha256:ae187a5415af081acc2ace35b2d94cf79fa9925d7ccec06ce2b52b5b76d77005",
+      "content_hash": "sha256:77988b98b622df69ceb14aaa886e466f3fb55ef9ef591e774990cf1716028c15",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/bebd3807-6f29-463f-8568-b2cbb16191a7/image.png": {
           "content_type": "image/png",
@@ -1031,12 +1031,12 @@
           "size": 1634651
         }
       },
-      "metadata_hash": "sha256:eaeb084879117026cb03371f348cf4fe1dcf3c25308ec475b5ab032f1c50e4b6",
+      "metadata_hash": "sha256:988485e9f512b8d5d854c64bea2ff875b02d22249d12a7acd4852b01d589fc17",
       "post_path": "_posts/2026-10-29-DL-작은-MLP의-초기화에-따른-학습-결과-비교.md",
       "published_at": "2026-10-29T04:08:47.967Z",
-      "rendered_sha256": "sha256:69bdc2b624cd34a5cc966ba16a14c1e7977f7b0c8d158111df3a7a8dd4193e73",
+      "rendered_sha256": "sha256:64b81db5f40ab3ecbc824c3b6d8a83c599b0d60fa503b74f2c757b041f839e2d",
       "source_slug": "DL-작은-MLP의-초기화에-따른-학습-결과-비교",
-      "source_updated_at": "2026-11-13T23:50:56.373Z",
+      "source_updated_at": "2026-11-21T11:19:23.762Z",
       "source_url": "https://velog.io/@ilwha/DL-%EC%9E%91%EC%9D%80-MLP%EC%9D%98-%EC%B4%88%EA%B8%B0%ED%99%94%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%95%99%EC%8A%B5-%EA%B2%B0%EA%B3%BC-%EB%B9%84%EA%B5%90",
       "thumbnail": null,
       "title": "[DL] Comparison of Training Results Across Different Initializations in a Small MLP"
@@ -1281,7 +1281,7 @@
     "8916fba7-4c88-4768-aa6a-374feba00f14": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:00b00e1401c67fa69c4576902c329f364c8769f2c626cfd02dc241500d599c98",
+      "content_hash": "sha256:a902cc322545b58dc1988b5d65e7c080b553925336a361f017d9f11fb69e6492",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
           "content_type": "image/png",
@@ -1332,12 +1332,12 @@
           "size": 49195
         }
       },
-      "metadata_hash": "sha256:d8a89cccead214a598db3c1d0be977040174519deda7502075a8ba9a1195151c",
+      "metadata_hash": "sha256:435c80c08ada6cf6e8dfc706a9eb48d2ff972a6c95f7f21a61aa0cfc7cfe5ad4",
       "post_path": "_posts/2025-07-03-Spring.md",
       "published_at": "2025-07-03T01:06:55.486Z",
-      "rendered_sha256": "sha256:e43e8adcf02ae135a3a9373540a3be5fb5100f80bdfa9002bda4602c20478eca",
+      "rendered_sha256": "sha256:f35a85f1562175423f5a01a5dfbc01033cbc6db531387af602ebe8751121382b",
       "source_slug": "Spring",
-      "source_updated_at": "2026-11-09T18:16:00.633Z",
+      "source_updated_at": "2026-11-21T11:19:51.160Z",
       "source_url": "https://velog.io/@ilwha/Spring",
       "thumbnail": {
         "content_type": "image/jpeg",
@@ -1627,7 +1627,7 @@
       "categories": [
         "Lab"
       ],
-      "content_hash": "sha256:2768b6fe284ae8ff5dba252edd4684d6d418c9f55840076c480e9994d63ab2ba",
+      "content_hash": "sha256:0e87e1ae84ab2ad62910c07a87f8d04238f288b2e96745ef4869d158604486b1",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/b66ab259-b143-42e2-92ad-5d002acda054/image.png": {
           "content_type": "image/png",
@@ -1636,12 +1636,12 @@
           "size": 252522
         }
       },
-      "metadata_hash": "sha256:10560c74d5420d9a272ba62ea169b42e1d2d87d122ffaebf771cab270dba76e1",
+      "metadata_hash": "sha256:7ed2f9323518764de732fe3081516a1ee884f25966c411390799837cfd011c98",
       "post_path": "_posts/2026-10-14-LAB-1014-Lab-Meeting.md",
       "published_at": "2026-10-14T05:04:26.676Z",
-      "rendered_sha256": "sha256:c9930dd4644633e1ab473cc495db18992405f440341f6a3f5dbb343817262674",
+      "rendered_sha256": "sha256:84a59b5f5f993507cedeef7bb661c4f3f8ce6f03da0ccc4c08f1fb47a78787e1",
       "source_slug": "LAB-1014-Lab-Meeting",
-      "source_updated_at": "2026-11-16T21:42:30.601Z",
+      "source_updated_at": "2026-11-21T11:19:24.848Z",
       "source_url": "https://velog.io/@ilwha/LAB-1014-Lab-Meeting",
       "thumbnail": {
         "content_type": "image/png",
@@ -1936,7 +1936,7 @@
       "categories": [
         "Multimodal"
       ],
-      "content_hash": "sha256:b848473eef8760b7eccf7818365d208409ceca8d851dbe40d47ee6124ae1c3a4",
+      "content_hash": "sha256:52cfd34175551126b5358c7d685ef7a9948528d4ec62582e540f7d227aa450bb",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/0f6e57cd-fdde-4d0d-9a0f-40dbaa8ef8c9/image.png": {
           "content_type": "image/png",
@@ -2053,12 +2053,12 @@
           "size": 528213
         }
       },
-      "metadata_hash": "sha256:17cca7d05b7119632dae3ea4bf0afc02b2dddee884753205bbb320381b8172fe",
+      "metadata_hash": "sha256:3fa9ccfa8a83078b91788b4a096b3b82867b3462123b68cea08b9fd89894c724",
       "post_path": "_posts/2026-09-17-Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models.md",
       "published_at": "2026-09-16T19:12:03.413Z",
-      "rendered_sha256": "sha256:2fd42d0ded34edbd7d77d8bd69ea88fbb8ee7100a830b9fdab83c977e84e4a59",
+      "rendered_sha256": "sha256:39a2cd27358b929b24a4e040b70e5881bca3349e49a1d21f25377c428caaa8fb",
       "source_slug": "Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models",
-      "source_updated_at": "2026-11-08T07:17:00.228Z",
+      "source_updated_at": "2026-11-21T11:19:51.198Z",
       "source_url": "https://velog.io/@ilwha/Multimodal-Hugging-Face-Community-Computer-Vision-Course-Multimodal-Tasks-and-Models",
       "thumbnail": {
         "content_type": "image/webp",
@@ -2161,7 +2161,7 @@
     "ca010783-034c-45e4-9551-5aecfa373dbe": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:b7e73c5d83081e052f9fe310ddd1b992055a137d9530db8adb7b7d4ba51c7e5c",
+      "content_hash": "sha256:a9459e647d3ebd57734bf96ef180f543d20e0589f38e0b8bb4e1dd5323e22654",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/4393a409-495c-48da-84a2-382680a4f25f/image.png": {
           "content_type": "image/png",
@@ -2182,12 +2182,12 @@
           "size": 59923
         }
       },
-      "metadata_hash": "sha256:d986e3b1465db82e1019741805d1d4435e8454df6eaca3d973565e164b11e414",
+      "metadata_hash": "sha256:0747bffa480f8d3199a5daa08deeb1d51301b3320f4ee134c5ec32313a3cc76d",
       "post_path": "_posts/2025-05-06-Spring-내가-보려고-만든-MVC.md",
       "published_at": "2025-05-06T07:12:07.910Z",
-      "rendered_sha256": "sha256:125e0c073f934761ef3ce49bd63de42385057f3d4c527a48799dfbdd6934a5dc",
+      "rendered_sha256": "sha256:3192cb6ac0c45b8ee856ba5c8542f9a8fd72f107993200cc375aa42167ee1f1a",
       "source_slug": "Spring-내가-보려고-만든-MVC",
-      "source_updated_at": "2026-11-09T15:19:08.015Z",
+      "source_updated_at": "2026-11-21T11:19:52.420Z",
       "source_url": "https://velog.io/@ilwha/Spring-%EB%82%B4%EA%B0%80-%EB%B3%B4%EB%A0%A4%EA%B3%A0-%EB%A7%8C%EB%93%A0-MVC",
       "thumbnail": {
         "content_type": "image/jpeg",
@@ -2204,14 +2204,14 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:b013532bb5a61bf4e7435c82dbe95b8f19eca7e9fc4c4d7359696c735ffaeb1d",
+      "content_hash": "sha256:dc0cc19fd637c747fe98cff7cec52dcb98b4db5f249ece1a9d980ca2e737240a",
       "images": {},
-      "metadata_hash": "sha256:d9359f1925bc00effd996ace71ed326e01dea664a5e11e17fee0897de1643155",
+      "metadata_hash": "sha256:aa83793e8b03f048bdcd78c92075dd8c8c8505a8bb974afd7c412f975f59a353",
       "post_path": "_posts/2025-03-18-Java-Object-Class-Immutable-Object.md",
       "published_at": "2025-03-18T09:56:00.530Z",
-      "rendered_sha256": "sha256:e7850133a2075dd9f4f037d01084702f83679d018f8eb5f8d1ba9abe00d137f5",
+      "rendered_sha256": "sha256:921f37d94e04a1e166d5fe27b1ef118bac8e863a53b51784ee4105d578bb3c00",
       "source_slug": "Java-Object-Class-Immutable-Object",
-      "source_updated_at": "2026-11-19T20:45:42.051Z",
+      "source_updated_at": "2026-11-21T11:19:55.999Z",
       "source_url": "https://velog.io/@ilwha/Java-Object-Class-Immutable-Object",
       "thumbnail": {
         "content_type": "image/jpeg",
@@ -2226,7 +2226,7 @@
     "dbf10a73-b92c-48ca-8964-642ef5cdc591": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:fb86c230b8c03a43c40a4a8db16931e7b8bfb591478b5863fe725d35b982cfe8",
+      "content_hash": "sha256:1017d1e852c3aca402be16d7cc9eef8e42870bb59b0d1111e2c42f37f9cf1cc2",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/35ceb40b-78b2-404e-9721-709e33f225a8/image.png": {
           "content_type": "image/png",
@@ -2277,12 +2277,12 @@
           "size": 49195
         }
       },
-      "metadata_hash": "sha256:6c502a073f0977ef809949f8f27250342d6e52267383e8b8b91d8231ca662505",
+      "metadata_hash": "sha256:d17c93dde81ce2a9af21269cfa0be5175ea968ec577cb3722ba7d8770fbcde9e",
       "post_path": "_posts/2025-07-09-Spring-Spring-Boot-기본-용어-정리.md",
       "published_at": "2025-07-09T10:50:53.174Z",
-      "rendered_sha256": "sha256:e7fd0bb3c3fc0a0b26a7e3c7832365cfcb2795d852c1d4715ba7e67b84b6f08d",
+      "rendered_sha256": "sha256:3edfc2befbcee0da5f69352d22a0a12d05c558f75efbbac2ab8c80f057a762aa",
       "source_slug": "Spring-Spring-Boot-기본-용어-정리",
-      "source_updated_at": "2026-11-05T18:21:33.597Z",
+      "source_updated_at": "2026-11-21T11:19:51.969Z",
       "source_url": "https://velog.io/@ilwha/Spring-Spring-Boot-%EA%B8%B0%EB%B3%B8-%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC",
       "thumbnail": {
         "content_type": "image/png",
@@ -2399,7 +2399,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:a58bded795f623aab9cf4f4b8528f12928d46c157b6c83364f93e2ca254b8184",
+      "content_hash": "sha256:815d4d5223e9630295570d63ee4a108b69d17581d4d026f5783b0ed2eb2f3112",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/06eea5ba-db0a-4e4c-ad15-092860c6fb5c/image.png": {
           "content_type": "image/png",
@@ -2474,12 +2474,12 @@
           "size": 338871
         }
       },
-      "metadata_hash": "sha256:a73d5169181b6dc1c4799d0c3157b5fb48d29b58b6b88031d058cebb97bfc4b7",
+      "metadata_hash": "sha256:a5174366f2ccbc337bcc2a2a19092247cd4924fcce85fd2360a3800635031f24",
       "post_path": "_posts/2026-09-10-Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models.md",
       "published_at": "2026-09-10T07:06:03.076Z",
-      "rendered_sha256": "sha256:f8d65e6f3eb31f3f5cb994d26ebe56f11254f11b3b61a38aae87d0d0308e4f41",
+      "rendered_sha256": "sha256:c63bdebf378a7a7350dec7a8bfc2b7bfaa862d86610e3725053a86c862c2874f",
       "source_slug": "Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
-      "source_updated_at": "2026-11-16T21:46:35.582Z",
+      "source_updated_at": "2026-11-21T11:19:32.749Z",
       "source_url": "https://velog.io/@ilwha/Paper-LoRA-Low-Rank-Adaptation-of-Large-Language-Models",
       "thumbnail": {
         "content_type": "image/webp",
@@ -2496,14 +2496,14 @@
       "categories": [
         "Java"
       ],
-      "content_hash": "sha256:f644b97633b7d71eb2e1b588e227a48894e907667e0f3dcfe23f59ff522d0dd6",
+      "content_hash": "sha256:7506ab9a0ca704e566507ea3c27a1fd232e441cd9b71ae36ddf9b3af6443fccc",
       "images": {},
-      "metadata_hash": "sha256:792fbdbe0d3c745f5c454aba8210f6cadbbe84d84368fe8740a651befb46a163",
+      "metadata_hash": "sha256:5f64c7983342afe5e8e4356adaa4cae8d179f03aac42919d5065928b9ae63331",
       "post_path": "_posts/2025-03-24-dvhiut7k.md",
       "published_at": "2025-03-23T15:29:31.798Z",
-      "rendered_sha256": "sha256:eaa0a882d17483919ef406fb4c578dcbcaa4c7ef35fc3cc6dd833080c40bfa77",
+      "rendered_sha256": "sha256:a6c093da114cd7b262f643113a1802d974ccde791ba230338aea3acb1b266184",
       "source_slug": "dvhiut7k",
-      "source_updated_at": "2026-10-16T12:27:35.219Z",
+      "source_updated_at": "2026-11-21T11:19:53.192Z",
       "source_url": "https://velog.io/@ilwha/dvhiut7k",
       "thumbnail": {
         "content_type": "image/jpeg",
