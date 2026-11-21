@@ -182,7 +182,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:3902c10e50025ef7a3a0a76a46c951cd989931ee4311dc02c486b93d0464b131",
+      "content_hash": "sha256:963dd862ad1aa0859ed2e402954eaab6503ca7287f3d719fa3a2d6622915928e",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/067c79a6-5573-4a2c-ae2a-fc5ff2e4bad2/image.png": {
           "content_type": "image/png",
@@ -275,12 +275,12 @@
           "size": 75297
         }
       },
-      "metadata_hash": "sha256:871c57c9dc4a6bb63730362bbd20885f55534fe94d3e086c07de142d17a70232",
+      "metadata_hash": "sha256:880983ea7e6f174adccd4109e2c852e99d058e3f4a3f658adaa4fa32992651e2",
       "post_path": "_posts/2026-10-07-Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection.md",
       "published_at": "2026-10-06T17:10:22.630Z",
-      "rendered_sha256": "sha256:bc152bfd6801e52f62c0a880aae13a4e9a36df844b516fe032b584e8eb102123",
+      "rendered_sha256": "sha256:e38a8cc3d14d473aefd719d13842e2ce1eb958a075dd2b1af95426b5e6ff076a",
       "source_slug": "Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
-      "source_updated_at": "2026-11-05T02:32:39.021Z",
+      "source_updated_at": "2026-11-21T22:13:36.863Z",
       "source_url": "https://velog.io/@ilwha/Paper-You-Only-Look-OnceUnified-Real-Time-Object-Detection",
       "thumbnail": {
         "content_type": "image/webp",
@@ -574,7 +574,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:9085f4ba34fce76acbb16e5fc8953496f7b08096ae1644bc569a560de1f49f15",
+      "content_hash": "sha256:bc34fd8fc8c42c7f41e27e39c3d56c41e79d3ea4b73f1039b555e3dc79a8f553",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/11071c5f-9431-429f-9ded-52f2658ef328/image.png": {
           "content_type": "image/png",
@@ -763,12 +763,12 @@
           "size": 21422
         }
       },
-      "metadata_hash": "sha256:d904f5db9457aa04aaf7eb1689956c2a84d1c25f7f75e42186d90028df8b956f",
+      "metadata_hash": "sha256:b228a2933948f7e559660423823a6cff345a84941162db689de48b2b6cb58725",
       "post_path": "_posts/2026-11-05-Paper-DDPM-Denoising-Diffusion-Probabilistic-Models.md",
       "published_at": "2026-11-05T02:10:17.805Z",
-      "rendered_sha256": "sha256:40c0f4ef7438942ca4a89c1a3251f4d83eea15c288b907ed6795491e6a84af8f",
+      "rendered_sha256": "sha256:0521f18682621cf6ca552285fd4494c24cbf80c6fd633c1b32567f8c9406c62c",
       "source_slug": "Paper-DDPM-Denoising-Diffusion-Probabilistic-Models",
-      "source_updated_at": "2026-11-19T21:27:06.876Z",
+      "source_updated_at": "2026-11-21T21:18:54.484Z",
       "source_url": "https://velog.io/@ilwha/Paper-DDPM-Denoising-Diffusion-Probabilistic-Models",
       "thumbnail": {
         "content_type": "image/webp",
@@ -1046,7 +1046,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:783cae810288c108850027141ab4ca09dbe706da6783e3f1d119c6ed54ecc844",
+      "content_hash": "sha256:db3f9cfd322811e7755a91df7c054ca634e8648699f666fba9c9862e26e751b5",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/12f4e646-efcc-473f-8de2-6188e997c48e/image.png": {
           "content_type": "image/png",
@@ -1097,12 +1097,12 @@
           "size": 126906
         }
       },
-      "metadata_hash": "sha256:ac25a123bce2dd34d9e430ca5e7f7ffbfd596b7293bad7e54647d73a334fccc7",
+      "metadata_hash": "sha256:5338746730cf8da43c45db1378912a99618652117a4619ffcc725759901d8f26",
       "post_path": "_posts/2026-10-01-Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE.md",
       "published_at": "2026-10-01T09:24:08.068Z",
-      "rendered_sha256": "sha256:e2a7a394dc045ca79b9199893d7c637c829be6e4ee4d6018515738957f815e63",
+      "rendered_sha256": "sha256:c7e0c08d873160c717677ea890ac7917c5d06513e4b5d7450d3ce85481e4c05b",
       "source_slug": "Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
-      "source_updated_at": "2026-10-24T18:25:46.579Z",
+      "source_updated_at": "2026-11-21T23:39:14.959Z",
       "source_url": "https://velog.io/@ilwha/Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
       "thumbnail": {
         "content_type": "image/webp",
@@ -1195,7 +1195,7 @@
     "7d4c85ee-4617-427a-8666-f6e98067001e": {
       "body_source": "graphql",
       "categories": [],
-      "content_hash": "sha256:61252d046174bfd943f9deb870a3554a491bd19b1bd041d50d1508f8b2034b30",
+      "content_hash": "sha256:00a1148e9d4d4afb3c200f2bd8ce1c9942d93e403cae1d8a9b28ef03e1dcf965",
       "images": {
         "https://velog.velcdn.com/images/heyyjunn/post/03d253ab-bb60-4372-a1ed-3444f65f97c9/image.png": {
           "content_type": "image/png",
@@ -1210,12 +1210,12 @@
           "size": 73275
         }
       },
-      "metadata_hash": "sha256:0fbee0f77ec7deceffe8a2192ab0dfae951229104bfe7226d07611fe3499aad6",
+      "metadata_hash": "sha256:3c6bc66c15b01589db1c794bebb16df855706b958d92b72239f3b70fb047e200",
       "post_path": "_posts/2026-09-09-대외활동-멋쟁이사자처럼백엔드-크로스오버-과제-API-설계-고민기록-Spring-Boot.md",
       "published_at": "2026-09-09T09:22:33.775Z",
-      "rendered_sha256": "sha256:cb6a1aea129e1f25d1941acf6251b79aca37528288e71a6596c4cc82400a1dfe",
+      "rendered_sha256": "sha256:1a64e4b6b440bba3fabb7d4a1b41fb0e9366fe548773f9ab939adab1fae9a915",
       "source_slug": "대외활동-멋쟁이사자처럼백엔드-크로스오버-과제-API-설계-고민기록-Spring-Boot",
-      "source_updated_at": "2026-11-21T19:11:57.725Z",
+      "source_updated_at": "2026-11-21T20:36:30.644Z",
       "source_url": "https://velog.io/@ilwha/%EB%8C%80%EC%99%B8%ED%99%9C%EB%8F%99-%EB%A9%8B%EC%9F%81%EC%9D%B4%EC%82%AC%EC%9E%90%EC%B2%98%EB%9F%BC%EB%B0%B1%EC%97%94%EB%93%9C-%ED%81%AC%EB%A1%9C%EC%8A%A4%EC%98%A4%EB%B2%84-%EA%B3%BC%EC%A0%9C-API-%EC%84%A4%EA%B3%84-%EA%B3%A0%EB%AF%BC%EA%B8%B0%EB%A1%9D-Spring-Boot",
       "thumbnail": {
         "content_type": "image/png",
