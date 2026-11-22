@@ -102,7 +102,7 @@
       "categories": [
         "C++"
       ],
-      "content_hash": "sha256:3a324d97932bf88a20c73d30a79bb442c2eda51de46013799c94ad9f5b92996d",
+      "content_hash": "sha256:ef1359b877e7db4540a389d27223aaecc1c038f7d2dca227c48af02a5c94050c",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/c0cbdf1d-71c9-40a9-8e66-257a7dbf82a9/image.png": {
           "content_type": "image/png",
@@ -111,12 +111,12 @@
           "size": 316261
         }
       },
-      "metadata_hash": "sha256:2039cf90e294cc8b82d27ca19a500110cff27c6747c2b2282fe6a69cde2f7db4",
+      "metadata_hash": "sha256:57ca69a6268807a395980407fabaf8545bb4a6a83388d1826be8c736cae602e3",
       "post_path": "_posts/2024-11-02-C-객체지향프로그래밍1-C-language-review-Chapter-3-7.md",
       "published_at": "2024-11-02T07:30:32.999Z",
-      "rendered_sha256": "sha256:5828d315d952bc286e2bdb0b1f32867304d788f766bde46647ff6ad06d9a8ed7",
+      "rendered_sha256": "sha256:265c1adfb5ce7d9f94aa6fb5ec4150eb9e308bfc23dbbfa856cf19e0b07de585",
       "source_slug": "C-객체지향프로그래밍1-C-language-review-Chapter-3-7",
-      "source_updated_at": "2026-11-13T22:19:25.359Z",
+      "source_updated_at": "2026-11-22T05:41:40.053Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-C-language-review-Chapter-3-7",
       "thumbnail": {
         "content_type": "image/png",
@@ -373,7 +373,7 @@
       "categories": [
         "C++"
       ],
-      "content_hash": "sha256:de225e91eec43aba58c9eb5804cabfea793dbc3cfa35a25299abf1193cee538c",
+      "content_hash": "sha256:69671f20cea4ceba79fc7328d6d9988e86ea7606200ea8fc8df6c95887f6a7ba",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/b39a7b32-0625-486d-9bd2-d3f95b6d6eec/image.png": {
           "content_type": "image/png",
@@ -382,12 +382,12 @@
           "size": 46211
         }
       },
-      "metadata_hash": "sha256:7d102f0b028ccf1dda7304384227982bbe316540cffb2ab32f029103f71bd3d3",
+      "metadata_hash": "sha256:54402161d0ea2fb496f9d6f64b0627019926e2e8d9dd275d6980d9de0b509d9e",
       "post_path": "_posts/2024-11-10-C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15.md",
       "published_at": "2024-11-10T08:04:38.183Z",
-      "rendered_sha256": "sha256:a35d5cb71a3084bc906ec155f34d225f85a3ecdb567bd0cec40f0a9f5a902b70",
+      "rendered_sha256": "sha256:c5a7d8596768202a377fd3af530b7f50c4a02bd5a76ceb2020822d5a8b0511e4",
       "source_slug": "C-객체지향프로그래밍1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15",
-      "source_updated_at": "2026-11-21T11:29:34.478Z",
+      "source_updated_at": "2026-11-22T05:21:24.251Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-Inheritance-Override-vptrvtbl-downcasting-chapter-13-15",
       "thumbnail": {
         "content_type": "image/jpeg",

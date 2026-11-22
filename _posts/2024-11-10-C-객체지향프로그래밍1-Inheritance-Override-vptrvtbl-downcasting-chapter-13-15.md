@@ -1,7 +1,7 @@
 ---
 title: "[C++] 객체지향프로그래밍1 : Inheritance / Override / vptr,vtbl / downcasting (chapter 13 - 16)"
 date: 2024-11-10 17:04:38 +0900
-last_modified_at: 2026-11-21 20:29:34 +0900
+last_modified_at: 2026-11-22 14:21:24 +0900
 categories:
   - "C++"
 thumbnail:
