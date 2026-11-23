@@ -574,7 +574,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:bc34fd8fc8c42c7f41e27e39c3d56c41e79d3ea4b73f1039b555e3dc79a8f553",
+      "content_hash": "sha256:1dd976648377692c4c0bea25abbc529a907442371c0fe49296ddf2864699363c",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/11071c5f-9431-429f-9ded-52f2658ef328/image.png": {
           "content_type": "image/png",
@@ -763,12 +763,12 @@
           "size": 21422
         }
       },
-      "metadata_hash": "sha256:b228a2933948f7e559660423823a6cff345a84941162db689de48b2b6cb58725",
+      "metadata_hash": "sha256:14d19525f0b078a6e053e18b45f918a46425f37103e442c12d97286fabf44a61",
       "post_path": "_posts/2026-11-05-Paper-DDPM-Denoising-Diffusion-Probabilistic-Models.md",
       "published_at": "2026-11-05T02:10:17.805Z",
-      "rendered_sha256": "sha256:0521f18682621cf6ca552285fd4494c24cbf80c6fd633c1b32567f8c9406c62c",
+      "rendered_sha256": "sha256:017db1a25215f0534c47ed816892d90307cc825637ff63b5ca1c668834fc1525",
       "source_slug": "Paper-DDPM-Denoising-Diffusion-Probabilistic-Models",
-      "source_updated_at": "2026-11-21T21:18:54.484Z",
+      "source_updated_at": "2026-11-23T21:01:13.647Z",
       "source_url": "https://velog.io/@ilwha/Paper-DDPM-Denoising-Diffusion-Probabilistic-Models",
       "thumbnail": {
         "content_type": "image/webp",
