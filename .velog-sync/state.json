@@ -102,7 +102,7 @@
       "categories": [
         "C++"
       ],
-      "content_hash": "sha256:ef1359b877e7db4540a389d27223aaecc1c038f7d2dca227c48af02a5c94050c",
+      "content_hash": "sha256:3cbc3957a49ab664a6ad8a4e9359443e20b72dde8d3fb56acf822ec4e260fde5",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/c0cbdf1d-71c9-40a9-8e66-257a7dbf82a9/image.png": {
           "content_type": "image/png",
@@ -111,12 +111,12 @@
           "size": 316261
         }
       },
-      "metadata_hash": "sha256:57ca69a6268807a395980407fabaf8545bb4a6a83388d1826be8c736cae602e3",
+      "metadata_hash": "sha256:5a8fd8ebc7b6172fdb1e9e378122bf46cec5796e4546e4df34978d17674a8d92",
       "post_path": "_posts/2024-11-02-C-객체지향프로그래밍1-C-language-review-Chapter-3-7.md",
       "published_at": "2024-11-02T07:30:32.999Z",
-      "rendered_sha256": "sha256:265c1adfb5ce7d9f94aa6fb5ec4150eb9e308bfc23dbbfa856cf19e0b07de585",
+      "rendered_sha256": "sha256:8152b243262ceb2d8ee04af760007fecd5669b001b256955d5f3aa240b63efb1",
       "source_slug": "C-객체지향프로그래밍1-C-language-review-Chapter-3-7",
-      "source_updated_at": "2026-11-22T05:41:40.053Z",
+      "source_updated_at": "2026-11-26T13:17:35.896Z",
       "source_url": "https://velog.io/@ilwha/C-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D1-C-language-review-Chapter-3-7",
       "thumbnail": {
         "content_type": "image/png",
@@ -1046,7 +1046,7 @@
       "categories": [
         "Paper"
       ],
-      "content_hash": "sha256:c6c79a515ec26a7435a1a5a0f9f9574eb2596d984f9085e1ab55bb2711a33664",
+      "content_hash": "sha256:f75577a8d6c50ab8ecc40be8110301bed9675f3a1fa838394cc71c37472fcc06",
       "images": {
         "https://velog.velcdn.com/images/ilwha/post/12f4e646-efcc-473f-8de2-6188e997c48e/image.png": {
           "content_type": "image/png",
@@ -1097,12 +1097,12 @@
           "size": 126906
         }
       },
-      "metadata_hash": "sha256:50f6dfb820158c062fac81844d5d5aaad991245b3baa40232c6a6dd1f30ff96f",
+      "metadata_hash": "sha256:bbb8316b59c6288c87f7527d349fe0d7f0a0bb35da51b8865e85199c2d93bda8",
       "post_path": "_posts/2026-10-01-Paper-Vision-Transformer-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE.md",
       "published_at": "2026-10-01T09:24:08.068Z",
-      "rendered_sha256": "sha256:82d29c2ebbf72f2a1c6c3c218aa37953f994108ea50ae99700e7eda76d958fc5",
+      "rendered_sha256": "sha256:85377167e0feaea31c16eb6ff9b1bf7f1ab52392d6ae9cdde8803b802e9f57d0",
       "source_slug": "Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
-      "source_updated_at": "2026-11-26T09:35:45.593Z",
+      "source_updated_at": "2026-11-26T18:46:28.801Z",
       "source_url": "https://velog.io/@ilwha/Paper-Vision-Transformer-An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale",
       "thumbnail": {
         "content_type": "image/webp",
